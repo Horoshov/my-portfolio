@@ -113,7 +113,7 @@ function App() {
               <Link to="/projects" className="menu-item">Projects,</Link>
               <Link to="/services" className="menu-item">Services,</Link>
               <Link to="/about" className="menu-item">About,</Link>
-              <Link constto="/articles" className="menu-item">Articles,</Link>
+              <Link to="/articles" className="menu-item">Articles,</Link>
               <Link to="/contact" className="menu-item">Contact</Link>
             </div>
           </div>
@@ -131,7 +131,7 @@ function App() {
         </AnimatePresence>
 
         <footer className="footer-simple">
-          <p>© 2026 Aleex Horoshov. Made in Horoshov</p>
+          <p>© 2026 Alex Horoshov. Made in Horoshov</p>
         </footer>
       </div>
     </Router>
