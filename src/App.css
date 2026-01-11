@@ -14,7 +14,7 @@
 .navbar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 40px 0;
+  padding: 20px 0;
   gap: 20px;
 }
 
@@ -33,7 +33,7 @@
 
 .value {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   /* ИСПОЛЬЗУЕМ ПЕРЕМЕННУЮ ИЗ index.css */
   color: var(--text-color); 
 }
@@ -44,22 +44,34 @@
   gap: 4px;
 }
 
+/* Навигационное меню */
 .menu-item {
   text-decoration: none;
   font-weight: 600;
-  font-size: 16px;
-  color: #999;
+  font-size: 14px;
+  /* Изначально используем основной цвет текста (черный/белый) */
+  color: var(--text-color); 
   transition: color 0.3s ease;
+  white-space: nowrap;
 }
 
-.menu-item:hover, 
+/* При наведении ссылка становится серой */
+.menu-item:hover {
+  color: #999; 
+}
+
+/* Если вам нужно, чтобы активная страница оставалась яркой */
 .menu-item.active {
   color: var(--text-color);
 }
 
-/* ГЕРОЙ (HOME) */
-.hero {
-  padding: 120px 0;
+/* Настройка запятых (чтобы они не меняли цвет при наведении) */
+.menu-item:not(:last-child)::after {
+  content: ", ";
+  color: #999; 
+  margin-right: 4px;
+  /* Запрещаем запятой реагировать на ховер ссылки */
+  pointer-events: none; 
 }
 
 .hero h1 {
