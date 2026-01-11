@@ -1,21 +1,16 @@
-/* ПЕРЕМЕННЫЕ (Берем те, что в index.css + локальные) */
-:root {
-  --gray: #888;
-  --transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
+/* Контейнер и "Уши" */
 .app-container {
-  padding: 0 40px;
+  padding: 0 90px;
   max-width: 1600px;
   margin: 0 auto;
 }
 
-/* NAVBAR */
+/* --- НАВИГАЦИЯ --- */
 .navbar {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 20px 0;
-  gap: 20px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-col {
@@ -24,182 +19,138 @@
 }
 
 .label {
-  color: #999;
-  font-size: 14px;
+  color: var(--gray-text);
+  font-size: 11px;
   margin-bottom: 8px;
-  text-transform: none;
-  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .value {
   font-weight: 600;
   font-size: 14px;
-  /* ИСПОЛЬЗУЕМ ПЕРЕМЕННУЮ ИЗ index.css */
-  color: var(--text-color); 
 }
 
 .nav-menu {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap; /* Чтобы меню не переносилось на вторую строку */
-  gap: 0; 
 }
 
 .menu-item {
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px; /* Уменьшенный размер, как вы просили */
+  font-size: 14px;
   color: var(--text-color);
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
-/* Добавляем запятую и один пробел после каждого элемента */
+/* Запятые */
 .menu-item:not(:last-child)::after {
   content: ",";
-  color: #999; /* Запятая всегда серая */
-  margin-right: 6px; /* Небольшой отступ после запятой */
-}
-
-.menu-item:hover {
-  color: #999; /* Инверсия: при наведении становится серым */
-}
-
-/* Если вам нужно, чтобы активная страница оставалась яркой */
-.menu-item.active {
-  color: var(--text-color);
-}
-
-/* Настройка запятых (чтобы они не меняли цвет при наведении) */
-/* Запятая наследует цвет родителя */
-.menu-item:not(:last-child)::after {
-  content: ",";
-  color: inherit; 
+  color: inherit;
   margin-right: 6px;
+  transition: color 0.2s ease;
 }
 
-/* При наведении и слово, и запятая станут серыми */
 .menu-item:hover {
-  color: #999;
+  color: var(--gray-text);
 }
 
-.hero h1 {
-  font-size: clamp(4rem, 8vw, 10rem);
+/* --- ABOUT PAGE --- */
+.about-container {
+  padding: 100px 0;
+}
+
+.about-title {
+  font-size: 94px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  letter-spacing: -0.05em;
   line-height: 0.9;
-  letter-spacing: -0.04em;
-  margin: 0;
-  color: var(--text-color);
 }
 
-.hero-sub {
-  color: var(--gray);
-  font-size: 1.5rem;
-  margin-top: 30px;
-  max-width: 600px;
-}
-
-/* СТРАНИЦА ПРОЕКТОВ */
-.projects-header {
-  margin-bottom: 60px;
-  padding-top: 60px;
-}
-
-.hero-title {
-  font-size: clamp(4rem, 10vw, 12rem);
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  margin: 20px 0 0 0;
-  color: var(--text-color);
-}
-
-.projects-layout {
+/* Исправленная сетка: фото слева, текст справа, воздух в центре */
+.about-main-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px 40px;
-  padding-bottom: 100px;
-}
-
-.project-placeholder {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  /* ПЕРЕМЕННАЯ ИЗ index.css для фона карточек */
-  background-color: var(--placeholder-bg); 
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform var(--transition);
-}
-
-.project-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  padding: 24px 0 10px 0;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-}
-
-/* СТРАНИЦА ОБО МНЕ */
-.about-section {
-  padding: 80px 0;
-}
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 80px;
+  grid-template-columns: 350px 1fr 550px; 
   align-items: start;
+  margin-bottom: 120px;
 }
 
-.about-img-box {
+.about-image-wrapper img {
   width: 100%;
-  overflow: hidden;
-  border-radius: 12px;
-  background-color: var(--placeholder-bg);
-}
-
-.about-img-box img {
-  width: 100%;
-  height: auto;
+  border-radius: 20px;
   display: block;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(110%);
-  transition: filter 0.8s var(--transition);
 }
 
-.about-img-box:hover img {
-  filter: grayscale(0%) contrast(100%);
+.about-text-content {
+  grid-column: 3; /* Принудительно в правую колонку */
+  margin-top: -10px; /* Примагничивание к верху */
 }
 
-.about-text-box p {
-  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-  line-height: 1.2;
-  font-weight: 500;
-  margin: 0 0 30px 0;
-  color: var(--text-color);
+.about-since-label {
+  font-size: 10px;
+  color: var(--gray-text);
+  display: block;
+  margin-bottom: 25px;
 }
 
-/* СТАТИСТИКА */
-.stat-box {
-  /* Прозрачный фон, который виден на любой теме */
-  background-color: rgba(128, 128, 128, 0.05);
+.about-p-bold {
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.about-p-light {
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.8;
+}
+
+/* --- КАРТОЧКИ СТАТИСТИКИ (ПОЧИНЕНО) --- */
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%; /* На всю ширину контейнера */
+}
+
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: 24px;
   padding: 40px;
-  border-radius: 15px;
-  height: 250px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
-.stat-n {
-  font-size: 5rem;
+.stat-number {
+  font-size: 72px;
   font-weight: 600;
-  color: var(--text-color);
+  letter-spacing: -0.03em;
 }
 
-/* АДАПТИВНОСТЬ */
-@media (max-width: 1024px) {
-  .navbar { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; }
+.stat-label-group {
+  text-align: right;
+}
+
+.stat-unit {
+  font-size: 12px;
+  color: var(--gray-text);
+  text-transform: uppercase;
+  display: block;
+}
+
+.stat-desc {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer-simple {
+  padding: 60px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 80px;
+  color: var(--gray-text);
+  font-size: 12px;
 }

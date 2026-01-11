@@ -1,31 +1,30 @@
-/* Переменные для светлой темы по умолчанию */
-/* index.css */
-
 :root {
-    /* Светлая тема */
-    --bg-color: #ffffff;
-    --text-color: #0d0d0d;
-    --placeholder-bg: #f5f5f7; /* Светло-серые плашки */
-    --border-color: rgba(0, 0, 0, 0.08);
-    --gray: #888;
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --gray-text: #999999;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --card-bg: #f5f5f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #0d0d0d;
+    --text-color: #ffffff;
+    --gray-text: #888888;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-bg: #1a1a1a;
   }
-  
-  @media (prefers-color-scheme: dark) {
-    :root {
-      /* Темная тема */
-      --bg-color: #0d0d0d; /* Глубокий черный фон */
-      --text-color: #ffffff;
-      --placeholder-bg: #1a1a1a; /* Темно-серые плашки (выделяются на черном) */
-      --border-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-  
-  /* Применяем переменные ко всему сайту */
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Плавная смена темы */
-  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
