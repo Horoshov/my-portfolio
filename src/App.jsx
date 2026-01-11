@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
-import profileImg from './assets/alex-profile.jpg';
+// Проверьте наличие этого файла в src/assets/!
+import profileImg from './assets/alex-profile.jpg'; 
 
-// Компоненты страниц
 const Home = () => (
   <motion.header className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
     <h1>Alex Horoshov<br /> Inspired Design.</h1>
@@ -56,12 +56,12 @@ const AboutPage = () => (
     <h2 className="about-title">About Me</h2>
     <div className="about-grid">
       <div className="about-img-box">
-        {/* Вставляем ваше фото здесь */}
         <motion.img 
           src={profileImg} 
           alt="Alex Profile"
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          onError={(e) => { e.target.src = 'https://via.placeholder.com/600x800?text=Alex+Photo'; }} // Заглушка, если фото не найдется
         />
       </div>
       <div className="about-text-box">
@@ -71,7 +71,6 @@ const AboutPage = () => (
       </div>
     </div>
     
-    {/* Секция со статистикой */}
     <div className="stats-container">
       <div className="stat-box">
         <span className="stat-n">10+</span>
@@ -100,7 +99,7 @@ function App() {
           </div>
           <div className="nav-col">
             <span className="label">Location</span>
-            <span className="value">New York, US</span>
+            <span className="value">Moscow, RU</span> {/* Поменял на актуальное, если нужно */}
           </div>
           <div className="nav-col">
             <span className="label">Working Status</span>
