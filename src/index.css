@@ -1,0 +1,24 @@
+/* Переменные для светлой темы по умолчанию */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+  }
+  
+  /* Переменные для темной темы — они заменят значения выше, 
+     когда вы переключите тему в настройках Mac */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #0a0a0a;
+      --text-color: #ededed;
+    }
+  }
+  
+  /* Применяем переменные ко всему сайту */
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавная смена темы */
+  }
