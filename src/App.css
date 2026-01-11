@@ -40,24 +40,28 @@
 
 .nav-menu {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Чтобы меню не переносилось на вторую строку */
+  gap: 0; 
 }
 
-/* Навигационное меню */
 .menu-item {
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
-  /* Изначально используем основной цвет текста (черный/белый) */
-  color: var(--text-color); 
+  font-size: 14px; /* Уменьшенный размер, как вы просили */
+  color: var(--text-color);
   transition: color 0.3s ease;
-  white-space: nowrap;
 }
 
-/* При наведении ссылка становится серой */
+/* Добавляем запятую и один пробел после каждого элемента */
+.menu-item:not(:last-child)::after {
+  content: ",";
+  color: #999; /* Запятая всегда серая */
+  margin-right: 6px; /* Небольшой отступ после запятой */
+}
+
 .menu-item:hover {
-  color: #999; 
+  color: #999; /* Инверсия: при наведении становится серым */
 }
 
 /* Если вам нужно, чтобы активная страница оставалась яркой */

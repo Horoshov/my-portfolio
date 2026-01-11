@@ -108,11 +108,11 @@ function App() {
           <div className="nav-col">
             <span className="label">Navigation</span>
             <div className="nav-menu">
-              <Link to="/" className="menu-item">Home,</Link>
-              <Link to="/projects" className="menu-item">Projects,</Link>
-              <Link to="/services" className="menu-item">Services,</Link>
-              <Link to="/about" className="menu-item">About,</Link>
-              <Link to="/articles" className="menu-item">Articles,</Link>
+              <Link to="/" className="menu-item">Home</Link>
+              <Link to="/projects" className="menu-item">Projects</Link>
+              <Link to="/services" className="menu-item">Services</Link>
+              <Link to="/about" className="menu-item">About</Link>
+              <Link to="/articles" className="menu-item">Articles</Link>
               <Link to="/contact" className="menu-item">Contact</Link>
             </div>
           </div>
