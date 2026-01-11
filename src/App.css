@@ -70,12 +70,16 @@
 }
 
 /* Настройка запятых (чтобы они не меняли цвет при наведении) */
+/* Запятая наследует цвет родителя */
 .menu-item:not(:last-child)::after {
-  content: ", ";
-  color: #999; 
-  margin-right: 4px;
-  /* Запрещаем запятой реагировать на ховер ссылки */
-  pointer-events: none; 
+  content: ",";
+  color: inherit; 
+  margin-right: 6px;
+}
+
+/* При наведении и слово, и запятая станут серыми */
+.menu-item:hover {
+  color: #999;
 }
 
 .hero h1 {
