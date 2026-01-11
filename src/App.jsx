@@ -7,7 +7,7 @@ import profileImg from './assets/alex-profile.jpg';
 // Компоненты страниц
 const Home = () => (
   <motion.header className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-    <h1>Davies Williams <br /> Inspired Design.</h1>
+    <h1>Alex Horoshov<br /> Inspired Design.</h1>
     <p className="hero-sub">Full-stack developer focusing on digital experiences.</p>
   </motion.header>
 );
@@ -96,7 +96,7 @@ function App() {
         <nav className="navbar">
           <div className="nav-col">
             <span className="label">Hello, I’m</span>
-            <span className="value">Davies Williams</span>
+            <span className="value">Alex Horoshov</span>
           </div>
           <div className="nav-col">
             <span className="label">Location</span>
@@ -131,7 +131,7 @@ function App() {
         </AnimatePresence>
 
         <footer className="footer-simple">
-          <p>© 2026 Davies Williams. Made in Cursor</p>
+          <p>© 2026 Aleex Horoshov. Made in Horoshov</p>
         </footer>
       </div>
     </Router>
