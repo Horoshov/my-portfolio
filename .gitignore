@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .vercel
 .env*.local
+
+node_modules
+.vite
+dist
+.DS_Store
