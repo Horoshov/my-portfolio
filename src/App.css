@@ -34,6 +34,100 @@
 
 .menu-item:hover { color: var(--gray-text); }
 
+/* --- HERO / HOME PAGE --- */
+.hero {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+}
+
+.hero-top {
+  margin-bottom: 80px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 600px;
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.contact-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  opacity: 0.9;
+}
+
+.contact-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.hero-portrait-wrapper {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  clip-path: polygon(
+    50% 0%, 
+    85% 15%, 
+    100% 50%, 
+    85% 85%, 
+    50% 100%, 
+    15% 85%, 
+    0% 50%, 
+    15% 15%
+  );
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 /* --- ABOUT PAGE --- */
 .about-container { padding: 100px 0; }
 .about-title {
@@ -84,6 +178,12 @@
 /* --- АДАПТИВ (ПЛАНШЕТЫ) --- */
 @media (max-width: 1200px) {
   .app-container { padding: 0 40px; }
+  
+  .hero-portrait-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+  
   .about-title { font-size: 72px; }
   .about-main-grid { grid-template-columns: 300px 60px 1fr; }
   .about-text-content { grid-column: 3; }
@@ -92,6 +192,27 @@
 /* --- АДАПТИВ (МОБИЛЬНЫЕ) --- */
 @media (max-width: 768px) {
   .app-container { padding: 0 20px; }
+  
+  .hero {
+    padding: 40px 0;
+  }
+  
+  .hero-top {
+    margin-bottom: 60px;
+  }
+  
+  .hero-left {
+    gap: 30px;
+  }
+  
+  .hero-description {
+    font-size: 16px;
+  }
+  
+  .hero-portrait-wrapper {
+    width: 250px;
+    height: 250px;
+  }
   
   .navbar {
     grid-template-columns: 1fr 1fr;

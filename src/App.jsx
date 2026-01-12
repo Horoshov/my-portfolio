@@ -6,8 +6,22 @@ import profileImg from './assets/alex-profile.jpg';
 
 const Home = () => (
   <motion.header className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-    <h1>Alex Horoshov<br />Inspired Design.</h1>
-    <p className="hero-sub">Senior UX/UI Designer focusing on high-complexity digital systems.</p>
+    <div className="hero-top">
+      <div className="hero-left">
+        <p className="hero-description">
+          A digital designer who blends creativity with strategy to craft meaningful experiences that connect people and ideas. My work focuses on clarity, emotion, and purpose.
+        </p>
+        <Link to="/contact" className="contact-button">
+          Contact Now
+          <span className="contact-arrow">→</span>
+        </Link>
+      </div>
+    </div>
+    <div className="hero-bottom">
+      <div className="hero-portrait-wrapper">
+        <img src={profileImg} alt="Alex Horoshov" className="hero-portrait" />
+      </div>
+    </div>
   </motion.header>
 );
 
