@@ -392,5 +392,155 @@
     font-size: 14px;
     color: var(--gray-text);
   }
-
   
+  /* =========================================
+   ДОПОЛНЕНИЯ (БЕЗ ИЗМЕНЕНИЯ ОСНОВНОЙ ВЕРСТКИ)
+   ========================================= */
+
+/* Блок What I Offer */
+.services-section {
+  padding: 100px 0;
+  width: 100%;
+}
+
+.services-main-title {
+  font-size: 72px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  letter-spacing: -0.02em;
+}
+
+.service-item {
+  border-top: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.service-item:last-child {
+  border-bottom: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.service-row {
+  display: grid;
+  /* Используем 4 колонки, чтобы соответствовать твоей сетке */
+  grid-template-columns: 80px 1.5fr 2fr 100px;
+  align-items: center;
+  padding: 30px 0;
+}
+
+.service-number {
+  font-size: 12px;
+  color: var(--gray-text);
+  font-family: monospace;
+}
+
+.service-title {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.service-details {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.service-image-preview {
+  width: 150px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--photo-bg);
+}
+
+.service-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tag {
+  padding: 4px 12px;
+  border: 1px solid rgba(122, 122, 122, 0.3);
+  border-radius: 100px;
+  font-size: 11px;
+  margin-right: 5px;
+  color: var(--gray-text);
+}
+
+.arrow-circle {
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(122, 122, 122, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.arrow-circle.active {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Новый Футер (Davies Williams Style) */
+.main-footer {
+  padding: 100px 0 40px 0;
+  border-top: 1px solid rgba(122, 122, 122, 0.2);
+}
+
+.footer-huge-text {
+  font-size: 13vw;
+  line-height: 0.85;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  margin-bottom: 60px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a, .footer-email, .footer-value {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 15px;
+}
+
+.footer-bottom-line {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid rgba(122, 122, 122, 0.1);
+  font-size: 11px;
+  color: var(--gray-text);
+  text-transform: uppercase;
+}
+
+/* Мобильная адаптация для новых блоков */
+@media (max-width: 900px) {
+  .service-row {
+    grid-template-columns: 1fr 50px;
+  }
+  .service-number, .service-details {
+    display: none;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

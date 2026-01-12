@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react'; // Объединили импорты
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import profileImg from '../assets/alex-profile.jpg';
 
-// Настройки анимации для карточек
+// Данные для блока услуг
+const services = [
+  {
+    id: '01',
+    title: 'Motion Graphics & Animations',
+    img: 'https://picsum.photos/seed/serv1/600/400',
+    tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads', 'Logo Animations']
+  },
+  {
+    id: '02',
+    title: 'Web design and development',
+    img: 'https://picsum.photos/seed/serv2/600/400',
+    tags: ['React / Next.js', 'Webflow', 'UI/UX Design', 'E-commerce']
+  },
+  {
+    id: '03',
+    title: 'SEO and content marketing',
+    img: 'https://picsum.photos/seed/serv3/600/400',
+    tags: ['Strategy', 'Copywriting', 'Analytics']
+  },
+  {
+    id: '04',
+    title: 'Branding and Identity',
+    img: 'https://picsum.photos/seed/serv4/600/400',
+    tags: ['Logotype', 'Visual Language', 'Brand Books']
+  }
+];
+
+// Настройки анимации для карточек проектов
 const cardVariants = {
   offscreen: { y: 50, opacity: 0 },
   onscreen: { 
@@ -14,6 +42,9 @@ const cardVariants = {
 };
 
 const Home = () => {
+  // Хук состояния должен быть внутри функции компонента
+  const [hoveredService, setHoveredService] = useState(null);
+
   return (
     <motion.div 
       className="home-page"
@@ -61,10 +92,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. Projects Grid с анимацией */}
+      {/* 4. Projects Grid */}
       <section className="projects-grid">
-        
-        {/* Row 1: 2 Cards */}
         <div className="projects-row two-cols">
           {[
             { id: 101, title: 'Nexora', cat: '{Mobile App}', desc: 'BI systems dashboards.' },
@@ -92,7 +121,6 @@ const Home = () => {
           ))}
         </div>
 
-        {/* Row 2: 3 Cards */}
         <div className="projects-row three-cols">
           {[
             { id: 103, title: 'Morphin', cat: '{Industrial}', desc: 'Manufacturing tools.' },
@@ -121,6 +149,54 @@ const Home = () => {
           ))}
         </div>
       </section>
+
+      {/* 5. What I Offer Section */}
+      <section className="services-section">
+        <h2 className="services-main-title">What I Offer</h2>
+        
+        <div className="services-list">
+          {services.map((service) => (
+            <motion.div 
+              key={service.id}
+              className="service-item"
+              onMouseEnter={() => setHoveredService(service.id)}
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              <div className="service-row">
+                <span className="service-number">({service.id})</span>
+                <h3 className="service-title">{service.title}</h3>
+                
+                <motion.div 
+                  className="service-details"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ 
+                    opacity: hoveredService === service.id ? 1 : 0,
+                    x: hoveredService === service.id ? 0 : -20 
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="service-image-preview">
+                    <img src={service.img} alt={service.title} />
+                  </div>
+                  <div className="service-tags">
+                    <span className="tags-label">Categories</span>
+                    <div className="tags-container">
+                      {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                    </div>
+                  </div>
+                </motion.div>
+
+                <div className="service-arrow">
+                  <div className={`arrow-circle ${hoveredService === service.id ? 'active' : ''}`}>
+                    <span>↗</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+      
     </motion.div>
   );
 };
