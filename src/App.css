@@ -1,4 +1,4 @@
-/* --- ПЕРЕМЕННЫЕ И БАЗОВЫЙ КОНТЕЙНЕР --- */
+/* --- БАЗОВЫЙ КОНТЕЙНЕР --- */
 .app-container {
   padding: 0 90px;
   max-width: 1600px;
@@ -50,24 +50,24 @@
   gap: 40px;
 }
 
-/* ИСПРАВЛЕННАЯ МАСКА ЧЕРЕЗ BORDER-RADIUS */
+/* ИСПРАВЛЕННАЯ СИММЕТРИЧНАЯ МАСКА */
 .hero-portrait-wrapper {
   position: relative;
   width: 100%;
-  max-width: 420px;
-  aspect-ratio: 1 / 1; /* Делает контейнер идеально квадратным */
+  max-width: 420px; 
+  aspect-ratio: 1 / 1; 
   margin: 0 auto;
   overflow: hidden;
   background-color: var(--card-bg);
   
-  /* Плавная органическая форма */
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  /* Новая формула: более ровные и мягкие края "цветка" */
+  border-radius: 42% 58% 50% 50% / 55% 45% 55% 45%;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-portrait-wrapper:hover {
-  border-radius: 50%; /* Превращается в круг при наведении */
-  transform: scale(1.02);
+  border-radius: 50%; 
+  transform: scale(1.03);
 }
 
 .hero-portrait {
@@ -118,7 +118,7 @@
   line-height: 2;
 }
 
-/* НИЖНИЙ ЗАГОЛОВОК */
+/* НИЖНИЙ ГИГАНТСКИЙ ЗАГОЛОВОК */
 .hero-footer-title {
   margin-top: 40px;
   padding: 40px 0;
@@ -147,7 +147,9 @@
   text-transform: capitalize;
 }
 
-/* --- ABOUT PAGE --- */
+/* --- ABOUT PAGE (ИСПРАВЛЕННЫЙ РАЗМЕР ФОТО) --- */
+.about-container { padding: 80px 0; }
+
 .about-main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -156,9 +158,17 @@
   margin-bottom: 100px;
 }
 
+.about-image-wrapper {
+  width: 100%;
+  max-width: 480px; /* Фото не будет раздуваться */
+  margin: 0 auto;
+}
+
 .about-image-wrapper img {
   width: 100%;
+  height: auto;
   border-radius: 30px;
+  display: block;
 }
 
 .about-text-content {
@@ -199,7 +209,7 @@
 @media (max-width: 1200px) {
   .app-container { padding: 0 40px; }
   .hero-main-section { grid-template-columns: 1fr; gap: 40px; }
-  .hero-center { order: -1; } /* Фото сверху на планшетах */
+  .hero-center { order: -1; }
   .about-main-grid { grid-template-columns: 1fr; }
 }
 
