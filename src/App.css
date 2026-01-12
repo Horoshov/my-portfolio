@@ -1,4 +1,4 @@
-/* --- БАЗОВЫЙ КОНТЕЙНЕР --- */
+/* --- ПЕРЕМЕННЫЕ И БАЗОВЫЙ КОНТЕЙНЕР --- */
 .app-container {
   padding: 0 90px;
   max-width: 1600px;
@@ -34,340 +34,54 @@
 
 .menu-item:hover { color: var(--gray-text); }
 
-/* --- HERO / HOME PAGE --- */
-.hero {
-  padding: 80px 0;
-}
-
-.hero-main-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 60px;
-  align-items: start;
-}
-
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-
-.hero-description {
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--text-color);
-}
-
-.contact-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 32px;
-  background-color: var(--text-color);
-  color: var(--bg-color);
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-  width: fit-content;
-  text-decoration: none;
-}
-
-.contact-button:hover {
-  opacity: 0.9;
-}
-
-.contact-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  border-radius: 50%;
-  font-size: 18px;
-  font-weight: 400;
-}
-
-.hero-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  height: 300px;
-}
-
-.hero-right {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.services-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-color);
-  margin: 0;
-}
-
-.services-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.services-list li {
-  font-size: 18px;
-  color: var(--text-color);
-  position: relative;
-  padding-left: 24px;
-}
-
-.services-list li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  font-size: 24px;
-  line-height: 1;
-}
-
-.hero-portrait-wrapper {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background-color: #2a2a2a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.hero-portrait {
-  width: 300px;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-/* --- ABOUT PAGE --- */
-.about-container { padding: 100px 0; }
-.about-title {
-  font-size: 94px;
-  font-weight: 700;
-  margin-bottom: 80px;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-}
-
-.about-main-grid {
-  display: grid;
-  grid-template-columns: 350px 1fr 550px; 
-  align-items: start;
-  margin-bottom: 120px;
-}
-
-.about-image-wrapper img { width: 100%; border-radius: 20px; display: block; }
-.about-text-content { grid-column: 3; margin-top: -10px; }
-.about-since-label { font-size: 10px; color: var(--gray-text); display: block; margin-bottom: 25px; }
-.about-p-bold { font-size: 24px; line-height: 1.4; font-weight: 600; margin-bottom: 30px; }
-.about-p-light { font-size: 18px; line-height: 1.6; opacity: 0.8; }
-
-.about-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  width: 100%;
-}
-
-.stat-card {
-  background-color: var(--card-bg);
-  border-radius: 24px;
-  padding: 40px;
-  height: 280px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.stat-number { font-size: 72px; font-weight: 600; }
-.stat-label-group { text-align: right; }
-.stat-unit { font-size: 11px; color: var(--gray-text); text-transform: uppercase; }
-.stat-desc { font-size: 15px; font-weight: 600; }
-
-.footer-simple { padding: 60px 0; border-top: 1px solid var(--border-color); margin-top: 80px; color: var(--gray-text); font-size: 12px; }
-
-/* --- АДАПТИВ (ПЛАНШЕТЫ) --- */
-@media (max-width: 1200px) {
-  .app-container { padding: 0 40px; }
-  
-  .hero-main-section {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-  
-  .hero-center {
-    justify-self: center;
-  }
-  
-  .hero-portrait-wrapper {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .about-title { font-size: 72px; }
-  .about-main-grid { grid-template-columns: 300px 60px 1fr; }
-  .about-text-content { grid-column: 3; }
-}
-
-/* --- АДАПТИВ (МОБИЛЬНЫЕ) --- */
-@media (max-width: 768px) {
-  .app-container { padding: 0 20px; }
-  
-  .hero {
-    padding: 40px 0;
-  }
-  
-  .hero-main-section {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .hero-left {
-    gap: 30px;
-  }
-  
-  .hero-description {
-    font-size: 16px;
-  }
-  
-  .hero-portrait-wrapper {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .navbar {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 30px 0;
-  }
-  
-  .about-title { font-size: 48px; margin-bottom: 40px; }
-  
-  .about-main-grid {
-    grid-template-columns: 1fr; /* Одна колонка */
-    gap: 40px;
-  }
-  
-  .about-text-content { grid-column: 1; margin-top: 0; }
-  
-  .about-stats-grid {
-    grid-template-columns: 1fr; /* Карточки одна под другой */
-  }
-  
-  .stat-card { height: auto; padding: 30px; gap: 40px; }
-  .stat-number { font-size: 56px; }
-}
-/* --- НОВЫЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ В СТИЛЕ DAVIES WILLIAMS --- */
-
-.page-container {
-  padding: 100px 0;
-}
-
-.giant-title {
-  /* Использование clamp позволяет заголовку быть огромным, но не ломаться на мобильных */
-  font-size: clamp(37px, 8vw, 115px);
-  font-weight: 600;
-  letter-spacing: -0.04em; /* Тот самый эффект "сжатых" букв из референса */
-  line-height: 0.85;
-  margin-bottom: 80px;
-  text-transform: capitalize;
-  color: var(--text-color);
-}
-
-/* Переписываем старый .about-title, чтобы он соответствовал общему стилю */
-.about-title {
-  display: none; /* Мы заменили его на .giant-title в коде App.jsx */
-}
-
-/* Адаптация заголовков под мобильные устройства */
-@media (max-width: 768px) {
-  .giant-title {
-    margin-bottom: 40px;
-    letter-spacing: -0.03em;
-  }
-}
-/* --- СТИЛИ ГЛАВНОЙ СТРАНИЦЫ ПО РЕФЕРЕНСУ --- */
-
+/* --- ГЛАВНАЯ СТРАНИЦА (HERO) --- */
 .hero {
   padding-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 80vh;
+  min-height: 85vh;
 }
 
 .hero-main-section {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr; /* Центральная колонка с фото чуть шире */
+  grid-template-columns: 1fr 1.2fr 1fr;
   align-items: center;
   gap: 40px;
 }
 
-/* Маска-цветок для вашего фото */
-/* В файле App.css */
-
+/* ИСПРАВЛЕННАЯ МАСКА ЧЕРЕЗ BORDER-RADIUS */
 .hero-portrait-wrapper {
   position: relative;
   width: 100%;
-  max-width: 450px; /* Размер можно регулировать */
-  aspect-ratio: 1 / 1;
+  max-width: 420px;
+  aspect-ratio: 1 / 1; /* Делает контейнер идеально квадратным */
   margin: 0 auto;
   overflow: hidden;
+  background-color: var(--card-bg);
   
-  /* Создаем форму мягкого четырехлистника */
+  /* Плавная органическая форма */
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  
-  /* Добавляем легкую анимацию для "живого" эффекта (опционально) */
-  transition: border-radius 0.5s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-portrait-wrapper:hover {
-  border-radius: 50%; /* При наведении превращается в идеальный круг */
+  border-radius: 50%; /* Превращается в круг при наведении */
+  transform: scale(1.02);
 }
 
 .hero-portrait {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Центрируем лицо, если оно смещено */
-  object-position: center top; 
+  object-position: center top;
 }
 
-/* Нижний текст */
-.hero-footer-title {
-  margin-top: 40px;
-  padding: 20px 0;
-  border-top: 1px solid var(--border-color);
+.hero-description {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.home-giant-text {
-  font-size: clamp(60px, 16vw, 240px); /* Мощный размер как на скриншоте */
-  font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.8;
-  text-align: center;
-  margin: 0;
-  color: var(--text-color);
-  text-transform: uppercase;
-}
-
-/* Детали текста и кнопок */
 .contact-link-simple {
   display: flex;
   align-items: center;
@@ -375,7 +89,7 @@
   text-decoration: none;
   color: var(--text-color);
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .arrow-circle {
@@ -394,6 +108,7 @@
   color: var(--gray-text);
   margin-bottom: 15px;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .services-list-clean {
@@ -401,4 +116,95 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 2;
+}
+
+/* НИЖНИЙ ЗАГОЛОВОК */
+.hero-footer-title {
+  margin-top: 40px;
+  padding: 40px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.home-giant-text {
+  font-size: clamp(60px, 15vw, 240px);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 0.8;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* --- ОБЩИЕ СТИЛИ СТРАНИЦ --- */
+.page-container { padding: 100px 0; }
+
+.giant-title {
+  font-size: clamp(37px, 8vw, 115px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  margin-bottom: 60px;
+  text-transform: capitalize;
+}
+
+/* --- ABOUT PAGE --- */
+.about-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 100px;
+}
+
+.about-image-wrapper img {
+  width: 100%;
+  border-radius: 30px;
+}
+
+.about-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-p-bold { font-size: 24px; font-weight: 600; line-height: 1.4; }
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.stat-card {
+  background-color: var(--card-bg);
+  border-radius: 24px;
+  padding: 40px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-number { font-size: 72px; font-weight: 600; }
+
+.footer-simple {
+  padding: 60px 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 80px;
+  color: var(--gray-text);
+  font-size: 12px;
+}
+
+/* --- АДАПТИВ --- */
+@media (max-width: 1200px) {
+  .app-container { padding: 0 40px; }
+  .hero-main-section { grid-template-columns: 1fr; gap: 40px; }
+  .hero-center { order: -1; } /* Фото сверху на планшетах */
+  .about-main-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .app-container { padding: 0 20px; }
+  .navbar { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .about-stats-grid { grid-template-columns: 1fr; }
 }

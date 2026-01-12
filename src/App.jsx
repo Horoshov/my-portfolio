@@ -15,7 +15,6 @@ const PageLayout = ({ title, children }) => (
 const Home = () => (
   <motion.header className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
     <div className="hero-main-section">
-      {/* Левая часть: Описание */}
       <div className="hero-left">
         <p className="hero-description">
           A digital designer who blends creativity with strategy to craft meaningful experiences that connect people and ideas. My work focuses on clarity, emotion, and purpose.
@@ -25,14 +24,13 @@ const Home = () => (
         </Link>
       </div>
       
-      {/* Центр: Ваше фото с маской-цветком */}
       <div className="hero-center">
-        <div className="flower-mask">
+        {/* Используем правильный класс для маски */}
+        <div className="hero-portrait-wrapper">
           <img src={profileImg} alt="Alex Horoshov" className="hero-portrait" />
         </div>
       </div>
       
-      {/* Правая часть: Услуги */}
       <div className="hero-right">
         <h2 className="services-title-small">My Services</h2>
         <ul className="services-list-clean">
@@ -43,7 +41,6 @@ const Home = () => (
       </div>
     </div>
 
-    {/* Нижний гигантский заголовок */}
     <div className="hero-footer-title">
       <h1 className="home-giant-text">DIGITAL DESIGNER</h1>
     </div>
