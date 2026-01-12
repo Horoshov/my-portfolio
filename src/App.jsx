@@ -43,7 +43,7 @@ const Home = () => (
 
 const AboutPage = () => (
   <motion.section className="about-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-    <h1 className="giant-title">About</h1>
+    <h1 className="giant-title">About Me</h1>
     <div className="about-main-grid">
       <div className="about-image-wrapper">
         <img src={profileImg} alt="Alex Horoshov" />
@@ -51,7 +51,7 @@ const AboutPage = () => (
       <div className="about-text-content">
         <span className="about-since-label">[EST. 2013]</span>
         <p className="about-p-bold">Senior UX/UI Designer focused on high-complexity digital systems.</p>
-        <p className="about-p-light">
+        <p className="about-p-bold">
           10 years of experience in BI, PropTech, and E-commerce. I specialize in simplifying complex logic through precise interface design, leveraging AI workflows and modern front-end technologies.
         </p>
       </div>
