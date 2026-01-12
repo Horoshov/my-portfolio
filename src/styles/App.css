@@ -1,207 +1,335 @@
-/* --- Глобальные переменные (база из стайл-гайда) --- */
-/* Базовые цвета для СВЕТЛОЙ темы (Davies Williams style) */
-:root {
-  --bg-color: #f2f2f2;
-  --text-color: #000000;
-  --gray-text: #7a7a7a;
-  --border-color: #d1d1d1;
-  --photo-bg: #ececec;
-}
-
-/* Автоматическое переключение на ТЕМНУЮ тему */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #0d0d0d;       /* Темный фон */
-    --text-color: #ffffff;     /* Белый текст */
-    --gray-text: #888888;      /* Серый текст */
-    --border-color: #262626;   /* Темные границы */
-    --photo-bg: #1a1a1a;       /* Фон под фото */
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+   :root {
+    /* Базовые цвета */
+    --bg-color: #f2f2f2;
+    --text-color: #000000;
+    --gray-text: #7a7a7a;
+    --photo-bg: #ececec;
+    
+    /* border-color оставляем для совместимости, но делать его прозрачным или не использовать */
+    --border-color: transparent; 
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-}
-
-/* --- Базовые сбросы --- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-main);
-  overflow-x: hidden;
-}
-
-/* --- Контейнер приложения --- */
-.app-container {
-  max-width: 100%;
-  margin: 0 40px; /* Боковые отступы как в референсе */
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* --- Навигация (Navbar) --- */
-.navbar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 равные колонки */
-  border-bottom: 1px solid var(--border-color);
-  width: 100%;
-}
-
-.nav-col {
-  padding: 24px 20px;
-  border-right: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-col:last-child {
-  border-right: none;
-}
-
-.label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: var(--gray-text);
-  margin-bottom: 8px;
-  letter-spacing: 0.05em;
-  font-weight: 500;
-}
-
-.value, .menu-item {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-color);
-  text-decoration: none;
-}
-
-.nav-menu {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.menu-item {
-  transition: opacity 0.2s ease;
-}
-
-.menu-item:hover {
-  opacity: 0.5;
-}
-
-/* --- Главная страница (Home) --- */
-.hero-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  flex-grow: 1;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.hero-col {
-  padding: 40px 20px;
-  border-right: 1px solid var(--border-color);
-}
-
-.hero-col.right {
-  border-right: none;
-}
-
-.hero-col.center {
-  grid-column: span 2; /* Фото занимает центр */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ececec; /* Легкий контраст для зоны фото */
-}
-
-.hero-text {
-  font-size: 18px;
-  line-height: 1.4;
-  margin-top: 20px;
-}
-
-.profile-photo {
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  filter: grayscale(100%);
-  mix-blend-mode: multiply; /* Эффект наложения на фон */
-  transition: filter 0.4s ease;
-}
-
-.profile-photo:hover {
-  filter: grayscale(0%);
-}
-
-.contact-button {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 30px;
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 600;
-  gap: 10px;
-  font-size: 14px;
-}
-
-.expertise-list {
-  list-style: none;
-  margin-top: 20px;
-}
-
-.expertise-list li {
-  font-size: 15px;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-/* --- Гигантский заголовок --- */
-.giant-title-wrapper {
-  width: 100%;
-  padding: 40px 0;
-  text-align: center;
-  background-color: var(--bg-color);
-}
-
-.giant-title {
-  font-size: 13.5vw;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  font-weight: 900;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-/* --- Футер --- */
-.footer-simple {
-  padding: 40px 20px;
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--gray-text);
-}
-
-/* --- Адаптивность для мобильных --- */
-@media (max-width: 900px) {
-  .navbar, .hero-grid {
-    grid-template-columns: 1fr;
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #0d0d0d;
+      --text-color: #ffffff;
+      --gray-text: #888888;
+      --photo-bg: #1a1a1a;
+    }
   }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+  }
+  
+  /* =========================================
+     2. APP CONTAINER
+     ========================================= */
   .app-container {
-    margin: 0 10px;
+    max-width: 100%;
+    /* Боковые отступы создают "рамку" воздухом, а не линиями */
+    padding: 0 40px; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
-  .nav-col, .hero-col {
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
+  
+  /* =========================================
+     3. NAVBAR
+     ========================================= */
+  .navbar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    /* Убрали border-bottom */
   }
+  
+  .nav-col {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    /* Убрали border-right */
+  }
+  
+  .label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  
+  .value, .menu-item {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .menu-item:hover {
+    opacity: 0.5;
+  }
+  
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  /* =========================================
+     4. HERO GRID (Главный блок)
+     ========================================= */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    /* Убрали border-bottom */
+  }
+  
+  .hero-col {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    /* Убрали border-right */
+  }
+  
   .hero-col.center {
-    grid-column: span 1;
+    grid-column: span 2;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Убрали фон, если хотим полной чистоты */
   }
+  
+  .hero-col.left, .hero-col.right {
+    justify-content: space-between;
+  }
+  
+  .hero-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 20px;
+    max-width: 280px;
+  }
+  
+  .profile-photo {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    filter: grayscale(100%);
+    border-radius: 32px;
+    overflow: hidden;
+    transition: filter 0.4s ease;
+  }
+  
+  .profile-photo:hover {
+    filter: grayscale(0%);
+  }
+  
+  .contact-button {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 30px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    gap: 10px;
+    font-size: 14px;
+  }
+  
+  .expertise-list {
+    list-style: none;
+    margin-top: 20px;
+  }
+  
+  .expertise-list li {
+    font-size: 14px;
+    padding: 8px 0;
+    /* Убрали линии между пунктами списка */
+    border-bottom: none; 
+  }
+  
+  /* =========================================
+     5. GIANT TITLE (UX UI PRODUCT...)
+     ========================================= */
+  .giant-title-wrapper {
+    width: 100%;
+    padding: 80px 0;
+    /* Убрали border-bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
   .giant-title {
-    font-size: 18vw;
+    font-size: 7.8vw;
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--text-color);
   }
-}
+  
+  /* =========================================
+     6. RECENT WORKS HEADER
+     ========================================= */
+  .recent-works-grid {
+    width: 100%;
+  }
+  
+  .recent-works-col {
+    /* Большие отступы вместо линий для разделения секций */
+    padding: 100px 20px 40px 20px; 
+  }
+  
+  .recent-works-title {
+    font-size: 72px;
+    line-height: 1.1;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+  
+  /* =========================================
+     7. PROJECTS GRID (Карточки)
+     ========================================= */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    padding-bottom: 100px;
+  }
+  
+  .projects-row {
+    display: grid;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  .two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Карточка */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .project-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    background-color: var(--photo-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  
+  .project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .project-card:hover .project-image-wrapper img {
+    transform: scale(1.05);
+  }
+  
+  .project-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  
+  .project-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    color: var(--text-color);
+  }
+  
+  .project-desc {
+    font-size: 15px;
+    color: var(--gray-text);
+    line-height: 1.4;
+    margin: 0;
+  }
+  
+  /* =========================================
+     8. FOOTER
+     ========================================= */
+  .footer-simple {
+    padding: 40px 20px;
+    /* Убрали border-top */
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray-text);
+  }
+  
+  /* =========================================
+     9. MOBILE RESPONSIVENESS
+     ========================================= */
+  @media (max-width: 900px) {
+    .app-container {
+      padding: 0 15px;
+    }
+  
+    .navbar, .hero-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    /* Убрали все разделители на мобильных тоже */
+    .nav-col, .hero-col {
+      border-right: none;
+      border-bottom: none; 
+      padding: 20px 0;
+    }
+  
+    .hero-col.center {
+      grid-column: span 1;
+      order: -1;
+    }
+  
+    .giant-title {
+      font-size: 13vw;
+      white-space: normal;
+    }
+  
+    .recent-works-title {
+      font-size: 42px;
+    }
+  
+    .two-cols, .three-cols {
+      grid-template-columns: 1fr;
+    }
+  }

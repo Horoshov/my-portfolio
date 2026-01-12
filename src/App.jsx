@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-// ПРОВЕРЬ ЭТИ ПУТИ:
 import Navbar from './components/Navbar'; 
 import Home from './pages/Home'; 
 import './styles/App.css';

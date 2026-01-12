@@ -11,7 +11,7 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-      {/* Секция Hero разделенная на колонки */}
+      {/* 1. Hero Секция (Инфо + Фото) */}
       <section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
@@ -40,12 +40,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Огромный статический заголовок внизу */}
+      {/* 2. Гигантский заголовок (Теперь выше) */}
       <div className="giant-title-wrapper">
-        <h1 className="giant-title">DIGITAL DESIGNER</h1>
+        <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
+
+      {/* 3. Секция Recent Works (Теперь под заголовком) */}
+      <section className="recent-works-grid">
+        <div className="recent-works-col">
+          <h2 className="recent-works-title">Recent Works</h2>
+        </div>
+        <div className="grid-filler"></div>
+        <div className="grid-filler"></div>
+        <div className="grid-filler"></div>
+      </section>
+
+     
+
+      
     </motion.div>
   );
 };
+
+
 
 export default Home;
