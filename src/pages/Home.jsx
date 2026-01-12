@@ -11,12 +11,14 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-      {/* 1. Hero Секция (Инфо + Фото) */}
+      {/* 1. Hero Section */}
       <section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
           <p className="hero-text">
-          Hi, I’m Alex. I bring 10 years of expertise in product design, UX/UI, and development. My background includes managing design processes and building complex digital solutions for BI, e-commerce, and PropTech. I don’t just design interfaces; I understand the code behind them, ensuring seamless implementation for industrial and mobile applications.          </p>
+            Digital product designer and developer with 10 years of experience. 
+            I bridge the gap between complex UX systems and functional frontend implementation.
+          </p>
           <Link to="/contact" className="contact-button">
             Get in touch <span>→</span>
           </Link>
@@ -31,112 +33,108 @@ const Home = () => {
         <div className="hero-col right">
           <span className="label">Expertise</span>
           <ul className="expertise-list">
-            <li>Brand identity</li>
-            <li>Website Design</li>
-            <li>Development</li>
+            <li>Product Design & UX/UI</li>
+            <li>Frontend Development</li>
+            <li>Design Management</li>
+            <li>BI & Industrial Systems</li>
           </ul>
         </div>
       </section>
 
-      {/* 2. Гигантский заголовок (Теперь выше) */}
+      {/* 2. Giant Title */}
       <div className="giant-title-wrapper">
         <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
 
-      {/* 3. Секция Recent Works (Теперь под заголовком) */}
+      {/* 3. Recent Works Title */}
       <section className="recent-works-grid">
         <div className="recent-works-col">
           <h2 className="recent-works-title">Recent Works</h2>
         </div>
-        <div className="grid-filler"></div>
-        <div className="grid-filler"></div>
-        <div className="grid-filler"></div>
       </section>
+
+      {/* 4. Projects Grid */}
       <section className="projects-grid">
-  {/* Ряд 1: 2 большие карточки */}
-  <div className="projects-row two-cols">
-    <div className="project-card">
-      <div className="project-image-wrapper">
-        <img src="/path-to-nexora.jpg" alt="Nexora" />
-      </div>
-      <div className="project-info">
-        <div className="project-meta">
-          <span className="project-category">{'{Mobile App}'}</span>
-          <span className="project-date">20/12/2025</span>
+        
+        {/* Row 1: 2 Cards */}
+        <div className="projects-row two-cols">
+          <div className="project-card">
+            <div className="project-image-wrapper">
+              <img src="https://picsum.photos/1200/825?random=11" alt="Nexora" />
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="project-category">{'{Mobile App}'}</span> 
+                <span>2025</span>
+              </div>
+              <h3 className="project-title">Nexora</h3>
+              <p className="project-desc">Complex BI systems transformed into intuitive dashboards.</p>
+            </div>
+          </div>
+
+          <div className="project-card">
+            <div className="project-image-wrapper">
+              <img src="https://picsum.photos/1200/825?random=12" alt="Lunex" />
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="project-category">{'{PropTech}'}</span> 
+                <span>2025</span>
+              </div>
+              <h3 className="project-title">Lunex</h3>
+              <p className="project-desc">Seamless real estate platforms with a focus on user flow.</p>
+            </div>
+          </div>
         </div>
-        <h3 className="project-title">Nexora</h3>
-        <p className="project-desc">Projects that combine strategy and creativity.</p>
-      </div>
-    </div>
 
-    <div className="project-card">
-      <div className="project-image-wrapper">
-        <img src="/path-to-lunex.jpg" alt="Lunex" />
-      </div>
-      <div className="project-info">
-        <div className="project-meta">
-          <span className="project-category">{'{Artist Portfolio}'}</span>
-          <span className="project-date">12/09/2025</span>
+        {/* Row 2: 3 Cards */}
+        <div className="projects-row three-cols">
+          <div className="project-card">
+            <div className="project-image-wrapper">
+              <img src="https://picsum.photos/800/550?random=13" alt="Morphin" />
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="project-category">{'{Industrial}'}</span> 
+                <span>2025</span>
+              </div>
+              <h3 className="project-title">Morphin</h3>
+              <p className="project-desc">Interface design for large-scale manufacturing tools.</p>
+            </div>
+          </div>
+
+          <div className="project-card">
+            <div className="project-image-wrapper">
+              <img src="https://picsum.photos/800/550?random=14" alt="Lumora" />
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="project-category">{'{E-commerce}'}</span> 
+                <span>2025</span>
+              </div>
+              <h3 className="project-title">Lumora</h3>
+              <p className="project-desc">High-conversion retail experiences.</p>
+            </div>
+          </div>
+
+          <div className="project-card">
+            <div className="project-image-wrapper">
+              <img src="https://picsum.photos/800/550?random=15" alt="Nexa" />
+            </div>
+            <div className="project-info">
+              <div className="project-meta">
+                <span className="project-category">{'{SaaS}'}</span> 
+                <span>2025</span>
+              </div>
+              <h3 className="project-title">Nexa</h3>
+              <p className="project-desc">Visual storytelling for software platforms.</p>
+            </div>
+          </div>
         </div>
-        <h3 className="project-title">Lunex</h3>
-        <p className="project-desc">Projects shaped by insight, creativity, and purpose.</p>
-      </div>
-    </div>
-  </div>
 
-  {/* Ряд 2: 3 малые карточки */}
-  <div className="projects-row three-cols">
-    <div className="project-card">
-      <div className="project-image-wrapper">
-        <img src="/path-to-morphin.jpg" alt="Morphin" />
-      </div>
-      <div className="project-info">
-        <div className="project-meta">
-          <span className="project-category">{'{Personal Portfolio}'}</span>
-          <span className="project-date">19/04/2025</span>
-        </div>
-        <h3 className="project-title">Morphin</h3>
-        <p className="project-desc">Projects designed to balance vision and performance.</p>
-      </div>
-    </div>
-
-    <div className="project-card">
-      <div className="project-image-wrapper">
-        <img src="/path-to-lumora.jpg" alt="Lumora" />
-      </div>
-      <div className="project-info">
-        <div className="project-meta">
-          <span className="project-category">{'{Artist Portfolio}'}</span>
-          <span className="project-date">28/03/2025</span>
-        </div>
-        <h3 className="project-title">Lumora</h3>
-        <p className="project-desc">Projects that inspire, engage, and deliver.</p>
-      </div>
-    </div>
-
-    <div className="project-card">
-      <div className="project-image-wrapper">
-        <img src="/path-to-nexa.jpg" alt="Nexa" />
-      </div>
-      <div className="project-info">
-        <div className="project-meta">
-          <span className="project-category">{'{Mobile App}'}</span>
-          <span className="project-date">10/01/2025</span>
-        </div>
-        <h3 className="project-title">Nexa</h3>
-        <p className="project-desc">Designing projects that tell compelling stories.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-     
-
-      
+      </section>
     </motion.div>
   );
 };
-
-
 
 export default Home;
