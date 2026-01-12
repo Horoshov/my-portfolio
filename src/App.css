@@ -37,20 +37,19 @@
 /* --- HERO / HOME PAGE --- */
 .hero {
   padding: 80px 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 70vh;
 }
 
-.hero-top {
-  margin-bottom: 80px;
+.hero-main-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
 .hero-left {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  max-width: 600px;
 }
 
 .hero-description {
@@ -93,36 +92,64 @@
   font-weight: 400;
 }
 
-.hero-bottom {
+.hero-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: auto;
+  width: 300px;
+  height: 300px;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.services-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services-list li {
+  font-size: 18px;
+  color: var(--text-color);
+  position: relative;
+  padding-left: 24px;
+}
+
+.services-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  font-size: 24px;
+  line-height: 1;
 }
 
 .hero-portrait-wrapper {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 200px;
   background-color: #2a2a2a;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  clip-path: polygon(
-    50% 0%, 
-    85% 15%, 
-    100% 50%, 
-    85% 85%, 
-    50% 100%, 
-    15% 85%, 
-    0% 50%, 
-    15% 15%
-  );
 }
 
 .hero-portrait {
-  width: 100%;
+  width: 300px;
   height: 100%;
   object-fit: cover;
 }
@@ -179,6 +206,15 @@
 @media (max-width: 1200px) {
   .app-container { padding: 0 40px; }
   
+  .hero-main-section {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .hero-center {
+    justify-self: center;
+  }
+  
   .hero-portrait-wrapper {
     width: 300px;
     height: 300px;
@@ -197,8 +233,9 @@
     padding: 40px 0;
   }
   
-  .hero-top {
-    margin-bottom: 60px;
+  .hero-main-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
   
   .hero-left {
@@ -235,4 +272,33 @@
   
   .stat-card { height: auto; padding: 30px; gap: 40px; }
   .stat-number { font-size: 56px; }
+}
+/* --- НОВЫЕ СТИЛИ ДЛЯ ЗАГОЛОВКОВ В СТИЛЕ DAVIES WILLIAMS --- */
+
+.page-container {
+  padding: 100px 0;
+}
+
+.giant-title {
+  /* Использование clamp позволяет заголовку быть огромным, но не ломаться на мобильных */
+  font-size: clamp(64px, 14vw, 200px);
+  font-weight: 700;
+  letter-spacing: -0.05em; /* Тот самый эффект "сжатых" букв из референса */
+  line-height: 0.85;
+  margin-bottom: 80px;
+  text-transform: capitalize;
+  color: var(--text-color);
+}
+
+/* Переписываем старый .about-title, чтобы он соответствовал общему стилю */
+.about-title {
+  display: none; /* Мы заменили его на .giant-title в коде App.jsx */
+}
+
+/* Адаптация заголовков под мобильные устройства */
+@media (max-width: 768px) {
+  .giant-title {
+    margin-bottom: 40px;
+    letter-spacing: -0.03em;
+  }
 }
