@@ -1,9 +1,9 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    /* По умолчанию для светлой темы — темная иконка */
+    /* Базовый цвет для светлой темы */
     .main-path { fill: #253241; }
 
-    /* Для темной темы — иконка становится белой или светло-голубой */
+    /* Цвет для темной темы */
     @media (prefers-color-scheme: dark) {
       .main-path { fill: #ffffff; }
     }

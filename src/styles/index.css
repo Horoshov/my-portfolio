@@ -1,0 +1,23 @@
+:root {
+  /* Цветовая палитра из стайл-гайда */
+  --bg-color: #f1f1f1;       /* Светлый нейтральный фон */
+  --text-color: #0d0d0d;     /* Глубокий черный для текста */
+  --gray-text: #878787;      /* Цвет для лейблов и второстепенного текста */
+  --border-color: #dbdbdb;   /* Тонкие линии разделения */
+  
+  /* Типографика */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
