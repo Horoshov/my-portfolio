@@ -281,9 +281,9 @@
 
 .giant-title {
   /* Использование clamp позволяет заголовку быть огромным, но не ломаться на мобильных */
-  font-size: clamp(41px, 9vw, 128px);
+  font-size: clamp(37px, 8vw, 115px);
   font-weight: 600;
-  letter-spacing: -0.07em; /* Тот самый эффект "сжатых" букв из референса */
+  letter-spacing: -0.04em; /* Тот самый эффект "сжатых" букв из референса */
   line-height: 0.85;
   margin-bottom: 80px;
   text-transform: capitalize;
