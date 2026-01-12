@@ -15,28 +15,37 @@ const PageLayout = ({ title, children }) => (
 const Home = () => (
   <motion.header className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
     <div className="hero-main-section">
+      {/* Левая часть: Описание */}
       <div className="hero-left">
         <p className="hero-description">
           A digital designer who blends creativity with strategy to craft meaningful experiences that connect people and ideas. My work focuses on clarity, emotion, and purpose.
         </p>
-        <Link to="/contact" className="contact-button">
-          Contact Now
-          <span className="contact-arrow">→</span>
+        <Link to="/contact" className="contact-link-simple">
+          Contact Now <span className="arrow-circle">→</span>
         </Link>
       </div>
+      
+      {/* Центр: Ваше фото с маской-цветком */}
       <div className="hero-center">
-        <div className="hero-portrait-wrapper">
+        <div className="flower-mask">
           <img src={profileImg} alt="Alex Horoshov" className="hero-portrait" />
         </div>
       </div>
+      
+      {/* Правая часть: Услуги */}
       <div className="hero-right">
-        <h2 className="services-title">My Services</h2>
-        <ul className="services-list">
-          <li>Brand identity</li>
-          <li>Website Design</li>
-          <li>Development</li>
+        <h2 className="services-title-small">My Services</h2>
+        <ul className="services-list-clean">
+          <li>• Brand identity</li>
+          <li>• Website Design</li>
+          <li>• Development</li>
         </ul>
       </div>
+    </div>
+
+    {/* Нижний гигантский заголовок */}
+    <div className="hero-footer-title">
+      <h1 className="home-giant-text">DIGITAL DESIGNER</h1>
     </div>
   </motion.header>
 );

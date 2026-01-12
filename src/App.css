@@ -302,3 +302,103 @@
     letter-spacing: -0.03em;
   }
 }
+/* --- СТИЛИ ГЛАВНОЙ СТРАНИЦЫ ПО РЕФЕРЕНСУ --- */
+
+.hero {
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80vh;
+}
+
+.hero-main-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr; /* Центральная колонка с фото чуть шире */
+  align-items: center;
+  gap: 40px;
+}
+
+/* Маска-цветок для вашего фото */
+/* В файле App.css */
+
+.hero-portrait-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 450px; /* Размер можно регулировать */
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  /* Создаем форму мягкого четырехлистника */
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  
+  /* Добавляем легкую анимацию для "живого" эффекта (опционально) */
+  transition: border-radius 0.5s ease-in-out;
+}
+
+.hero-portrait-wrapper:hover {
+  border-radius: 50%; /* При наведении превращается в идеальный круг */
+}
+
+.hero-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Центрируем лицо, если оно смещено */
+  object-position: center top; 
+}
+
+/* Нижний текст */
+.hero-footer-title {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.home-giant-text {
+  font-size: clamp(60px, 16vw, 240px); /* Мощный размер как на скриншоте */
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+  text-align: center;
+  margin: 0;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+/* Детали текста и кнопок */
+.contact-link-simple {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.arrow-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--text-color);
+  color: var(--bg-color);
+  border-radius: 50%;
+}
+
+.services-title-small {
+  font-size: 14px;
+  color: var(--gray-text);
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.services-list-clean {
+  list-style: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 2;
+}
