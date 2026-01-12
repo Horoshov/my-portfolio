@@ -333,3 +333,62 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Отступ между рядами */
+    padding: 0 20px 100px 20px;
+  }
+  
+  .projects-row {
+    display: grid;
+    gap: 20px; /* Отступ между карточками */
+  }
+  
+  .two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .three-cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .project-image-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 11;
+    background-color: var(--photo-bg);
+    border-radius: 12px; /* Скругление как в примере */
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  
+  .project-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .project-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--gray-text);
+    margin-bottom: 8px;
+  }
+  
+  .project-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .project-desc {
+    font-size: 14px;
+    color: var(--gray-text);
+  }
