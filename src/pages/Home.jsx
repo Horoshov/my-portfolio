@@ -3,6 +3,16 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import profileImg from '../assets/alex-profile.jpg';
 
+// Настройки анимации для карточек
+const cardVariants = {
+  offscreen: { y: 50, opacity: 0 },
+  onscreen: { 
+    y: 0, 
+    opacity: 1,
+    transition: { type: "spring", bounce: 0.4, duration: 0.8 }
+  }
+};
+
 const Home = () => {
   return (
     <motion.div 
@@ -41,97 +51,75 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. Giant Title */}
       <div className="giant-title-wrapper">
         <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
 
-      {/* 3. Recent Works Title */}
       <section className="recent-works-grid">
         <div className="recent-works-col">
           <h2 className="recent-works-title">Recent Works</h2>
         </div>
       </section>
 
-      {/* 4. Projects Grid */}
+      {/* 4. Projects Grid с анимацией */}
       <section className="projects-grid">
         
         {/* Row 1: 2 Cards */}
         <div className="projects-row two-cols">
-          <div className="project-card">
-            <div className="project-image-wrapper">
-              <img src="https://picsum.photos/1200/825?random=11" alt="Nexora" />
-            </div>
-            <div className="project-info">
-              <div className="project-meta">
-                <span className="project-category">{'{Mobile App}'}</span> 
-                <span>2025</span>
+          {[
+            { id: 101, title: 'Nexora', cat: '{Mobile App}', desc: 'BI systems dashboards.' },
+            { id: 102, title: 'Lunex', cat: '{PropTech}', desc: 'Real estate platforms.' }
+          ].map((project) => (
+            <motion.div 
+              className="project-card" 
+              key={project.id}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
+            >
+              <div className="project-image-wrapper">
+                <img src={`https://picsum.photos/seed/${project.id}/1200/825`} alt={project.title} />
               </div>
-              <h3 className="project-title">Nexora</h3>
-              <p className="project-desc">Complex BI systems transformed into intuitive dashboards.</p>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <div className="project-image-wrapper">
-              <img src="https://picsum.photos/1200/825?random=12" alt="Lunex" />
-            </div>
-            <div className="project-info">
-              <div className="project-meta">
-                <span className="project-category">{'{PropTech}'}</span> 
-                <span>2025</span>
+              <div className="project-info">
+                <div className="project-meta">
+                  <span>{project.cat}</span> <span>2025</span>
+                </div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.desc}</p>
               </div>
-              <h3 className="project-title">Lunex</h3>
-              <p className="project-desc">Seamless real estate platforms with a focus on user flow.</p>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Row 2: 3 Cards */}
         <div className="projects-row three-cols">
-          <div className="project-card">
-            <div className="project-image-wrapper">
-              <img src="https://picsum.photos/800/550?random=13" alt="Morphin" />
-            </div>
-            <div className="project-info">
-              <div className="project-meta">
-                <span className="project-category">{'{Industrial}'}</span> 
-                <span>2025</span>
+          {[
+            { id: 103, title: 'Morphin', cat: '{Industrial}', desc: 'Manufacturing tools.' },
+            { id: 104, title: 'Lumora', cat: '{E-commerce}', desc: 'Retail experiences.' },
+            { id: 105, title: 'Nexa', cat: '{SaaS}', desc: 'Software platforms.' }
+          ].map((project) => (
+            <motion.div 
+              className="project-card" 
+              key={project.id}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={cardVariants}
+            >
+              <div className="project-image-wrapper">
+                <img src={`https://picsum.photos/seed/${project.id}/800/550`} alt={project.title} />
               </div>
-              <h3 className="project-title">Morphin</h3>
-              <p className="project-desc">Interface design for large-scale manufacturing tools.</p>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <div className="project-image-wrapper">
-              <img src="https://picsum.photos/800/550?random=14" alt="Lumora" />
-            </div>
-            <div className="project-info">
-              <div className="project-meta">
-                <span className="project-category">{'{E-commerce}'}</span> 
-                <span>2025</span>
+              <div className="project-info">
+                <div className="project-meta">
+                  <span>{project.cat}</span> <span>2025</span>
+                </div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.desc}</p>
               </div>
-              <h3 className="project-title">Lumora</h3>
-              <p className="project-desc">High-conversion retail experiences.</p>
-            </div>
-          </div>
-
-          <div className="project-card">
-            <div className="project-image-wrapper">
-              <img src="https://picsum.photos/800/550?random=15" alt="Nexa" />
-            </div>
-            <div className="project-info">
-              <div className="project-meta">
-                <span className="project-category">{'{SaaS}'}</span> 
-                <span>2025</span>
-              </div>
-              <h3 className="project-title">Nexa</h3>
-              <p className="project-desc">Visual storytelling for software platforms.</p>
-            </div>
-          </div>
+            </motion.div>
+          ))}
         </div>
-
       </section>
     </motion.div>
   );
