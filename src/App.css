@@ -50,7 +50,7 @@
   gap: 40px;
 }
 
-/* ИСПРАВЛЕННАЯ СИММЕТРИЧНАЯ МАСКА */
+/* ИДЕАЛЬНАЯ МАСКА-ЦВЕТОК (FOUR-LEAF CLOVER) */
 .hero-portrait-wrapper {
   position: relative;
   width: 100%;
@@ -60,13 +60,15 @@
   overflow: hidden;
   background-color: var(--card-bg);
   
-  /* Новая формула: более ровные и мягкие края "цветка" */
-  border-radius: 42% 58% 50% 50% / 55% 45% 55% 45%;
+  /* Используем SVG маску для точной геометрии */
+  clip-path: url(#flower-clip); 
+  
+  /* Запасной вариант для плавности */
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-portrait-wrapper:hover {
-  border-radius: 50%; 
+  clip-path: circle(50% at 50% 50%); /* Плавный переход в круг */
   transform: scale(1.03);
 }
 
@@ -118,7 +120,7 @@
   line-height: 2;
 }
 
-/* НИЖНИЙ ГИГАНТСКИЙ ЗАГОЛОВОК */
+/* НИЖНИЙ ЗАГОЛОВОК */
 .hero-footer-title {
   margin-top: 40px;
   padding: 40px 0;
@@ -135,21 +137,7 @@
   text-transform: uppercase;
 }
 
-/* --- ОБЩИЕ СТИЛИ СТРАНИЦ --- */
-.page-container { padding: 100px 0; }
-
-.giant-title {
-  font-size: clamp(37px, 8vw, 115px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 0.85;
-  margin-bottom: 60px;
-  text-transform: capitalize;
-}
-
-/* --- ABOUT PAGE (ИСПРАВЛЕННЫЙ РАЗМЕР ФОТО) --- */
-.about-container { padding: 80px 0; }
-
+/* --- ABOUT PAGE (ФИКСИРУЕМ РАЗМЕР ФОТО) --- */
 .about-main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,42 +148,24 @@
 
 .about-image-wrapper {
   width: 100%;
-  max-width: 480px; /* Фото не будет раздуваться */
+  max-width: 480px; /* Чтобы фото не раздувалось как на втором скрине */
   margin: 0 auto;
 }
 
 .about-image-wrapper img {
   width: 100%;
   height: auto;
-  border-radius: 30px;
+  border-radius: 30px; /* Обычное скругление для About */
   display: block;
 }
 
-.about-text-content {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.giant-title {
+  font-size: clamp(37px, 8vw, 115px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.85;
+  margin-bottom: 60px;
 }
-
-.about-p-bold { font-size: 24px; font-weight: 600; line-height: 1.4; }
-
-.about-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.stat-card {
-  background-color: var(--card-bg);
-  border-radius: 24px;
-  padding: 40px;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.stat-number { font-size: 72px; font-weight: 600; }
 
 .footer-simple {
   padding: 60px 0;
@@ -211,10 +181,4 @@
   .hero-main-section { grid-template-columns: 1fr; gap: 40px; }
   .hero-center { order: -1; }
   .about-main-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 768px) {
-  .app-container { padding: 0 20px; }
-  .navbar { grid-template-columns: 1fr 1fr; gap: 20px; }
-  .about-stats-grid { grid-template-columns: 1fr; }
 }
