@@ -5,7 +5,7 @@ import PageHeader from '../components/PageHeader';
 import profileImg from '../assets/alex-profile.jpg';
 
 // =========================================
-// 1. DATA (ДАННЫЕ ВЫНЕСЕНЫ ИЗ КОМПОНЕНТА)
+// 1. DATA
 // =========================================
 const services = [
   {
@@ -58,7 +58,7 @@ const cardVariants = {
 };
 
 // =========================================
-// 3. SUB-COMPONENTS (ДЛЯ ЧИСТОТЫ КОДА)
+// 3. SUB-COMPONENTS
 // =========================================
 const ProjectCard = ({ project, imgSize }) => (
   <motion.div 
@@ -127,7 +127,7 @@ const Home = () => {
         <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
 
-      {/* System Page Header */}
+      {/* Recent Works Header */}
       <PageHeader title="Recent Works" />
 
       {/* Projects Section */}
@@ -147,7 +147,8 @@ const Home = () => {
 
       {/* Services Section */}
       <section className="services-section">
-        <h2 className="services-main-title">What I Offer</h2>
+        {/* Заменили h2 на PageHeader для консистентности заголовков */}
+        <PageHeader title="What I Offer" />
         
         <div className="services-list">
           {services.map((service) => (
