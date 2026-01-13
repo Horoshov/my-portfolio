@@ -429,3 +429,56 @@
     font-size: 42px;
   }
 }
+
+.social-media-links-wrap-alt {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.social-icon-link {
+  color: var(--text-color);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon-link:hover {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+/* Фикс для Twitter (X) SVG, чтобы он был в размер остальных */
+.social-icon-link svg {
+  max-width: 18px;
+  max-height: 18px;
+}
+
+.footer-profile-box {
+  display: flex;
+  align-items: flex-start; /* Выравнивание по верху аватара */
+  gap: 20px;
+}
+
+.footer-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Расстояние между Именем и Ролью */
+}
+
+.social-media-links-wrap-alt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px; /* Отступ иконок от строки Designer & Developer */
+}
+
+/* Очищаем старый отступ у контактного блока */
+.footer-contact-block {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
