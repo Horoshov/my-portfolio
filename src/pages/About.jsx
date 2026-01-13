@@ -3,7 +3,7 @@ import PageHeader from '../components/PageHeader';
 
 const Page = () => (
   <div>
-    <PageHeader title="Название страницы" /> {/* Поменяй под каждую страницу */}
+    <PageHeader title="About" /> {/* Поменяй под каждую страницу */}
   </div>
 );
 

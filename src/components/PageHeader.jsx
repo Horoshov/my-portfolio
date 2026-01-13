@@ -3,19 +3,13 @@ import { motion } from 'framer-motion';
 
 const PageHeader = ({ title }) => {
   return (
-    <section className="recent-works-grid">
-      <div className="recent-works-col" style={{ padding: '100px 20px 40px' }}>
+    <section className="section-header-grid">
+      <div className="section-header-col">
         <motion.h1 
-          className="recent-works-title"
-          initial={{ opacity: 0, y: 10 }}
+          className="section-header-title"
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          style={{ 
-            fontSize: '72px', 
-            fontWeight: '700', 
-            letterSpacing: '-0.05em',
-            margin: 0 
-          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           {title}
         </motion.h1>
