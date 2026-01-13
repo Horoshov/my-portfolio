@@ -1,62 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import profileImg from '../assets/alex-profile.jpg'; // Используем твое фото
 
 const Footer = () => {
-  const [time, setTime] = useState(new Date());
-
-  // Обновляем время каждую минуту
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 60000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const localTime = time.toLocaleTimeString([], { 
-    hour: '2-digit', 
-    minute: '2-digit', 
-    hour12: true 
-  });
-
   return (
     <footer className="main-footer">
-      <div className="footer-cta">
+      {/* ЛЕВАЯ ЧАСТЬ: Огромный призыв */}
+      <div className="footer-left">
         <h2 className="footer-huge-text">
-          LET'S WORK <br /> TOGETHER
+          Let’s shape <br /> something <br /> remarkable, <br /> together.
         </h2>
+        <p className="hero-text" style={{ color: 'var(--gray-text)' }}>
+          Copyright @AlexHoroshov. All Rights Reserved
+        </p>
       </div>
 
-      <div className="footer-grid">
-        <div className="footer-col">
-          <span className="label">Location</span>
-          <p className="footer-value">Moscow, Russia</p>
-        </div>
-        
-        <div className="footer-col">
-          <span className="label">Socials</span>
-          <div className="footer-links">
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://behance.net" target="_blank" rel="noreferrer">Behance</a>
-            <a href="https://dribbble.com" target="_blank" rel="noreferrer">Dribbble</a>
+      {/* ПРАВАЯ ЧАСТЬ: Контакты и меню */}
+      <div className="footer-right">
+        <div className="footer-profile-section">
+          <div className="footer-profile">
+            <img src={profileImg} alt="Alex" className="footer-avatar" />
+            <div>
+              <p className="value">Alex Horoshov</p>
+              <p className="label">Designer & Developer</p>
+            </div>
+          </div>
+          
+          <div className="footer-contact-info">
+            <span className="label">Contact me</span>
+            <a href="mailto:alex@horoshov.ru" className="footer-email">
+              ux@horoshov.ru
+            </a>
+            <p className="hero-text">
+              Looking for a designer who moves <b>fast</b> without compromising quality? Let's talk.
+            </p>
           </div>
         </div>
 
-        <div className="footer-col">
-          <span className="label">Contact</span>
-          <a href="mailto:alex@horoshov.ru" className="footer-email">
-            alex@horoshov.ru
-          </a>
-        </div>
-
-        <div className="footer-col last">
-          <span className="label">Local Time</span>
-          <p className="footer-value">
-            {localTime} GMT+3
-          </p>
+        <div className="footer-sub-grid">
+          <div className="footer-col">
+            <span className="label">Main Pages</span>
+            <div className="footer-links">
+              <Link to="/">Home</Link>
+              <Link to="/about">About</Link>
+              <Link to="/projects">Projects</Link>
+            </div>
+          </div>
+          <div className="footer-col">
+            <span className="label">Socials</span>
+            <div className="footer-links">
+              <a href="#">LinkedIn</a>
+              <a href="#">Behance</a>
+              <a href="#">Instagram</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <div className="footer-bottom-line">
-        <p>© 2026 Alex Horoshov — All Rights Reserved</p>
-        <p>Handcrafted by Alex</p>
+        <p>Design by Alex</p>
+        <p>Powered by React</p>
       </div>
     </footer>
   );
