@@ -7,4 +7,18 @@ const Page = () => (
   </div>
 );
 
+import StatsList from '../components/StatsList';
+
+// Внутри компонента Home или About:
+return (
+  <motion.div>
+    {/* Другие секции */}
+    
+    <StatsList />
+    
+    {/* Другие секции */}
+  </motion.div>
+);
+
 export default Page;
+

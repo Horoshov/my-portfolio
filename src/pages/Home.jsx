@@ -35,14 +35,39 @@ const services = [
 ];
 
 const projectsTop = [
-  { id: 101, title: 'Nexora', cat: '{Mobile App}', desc: 'BI systems dashboards.' },
-  { id: 102, title: 'Lunex', cat: '{PropTech}', desc: 'Real estate platforms.' }
+  { 
+    id: 101, 
+    title: 'CoinCom', 
+    cat: '{Fintech}', 
+    image: '/assets/projects/CoinCom.webp' 
+  },
+  { 
+    id: 102, 
+    title: 'Domilend', 
+    cat: '{Real Estate}', 
+    image: '/assets/projects/Domilend.webp' 
+  }
 ];
 
 const projectsBottom = [
-  { id: 103, title: 'Morphin', cat: '{Industrial}', desc: 'Manufacturing tools.' },
-  { id: 104, title: 'Lumora', cat: '{E-commerce}', desc: 'Retail experiences.' },
-  { id: 105, title: 'Nexa', cat: '{SaaS}', desc: 'Software platforms.' }
+  { 
+    id: 103, 
+    title: 'Postman', 
+    cat: '{Logistics}', 
+    image: '/assets/projects/Postman.webp' 
+  },
+  { 
+    id: 104, 
+    title: 'Horoshov', 
+    cat: '{Portfolio}', 
+    image: '/assets/projects/Horoshov.webp' 
+  },
+  { 
+    id: 105, 
+    title: 'Archive', 
+    cat: '{Works}', 
+    image: '/assets/projects/Cover.webp' 
+  }
 ];
 
 // =========================================
@@ -58,9 +83,9 @@ const cardVariants = {
 };
 
 // =========================================
-// 3. SUB-COMPONENTS
+// 3. SUB-COMPONENTS (ИСПРАВЛЕНО ЗДЕСЬ)
 // =========================================
-const ProjectCard = ({ project, imgSize }) => (
+const ProjectCard = ({ project }) => (
   <motion.div 
     className="project-card" 
     initial="offscreen"
@@ -68,16 +93,19 @@ const ProjectCard = ({ project, imgSize }) => (
     viewport={{ once: true, amount: 0.2 }}
     variants={cardVariants}
   >
-    <div className="project-image-wrapper">
-      <img src={`https://picsum.photos/seed/${project.id}/${imgSize}`} alt={project.title} loading="lazy" />
-    </div>
-    <div className="project-info">
-      <div className="project-meta">
-        <span>{project.cat}</span> <span>2025</span>
+    <Link to={`/project/${project.id}`} className="project-link">
+      <div className="project-image-wrapper">
+        {/* Изменено: теперь src берет путь из данных проекта */}
+        <img src={project.image} alt={project.title} loading="lazy" />
       </div>
-      <h3 className="project-title">{project.title}</h3>
-      <p className="project-desc">{project.desc}</p>
-    </div>
+      <div className="project-info">
+        <div className="project-meta">
+          <span className="label">{project.cat}</span> 
+          <span className="label">2025</span>
+        </div>
+        <h3 className="project-title">{project.title}</h3>
+      </div>
+    </Link>
   </motion.div>
 );
 
@@ -94,7 +122,6 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-      {/* Hero Section */}
       <section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
@@ -122,32 +149,28 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Giant Decorative Title */}
       <div className="giant-title-wrapper">
         <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
 
-      {/* Recent Works Header */}
       <PageHeader title="Recent Works" />
 
-      {/* Projects Section */}
       <section className="projects-grid">
+        {/* Убрали imgSize, так как теперь читаем локальные файлы */}
         <div className="projects-row two-cols">
           {projectsTop.map(project => (
-            <ProjectCard key={project.id} project={project} imgSize="1200/825" />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
         <div className="projects-row three-cols">
           {projectsBottom.map(project => (
-            <ProjectCard key={project.id} project={project} imgSize="800/550" />
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </section>
 
-      {/* Services Section */}
       <section className="services-section">
-        {/* Заменили h2 на PageHeader для консистентности заголовков */}
         <PageHeader title="What I Offer" />
         
         <div className="services-list">
@@ -190,7 +213,6 @@ const Home = () => {
           ))}
         </div>
       </section>
-      
     </motion.div>
   );
 };
