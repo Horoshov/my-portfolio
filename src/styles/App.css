@@ -452,8 +452,8 @@
 
 /* Фикс для Twitter (X) SVG, чтобы он был в размер остальных */
 .social-icon-link svg {
-  max-width: 18px;
-  max-height: 18px;
+  max-width: 24px;
+  max-height: 24px;
 }
 
 .footer-profile-box {
@@ -472,7 +472,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 12px; /* Отступ иконок от строки Designer & Developer */
+  margin-top: 4px; /* Отступ иконок от строки Designer & Developer */
 }
 
 /* Очищаем старый отступ у контактного блока */
