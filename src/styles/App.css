@@ -194,10 +194,10 @@
     margin: 0;
     text-transform: capitalize;
   }
+
   /* =========================================
    6. PROJECTS GRID
    ========================================= */
-
 .projects-grid {
   display: flex;
   flex-direction: column;
@@ -364,7 +364,7 @@
   }
   
   /* =========================================
-   8. ОБНОВЛЕННЫЙ МОНУМЕНТАЛЬНЫЙ ФУТЕР
+   8. MAIN FOOTER
    ========================================= */
 .main-footer {
   padding: 100px 20px 40px 20px;
@@ -482,7 +482,7 @@
 }
 
 /* =========================================
-   10. STATS SECTION (BOLD & COMPACT COUNTER ONLY)
+   10. STATS SECTION (BOLD & COMPACT COUNTER)
    ========================================= */
    .stats-section {
     padding: 80px 20px;
@@ -510,13 +510,13 @@
     transform: translateY(-5px);
   }
   
-  /* ИСПРАВЛЕННЫЙ БЛОК ЦИФР: +10% (2.7rem), Bold 700, Плотный интервал */
+  /* ИСПРАВЛЕННЫЙ БЛОК ЦИФР: Плотность увеличена (line-height 0.75) */
   .stat-number-wrapper {
     font-family: var(--font-main);
     font-size: clamp(2.2rem, 5.5vw, 2.7rem); 
     font-weight: 700; 
-    letter-spacing: -0.05em; 
-    line-height: 0.85; 
+    letter-spacing: -0.06em; 
+    line-height: 0.75; 
     display: flex;
     align-items: flex-start;
     color: var(--text-color);
@@ -531,7 +531,7 @@
   .digit-column-wrapper {
     position: relative;
     height: 1em;
-    width: 0.62em; 
+    width: 0.6em; 
     overflow: hidden;
   }
   
@@ -549,8 +549,8 @@
   }
   
   .stat-suffix {
-    font-size: 0.7em;
-    margin-top: 0.05em;
+    font-size: 0.9em;
+    margin-top: 0.10em;
     margin-left: 1px;
   }
   

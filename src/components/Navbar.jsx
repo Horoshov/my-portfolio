@@ -19,7 +19,7 @@ const Navbar = () => (
     <div className="nav-col">
       <span className="label">Navigation</span>
       <div className="nav-menu">
-        {['Home', 'Projects', 'About', 'Articles', 'Contact'].map(item => (
+        {['Home', 'Projects', 'Articles', 'About', 'Contact'].map(item => (
           <Link key={item} to={item === 'Home' ? '/' : `/${item.toLowerCase()}`} className="menu-item">{item}</Link>
         ))}
       </div>
