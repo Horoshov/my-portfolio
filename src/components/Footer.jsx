@@ -54,8 +54,8 @@ const Footer = () => {
         {/* БЛОК С EMAIL (теперь чистый) */}
         <div className="footer-contact-block">
           <span className="label">Contact me</span>
-          <a href="mailto:alex@horoshov.ru" className="footer-email-link">
-            alex@horoshov.ru
+          <a href="mailto:ux@horoshov.ru" className="footer-email-link">
+            ux@horoshov.ru
           </a>
         </div>
 
