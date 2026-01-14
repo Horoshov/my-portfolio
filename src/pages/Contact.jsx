@@ -15,7 +15,7 @@ const Contact = () => {
       
       <section className="contact-section" style={{ display: 'flex', justifyContent: 'center' }}>
         {/* Контейнер с фиксированной шириной, выровненный по центру */}
-        <div style={{ width: '100%', maxWidth: '600px' }}> 
+        <div style={{ width: '100%', maxWidth: '900px' }}> 
           <ContactForm />
         </div>
       </section>

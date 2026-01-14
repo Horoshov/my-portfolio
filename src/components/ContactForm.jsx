@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const ContactForm = () => {
+  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -18,19 +19,42 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.agree) {
       alert("Please agree to the Privacy Policy");
       return;
     }
-    console.log('Данные к отправке:', formData);
+
+    setStatus('sending');
+
+    try {
+      const response = await fetch('/api/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        // Очищаем форму после успешной отправки
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', agree: false });
+        setTimeout(() => setStatus('idle'), 5000); // Возвращаем кнопку в исходное состояние через 5 сек
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setStatus('error');
+    }
   };
 
   const inputStyle = {
     width: '100%',
     padding: '14px 18px',
-    borderRadius: '12px',
+    borderRadius: '8px',
     border: '1px solid rgba(122, 122, 122, 0.2)',
     backgroundColor: 'transparent',
     color: 'var(--text-color)',
@@ -42,7 +66,6 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      {/* Сетка имен */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
         <div className="form-group" style={{ border: 'none', padding: 0 }}>
           <label className="label">First name</label>
@@ -74,7 +97,6 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Сетка контактов */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
         <div className="form-group" style={{ border: 'none', padding: 0 }}>
           <label className="label">Email</label>
@@ -105,7 +127,6 @@ const ContactForm = () => {
         </div>
       </div>
 
-      {/* Сообщение */}
       <div className="form-group full-width" style={{ border: 'none', padding: 0, marginBottom: '20px' }}>
         <label className="label">Message</label>
         <textarea
@@ -121,7 +142,6 @@ const ContactForm = () => {
         ></textarea>
       </div>
 
-      {/* Согласие */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '30px' }}>
         <input
           type="checkbox"
@@ -137,19 +157,26 @@ const ContactForm = () => {
         </label>
       </div>
 
-      {/* Кнопка: ширина 100% и уменьшенный на 25% вертикальный padding (с 24px до 18px) */}
       <button 
         type="submit" 
         className="submit-btn" 
+        disabled={status === 'sending'}
         style={{ 
           width: '100%', 
           paddingTop: '18px', 
           paddingBottom: '18px',
-          justifyContent: 'center' 
+          justifyContent: 'center',
+          opacity: status === 'sending' ? 0.7 : 1,
+          cursor: status === 'sending' ? 'not-allowed' : 'pointer'
         }}
       >
-        <span className="btn-text">Send your message</span>
-        <span className="btn-arrow">→</span>
+        <span className="btn-text">
+          {status === 'idle' && 'Send your message'}
+          {status === 'sending' && 'Sending...'}
+          {status === 'success' && 'Message sent!'}
+          {status === 'error' && 'Try again'}
+        </span>
+        {status === 'idle' && <span className="btn-arrow">→</span>}
       </button>
     </form>
   );
