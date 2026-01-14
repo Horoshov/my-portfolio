@@ -26,15 +26,31 @@ const allProjects = [
   { 
     id: 104, 
     title: 'Horoshov', 
-    cat: '{Portfolio}', 
+    cat: '{Portfolio of UX/UI, Product Designer}', 
     image: '/assets/projects/Horoshov.webp' 
   },
   { 
     id: 105, 
-    title: 'Archive', 
-    cat: '{Works}', 
+    title: 'Betonica', 
+    year: '2024',
+    cat: '{E-commerce, with a built-in 3D module}', 
     image: '/assets/projects/Cover.webp' 
+  },
+  {
+    id: 106, 
+    title: 'Polimatica', 
+    year: '2023',
+    cat: '{BI system, graphs, visualizations and dashboards}', 
+    image: '/assets/projects/Polimatica.webp' 
+  },
+  {
+    id: 107, 
+    title: '"M.Video", "Eldorado"', 
+    year: '2023',
+    cat: '{Е-commerce, OneRetail}', 
+    image: '/assets/projects/Mvideo.webp' 
   }
+
 ];
 
 const Projects = () => {

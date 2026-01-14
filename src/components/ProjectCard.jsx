@@ -35,7 +35,7 @@ const ProjectCard = ({ project }) => {
         <div className="project-info">
           <div className="project-meta">
             <span className="label">{project.cat}</span>
-            <span className="label">2025</span>
+            <span className="label">{project.year || '2026'}</span>
           </div>
           <h3 className="project-title">{project.title}</h3>
         </div>
