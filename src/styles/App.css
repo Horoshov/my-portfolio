@@ -726,3 +726,20 @@
       justify-content: center;
     }
   }
+
+  /* =========================================
+   11. AUTOFILL FIX (Убираем желтый фон)
+   ========================================= */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  /* Заменяем желтый фон на цвет вашего сайта из переменных */
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset !important;
+  /* Устанавливаем цвет текста из ваших переменных */
+  -webkit-text-fill-color: var(--text-color) !important;
+  /* Плавный переход, чтобы фон не моргал */
+  transition: background-color 5000s ease-in-out 0s;
+}
