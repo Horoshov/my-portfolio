@@ -14,7 +14,7 @@ const allProjects = [
   { 
     id: 102, 
     title: 'Domilend', 
-    cat: '{Real Estate}', 
+    cat: '{PropTech, Real Estate}', 
     image: '/assets/projects/Domilend.webp' 
   },
   { 
@@ -45,7 +45,7 @@ const allProjects = [
   },
   {
     id: 107, 
-    title: '"M.Video", "Eldorado"', 
+    title: 'M.Video-Eldorado', 
     year: '2023',
     cat: '{Е-commerce, OneRetail}', 
     image: '/assets/projects/Mvideo.webp' 

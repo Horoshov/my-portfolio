@@ -5,9 +5,9 @@ import StatList from '../components/StatList'; // Импортируем из ф
 
 const About = () => {
   const aboutStats = [
-    { value: '08', label: 'Years of Experience' },
-    { value: '120+', label: 'Projects Completed' },
-    { value: '15', label: 'Design Awards' }
+    { value: '10', label: 'of Experience', title: 'Years' },
+    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
+    { value: '95', label: 'Customer Satisfaction', title: 'Percent' }
   ];
 
   return (

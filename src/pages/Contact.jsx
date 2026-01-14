@@ -1,26 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import PageHeader from '../components/PageHeader';
-import ContactForm from '../components/ContactForm';
 
-const Contact = () => {
+const Digit = ({ digit }) => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <PageHeader title="Get In Touch" />
-      
-      <section className="contact-section" style={{ display: 'flex', justifyContent: 'center' }}>
-        {/* Контейнер с фиксированной шириной, выровненный по центру */}
-        <div style={{ width: '100%', maxWidth: '900px' }}> 
-          <ContactForm />
-        </div>
-      </section>
-    </motion.div>
+    <div className="digit-column-wrapper">
+      <motion.div
+        className="digit-column"
+        initial={{ y: 0 }}
+        animate={{ y: `-${digit * 10}%` }}
+        transition={{ type: "spring", stiffness: 50, damping: 15, duration: 2 }}
+      >
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+          <div key={n} className="digit-number">
+            {n}
+          </div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
-export default Contact;
+const Counter = ({ value }) => {
+  const digits = Array.from(String(value), Number);
+
+  return (
+    <div className="rolling-counter">
+      {digits.map((d, i) => (
+        <Digit key={i} digit={d} />
+      ))}
+    </div>
+  );
+};
+
+export default Counter;

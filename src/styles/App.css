@@ -499,7 +499,7 @@
     background-color: var(--photo-bg);
     padding: 40px;
     border-radius: 24px;
-    min-height: 240px;
+    min-height: 160px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -795,5 +795,74 @@ textarea:-webkit-autofill:focus {
 @media (max-width: 768px) {
   .projects-grid-main {
     grid-template-columns: 1fr; /* Одна колонка на мобильных */
+  }
+}
+
+/* КАРТОЧКА */
+.stat-card {
+  background-color: var(--photo-bg);
+  padding: 40px;
+  border-radius: 32px;
+  min-height: 280px; /* Увеличили высоту для воздуха */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Счетчик вверх, текст вниз */
+  transition: transform 0.3s ease;
+}
+
+/* СЧЕТЧИК (Вверху слева по умолчанию) */
+.stat-number-wrapper {
+  font-size: clamp(3rem, 4,5vw, 3,5rem); /* Большой размер */
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: flex-start;
+  letter-spacing: -0.04em;
+}
+
+.stat-suffix {
+  font-size: 0.76em;
+  margin-left: 2px;
+}
+
+/* ГРУППА ТЕКСТА (Вниз вправо) */
+.stat-text-group {
+  align-self: flex-end; /* Прижимает весь блок к правому краю */
+  text-align: right;    /* Выравнивает строки текста по правому краю */
+  max-width: 220px;     /* Ограничение ширины для красивого переноса */
+}
+
+/* МАЛЕНЬКИЙ ЗАГОЛОВОК (под числом) */
+.stat-small-title {
+  display: block;
+  font-size: 16px;
+  text-transform: capitalize;
+  color: var(--gray-text);
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* БОЛЬШОЙ ПОДЗАГОЛОВОК */
+.stat-main-label {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  .stat-card {
+    min-height: 220px;
+    padding: 30px;
+  }
+  .stat-number-wrapper {
+    font-size: 4rem;
+  }
+  .stat-main-label {
+    font-size: 20px;
   }
 }

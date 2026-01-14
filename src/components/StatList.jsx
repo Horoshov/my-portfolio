@@ -1,52 +1,25 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-
-const Digit = ({ digit }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const numbers = Array.from({ length: 10 }, (_, i) => i);
-
-  return (
-    <div className="digit-column-wrapper">
-      <motion.div
-        initial={{ y: 0 }}
-        animate={isInView ? { y: `-${digit * 10}%` } : { y: 0 }}
-        transition={{ 
-          duration: 2.5, 
-          ease: [0.65, 0, 0.35, 1], // Плавный заезд
-          delay: Math.random() * 0.3 
-        }}
-        className="digit-column"
-        ref={ref}
-      >
-        {numbers.map((num) => (
-          <div key={num} className="digit-number">{num}</div>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
-
-const RollingCounter = ({ value }) => {
-  const digits = String(value).replace(/\D/g, '').split('');
-  return (
-    <div className="rolling-counter">
-      {digits.map((d, i) => <Digit key={i} digit={parseInt(d)} />)}
-    </div>
-  );
-};
+import React from 'react';
+import Counter from './Counter';
 
 const StatList = ({ stats }) => {
+  if (!stats) return null;
+
   return (
     <>
       {stats.map((stat, index) => (
         <div key={index} className="stat-card">
+          {/* СВЕРХУ СЛЕВА */}
           <div className="stat-number-wrapper">
-            <RollingCounter value={stat.value} />
-            {stat.value.includes('+') && <span className="stat-suffix">+</span>}
+            <Counter value={parseInt(stat.value) || 0} />
+            {(stat.suffix || stat.value.toString().includes('+')) && (
+              <span className="stat-suffix">+</span>
+            )}
           </div>
-          <div className="stat-info">
-            <span className="stat-label">{stat.label}</span>
+          
+          {/* СНИЗУ СПРАВА */}
+          <div className="stat-text-group">
+            {stat.title && <span className="stat-small-title">{stat.title}</span>}
+            <p className="stat-main-label">{stat.label}</p>
           </div>
         </div>
       ))}

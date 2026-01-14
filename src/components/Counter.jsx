@@ -1,35 +1,37 @@
-import React, { useEffect, useRef } from 'react';
-import { useMotionValue, useSpring, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const Digit = ({ digit }) => (
+  <div className="digit-column-wrapper">
+    <motion.div
+      className="digit-column"
+      initial={{ y: 0 }}
+      animate={{ y: `-${digit * 10}%` }}
+      transition={{ 
+        type: "spring", 
+        stiffness: 40, 
+        damping: 15, 
+        mass: 1 
+      }}
+    >
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+        <div key={n} className="digit-number">{n}</div>
+      ))}
+    </motion.div>
+  </div>
+);
 
 const Counter = ({ value }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
-  // Создаем моушн-значение
-  const motionValue = useMotionValue(0);
-  
-  // Настраиваем плавность (stiffness - жесткость, damping - торможение)
-  const springValue = useSpring(motionValue, {
-    stiffness:100,
-    damping:10,
-    duration: 2
-  });
+  // Разбиваем число на массив цифр
+  const digits = Array.from(String(value), Number);
 
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value);
-    }
-  }, [isInView, value, motionValue]);
-
-  useEffect(() => {
-    springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Math.floor(latest);
-      }
-    });
-  }, [springValue]);
-
-  return <span ref={ref}>0</span>;
+  return (
+    <div className="rolling-counter">
+      {digits.map((d, i) => (
+        <Digit key={i} digit={d} />
+      ))}
+    </div>
+  );
 };
 
 export default Counter;
