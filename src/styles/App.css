@@ -801,23 +801,28 @@ textarea:-webkit-autofill:focus {
 /* КАРТОЧКА */
 .stat-card {
   background-color: var(--photo-bg);
-  padding: 40px;
+  /* Уменьшили отступ на 20% (было 40px) */
+  padding: 32px;
   border-radius: 32px;
-  min-height: 280px; /* Увеличили высоту для воздуха */
+  /* Уменьшили высоту на 20% (было 280px -> 224px) */
+  min-height: 224px; 
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Счетчик вверх, текст вниз */
+  justify-content: space-between; 
   transition: transform 0.3s ease;
+  overflow: hidden; /* Страховка от вылезающего контента */
 }
 
-/* СЧЕТЧИК (Вверху слева по умолчанию) */
+/* СЧЕТЧИК */
 .stat-number-wrapper {
-  font-size: clamp(3rem, 4,5vw, 3,5rem); /* Большой размер */
+  /* ИСПРАВЛЕНО: заменили запятую на точку и чуть уменьшили размер */
+  font-size: clamp(2.5rem, 4vw, 3.2rem); 
   font-weight: 700;
   line-height: 1;
   display: flex;
   align-items: flex-start;
   letter-spacing: -0.04em;
+  color: var(--text-color);
 }
 
 .stat-suffix {
@@ -825,27 +830,27 @@ textarea:-webkit-autofill:focus {
   margin-left: 2px;
 }
 
-/* ГРУППА ТЕКСТА (Вниз вправо) */
+/* ГРУППА ТЕКСТА */
 .stat-text-group {
-  align-self: flex-end; /* Прижимает весь блок к правому краю */
-  text-align: right;    /* Выравнивает строки текста по правому краю */
-  max-width: 220px;     /* Ограничение ширины для красивого переноса */
+  align-self: flex-end; 
+  text-align: right;    
+  max-width: 200px;     
 }
 
-/* МАЛЕНЬКИЙ ЗАГОЛОВОК (под числом) */
+/* МАЛЕНЬКИЙ ЗАГОЛОВОК */
 .stat-small-title {
   display: block;
-  font-size: 16px;
+  font-size: 14px; /* Чуть меньше (было 16) */
   text-transform: capitalize;
   color: var(--gray-text);
   letter-spacing: 0.01em;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   font-weight: 500;
 }
 
 /* БОЛЬШОЙ ПОДЗАГОЛОВОК */
 .stat-main-label {
-  font-size: 20px;
+  font-size: 18px; /* Чуть меньше (было 20) */
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -856,13 +861,13 @@ textarea:-webkit-autofill:focus {
 /* Адаптивность для мобильных */
 @media (max-width: 768px) {
   .stat-card {
-    min-height: 220px;
-    padding: 30px;
+    min-height: 180px; /* Пропорционально меньше для мобильных */
+    padding: 24px;
   }
   .stat-number-wrapper {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   .stat-main-label {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

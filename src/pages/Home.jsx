@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
+import Counter from '../components/Counter'; // Убедись, что импорт есть, если будешь использовать статы
+import StatList from '../components/StatList'; // Или если у тебя отдельный компонент
 import profileImg from '../assets/alex-profile.jpg';
 
 // =========================================
@@ -12,13 +14,13 @@ const services = [
     id: '01',
     title: 'Motion Graphics & Animations',
     img: 'https://picsum.photos/seed/serv1/600/400',
-    tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads', 'Logo Animations']
+    tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads']
   },
   {
     id: '02',
     title: 'Web design and development',
     img: 'https://picsum.photos/seed/serv2/600/400',
-    tags: ['React / Next.js', 'Webflow', 'UI/UX Design', 'E-commerce']
+    tags: ['React / Next.js', 'Webflow', 'UI/UX Design']
   },
   {
     id: '03',
@@ -34,40 +36,13 @@ const services = [
   }
 ];
 
-const projectsTop = [
-  { 
-    id: 101, 
-    title: 'CoinCom', 
-    cat: '{Fintech}', 
-    image: '/assets/projects/CoinCom.webp' 
-  },
-  { 
-    id: 102, 
-    title: 'Domilend', 
-    cat: '{Real Estate}', 
-    image: '/assets/projects/Domilend.webp' 
-  }
-];
-
-const projectsBottom = [
-  { 
-    id: 103, 
-    title: 'Postman', 
-    cat: '{Logistics}', 
-    image: '/assets/projects/Postman.webp' 
-  },
-  { 
-    id: 104, 
-    title: 'Horoshov', 
-    cat: '{Portfolio}', 
-    image: '/assets/projects/Horoshov.webp' 
-  },
-  { 
-    id: 105, 
-    title: 'Archive', 
-    cat: '{Works}', 
-    image: '/assets/projects/Cover.webp' 
-  }
+// ОБЪЕДИНЯЕМ ВСЕ ПРОЕКТЫ В ОДИН МАССИВ ДЛЯ РОВНОЙ СЕТКИ
+const allProjects = [
+  { id: 101, title: 'CoinCom', cat: '{Fintech}', image: '/assets/projects/CoinCom.webp' },
+  { id: 102, title: 'Domilend', cat: '{Real Estate}', image: '/assets/projects/Domilend.webp' },
+  { id: 103, title: 'Postman', cat: '{Logistics}', image: '/assets/projects/Postman.webp' },
+  { id: 104, title: 'Horoshov', cat: '{Portfolio}', image: '/assets/projects/Horoshov.webp' },
+  { id: 105, title: 'Archive', cat: '{Works}', image: '/assets/projects/Cover.webp' }
 ];
 
 // =========================================
@@ -83,7 +58,7 @@ const cardVariants = {
 };
 
 // =========================================
-// 3. SUB-COMPONENTS (ИСПРАВЛЕНО ЗДЕСЬ)
+// 3. SUB-COMPONENTS
 // =========================================
 const ProjectCard = ({ project }) => (
   <motion.div 
@@ -95,7 +70,7 @@ const ProjectCard = ({ project }) => (
   >
     <Link to={`/project/${project.id}`} className="project-link">
       <div className="project-image-wrapper">
-        {/* Изменено: теперь src берет путь из данных проекта */}
+        {/* Убедись, что картинки лежат в папке public/assets/projects/ */}
         <img src={project.image} alt={project.title} loading="lazy" />
       </div>
       <div className="project-info">
@@ -122,6 +97,7 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
+      {/* --- HERO SECTION --- */}
       <section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
@@ -149,27 +125,25 @@ const Home = () => {
         </div>
       </section>
 
+      {/* --- GIANT TITLE --- */}
       <div className="giant-title-wrapper">
         <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
       </div>
 
+      {/* --- СЮДА МОЖНО ВЕРНУТЬ STATS SECTION ЕСЛИ НУЖНО --- */}
+      {/* <StatList /> */}
+
+      {/* --- PROJECTS SECTION (ИСПРАВЛЕНО ПОД НОВЫЙ CSS) --- */}
       <PageHeader title="Recent Works" />
 
-      <section className="projects-grid">
-        {/* Убрали imgSize, так как теперь читаем локальные файлы */}
-        <div className="projects-row two-cols">
-          {projectsTop.map(project => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-
-        <div className="projects-row three-cols">
-          {projectsBottom.map(project => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+      {/* Используем .projects-grid-main из нового CSS */}
+      <section className="projects-grid-main"> 
+        {allProjects.map(project => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
       </section>
 
+      {/* --- SERVICES SECTION --- */}
       <section className="services-section">
         <PageHeader title="What I Offer" />
         
@@ -192,14 +166,14 @@ const Home = () => {
                     opacity: hoveredService === service.id ? 1 : 0,
                     x: hoveredService === service.id ? 0 : -10 
                   }}
+                  transition={{ duration: 0.3 }}
                 >
                   <div className="service-image-preview">
                     <img src={service.img} alt={service.title} />
                   </div>
                   <div className="service-tags">
-                    <div className="tags-container">
-                      {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-                    </div>
+                     {/* Убрал лишний контейнер, если он не нужен в CSS */}
+                    {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
                   </div>
                 </motion.div>
 
