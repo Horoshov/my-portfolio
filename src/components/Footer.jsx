@@ -37,10 +37,10 @@ const Footer = () => {
                 </svg>
               </a>
               <a href="https://twitter.com" className="social-icon-link" target="_blank" rel="noreferrer">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"/>
-                  <path d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" fill="var(--bg-color)"/>
-                </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="4" fill="black"></rect>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" fill="white"></path>
+              </svg>
               </a>
               <a href="https://linkedin.com" className="social-icon-link" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,3 +81,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

@@ -27,7 +27,7 @@ const Contact = () => {
             <div className="contact-details">
               <div className="contact-item">
                 <span className="label">Email me</span>
-                <a href="mailto:hello@example.com" className="footer-email-link">
+                <a href="mailto:ux@horoshov.ru" className="footer-email-link">
                   hello@example.com
                 </a>
               </div>
