@@ -39,15 +39,19 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus('success');
-        // Очищаем форму после успешной отправки
+        // Очищаем форму
         setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', agree: false });
-        setTimeout(() => setStatus('idle'), 5000); // Возвращаем кнопку в исходное состояние через 5 сек
+        
+        // Через 5 секунд возвращаем кнопку в исходное состояние
+        setTimeout(() => setStatus('idle'), 5000);
       } else {
         setStatus('error');
+        setTimeout(() => setStatus('idle'), 3000);
       }
     } catch (error) {
       console.error('Submission error:', error);
       setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
     }
   };
 
@@ -160,24 +164,38 @@ const ContactForm = () => {
       <button 
         type="submit" 
         className="submit-btn" 
-        disabled={status === 'sending'}
+        disabled={status === 'sending' || status === 'success'}
         style={{ 
           width: '100%', 
           paddingTop: '18px', 
           paddingBottom: '18px',
+          display: 'flex',
           justifyContent: 'center',
+          alignItems: 'center',
+          gap: '12px',
+          backgroundColor: status === 'success' ? '#28a745' : 'var(--text-color)',
+          color: status === 'success' ? '#ffffff' : 'var(--bg-color)',
           opacity: status === 'sending' ? 0.7 : 1,
-          cursor: status === 'sending' ? 'not-allowed' : 'pointer'
+          cursor: (status === 'sending' || status === 'success') ? 'not-allowed' : 'pointer',
+          transition: 'all 0.3s ease'
         }}
       >
         <span className="btn-text">
           {status === 'idle' && 'Send your message'}
           {status === 'sending' && 'Sending...'}
           {status === 'success' && 'Message sent!'}
-          {status === 'error' && 'Try again'}
+          {status === 'error' && 'Error, try again'}
         </span>
-        {status === 'idle' && <span className="btn-arrow">→</span>}
+        {status === 'idle' && <span className="btn-arrow" style={{ fontSize: '20px' }}>→</span>}
+        {status === 'success' && <span className="btn-check" style={{ fontSize: '20px' }}>✓</span>}
       </button>
+
+      {/* Резервное сообщение под формой */}
+      {status === 'error' && (
+        <p style={{ color: '#ff4d4d', fontSize: '14px', marginTop: '10px', textAlign: 'center' }}>
+          Something went wrong. Please check your connection and try again.
+        </p>
+      )}
     </form>
   );
 };
