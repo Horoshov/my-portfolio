@@ -21,3 +21,54 @@ body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
 }
+
+/* --- СЕТКА ПРОЕКТОВ (Система из 6 колонок) --- */
+.projects-grid-custom {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Создаем 6 равных долей */
+  gap: 30px;                             /* Расстояние между карточками */
+  padding: 40px 0;
+  width: 100%;
+}
+
+/* 1 РЯД: 2 карточки (каждая занимает по 3 колонки из 6) */
+.projects-grid-custom .project-card:nth-child(1),
+.projects-grid-custom .project-card:nth-child(2) {
+  grid-column: span 3;
+}
+
+/* 2 РЯД: 3 карточки (каждая занимает по 2 колонки из 6) */
+.projects-grid-custom .project-card:nth-child(3),
+.projects-grid-custom .project-card:nth-child(4),
+.projects-grid-custom .project-card:nth-child(5) {
+  grid-column: span 2;
+}
+
+/* 3 РЯД: 3 карточки (каждая занимает по 2 колонки из 6) */
+.projects-grid-custom .project-card:nth-child(6),
+.projects-grid-custom .project-card:nth-child(7),
+.projects-grid-custom .project-card:nth-child(8) {
+  grid-column: span 2;
+}
+
+/* 4 РЯД: 2 карточки (каждая занимает по 3 колонки из 6) */
+.projects-grid-custom .project-card:nth-child(9),
+.projects-grid-custom .project-card:nth-child(10) {
+  grid-column: span 3;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 1100px) {
+  .projects-grid-custom {
+    grid-template-columns: repeat(2, 1fr); /* На планшетах просто по 2 в ряд */
+  }
+  .projects-grid-custom .project-card:nth-child(n) {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .projects-grid-custom {
+    grid-template-columns: 1fr; /* На телефонах всё в одну колонку */
+  }
+}
