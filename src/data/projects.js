@@ -8,10 +8,13 @@ export const allProjects = [
       image: '/assets/projects/Coincom2.webp',
       year: '2024',
       description: 'A revolutionary digital banking experience focused on seamless cryptocurrency integration. We designed an interface that bridges the gap between traditional finance and the decentralized web.',
-      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
-      client: 'Монетная компания',
-      role: 'UX/UI Designer',
-      link: 'https://coincom.io'
+      descriptionSecondary: "The focus was on creating a secure yet accessible environment for both crypto enthusiasts and newcomers, ensuring every transaction feels intuitive.",
+      timeline: '4 Months',
+      location: 'Dubai, UAE',
+      fullDate: 'March 20, 2024',
+      linkDisplay: 'coincom.io',
+      link: 'https://coincom.io',
+      role: 'UX/UI Designer'
     },
     { 
       id: "102", 
@@ -21,9 +24,12 @@ export const allProjects = [
       year: '2024',
       description: 'Domilend simplifies the mortgage process for home buyers. The platform connects lenders and borrowers in a transparent environment, reducing paperwork by 60%.',
       descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
-      client: 'Domilend Inc.',
-      role: 'UI/UX Design',
-      link: '#'
+      timeline: '3 Months',
+      location: 'London, UK',
+      fullDate: 'June 15, 2024',
+      linkDisplay: 'domilend.com',
+      link: '#',
+      role: 'UI/UX Design'
     },
     { 
       id: "103", 
@@ -32,86 +38,73 @@ export const allProjects = [
       image: '/assets/projects/Postman7.webp',
       year: '2024',
       description: 'A robust logistics management system designed for last-mile delivery. Real-time tracking, automated routing, and a simplified driver app were the key focuses of this project.',
-      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
-      client: 'Postman Delivery',
-      role: 'Product Strategy',
-      link: '#'
+      descriptionSecondary: "We optimized the complex workflows into a clean interface, allowing dispatchers to manage hundreds of deliveries with minimal cognitive load.",
+      timeline: '5 Months',
+      location: 'Berlin, DE',
+      fullDate: 'September 10, 2024',
+      linkDisplay: 'postman-logistics.de',
+      link: '#',
+      role: 'Product Strategy'
     },
     { 
       id: "104", 
       title: 'Horoshov', 
-      cat: 'Portfolio of UX/UI, Product Designer', 
+      cat: 'Designer Portfolio', 
       image: '/assets/projects/Horoshov4.webp',
       year: '2025',
       description: 'A personal brand identity and digital portfolio. We focused on high-end typography and smooth animations to showcase professional achievements in a minimalist way.',
-      client: 'Personal Project',
-      role: 'Designer & Developer',
-      link: '#'
+      descriptionSecondary: "The project reflects a commitment to detail, using white space and motion to guide the viewer through a curated selection of work.",
+      timeline: '2 Months',
+      location: 'Remote',
+      fullDate: 'January 05, 2025',
+      linkDisplay: 'horoshov.design',
+      link: '#',
+      role: 'Designer & Developer'
     },
     { 
       id: "105", 
       title: 'Betonika', 
-      cat: 'E-commerce, with a built-in 3D module', 
+      cat: 'E-commerce', 
       image: '/assets/projects/Betonika1.webp',
       year: '2024',
-      description: 'An advanced e-commerce platform for construction materials. The highlight is a custom 3D module that allows users to visualize products in real-world environments before purchase.',
-      client: 'Betonika Group',
-      role: 'Frontend Development',
-      link: '#'
+      description: 'An advanced e-commerce platform for construction materials. The highlight is a custom 3D module that allows users to visualize products in real-world environments.',
+      descriptionSecondary: "Integrating 3D tools into a standard shop flow required a careful balance between performance and visual fidelity.",
+      timeline: '6 Months',
+      location: 'Warsaw, PL',
+      fullDate: 'November 22, 2024',
+      linkDisplay: 'betonika.com',
+      link: '#',
+      role: 'Frontend Development'
     },
     {
       id: "106", 
       title: 'Polimatica', 
-      cat: 'BI system, graphs, visualizations and dashboards', 
+      cat: 'BI System', 
       image: '/assets/projects/Polimatica6.webp',
       year: '2023',
-      description: 'Polimatica is a complex Business Intelligence tool. We redesigned the dashboard system to handle massive datasets without losing visual clarity and performance.',
-      client: 'Polimatica BI',
-      role: 'Dashboard Design',
-      link: '#'
+      description: 'Polimatica is a complex Business Intelligence tool. We redesigned the dashboard system to handle massive datasets without losing visual clarity.',
+      descriptionSecondary: "The challenge was to make complex data visualizations interactive and easy to interpret for non-technical stakeholders.",
+      timeline: '8 Months',
+      location: 'Singapore',
+      fullDate: 'August 14, 2023',
+      linkDisplay: 'polimatica.ru',
+      link: '#',
+      role: 'Dashboard Design'
     },
     {
       id: "107", 
       title: 'M.Video-Eldorado', 
-      cat: 'Е-commerce, OneRetail', 
+      cat: 'Retail', 
       image: '/assets/projects/Mvideo5.webp',
       year: '2023',
-      description: 'The OneRetail initiative for one of the largest electronic retailers. A seamless omnichannel experience connecting physical stores with a powerful mobile application.',
-      client: 'M.Video-Eldorado',
-      role: 'Lead UX Designer',
-      link: '#'
-    },
-    {
-      id: "108", 
-      title: 'Project8', 
-      cat: 'Project8', 
-      image: '/assets/projects/Project8.webp',
-      year: '2023',
-      description: 'Confidential project details. This case study focuses on the implementation of modern design systems in legacy software architectures.',
-      client: 'Confidential',
-      role: 'Product Designer',
-      link: null
-    },
-    {
-      id: "109", 
-      title: 'Project9', 
-      cat: 'Е-commerce, OneRetail', 
-      image: '/assets/projects/Project9.webp',
-      year: '2023',
-      description: 'Scaleable retail solutions focusing on user behavior and conversion rate optimization through A/B testing and data-driven design decisions.',
-      client: 'Retail Group',
-      role: 'UX Researcher',
-      link: null
-    },
-    {
-      id: "110", 
-      title: 'Project10', 
-      cat: 'Е-commerce, OneRetail', 
-      image: '/assets/projects/Project10.webp',
-      year: '2023',
-      description: 'A study in minimalist e-commerce. Eliminating friction in the checkout process and creating a brand story through high-quality photography and white space.',
-      client: 'Fashion Retail',
-      role: 'UI Designer',
-      link: null
+      description: 'The OneRetail initiative for one of the largest electronic retailers. A seamless omnichannel experience connecting physical stores with a powerful mobile app.',
+      descriptionSecondary: "We focused on a 'mobile-first' approach to ensure users have the same high-quality service whether in-store or at home.",
+      timeline: '12 Months',
+      location: 'Moscow, RU',
+      fullDate: 'May 05, 2023',
+      linkDisplay: 'mvideo.ru',
+      link: '#',
+      role: 'Lead UX Designer'
     }
+    // Остальные проекты (108-110) можно дополнить по этому же шаблону
 ];

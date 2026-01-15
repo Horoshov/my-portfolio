@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(122, 122, 122, 0.1);
+    /* border-bottom: 1px solid rgba(122, 122, 122, 0.1); */
   }
   
   .nav-col {
@@ -14,7 +14,7 @@
   
   /* Уникальный класс вместо .label */
   .nav-label {
-    font-size: 12px;
+    font-size: 14px;
     text-transform: capitalize;
     color: var(--gray-text);
     margin-bottom: 8px;

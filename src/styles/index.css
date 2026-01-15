@@ -1,11 +1,14 @@
-/* 1. ПЕРЕМЕННЫЕ */
+/* index.css */
+
 :root {
   --bg-color: #f2f2f2;
   --text-color: #000000;
   --gray-text: #7a7a7a;
-  --photo-bg: #ececec;
   --border-color: rgba(0, 0, 0, 0.1);
   --font-main: 'Inter', -apple-system, sans-serif;
+  
+  /* ЗДЕСЬ МЫ ЗАДАЕМ ЕДИНУЮ ШИРИНУ ДЛЯ ВСЕХ СТРАНИЦ */
+  --container-width: 1300px; 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,75 +16,49 @@
     --bg-color: #0d0d0d;
     --text-color: #ffffff;
     --gray-text: #888888;
-    --photo-bg: #1a1a1a;
     --border-color: rgba(255, 255, 255, 0.1);
   }
 }
 
-/* 2. БАЗОВЫЕ СБРОСЫ */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-main);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.5;
+  transition: background-color 0.3s ease;
 }
 
-/* 3. РАБОЧАЯ СЕТКА ПРОЕКТОВ (2-3-3-2) */
+/* ГЛАВНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕХ СТРАНИЦ (Единая сетка) */
+.app-container, 
+.pd-container, 
+.projects-container {
+  max-width: var(--container-width) !important;
+  margin: 0 auto !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  width: 100% !important;
+}
+
+/* СЕТКА КАРТОЧЕК (2-3-3-2) — выровнена по контейнеру */
 .projects-grid-custom {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 40px 30px;
   padding: 40px 0;
-  width: 100%;
 }
 
-/* Все карточки по умолчанию (чтобы не ломать Home, если там мало карт) */
-.projects-grid-custom > * {
-  grid-column: span 2;
-}
+.projects-grid-custom > * { grid-column: span 2; }
 
-/* РЯД 1: Карточки 1 и 2 — пополам (растягиваем) */
-.projects-grid-custom > :nth-child(1),
-.projects-grid-custom > :nth-child(2) {
+/* Логика 2-3-3-2 */
+.projects-grid-custom > :nth-child(10n+1),
+.projects-grid-custom > :nth-child(10n+2),
+.projects-grid-custom > :nth-child(10n+9),
+.projects-grid-custom > :nth-child(10n+10) {
   grid-column: span 3;
-}
-
-/* РЯД 2 и 3: Карточки с 3 по 8 — по три в ряд (они и так span 2) */
-.projects-grid-custom > :nth-child(n+3):nth-child(-n+8) {
-  grid-column: span 2;
-}
-
-/* РЯД 4: Карточки 9 и 10 — снова пополам (как в первом ряду) */
-.projects-grid-custom > :nth-child(9),
-.projects-grid-custom > :nth-child(10) {
-  grid-column: span 3;
-}
-
-/* 4. ДОПОЛНИТЕЛЬНЫЕ СТИЛИ (Заголовки и т.д.) */
-.section-header-col {
-  padding: 100px 20px 40px 20px;
-}
-
-.section-header-title {
-  font-size: clamp(42px, 8vw, 72px);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-/* 5. АДАПТИВНОСТЬ */
-@media (max-width: 1024px) {
-  .projects-grid-custom {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .projects-grid-custom > * {
-    grid-column: span 1 !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .projects-grid-custom {
-    grid-template-columns: 1fr;
-  }
 }
