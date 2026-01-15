@@ -22,51 +22,57 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
     >
       <div className="pd-container">
-        {/* ШАПКА: Категория и Заголовок */}
-        <header className="pd-header">
-          <div className="pd-meta">
-            <span className="pc-tag">{`{${project.cat}}`}</span>
-            <span className="pc-divider">/</span>
-            <span className="pc-tag">{project.year}</span>
-          </div>
-          <h1 className="pd-title">{project.title}</h1>
-        </header>
+        {/* Огромный заголовок как на скриншоте */}
+        <h1 className="pd-main-title">{project.title}</h1>
 
-        {/* ИНФО-БЛОК: Описание и Детали (НАД КАРТИНКОЙ) */}
-        <section className="pd-content-grid">
-          <div className="pd-description">
+        {/* Сетка с описанием и характеристиками */}
+        <section className="pd-info-grid">
+          {/* Левая колонка: Описание */}
+          <div className="pd-description-col">
             <p>{project.description}</p>
-          </div>
-          
-          <div className="pd-sidebar">
-            <div className="pd-info-item">
-              <span className="pd-label">Client</span>
-              <p className="pd-value">{project.client || "Confidential"}</p>
-            </div>
-            <div className="pd-info-item">
-              <span className="pd-label">Role</span>
-              <p className="pd-value">{project.role || "Product Designer"}</p>
-            </div>
-            {project.link && (
-              <div className="pd-info-item pd-action">
-                <a href={project.link} target="_blank" rel="noreferrer" className="pd-launch-link">
-                  Launch Project <span>↗</span>
-                </a>
-              </div>
+            {project.descriptionSecondary && (
+              <p className="pd-desc-secondary">{project.descriptionSecondary}</p>
             )}
           </div>
+          
+          {/* Правая колонка: Характеристики в два столбца */}
+          <div className="pd-specs-col">
+            <div className="pd-spec-item">
+              <span className="pd-label">Project Name:</span>
+              <p className="pd-value">{project.title}</p>
+            </div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Timeline:</span>
+              <p className="pd-value">{project.timeline || '2 Months'}</p>
+            </div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Live Website:</span>
+              <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">
+                {project.linkDisplay || 'www.website.com'}
+              </a>
+            </div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Location:</span>
+              <p className="pd-value">{project.location || 'Remote'}</p>
+            </div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Industry:</span>
+              <p className="pd-value">{project.cat}</p>
+            </div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Date:</span>
+              <p className="pd-value">{project.fullDate || 'December 20, 2025'}</p>
+            </div>
+          </div>
         </section>
 
-        {/* ГЛАВНОЕ ИЗОБРАЖЕНИЕ (ПОД ТЕКСТОМ) */}
-        <section className="pd-hero">
-          <img src={project.image} alt={project.title} className="pd-main-img" />
+        {/* Изображение под текстом */}
+        <section className="pd-hero-section">
+          <img src={project.image} alt={project.title} className="pd-hero-img" />
         </section>
 
-        {/* ФУТЕР С КНОПКОЙ НАЗАД */}
-        <footer className="pd-footer">
-          <Link to="/projects" className="pd-back-link">
-            <span>←</span> Back to all projects
-          </Link>
+        <footer className="pd-back-footer">
+          <Link to="/projects" className="pd-back-link">← Back to Projects</Link>
         </footer>
       </div>
     </motion.div>

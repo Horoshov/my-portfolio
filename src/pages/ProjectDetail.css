@@ -1,145 +1,72 @@
-.pd-wrapper {
-    width: 100%;
-    background-color: var(--bg-color);
-  }
-  
-  .pd-container {
+.pd-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 160px 20px 100px;
+    padding: 120px 24px;
   }
   
-  /* Шапка проекта */
-  .pd-header {
-    margin-bottom: 80px;
-  }
-  
-  .pd-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  
-  .pd-title {
-    font-size: clamp(48px, 9vw, 110px); /* Огромный заголовок */
+  .pd-main-title {
+    font-size: clamp(60px, 15vw, 180px); /* Экстремально крупный заголовок */
     font-weight: 700;
     letter-spacing: -0.05em;
-    line-height: 0.95;
-    color: var(--text-color);
+    margin-bottom: 80px;
+    line-height: 0.8;
   }
   
-  /* Hero Изображение */
-  .pd-hero {
-    width: 100%;
-    border-radius: 32px;
-    overflow: hidden;
-    margin-bottom: 120px;
-    background-color: var(--photo-bg);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-  }
-  
-  .pd-main-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    aspect-ratio: 16 / 9;
-  }
-  
-  /* Сетка контента в стиле Nexora */
-  .pd-content-grid {
+  .pd-info-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr; /* Левая колонка шире */
-    gap: 120px;
-    margin-bottom: 150px;
-    align-items: start;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 100px;
+    margin-bottom: 100px;
   }
   
-  /* Крупный текст описания */
-  .pd-description p {
-    font-size: clamp(24px, 2.5vw, 32px); /* Очень крупный шрифт */
-    line-height: 1.4;
-    font-weight: 500;
+  .pd-description-col p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
     color: var(--text-color);
-    letter-spacing: -0.02em;
   }
   
-  /* Боковая панель с деталями */
-  .pd-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    padding-top: 10px;
+  /* Сетка характеристик (правая колонка) */
+  .pd-specs-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Два столбца для лейблов */
+    gap: 40px 20px;
   }
   
   .pd-label {
     display: block;
-    font-size: 13px;
-    text-transform: uppercase;
-    color: var(--gray-text);
-    margin-bottom: 12px;
-    letter-spacing: 0.1em;
-    font-weight: 600;
+    font-size: 14px;
+    color: #7a7a7a;
+    margin-bottom: 8px;
   }
   
   .pd-value {
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--text-color);
-  }
-  
-  /* Кнопка Visit Site в сайдбаре */
-  .pd-info-block .button-secondary {
-    margin-top: 10px;
-    width: fit-content;
-  }
-  
-  /* Подвал страницы с кнопкой назад */
-  .pd-nav-footer {
-    border-top: 1px solid var(--border-color);
-    padding: 80px 0;
-    display: flex;
-    justify-content: flex-start;
-  }
-  
-  .pd-back-btn {
-    text-decoration: none;
-    font-size: 20px;
-    color: var(--text-color);
+    font-size: 18px;
     font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    transition: transform 0.3s var(--transition-smooth);
+    color: var(--text-color);
   }
   
-  .pd-back-btn span {
-    font-size: 24px;
+  .pd-link {
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
   }
   
-  .pd-back-btn:hover {
-    transform: translateX(-10px);
+  /* Изображение */
+  .pd-hero-section {
+    width: 100%;
+    border-radius: 40px; /* Скругление как на макете */
+    overflow: hidden;
+    margin-bottom: 60px;
   }
   
-  /* Адаптив для планшетов и телефонов */
-  @media (max-width: 1100px) {
-    .pd-content-grid {
+  .pd-hero-img {
+    width: 100%;
+    display: block;
+  }
+  
+  @media (max-width: 1024px) {
+    .pd-info-grid {
       grid-template-columns: 1fr;
-      gap: 80px;
-    }
-    
-    .pd-container {
-      padding-top: 120px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .pd-title {
-      font-size: 56px;
-    }
-    
-    .pd-description p {
-      font-size: 20px;
+      gap: 60px;
     }
   }
