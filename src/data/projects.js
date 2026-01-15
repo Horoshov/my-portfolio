@@ -45,19 +45,21 @@ export const allProjects = [
       role: 'Product Strategy'
     },
     { 
-      id: "104", 
-      title: 'Horoshov', 
-      cat: 'Portfolio', 
-      image: '/assets/projects/Horoshov4.webp',
-      year: '2025',
-      description: 'A personal brand identity and digital portfolio focused on high-end typography.',
-      descriptionSecondary: "The project reflects a commitment to detail, using white space and motion to guide the viewer.",
-      timeline: '2 Months',
-      location: 'Remote',
-      fullDate: 'Jan 05, 2025',
-      linkDisplay: 'horoshov.design',
-      link: '#',
-      role: 'Designer & Developer'
+    id: "104", 
+    title: 'Horoshov ', 
+    cat: 'Development', 
+    image: '/assets/projects/Horoshov4.webp',
+    year: '2026',
+    // Основной текст с использованием <b> для выделения стека
+    description: 'This project is a high-performance SPA portfolio built with <b>JavaScript (ES6+)</b>, <b>React</b>, and <b>Vite</b>. It leverages <b>Framer Motion</b> for smooth animations and <b>React Router</b> for instant navigation. The visual identity is defined by a custom <b>CSS Grid (2-3-3-2)</b>, adaptive typography, and <b>SVG filters</b> that create a signature film-grain texture.',
+    // Дополнительный текст про инструменты Cursor и GenAI
+    descriptionSecondary: "The development process was enhanced by <b>GenAI</b> and the <b>Cursor</b> code editor, utilizing <b>Git</b> for version control and <b>Vercel</b> for CI/CD. The resulting stack is optimized for speed, minimalist aesthetics, and a seamless user experience.",
+    timeline: '2 weeks',
+    location: 'Remote',
+    fullDate: 'Jan 08, 2026',
+    linkDisplay: 'horoshov.ru',
+    link: 'horoshov.ru',
+    role: 'Creative Developer'
     },
     { 
       id: "105", 
