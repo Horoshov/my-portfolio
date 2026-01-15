@@ -1,5 +1,5 @@
+/* 1. ПЕРЕМЕННЫЕ */
 :root {
-  /* Светлая тема (Default) */
   --bg-color: #f2f2f2;
   --text-color: #000000;
   --gray-text: #7a7a7a;
@@ -10,7 +10,6 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Темная тема */
     --bg-color: #0d0d0d;
     --text-color: #ffffff;
     --gray-text: #888888;
@@ -19,6 +18,7 @@
   }
 }
 
+/* 2. БАЗОВЫЕ СБРОСЫ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -28,20 +28,60 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Глобальная сетка проектов */
+/* 3. РАБОЧАЯ СЕТКА ПРОЕКТОВ (2-3-3-2) */
 .projects-grid-custom {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 60px 40px;
+  gap: 40px 30px;
   padding: 40px 0;
   width: 100%;
 }
 
-.projects-grid-custom > :nth-child(1),
-.projects-grid-custom > :nth-child(2) { grid-column: span 3; }
-.projects-grid-custom > :nth-child(n+3) { grid-column: span 2; }
+/* Все карточки по умолчанию (чтобы не ломать Home, если там мало карт) */
+.projects-grid-custom > * {
+  grid-column: span 2;
+}
 
+/* РЯД 1: Карточки 1 и 2 — пополам (растягиваем) */
+.projects-grid-custom > :nth-child(1),
+.projects-grid-custom > :nth-child(2) {
+  grid-column: span 3;
+}
+
+/* РЯД 2 и 3: Карточки с 3 по 8 — по три в ряд (они и так span 2) */
+.projects-grid-custom > :nth-child(n+3):nth-child(-n+8) {
+  grid-column: span 2;
+}
+
+/* РЯД 4: Карточки 9 и 10 — снова пополам (как в первом ряду) */
+.projects-grid-custom > :nth-child(9),
+.projects-grid-custom > :nth-child(10) {
+  grid-column: span 3;
+}
+
+/* 4. ДОПОЛНИТЕЛЬНЫЕ СТИЛИ (Заголовки и т.д.) */
+.section-header-col {
+  padding: 100px 20px 40px 20px;
+}
+
+.section-header-title {
+  font-size: clamp(42px, 8vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* 5. АДАПТИВНОСТЬ */
 @media (max-width: 1024px) {
-  .projects-grid-custom { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid-custom > * { grid-column: span 1 !important; }
+  .projects-grid-custom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .projects-grid-custom > * {
+    grid-column: span 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-grid-custom {
+    grid-template-columns: 1fr;
+  }
 }
