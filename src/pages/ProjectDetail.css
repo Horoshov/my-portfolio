@@ -1,15 +1,23 @@
+/* ProjectDetail.css */
+
 .pd-container {
-    max-width: 1400px;
+    /* Единая ширина с главной страницей */
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 120px 24px;
+    /* Отступы: 140px сверху для шапки, 40px по бокам для мобильных */
+    padding: 140px 40px 100px;
+    width: 100%;
   }
   
   .pd-main-title {
-    font-size: clamp(42px, 8vw, 72px); /* Заголовок */
+    /* Стиль СТРОГО как в PageHeader (section-header-title) */
+    font-size: clamp(42px, 8vw, 72px);
     font-weight: 700;
-    letter-spacing: -0.05em;
-    margin-bottom: 80px;
-    line-height: 0.8;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    color: var(--text-color);
+    text-transform: none; /* Отменяем капс */
   }
   
   .pd-info-grid {
@@ -26,17 +34,18 @@
     color: var(--text-color);
   }
   
-  /* Сетка характеристик (правая колонка) */
+  /* Правая колонка: Характеристики */
   .pd-specs-col {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Два столбца для лейблов */
-    gap: 40px 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 40px;
+    grid-template-columns: 1fr 1fr;
   }
   
   .pd-label {
     display: block;
     font-size: 14px;
-    color: #7a7a7a;
+    color: var(--gray-text);
     margin-bottom: 8px;
   }
   
@@ -49,22 +58,36 @@
   .pd-link {
     text-decoration: none;
     border-bottom: 1px solid currentColor;
+    color: var(--text-color);
   }
   
-  /* Изображение */
+  /* Главное изображение */
   .pd-hero-section {
     width: 100%;
-    border-radius: 40px; /* Скругление как на макете */
+    border-radius: 40px;
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
   
   .pd-hero-img {
     width: 100%;
+    height: auto;
     display: block;
   }
   
+  /* Секция Next Projects (сетка карточек) */
+  .pd-next-section {
+    margin-top: 100px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-color);
+  }
+  
+  /* Адаптивность */
   @media (max-width: 1024px) {
+    .pd-container {
+      padding: 100px 24px;
+    }
+    
     .pd-info-grid {
       grid-template-columns: 1fr;
       gap: 60px;
