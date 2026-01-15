@@ -5,7 +5,7 @@
   }
   
   .pd-main-title {
-    font-size: clamp(60px, 15vw, 180px); /* Экстремально крупный заголовок */
+    font-size: clamp(42px, 8vw, 72px); /* Заголовок */
     font-weight: 700;
     letter-spacing: -0.05em;
     margin-bottom: 80px;

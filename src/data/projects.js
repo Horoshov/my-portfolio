@@ -8,8 +8,9 @@ export const allProjects = [
       image: '/assets/projects/Coincom2.webp',
       year: '2024',
       description: 'A revolutionary digital banking experience focused on seamless cryptocurrency integration. We designed an interface that bridges the gap between traditional finance and the decentralized web.',
-      client: 'CoinCom Global',
-      role: 'Lead Product Designer',
+      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
+      client: 'Монетная компания',
+      role: 'UX/UI Designer',
       link: 'https://coincom.io'
     },
     { 
@@ -19,6 +20,7 @@ export const allProjects = [
       image: '/assets/projects/Domilend3.webp',
       year: '2024',
       description: 'Domilend simplifies the mortgage process for home buyers. The platform connects lenders and borrowers in a transparent environment, reducing paperwork by 60%.',
+      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
       client: 'Domilend Inc.',
       role: 'UI/UX Design',
       link: '#'
@@ -30,6 +32,7 @@ export const allProjects = [
       image: '/assets/projects/Postman7.webp',
       year: '2024',
       description: 'A robust logistics management system designed for last-mile delivery. Real-time tracking, automated routing, and a simplified driver app were the key focuses of this project.',
+      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product. The final outcome delivers both visual impact and functional clarity.",
       client: 'Postman Delivery',
       role: 'Product Strategy',
       link: '#'

@@ -37,7 +37,8 @@ const Home = () => {
             <li>Product Design & UX/UI</li>
             <li>Frontend Development</li>
             <li>Design Management</li>
-            <li>BI & Industrial Systems</li>
+            <li>3D Graphics</li>
+            <li>CEO Analitics</li>
           </ul>
         </div>
       </section>
