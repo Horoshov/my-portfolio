@@ -9,7 +9,7 @@
     width: 100%;
     aspect-ratio: 16 / 11;
     background-color: var(--photo-bg); /* Темизация фона заглушки */
-    border-radius: 12px;
+    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 20px;
   }
