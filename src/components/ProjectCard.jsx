@@ -1,41 +1,23 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-
-const cardVariants = {
-  offscreen: { y: 30, opacity: 0 },
-  onscreen: { 
-    y: 0, 
-    opacity: 1,
-    transition: { type: "spring", bounce: 0.3, duration: 0.8 }
-  }
-};
+import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
   if (!project) return null;
-
   return (
-    <motion.div 
-      className="project-card" 
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.1 }}
-      variants={cardVariants}
-    >
-      <Link to={`/project/${project.id}`} className="project-link">
-        <div className="project-image-wrapper">
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+      <Link to={`/project/${project.id}`} className="pc-card">
+        <div className="pc-img-box">
           <img src={project.image} alt={project.title} loading="lazy" />
         </div>
-        
-        <div className="project-info">
-          {/* 1. Название ПЕРВОЕ */}
-          <h3 className="project-title">{project.title}</h3>
-          
-          {/* 2. Описание и год ВТОРОЕ */}
-          <div className="project-meta">
-            <span className="label">{project.cat}</span>
-            <span className="label">{project.year || '2026'}</span>
+        <div className="pc-body">
+          <div className="pc-meta">
+            <span className="pc-tag">{project.cat}</span>
+            <span className="pc-dot">/</span>
+            <span className="pc-tag">{project.year || '2026'}</span>
           </div>
+          <h3 className="pc-title">{project.title}</h3>
         </div>
       </Link>
     </motion.div>

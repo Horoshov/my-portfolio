@@ -6,7 +6,7 @@ export const allProjects = [
       title: 'CoinCom', 
       cat: '{Fintech}', 
       image: '/assets/projects/Coincom2.webp',
-      year: '2024 проверка'
+      year: '2024'
     },
     { 
       id: 102, 
