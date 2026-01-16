@@ -183,7 +183,7 @@
   }
   
   .section-header-col {
-    padding: 100px 20px 40px 20px; 
+    padding: 60px 0px 40px 0px; 
   }
   
   .section-header-title {
@@ -856,6 +856,25 @@ textarea:-webkit-autofill:focus {
   letter-spacing: 0.01em;
   color: var(--text-color);
   margin: 0;
+}
+
+/* Выравнивание PageHeader по левому краю на всех страницах */
+.page-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Прижимает заголовок влево */
+  text-align: left;
+  margin-bottom: 60px;
+  padding: 0; /* Сбрасываем внутренние отступы */
+}
+
+.page-header h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
 }
 
 /* Адаптивность для мобильных */

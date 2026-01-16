@@ -50,10 +50,8 @@ export const allProjects = [
     cat: 'Development', 
     image: '/assets/projects/Horoshov4.webp',
     year: '2026',
-    // Основной текст с использованием <b> для выделения стека
-    description: 'This project is a high-performance SPA portfolio built with <b>JavaScript (ES6+)</b>, <b>React</b>, and <b>Vite</b>. It leverages <b>Framer Motion</b> for smooth animations and <b>React Router</b> for instant navigation. The visual identity is defined by a custom <b>CSS Grid (2-3-3-2)</b>, adaptive typography, and <b>SVG filters</b> that create a signature film-grain texture.',
-    // Дополнительный текст про инструменты Cursor и GenAI
-    descriptionSecondary: "The development process was enhanced by <b>GenAI</b> and the <b>Cursor</b> code editor, utilizing <b>Git</b> for version control and <b>Vercel</b> for CI/CD. The resulting stack is optimized for speed, minimalist aesthetics, and a seamless user experience.",
+    description: "High-performance SPA engineered with a focus on <b>React architecture</b> and <b>Vite</b> bundling optimization. The system implements <b>Framer Motion</b> for state-driven transitions and <b>React Router</b> for client-side navigation. Layout logic is governed by a <b>CSS Grid (2-3-3-2)</b> framework, complemented by <b>SVG-based post-processing</b> filters for texture rendering.",
+    descriptionSecondary: "Development workflow utilized <b>GenAI</b> integration within <b>Cursor</b>, managed via <b>Git</b> version control. Deployment and CI/CD pipeline are automated through <b>Vercel</b>. The technical stack is focused on <b>runtime performance</b>, minimalist asset management, and scalable frontend structure.",    descriptionSecondary: "The development process was enhanced by <b>GenAI</b> and the <b>Cursor</b> code editor, utilizing <b>Git</b> for version control and <b>Vercel</b> for CI/CD. The resulting stack is optimized for speed, minimalist aesthetics, and a seamless user experience.",
     timeline: '2 weeks',
     location: 'Remote',
     fullDate: 'Jan 08, 2026',
