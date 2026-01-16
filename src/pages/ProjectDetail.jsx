@@ -28,8 +28,11 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
     >
       <div className="pd-container">
-        {/* Название проекта — только здесь */}
-        <h1 className="pd-main-title">{project.title}</h1>
+        {/* ГЛАВНЫЙ ЗАГОЛОВОК */}
+        <PageHeader 
+          title={project.title} 
+          category={project.category} 
+        />
 
         <section className="pd-info-grid">
           {/* ЛЕВАЯ КОЛОНКА: Описание */}
@@ -47,7 +50,7 @@ const ProjectDetail = () => {
             )}
           </div>
           
-          {/* ПРАВАЯ КОЛОНКА: Спецификации (Project Name удален) */}
+          {/* ПРАВАЯ КОЛОНКА: Спецификации */}
           <div className="pd-specs-col">
             <div className="pd-spec-item">
               <span className="pd-label">Timeline:</span>
@@ -87,12 +90,12 @@ const ProjectDetail = () => {
           </div>
         </section>
 
-        {/* Контентная часть */}
+        {/* ГЛАВНОЕ ИЗОБРАЖЕНИЕ */}
         <section className="pd-hero-section">
           <img src={project.image} alt={project.title} className="pd-hero-img" />
         </section>
 
-        {/* Футер с другими проектами */}
+        {/* СЕКЦИЯ СЛЕДУЮЩИХ ПРОЕКТОВ */}
         <section className="pd-next-section">
           <PageHeader title="Next Projects" />
           <div className="projects-grid-custom next-grid">
@@ -102,6 +105,7 @@ const ProjectDetail = () => {
           </div>
         </section>
 
+        {/* ФУТЕР */}
         <footer className="pd-back-footer">
           <Link to="/projects" className="pd-back-link">← Back to Projects</Link>
         </footer>

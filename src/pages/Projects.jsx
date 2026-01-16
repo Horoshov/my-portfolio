@@ -13,7 +13,7 @@ const Projects = () => {
       exit={{ opacity: 0 }} 
       transition={{ duration: 0.5 }}
     >
-      <PageHeader title="Projects" />
+      <PageHeader title="Recent Works" />
       
       <section className="projects-content" style={{ padding: '40px 0 100px' }}>
         <div className="projects-grid-custom">

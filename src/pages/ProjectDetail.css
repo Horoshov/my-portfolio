@@ -16,19 +16,7 @@
   display: block;
 }
 
-.pd-main-title {
-  /* Твои исходные стили без изменений регистра */
-  font-size: clamp(42px, 8vw, 72px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
-  margin-bottom: 60px;
-  color: var(--text-color);
-  
-  /* Принудительное выравнивание влево */
-  text-align: left;
-  margin-left: 0;
-}
+
 
 .pd-info-grid {
   display: grid;
