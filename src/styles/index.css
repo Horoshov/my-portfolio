@@ -7,7 +7,7 @@
   --border-color: rgba(0, 0, 0, 0.1);
   --font-main: 'Inter', -apple-system, sans-serif;
   
-  /* ЗДЕСЬ МЫ ЗАДАЕМ ЕДИНУЮ ШИРИНУ ДЛЯ ВСЕХ СТРАНИЦ */
+  /* Единая максимальная ширина для всех страниц */
   --container-width: 1300px; 
 }
 
@@ -34,18 +34,25 @@ body {
   transition: background-color 0.3s ease;
 }
 
-/* ГЛАВНЫЙ КОНТЕЙНЕР ДЛЯ ВСЕХ СТРАНИЦ (Единая сетка) */
-.app-container, 
-.pd-container, 
-.projects-container {
+/* ГЛАВНЫЙ ВНЕШНИЙ КОНТЕЙНЕР (Базовая сетка) */
+.app-container {
   max-width: var(--container-width) !important;
   margin: 0 auto !important;
   padding-left: 40px !important;
   padding-right: 40px !important;
   width: 100% !important;
+  display: block !important;
 }
 
-/* СЕТКА КАРТОЧЕК (2-3-3-2) — выровнена по контейнеру */
+/* ВНУТРЕННИЙ КОНТЕЙНЕР ДЛЯ СТРАНИЦЫ ПРОЕКТА */
+/* Мы обнуляем ему padding, так как он вложен в app-container */
+.pd-container {
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* СЕТКА КАРТОЧЕК (2-3-3-2) */
 .projects-grid-custom {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -53,7 +60,9 @@ body {
   padding: 40px 0;
 }
 
-.projects-grid-custom > * { grid-column: span 2; }
+.projects-grid-custom > * { 
+  grid-column: span 2; 
+}
 
 /* Логика 2-3-3-2 */
 .projects-grid-custom > :nth-child(10n+1),
