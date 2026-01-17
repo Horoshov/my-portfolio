@@ -5,11 +5,10 @@ export const allProjects = [
       cat: 'Fintech',
       image: '/assets/projects/Coincom2.webp',
       year: '2024',
-      description: '<b>Проектирование и развитие UX/UI финтех-платформы Coincom<b>',
-      descriptionSecondary: "Работа над интерфейсами федеральной сети терминалов самообслуживания. В основе проекта — трансформация бизнес-задач в интуитивные пользовательские сценарии и создание высокодетализированных интерактивных прототипов. Особое внимание уделялось адаптации визуального языка под специфику сенсорных экранов и минимизации когнитивной нагрузки пользователя в процессе проведения транзакций. Процесс включал валидацию продуктовых гипотез, защиту дизайн-решений перед стейкхолдерами и авторский надзор на всех этапах интеграции в Hardware-среду.",
-      timeline: '4 Months',
+      description: '<b>Проектирование и развитие UX/UI финтех-платформы Coincom</b>',
+      descriptionSecondary: "Работа над интерфейсами федеральной сети терминалов самообслуживания. В основе проекта — трансформация бизнес-задач в интуитивные пользовательские сценарии и создание высокодетализированных интерактивных прототипов. Особое внимание уделялось адаптации визуального языка под специфику сенсорных экранов и минимизации когнитивной нагрузки пользователя в процессе проведения транзакций.",
+      timeline: '10 месяцев',
       location: 'Москва, Россия',
-      fullDate: 'March 20, 2024',
       linkDisplay: 'coincom.io',
       link: 'https://coincom.io',
       role: 'UX/UI Designer',
@@ -39,7 +38,7 @@ export const allProjects = [
                 <h4>1. Исследование и гипотезы</h4>
                 <ul>
                   <li><strong>Валидация идей:</strong> Перевод бизнес-задач в функциональные требования.</li>
-                  <li><strong>User Flow:</strong> Проработка сценариев для "уличного" интерфейса (быстрота, освещенность, понятность).</li>
+                  <li><strong>User Flow:</strong> Проработка сценариев для "уличного" интерфейса.</li>
                 </ul>
               </div>
   
@@ -47,7 +46,6 @@ export const allProjects = [
                 <h4>2. Прототипирование и дизайн</h4>
                 <ul>
                   <li><strong>Rapid Prototyping:</strong> Интерактивные прототипы для проверки гипотез.</li>
-                  <li><strong>Design-to-Code:</strong> Подготовка макетов и контроль Pixel Perfect реализации.</li>
                   <li><strong>Система состояний:</strong> Сценарии ошибок и Empty States для физического оборудования.</li>
                 </ul>
               </div>
@@ -56,7 +54,7 @@ export const allProjects = [
                 <h4>3. Коммуникация и защита</h4>
                 <ul>
                   <li><strong>Stakeholder Management:</strong> Презентация и защита решений перед руководством.</li>
-                  <li><strong>Cross-functional:</strong> Связка с маркетингом для поддержки визуального стиля бренда.</li>
+                  <li><strong>Cross-functional:</strong> Связка с маркетингом для поддержки стиля бренда.</li>
                 </ul>
               </div>
   
@@ -64,7 +62,7 @@ export const allProjects = [
                 <h4>4. Тестирование и QA</h4>
                 <ul>
                   <li><strong>Design Review:</strong> Сопровождение разработки на каждом этапе.</li>
-                  <li><strong>Полевые тесты:</strong> Тестирование интерфейсов "в полях" для выявления барьеров.</li>
+                  <li><strong>Полевые тесты:</strong> Тестирование интерфейсов "в полях".</li>
                 </ul>
               </div>
             </div>
@@ -73,9 +71,8 @@ export const allProjects = [
           <section class="case-section highlight-box">
             <h3 class="case-subtitle">💡 UX/UI Highlights</h3>
             <ul>
-              <li><strong>Главный вызов:</strong> Создать интерфейс, понятный любому пользователю за 5–10 секунд.</li>
+              <li><strong>Главный вызов:</strong> Создать интерфейс, понятный пользователю за 5–10 секунд.</li>
               <li><strong>Accessibility:</strong> Учет специфики сенсорных экранов (размеры кнопок, контрастность).</li>
-              <li><strong>Синхронизация:</strong> Единый язык между физическим терминалом и цифрой.</li>
             </ul>
           </section>
   
@@ -86,137 +83,143 @@ export const allProjects = [
     },
     {
       id: "102",
-      title: 'Domilend',
-      cat: 'PropTech',
-      image: '/assets/projects/Domilend3.webp',
-      year: '2024',
-      description: 'Domilend simplifies the mortgage process for home buyers connecting lenders and borrowers.',
-      descriptionSecondary: "By merging strategy with creativity, Domilend evolved into a refined and purposeful digital product.",
-      timeline: '3 Months',
-      location: 'London, UK',
-      fullDate: 'June 15, 2024',
-      linkDisplay: 'domilend.com',
-      link: '#',
-      role: 'UI/UX Design'
-    },
-    {
-      id: "103",
-      title: 'Postman',
-      cat: 'Logistics',
-      image: '/assets/projects/Postman7.webp',
-      year: '2024',
-      description: 'A robust logistics management system designed for last-mile delivery and real-time tracking.',
-      descriptionSecondary: "We optimized the complex workflows into a clean interface, allowing dispatchers to manage deliveries easily.",
-      timeline: '5 Months',
-      location: 'Berlin, DE',
-      fullDate: 'Sept 10, 2024',
-      linkDisplay: 'postman.de',
-      link: '#',
-      role: 'Product Strategy'
-    },
-    {
-      id: "104",
-      title: 'Horoshov',
-      cat: 'Development',
-      image: '/assets/projects/Horoshov4.webp',
-      year: '2026',
-      description: "High-performance SPA engineered with a focus on <b>React architecture</b> and <b>Vite</b> bundling optimization.",
-      descriptionSecondary: "The development process was enhanced by <b>GenAI</b> and the <b>Cursor</b> code editor, utilizing <b>Git</b> for version control and <b>Vercel</b> for CI/CD.",
-      timeline: '2 weeks',
-      location: 'Remote',
-      fullDate: 'Jan 08, 2026',
-      linkDisplay: 'horoshov.ru',
-      link: 'https://horoshov.ru',
-      role: 'Creative Developer'
-    },
-    {
-      id: "105",
-      title: 'Betonika',
-      cat: 'E-commerce',
-      image: '/assets/projects/Betonika1.webp',
-      year: '2024',
-      description: 'An advanced e-commerce platform for construction materials with a built-in 3D module.',
-      descriptionSecondary: "Integrating 3D tools into a standard shop flow required a balance between performance and fidelity.",
-      timeline: '6 Months',
-      location: 'Warsaw, PL',
-      fullDate: 'Nov 22, 2024',
-      linkDisplay: 'betonika.com',
-      link: '#',
-      role: 'Frontend Development'
+      title: "Domyland",
+      cat: "PropTech Platform",
+      image: "/assets/projects/Domyland.webp",
+      year: "2024",
+      description: "<b>UX/UI</b> трансформация и масштабирование продуктовых модулей ведущей <b>PropTech-экосистемы</b>",
+      descriptionSecondary: "Работа над экосистемой, объединяющей <b>SuperApp</b> для жителей, CRM-систему «Домиленд Бизнес» и <b>White Label</b> решения для крупнейших застройщиков (Самолет, Level, А101). Проектирование велось с фокусом на интеграцию IoT-модулей, автоматизацию ЖКХ и создание сквозных сценариев покупки недвижимости.",
+      timeline: "12 месяцев",
+      location: "Москва, Россия",
+      linkDisplay: "domyland.ru",
+      link: "https://domyland.ru",
+      role: "Lead UX/UI Designer",
+      sectionTitle: "Scaling the Industry Leader",
+      sectionText: `
+        <div class="project-case-content">
+          <div class="case-meta-box">
+            <p><strong>🏠 Роль:</strong> Lead UX/UI Designer (Единственный дизайнер)</p>
+            <p><strong>📱 Скоуп:</strong> SuperApp (iOS/Android), CRM-система, White Label архитектура</p>
+            <p><strong>⚡️ Стек:</strong> Figma / Prototyping / User Research / Design Systems / Agile</p>
+          </div>
+    
+          <section class="case-section">
+            <h3 class="case-subtitle">О платформе</h3>
+            <p class="case-main-text">
+              <strong>Domyland</strong> — ведущая B2B2C PropTech-экосистема. Продукт автоматизирует взаимодействие девелоперов, УК и жителей, внедряя цифровые стандарты в управление недвижимостью.
+            </p>
+          </section>
+    
+          <section class="case-section">
+            <h3 class="case-subtitle">🚀 Ключевые продуктовые модули</h3>
+            <div class="case-grid">
+              <div class="case-item">
+                <h4>⚡️ Умный дом (IoT)</h4>
+                <ul>
+                  <li><strong>Доступ:</strong> Видеодомофония, СКУД и облачное видеонаблюдение.</li>
+                  <li><strong>Телеметрия:</strong> Автоматизированный сбор показаний счетчиков.</li>
+                </ul>
+              </div>
+    
+              <div class="case-item">
+                <h4>🏢 Transactional Flow</h4>
+                <ul>
+                  <li><strong>Сделка:</strong> Выбор квартир, ипотечный модуль и личный кабинет покупателя.</li>
+                  <li><strong>Приемка:</strong> Цифровая подпись актов (ЭЦП) и запись на осмотр.</li>
+                </ul>
+              </div>
+    
+              <div class="case-item">
+                <h4>🛠 ЖКХ & Operations</h4>
+                <ul>
+                  <li><strong>Диспетчерская:</strong> Умная АДС и сквозной трекинг сервисных заявок.</li>
+                  <li><strong>Биллинг:</strong> Онлайн-оплата ЖКУ в один клик.</li>
+                </ul>
+              </div>
+    
+              <div class="case-item">
+                <h4>🛍 Marketplace</h4>
+                <ul>
+                  <li><strong>Сервисы:</strong> Витрина услуг партнеров (аренда, страхование, ремонт).</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+    
+          <section class="case-section highlight-box">
+            <h3 class="case-subtitle">🏆 Индустриальные показатели</h3>
+            <ul>
+              <li><strong>🥇 Urban Awards:</strong> Лучший IT-продукт для девелоперов.</li>
+              <li><strong>💎 Премия Рунета:</strong> Лидер в категории мобильной разработки PropTech.</li>
+            </ul>
+          </section>
+    
+          <div class="case-stack-footer">
+            <strong>Проектирование:</strong> White Label архитектура / Навигационные модели / Дизайн-система
+          </div>
+        </div>`
     },
     {
       id: "106",
-      title: 'Polimatica',
-      cat: 'BI System',
-      image: '/assets/projects/Polimatica6.webp',
-      year: '2023',
-      description: 'A complex Business Intelligence tool for handling massive datasets with clarity.',
-      descriptionSecondary: "The challenge was to make complex data visualizations interactive and easy to interpret.",
-      timeline: '8 Months',
-      location: 'Singapore',
-      fullDate: 'Aug 14, 2023',
-      linkDisplay: 'polimatica.ru',
-      link: '#',
-      role: 'Dashboard Design'
-    },
-    {
-      id: "107",
-      title: 'M.Video',
-      cat: 'Retail',
-      image: '/assets/projects/Mvideo5.webp',
-      year: '2023',
-      description: 'The OneRetail initiative for one of the largest electronic retailers in the country.',
-      descriptionSecondary: "We focused on a 'mobile-first' approach to ensure users have high-quality service everywhere.",
-      timeline: '12 Months',
-      location: 'Moscow, RU',
-      fullDate: 'May 05, 2023',
-      linkDisplay: 'mvideo.ru',
-      link: '#',
-      role: 'Lead UX Designer'
-    },
-    {
-      id: "108",
-      title: 'Project 8',
-      cat: 'Design System',
-      image: '/assets/projects/Project8.webp',
-      year: '2023',
-      description: 'Confidential project details regarding modern design systems in legacy software.',
-      descriptionSecondary: "Implementation focused on scalability and consistency across multiple platforms.",
-      timeline: '4 Months',
-      location: 'Remote',
-      fullDate: 'Feb 12, 2023',
-      linkDisplay: 'Internal Only',
-      link: null,
-      role: 'Product Designer'
-    },
-    {
-      id: "109",
-      title: 'Project 9',
-      cat: 'Retail Solutions',
-      image: '/assets/projects/Project9.webp',
-      year: '2023',
-      description: 'Scaleable retail solutions focusing on user behavior and conversion rate optimization.',
-      descriptionSecondary: "Data-driven design decisions based on extensive A/B testing and research.",
-      timeline: '5 Months',
-      location: 'Remote',
-      fullDate: 'April 18, 2023',
-      linkDisplay: 'Confidential',
-      link: null,
-      role: 'UX Researcher'
-    },
-    {
-      id: "110",
-      title: 'Project 10',
-      cat: 'Fashion Tech',
-      image: '/assets/projects/Project10.webp',
-      year: '2023',
-      description: 'A study in minimalist e-commerce, eliminating friction in the checkout process.',
-      descriptionSecondary: "Creating a brand story through high-quality photography and intentional white space.",
-      timeline: '3 Months',
-      location: 'Paris, FR',
-      fullDate: 'July 22, 2023',
-      linkDisplay: 'In Review',
-      link: null,
-      role: 'UI Designer'
+      title: "Polimatica",
+      cat: "BI System",
+      image: "/assets/projects/Polimatica6.webp",
+      year: "2023",
+      description: "<b>Проектирование BI-платформы для анализа и визуализации больших данных</b>",
+      descriptionSecondary: "Развитие аналитической экосистемы Polymatica (SLSoft). Работа над инструментами подключения к источникам данных, моделирования, создания интерактивных дашбордов и совместной работы. Проект требовал глубокого погружения в технические сценарии бизнес-аналитиков.",
+      timeline: "8 месяцев",
+      location: "Москва, Россия",
+      linkDisplay: "Polymatica.ru",
+      link: "https://slsoft.ru/products/polymatica/",
+      role: "Product UX/UI Design",
+      sectionTitle: "Polymatica: Профессиональная аналитическая среда",
+      sectionText: `
+        <div class="project-case-content">
+          <div class="case-meta-box">
+            <p><strong>Роль:</strong> Design Lead</p>
+            <p><strong>Сфера:</strong> BI / Big Data / Enterprise Software</p>
+            <p><strong>Задачи:</strong> Руководство группой дизайна, имплементация дизайн-системы, UX-исследования.</p>
+          </div>
+    
+          <section class="case-section">
+            <h3 class="case-subtitle">О проекте</h3>
+            <p class="case-main-text">
+              <strong>Polymatica</strong> — российская BI-платформа для высокоскоростной обработки данных. Система позволяет выстраивать полный цикл аналитики: от подключения к СУБД до создания комплексных мастер-дашбордов.
+            </p>
+          </section>
+    
+          <section class="case-section">
+            <h3 class="case-subtitle">🚀 Масштабирование и функциональное развитие</h3>
+            <div class="case-grid">
+              <div class="case-item">
+                <h4>1. Стратегия и исследования</h4>
+                <ul>
+                  <li><strong>JTBD Framework:</strong> Выявление истинных задач аналитиков.</li>
+                  <li><strong>UX-валидация:</strong> Юзабилити-тестирования интерфейсов (Data Modeling, ETL).</li>
+                </ul>
+              </div>
+              <div class="case-item">
+                <h4>2. Архитектура</h4>
+                <ul>
+                  <li><strong>Design System:</strong> Внедрение новой дизайн-системы для Enterprise-среды.</li>
+                  <li><strong>Wiki:</strong> Создание глоссария для синхронизации дизайна и разработки.</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+    
+          <section class="case-section highlight-box">
+            <h3 class="case-subtitle">💡 UX/UI Highlights & Модули</h3>
+            <ul>
+              <li><strong>Мастер дашбордов:</strong> Оптимизация конструктора визуализаций для больших данных.</li>
+              <li><strong>Модели данных:</strong> Интерфейс для связки внутренних и внешних баз данных.</li>
+              <li><strong>Collaboration:</strong> Внедрение системы ролей и прав доступа.</li>
+            </ul>
+          </section>
+    
+          <div class="case-stack-footer">
+            <strong>Технологический стек:</strong> Figma / Design Systems / Data Visualization / JTBD / Agile
+          </div>
+        </div>`
     }
   ];

@@ -48,14 +48,14 @@ const ProjectDetail = () => {
             <div className="pd-spec-item"><span className="pd-label">Timeline:</span><p className="pd-value">{project.timeline}</p></div>
             <div className="pd-spec-item"><span className="pd-label">Role:</span><p className="pd-value">{project.role}</p></div>
             <div className="pd-spec-item">
-              <span className="pd-label">Live Website:</span>
+              <span className="pd-label">Website:</span>
               {project.link && project.link !== '#' ? (
                 <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">{project.linkDisplay}</a>
               ) : ( <p className="pd-value">Coming Soon</p> )}
             </div>
-            <div className="pd-spec-item"><span className="pd-label">Location:</span><p className="pd-value">{project.location}</p></div>
             <div className="pd-spec-item"><span className="pd-label">Industry:</span><p className="pd-value">{project.cat}</p></div>
-            <div className="pd-spec-item"><span className="pd-label">Date:</span><p className="pd-value">{project.fullDate}</p></div>
+        {/* <div className="pd-spec-item"><span className="pd-label">Location:</span><p className="pd-value">{project.location}</p></div>*/}
+        {/* <div className="pd-spec-item"><span className="pd-label">Date:</span><p className="pd-value">{project.fullDate}</p></div>*/}
           </div>
         </section>
 
