@@ -15,7 +15,7 @@ const Projects = () => {
     >
       <PageHeader title="Recent Works" />
       
-      <section className="projects-content" style={{ padding: '40px 0 100px' }}>
+      <section className="projects-content" style={{ padding: '0px 0 100px' }}>
         <div className="projects-grid-custom">
           <AnimatePresence>
             {allProjects.map((project) => (
