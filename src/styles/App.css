@@ -35,7 +35,7 @@
   
   /* =========================================
      2. CONTAINERS
-     ========================================= */
+   ========================================= */
   /* App.css */
 
 .app-container {
@@ -163,19 +163,29 @@
   
   .giant-title-wrapper {
     width: 100%;
-    padding: 80px 0;
+    /* Вертикальные отступы: 120px сверху, 80px снизу для воздуха */
+    padding: 120px 0 80px 0; 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start; /* Выравниваем по левому краю сетки */
+    overflow: hidden; /* Защита от вылета текста за края */
   }
   
   .giant-title {
     font-size: 6.9vw;
-    line-height: 0.8;
-    letter-spacing: -0.07em;
+    line-height: 0.85;
+    letter-spacing: -0.05em; /* Чуть уменьшил, чтобы не слипалось слишком сильно */
     font-weight: 900;
     text-transform: uppercase;
     white-space: nowrap;
+    color: var(--text-color);
+    
+    /* Плавное появление при загрузке */
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
   
   /* =========================================
