@@ -12,7 +12,9 @@ export const allProjects = [
       fullDate: 'March 20, 2024',
       linkDisplay: 'coincom.io',
       link: 'https://coincom.io',
-      role: 'UX/UI Designer'
+      role: 'UX/UI Designer',
+      sectionTitle: "Problems", 
+      sectionText: "During the Nexoro project, we faced the challenge..."
     },
     { 
       id: "102", 
