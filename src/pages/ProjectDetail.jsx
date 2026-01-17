@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { allProjects } from '../data/projects';
 import PageHeader from '../components/PageHeader'; 
 import ProjectCard from '../components/ProjectCard'; 
-import './ProjectDetail.css';
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -28,14 +27,9 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
     >
       <div className="pd-container">
-        {/* ГЛАВНЫЙ ЗАГОЛОВОК */}
-        <PageHeader 
-          title={project.title} 
-          category={project.category} 
-        />
+        <PageHeader title={project.title} category={project.category} />
 
         <section className="pd-info-grid">
-          {/* ЛЕВАЯ КОЛОНКА: Описание */}
           <div className="pd-description-col">
             <div 
               className="project-description" 
@@ -50,43 +44,18 @@ const ProjectDetail = () => {
             )}
           </div>
           
-          {/* ПРАВАЯ КОЛОНКА: Спецификации */}
           <div className="pd-specs-col">
-            <div className="pd-spec-item">
-              <span className="pd-label">Timeline:</span>
-              <p className="pd-value">{project.timeline}</p>
-            </div>
-
-            <div className="pd-spec-item">
-              <span className="pd-label">Role:</span>
-              <p className="pd-value">{project.role}</p>
-            </div>
-
+            <div className="pd-spec-item"><span className="pd-label">Timeline:</span><p className="pd-value">{project.timeline}</p></div>
+            <div className="pd-spec-item"><span className="pd-label">Role:</span><p className="pd-value">{project.role}</p></div>
             <div className="pd-spec-item">
               <span className="pd-label">Live Website:</span>
               {project.link && project.link !== '#' ? (
-                <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">
-                  {project.linkDisplay}
-                </a>
-              ) : (
-                <p className="pd-value">Coming Soon</p>
-              )}
+                <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">{project.linkDisplay}</a>
+              ) : ( <p className="pd-value">Coming Soon</p> )}
             </div>
-
-            <div className="pd-spec-item">
-              <span className="pd-label">Location:</span>
-              <p className="pd-value">{project.location}</p>
-            </div>
-
-            <div className="pd-spec-item">
-              <span className="pd-label">Industry:</span>
-              <p className="pd-value">{project.cat}</p>
-            </div>
-
-            <div className="pd-spec-item">
-              <span className="pd-label">Date:</span>
-              <p className="pd-value">{project.fullDate}</p>
-            </div>
+            <div className="pd-spec-item"><span className="pd-label">Location:</span><p className="pd-value">{project.location}</p></div>
+            <div className="pd-spec-item"><span className="pd-label">Industry:</span><p className="pd-value">{project.cat}</p></div>
+            <div className="pd-spec-item"><span className="pd-label">Date:</span><p className="pd-value">{project.fullDate}</p></div>
           </div>
         </section>
 
@@ -94,8 +63,27 @@ const ProjectDetail = () => {
         <section className="pd-hero-section">
           <img src={project.image} alt={project.title} className="pd-hero-img" />
         </section>
+        {/* ПОДРОБНЫЙ КЕЙС ПОД ИЗОБРАЖЕНИЕМ */}
+        {project.sectionText && (
+          <section className="pd-text-block-new">
+            <h2 className="section-subtitle">{project.sectionTitle}</h2>
+            <div 
+              className="section-description" 
+              dangerouslySetInnerHTML={{ __html: project.sectionText }} 
+            />
+          </section>
+)}
 
-        {/* СЕКЦИЯ СЛЕДУЮЩИХ ПРОЕКТОВ */}
+        
+
+        {/* 2. Затем ТЕКСТОВЫЙ БЛОК (под изображением) */}
+        {project.sectionText && (
+          <section className="pd-text-block">
+            <h2 className="title">{project.sectionTitle}</h2>
+            <p className="text">{project.sectionText}</p>
+          </section>
+        )}
+
         <section className="pd-next-section">
           <PageHeader title="Next Projects" />
           <div className="projects-grid-custom next-grid">
@@ -105,7 +93,6 @@ const ProjectDetail = () => {
           </div>
         </section>
 
-        {/* ФУТЕР */}
         <footer className="pd-back-footer">
           <Link to="/projects" className="pd-back-link">← Back to Projects</Link>
         </footer>

@@ -903,3 +903,201 @@ textarea:-webkit-autofill:focus {
     font-size: 18px;
   }
 }
+
+/* СТИЛИ СТРАНИЦЫ ПРОЕКТА*/
+
+.pd-container {
+  max-width: var(--container-width) !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  padding-top: 140px !important;
+  padding-bottom: 100px !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  display: block;
+}
+
+.pd-main-title {
+  font-size: clamp(42px, 8vw, 72px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 60px;
+  color: var(--text-color);
+  text-align: left;
+  margin-left: 0;
+}
+
+.pd-info-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 100px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+.pd-description-col p {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+.pd-specs-col {
+  display: grid;
+  grid-column-gap: 20px;
+  grid-row-gap: 40px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.pd-label {
+  display: block;
+  font-size: 14px;
+  color: var(--gray-text);
+  margin-bottom: 8px;
+}
+
+.pd-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.pd-link {
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  color: var(--text-color);
+}
+
+.pd-hero-section {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 80px;
+}
+
+.pd-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.pd-next-section {
+  margin-top: 100px;
+  padding-top: 60px;
+  border-top: 1px solid var(--border-color);
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .pd-info-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+/* --- Стили для нового блока (строго под изображением) --- */
+.pd-text-block-new {
+  margin-top: 40px;
+  margin-bottom: 100px;
+  width: 100%;
+}
+
+/* Классы названы уникально, чтобы не задеть PageHeader или другие элементы */
+.pd-text-block-new .section-subtitle {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 35px;
+  letter-spacing: -0.03em;
+  color: var(--text-color);
+}
+
+.pd-text-block-new .section-description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-color);
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .pd-text-block-new .section-subtitle {
+    font-size: 42px;
+  }
+}
+/* Стили для расширенного описания кейса */
+.pd-text-block-new {
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+
+.pd-text-block-new .section-subtitle {
+  font-size: 48px; /* Чуть меньше основного, чтобы не спорить с PageHeader */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 40px;
+}
+
+.project-case-content {
+  line-height: 1.6;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.case-meta {
+  font-size: 16px;
+  color: var(--gray-text);
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--photo-bg);
+}
+
+.case-subtitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 60px 0 25px 0;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 30px 0;
+}
+
+.case-item h4 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.project-case-content ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.project-case-content li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.project-case-content li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--gray-text);
+}
+
+.case-stack {
+  margin-top: 50px;
+  padding: 20px;
+  background: var(--photo-bg);
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .case-grid { grid-template-columns: 1fr; }
+  .pd-text-block-new .section-subtitle { font-size: 32px; }
+}
+
