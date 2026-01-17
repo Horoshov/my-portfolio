@@ -27,7 +27,7 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
     >
       <div className="pd-container">
-        <PageHeader title={project.title} category={project.category} />
+        <PageHeader title={project.title} category={project.cat} />
 
         <section className="pd-info-grid">
           <div className="pd-description-col">
@@ -59,42 +59,36 @@ const ProjectDetail = () => {
           </div>
         </section>
 
-        {/* ГЛАВНОЕ ИЗОБРАЖЕНИЕ */}
         <section className="pd-hero-section">
           <img src={project.image} alt={project.title} className="pd-hero-img" />
         </section>
-        {/* ПОДРОБНЫЙ КЕЙС ПОД ИЗОБРАЖЕНИЕМ */}
+
+        {/* ОСНОВНОЙ КЕЙС */}
         {project.sectionText && (
           <section className="pd-text-block-new">
-            <h2 className="section-subtitle">{project.sectionTitle}</h2>
+            {project.sectionTitle && (
+              <h2 className="section-subtitle">{project.sectionTitle}</h2>
+            )}
             <div 
               className="section-description" 
               dangerouslySetInnerHTML={{ __html: project.sectionText }} 
             />
           </section>
-)}
-
-        
-
-        {/* 2. Затем ТЕКСТОВЫЙ БЛОК (под изображением) */}
-        {project.sectionText && (
-          <section className="pd-text-block">
-            <h2 className="title">{project.sectionTitle}</h2>
-            <p className="text">{project.sectionText}</p>
-          </section>
         )}
 
         <section className="pd-next-section">
           <PageHeader title="Next Projects" />
-          <div className="projects-grid-custom next-grid">
+          <div className="projects-grid-main">
             {nextProjects.map((item) => (
               <ProjectCard key={item.id} project={item} />
             ))}
           </div>
         </section>
 
-        <footer className="pd-back-footer">
-          <Link to="/projects" className="pd-back-link">← Back to Projects</Link>
+        <footer className="pd-back-footer" style={{ marginTop: '80px', paddingBottom: '60px' }}>
+          <Link to="/projects" className="pd-back-link" style={{ textDecoration: 'none', color: 'var(--text-color)', fontWeight: '600' }}>
+            ← Back to Projects
+          </Link>
         </footer>
       </div>
     </motion.div>
