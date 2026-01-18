@@ -45,16 +45,37 @@ const ProjectDetail = () => {
           </div>
           
           <div className="pd-specs-col">
-            <div className="pd-spec-item"><span className="pd-label">Timeline:</span><p className="pd-value">{project.timeline}</p></div>
-            <div className="pd-spec-item"><span className="pd-label">Role:</span><p className="pd-value">{project.role}</p></div>
+            <div className="pd-spec-item">
+              <span className="pd-label">Timeline:</span>
+              <p className="pd-value">{project.timeline}</p>
+            </div>
+            
+            <div className="pd-spec-item">
+              <span className="pd-label">Role:</span>
+              <p className="pd-value">{project.role}</p>
+            </div>
+            
             <div className="pd-spec-item">
               <span className="pd-label">Website:</span>
-              <span className="pd-label">Website:</span>
+              {/* Исправлено: дубликат удален, логика ссылки упрощена */}
               {project.link && project.link !== '#' ? (
-                <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">{project.linkDisplay}</a>
-              ) : ( <p className="pd-value">Coming Soon</p> )}
+                <a 
+                  href={project.link} 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="pd-value pd-link"
+                >
+                  {project.linkDisplay || 'Visit site'}
+                </a>
+              ) : ( 
+                <p className="pd-value">{project.linkDisplay || 'Coming Soon'}</p> 
+              )}
             </div>
-            <div className="pd-spec-item"><span className="pd-label">Industry:</span><p className="pd-value">{project.cat}</p></div>
+            
+            <div className="pd-spec-item">
+              <span className="pd-label">Industry:</span>
+              <p className="pd-value">{project.cat}</p>
+            </div>
           </div>
         </section>
 
@@ -99,7 +120,11 @@ const ProjectDetail = () => {
         </section>
 
         <footer className="pd-back-footer" style={{ marginTop: '80px', paddingBottom: '60px' }}>
-          <Link to="/projects" className="pd-back-link" style={{ textDecoration: 'none', color: 'var(--text-color)', fontWeight: '600' }}>
+          <Link 
+            to="/projects" 
+            className="pd-back-link" 
+            style={{ textDecoration: 'none', color: 'var(--text-color)', fontWeight: '600' }}
+          >
             ← Back to Projects
           </Link>
         </footer>
