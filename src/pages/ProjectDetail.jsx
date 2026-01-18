@@ -49,23 +49,23 @@ const ProjectDetail = () => {
             <div className="pd-spec-item"><span className="pd-label">Role:</span><p className="pd-value">{project.role}</p></div>
             <div className="pd-spec-item">
               <span className="pd-label">Website:</span>
+              <span className="pd-label">Website:</span>
               {project.link && project.link !== '#' ? (
                 <a href={project.link} target="_blank" rel="noreferrer" className="pd-value pd-link">{project.linkDisplay}</a>
               ) : ( <p className="pd-value">Coming Soon</p> )}
             </div>
             <div className="pd-spec-item"><span className="pd-label">Industry:</span><p className="pd-value">{project.cat}</p></div>
-        {/* <div className="pd-spec-item"><span className="pd-label">Location:</span><p className="pd-value">{project.location}</p></div>*/}
-        {/* <div className="pd-spec-item"><span className="pd-label">Date:</span><p className="pd-value">{project.fullDate}</p></div>*/}
           </div>
         </section>
 
+        {/* ГЛАВНОЕ ИЗОБРАЖЕНИЕ (HERO) */}
         <section className="pd-hero-section">
           <img src={project.image} alt={project.title} className="pd-hero-img" />
         </section>
 
-        {/* ОСНОВНОЙ КЕЙС */}
+        {/* ОСНОВНОЙ КЕЙС (ТЕКСТ) */}
         {project.sectionText && (
-          <section className="pd-text-block-new">
+          <section className="pd-text-block-new" style={{ marginTop: '60px' }}>
             {project.sectionTitle && (
               <h2 className="section-subtitle">{project.sectionTitle}</h2>
             )}
@@ -76,6 +76,19 @@ const ProjectDetail = () => {
           </section>
         )}
 
+        {/* НИЖНЕЕ ИЗОБРАЖЕНИЕ КЕЙСА */}
+        {project.imageFooter && (
+          <section className="pd-footer-image-section" style={{ marginTop: '60px' }}>
+            <img 
+              src={project.imageFooter} 
+              alt={`${project.title} detailed view`} 
+              className="pd-hero-img" 
+              style={{ borderRadius: '32px', width: '100%', height: 'auto', display: 'block' }} 
+            />
+          </section>
+        )}
+
+        {/* СЛЕДУЮЩИЕ ПРОЕКТЫ */}
         <section className="pd-next-section">
           <PageHeader title="Next Projects" />
           <div className="projects-grid-main">
