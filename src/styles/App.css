@@ -132,7 +132,7 @@
     max-width: 450px;
     height: auto;
     filter: grayscale(100%);
-    border-radius: 12px;
+    border-radius: clamp(12px, 2vw, 20px);
     transition: var(--transition);
   }
   
@@ -244,7 +244,7 @@
     width: 100%;
     aspect-ratio: 16 / 11;
     background-color: var(--photo-bg);
-    border-radius: 12px;
+    border-radius: clamp(12px, 2vw, 20px);
     overflow: hidden;
     margin-bottom: 20px;
   }
@@ -340,7 +340,7 @@
   .service-image-preview {
     width: 150px;
     height: 90px;
-    border-radius: 10px;
+    border-radius: clamp(12px, 2vw, 20px);
     overflow: hidden;
     background: var(--photo-bg);
   }
@@ -783,7 +783,7 @@ textarea:-webkit-autofill:focus {
   aspect-ratio: 16 / 10; /* Соотношение сторон для превью */
   overflow: hidden;
   background-color: var(--photo-bg);
-  border-radius: 12px; /* Легкое скругление */
+  border-radius: clamp(12px, 2vw, 20px); /* Легкое скругление */
   margin-bottom: 20px;
 }
 
@@ -816,7 +816,7 @@ textarea:-webkit-autofill:focus {
   background-color: var(--photo-bg);
   /* Уменьшили отступ на 20% (было 40px) */
   padding: 32px;
-  border-radius: 32px;
+  border-radius: clamp(12px, 2vw, 20px);
   /* Уменьшили высоту на 20% (было 280px -> 224px) */
   min-height: 224px; 
   display: flex;
@@ -972,7 +972,7 @@ textarea:-webkit-autofill:focus {
 
 .pd-hero-section {
   width: 100%;
-  border-radius: 32px;
+  border-radius: clamp(12px, 2vw, 20px);
   overflow: hidden;
   margin-bottom: 80px;
 }
