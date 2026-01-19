@@ -1146,4 +1146,41 @@ textarea:-webkit-autofill:focus {
   .case-grid { grid-template-columns: 1fr; }
   .pd-text-block-new .section-subtitle { font-size: 32px; }
 }
+/* =========================================
+   PROJECTS ADAPTIVITY
+   ========================================= */
 
+/* Планшеты (до 1024px) — переходим на 2 колонки для всех карточек */
+@media (max-width: 1024px) {
+  .projects-grid-custom {
+    grid-template-columns: repeat(2, 1fr); /* Две ровные колонки */
+    gap: 30px 20px;
+  }
+
+  /* Сбрасываем твою логику 2-3-3-2, чтобы все карточки стали одинаковыми */
+  .projects-grid-custom > * {
+    grid-column: span 1 !important;
+  }
+}
+
+/* Мобильные устройства (до 600px) — одна колонка */
+@media (max-width: 600px) {
+  .projects-grid-custom {
+    grid-template-columns: 1fr; /* Одна колонка во всю ширину */
+    gap: 25px;
+  }
+
+  .projects-grid-custom > * {
+    grid-column: span 1 !important;
+  }
+
+  /* Уменьшаем радиус скругления и отступы для мобилок */
+  .project-image-wrapper {
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .project-card .value {
+    font-size: 16px; /* Чуть крупнее названия на мобилках для читаемости */
+  }
+}
