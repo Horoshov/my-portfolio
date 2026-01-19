@@ -26,7 +26,7 @@ const ProjectDetail = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="pd-container">
+      <div className="app-container">
         <PageHeader title={project.title} category={project.cat} />
 
         <section className="pd-info-grid">

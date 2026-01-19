@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <motion.div className="home-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <div className="pd-container">
+      <div className="app-container">
         
         <section className="hero-grid">
           <div className="hero-col left">
