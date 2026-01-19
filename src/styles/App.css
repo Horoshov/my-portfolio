@@ -110,11 +110,56 @@
     flex-direction: column;
   }
   
-  .hero-col.center {
-    grid-column: span 2;
-    justify-content: center;
-    align-items: center;
-  }
+  /* =========================================
+   HERO PHOTO MASK (Davies-Williams style)
+   ========================================= */
+
+.hero-col.center {
+  grid-column: span 2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+/* Контейнер, повторяющий логику .hero-middle */
+.hero-middle {
+  position: relative;
+  width: 100%;
+  max-width: 350px; /* Размер маски */
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Сама маска (Subtract.svg), которая лежит ПОВЕРХ фото */
+.hero-image-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none; /* Чтобы можно было взаимодействовать с фото под ней */
+  object-fit: contain;
+}
+
+/* Фотография, которая находится ПОД маской */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: grayscale(100%);
+  transition: var(--transition);
+}
+
+.hero-middle:hover .hero-image {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
   
   .hero-col.left, .hero-col.right {
     justify-content: space-between;
