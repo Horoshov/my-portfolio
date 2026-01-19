@@ -806,7 +806,7 @@ textarea:-webkit-autofill:focus {
 .projects-grid-main {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Две колонки */
-  gap: 60px 40px; /* Отступ: 60px вертикально, 40px горизонтально */
+  gap: 60px 20px; /* Отступ: 60px вертикально, 40px горизонтально */
   width: 100%;
 }
 
@@ -814,7 +814,7 @@ textarea:-webkit-autofill:focus {
 @media (max-width: 900px) {
   .projects-grid-main {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
 }
 
@@ -846,7 +846,7 @@ textarea:-webkit-autofill:focus {
 .projects-grid-main {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Две колонки */
-  gap: 60px 40px;
+  gap: 60px 20px;
   width: 100%;
 }
 
