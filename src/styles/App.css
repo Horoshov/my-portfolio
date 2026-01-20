@@ -95,20 +95,40 @@
     opacity: 0.5;
   }
   
-  /* =========================================
-     4. HERO & GIANT TITLE
-     ========================================= */
-  .hero-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-  }
-  
-  .hero-col {
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-  }
+ /* =========================================
+   4. HERO & GIANT TITLE (FIXED)
+   ========================================= */
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  /* Добавляем align-items, чтобы колонки не тянулись по высоте */
+  align-items: start; 
+}
+
+.hero-col {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  /* ИСПРАВЛЕНИЕ: прижимаем контент к верху, чтобы он не прыгал */
+  justify-content: flex-start; 
+}
+
+.hero-col.left, .hero-col.right {
+  /* ИСПРАВЛЕНИЕ: заменяем space-between на фиксированный отступ */
+  justify-content: flex-start;
+  gap: 60px; /* Регулируйте этот зазор по вкусу */
+}
+
+/* Ограничиваем высоту центральной колонки, чтобы она не растягивала сетку */
+.hero-col.center {
+  grid-column: span 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: auto; 
+}
   
   /* =========================================
    HERO PHOTO MASK (Davies-Williams style)
