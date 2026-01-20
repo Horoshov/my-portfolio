@@ -1042,3 +1042,79 @@
     .case-grid { grid-template-columns: 1fr; }
     .pd-text-block-new .section-subtitle { font-size: 32px; }
   }
+
+  /* =========================================
+   13. HOW I WORK SECTION
+   ========================================= */
+.how-i-work-section {
+  padding: 80px 20px;
+  width: 100%;
+}
+
+.work-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Две колонки как в примере */
+  gap: 24px;
+  width: 100%;
+}
+
+.work-step-card {
+  background: var(--photo-bg); /* Светлый/темный фон из переменных */
+  padding: 48px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 380px;
+  transition: transform 0.3s ease;
+}
+
+.step-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.step-badge {
+  background: var(--bg-color);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.step-duration {
+  font-size: 13px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.step-card-title {
+  font-size: clamp(24px, 2.5vw, 32px);
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.step-card-description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-text);
+  max-width: 90%;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 900px) {
+  .work-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .work-step-card {
+    padding: 32px;
+    min-height: auto;
+  }
+}

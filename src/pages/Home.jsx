@@ -7,31 +7,61 @@ import ProjectCard from '../components/ProjectCard';
 import alexProfile from '../assets/alex-profile.jpg'; 
 import { allProjects } from '../data/projects';
 
-// ИСПРАВЛЕНО: Обновлены ссылки на изображения. Добавлены явные размеры и уникальные ключи.
+// СОВЕТ: Добавь реальные изображения в папку assets и импортируй их так:
+// import motionImg from '../assets/services/motion.jpg';
+// import webImg from '../assets/services/web.jpg';
+
 const services = [
   { 
     id: '01', 
     title: 'Motion Graphics & Animations', 
-    img: 'https://picsum.photos/600/400?random=1', 
+    img: null, 
     tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads'] 
   },
   { 
     id: '02', 
     title: 'Web design and development', 
-    img: 'https://picsum.photos/600/400?random=2', 
+    img: null, 
     tags: ['React / Next.js', 'Webflow', 'UI/UX Design'] 
   },
   { 
     id: '03', 
     title: 'SEO and content marketing', 
-    img: 'https://picsum.photos/600/400?random=3', 
+    img: null, 
     tags: ['Strategy', 'Copywriting', 'Analytics'] 
   },
   { 
     id: '04', 
     title: 'Branding and Identity', 
-    img: 'https://picsum.photos/600/400?random=4', 
+    img: null, 
     tags: ['Logotype', 'Visual Language', 'Brand Books'] 
+  }
+];
+
+const howIWorkSteps = [
+  {
+    category: 'Discovery',
+    duration: '1-2 weeks',
+    title: 'I dive deep into your personal goals and long-term vision.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+  },
+  {
+    category: 'Design',
+    duration: '2-3 weeks',
+    title: 'I always Create clean, impactful mockups for modern brands',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+  },
+  {
+    category: 'Build',
+    duration: '1-3 weeks',
+    title: 'Seamless websites built using powerful no-code tools.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+  },
+  {
+    category: 'Launch',
+    duration: '1-2 weeks',
+    title: 'Your website goes live, optimized and ready to make a impact.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
   }
 ];
 
@@ -126,7 +156,11 @@ const Home = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="service-image-preview">
-                      <img src={service.img} alt={service.title} loading="lazy" />
+                      {service.img ? (
+                        <img src={service.img} alt={service.title} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
+                      )}
                     </div>
                     <div className="service-tags">
                       {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
@@ -137,6 +171,25 @@ const Home = () => {
                       <span>↗</span>
                     </div>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Блок HOW I WORK (теперь над stat-list) */}
+        <section className="how-i-work-section">
+          <PageHeader title="How I Work" />
+          <div className="work-steps-grid">
+            {howIWorkSteps.map((step, index) => (
+              <div key={index} className="work-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">{step.category}</span>
+                  <span className="step-duration">{step.duration}</span>
+                </div>
+                <div className="step-card-content">
+                  <h3 className="step-card-title">{step.title}</h3>
+                  <p className="step-card-description">{step.description}</p>
                 </div>
               </div>
             ))}
