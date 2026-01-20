@@ -182,7 +182,7 @@
 }
   
   .hero-col.left, .hero-col.right {
-    justify-content: space-between;
+    justify-content: center;
   }
   
   .hero-text {
