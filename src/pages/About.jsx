@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import StatList from '../components/StatList'; // Импортируем из файла выше
+import StatList from '../components/StatList';
 
 const About = () => {
   const aboutStats = [
@@ -12,6 +12,7 @@ const About = () => {
 
   return (
     <motion.div
+      className="app-container" // Добавил контейнер для выравнивания по сетке сайта
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -19,9 +20,10 @@ const About = () => {
       <PageHeader title="About Me" />
       
       <section className="stats-section">
-        <div className="stats-grid">
-          <StatList stats={aboutStats} />
-        </div>
+        {/* ИСПРАВЛЕНО: Убрали <div className="stats-grid">, 
+           так как она теперь внутри StatList 
+        */}
+        <StatList stats={aboutStats} />
       </section>
     </motion.div>
   );

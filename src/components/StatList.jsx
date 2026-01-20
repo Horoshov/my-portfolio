@@ -5,7 +5,7 @@ const StatList = ({ stats }) => {
   if (!stats) return null;
 
   return (
-    <>
+    <div className="stats-grid"> {/* Добавлен общий контейнер для сетки */}
       {stats.map((stat, index) => (
         <div key={index} className="stat-card">
           {/* СВЕРХУ СЛЕВА */}
@@ -23,7 +23,7 @@ const StatList = ({ stats }) => {
           </div>
         </div>
       ))}
-    </>
+    </div>
   );
 };
 

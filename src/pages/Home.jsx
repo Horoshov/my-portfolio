@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList'; 
 import ProjectCard from '../components/ProjectCard'; 
-// ИСПРАВЛЕНО: Импортируем как alexProfile, чтобы переменная совпадала с использованием ниже
 import alexProfile from '../assets/alex-profile.jpg'; 
 import { allProjects } from '../data/projects';
 
@@ -19,6 +18,13 @@ const featuredProjects = allProjects.slice(0, 5);
 
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
+
+  // Данные для статистики на главной
+  const homeStats = [
+    { value: '10', label: 'Years of Experience', title: 'Expertise' },
+    { value: '80+', label: 'Projects Completed', title: 'Experience' },
+    { value: '15', label: 'Design Awards', title: 'Recognition' }
+  ];
 
   return (
     <motion.div className="home-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -117,8 +123,26 @@ const Home = () => {
           </div>
         </section>
         
-        <StatList />
+        {/* ИСПРАВЛЕНО: Теперь передаем массив данных */}
+        <StatList stats={homeStats} />
       </div>
+    </motion.div>
+  );
+};
+
+const About = () => {
+  const aboutStats = [
+    { value: '10', label: 'of Experience', title: 'Years' },
+    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
+    { value: '95', label: 'Customer Satisfaction', title: 'Percent' }
+  ];
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      {/* ИСПРАВЛЕНО: Убрана лишняя обертка .stats-grid, передаем пропс напрямую */}
+      <section className="stats-section">
+        <StatList stats={aboutStats} />
+      </section>
     </motion.div>
   );
 };
