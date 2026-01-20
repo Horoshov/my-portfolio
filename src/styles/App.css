@@ -71,7 +71,7 @@
   .nav-menu {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 6px;
   }
   
   .label {

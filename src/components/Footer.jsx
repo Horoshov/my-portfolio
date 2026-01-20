@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import profileImg from '../assets/alex-profile.jpg';
+import './Footer.css'; // Убедитесь, что этот импорт есть!
 
 const Footer = () => {
   return (
@@ -10,24 +11,25 @@ const Footer = () => {
         <h2 className="footer-huge-text">
           Let’s shape <br /> something <br /> remarkable, <br /> together.
         </h2>
-        <p className="label" style={{ marginTop: 'auto' }}>
+        <p className="footer-label" style={{ marginTop: 'auto' }}>
           © 2026 Alex Horoshov. All Rights Reserved
         </p>
       </div>
 
       {/* ПРАВАЯ КОЛОНКА */}
       <div className="footer-right">
-        {/* ПРОФИЛЬ + ИКОНКИ */}
+        
+        {/* 1. ПРОФИЛЬ (Вернул оригинальный класс контейнера для иконок) */}
         <div className="footer-profile-box">
           <img src={profileImg} alt="Alex" className="footer-avatar" />
           <div className="footer-profile-info">
-          <div className="footer-text-stack">
-            <p className="value">Alex Horoshov</p>
-            <p className="label">Designer & Developer</p>
-             </div>
+            <div className="footer-text-stack">
+              <p className="footer-value">Alex Horoshov</p>
+              <p className="footer-label">Designer & Developer</p>
+            </div>
             
-            {/* Иконки теперь СТРОГО здесь */}
-            <div className="social-media-links-wrap-alt">
+            {/* ИСПРАВЛЕНО: Класс social-links-wrap (как в CSS), а не alt */}
+            <div className="social-links-wrap">
               <a href="https://facebook.com" className="social-icon-link" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M10 0C4.477 0 0 4.477 0 10C0 14.991 3.657 19.128 8.438 19.879V12.89H5.898V10H8.438V7.797C8.438 5.291 9.93 3.907 12.215 3.907C13.309 3.907 14.453 4.102 14.453 4.102V6.562H13.193C11.95 6.562 11.563 7.333 11.563 8.124V10H14.336L13.893 12.89H11.563V19.879C16.343 19.129 20 14.99 20 10C20 4.477 15.523 0 10 0Z" fill="currentColor"/>
@@ -39,15 +41,11 @@ const Footer = () => {
                 </svg>
               </a>
               <a href="https://twitter.com" className="social-icon-link" target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"></rect>
-                
-                <path fill-rule="evenodd" clip-rule="evenodd" 
-                  d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" 
-                  fill="var(--bg-color)">
-                </path>
-              </svg>
-            </a>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"></rect>
+                  <path fillRule="evenodd" clipRule="evenodd" d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" fill="var(--bg-color)"></path>
+                </svg>
+              </a>
               <a href="https://linkedin.com" className="social-icon-link" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.335 15.339H12.67V11.162C12.67 10.166 12.65 8.884 11.28 8.884C9.891 8.884 9.679 9.968 9.679 11.089V15.339H7.013V6.75H9.573V7.92H9.608C9.966 7.246 10.836 6.533 12.136 6.533C14.836 6.533 15.336 8.311 15.336 10.624V15.339H15.335ZM4.003 5.575C3.79956 5.57526 3.59806 5.53537 3.41006 5.45761C3.22207 5.37984 3.05127 5.26574 2.90746 5.12184C2.76365 4.97793 2.64965 4.80706 2.57201 4.61901C2.49437 4.43097 2.4546 4.22944 2.455 4.026C2.4552 3.71983 2.54618 3.4206 2.71644 3.16615C2.8867 2.91169 3.12859 2.71343 3.41153 2.59645C3.69447 2.47947 4.00574 2.44902 4.30598 2.50894C4.60622 2.56886 4.88196 2.71648 5.09831 2.93311C5.31466 3.14974 5.46191 3.42566 5.52145 3.72598C5.58099 4.0263 5.55013 4.33753 5.43278 4.62032C5.31543 4.9031 5.11687 5.14474 4.86219 5.31467C4.60751 5.4846 4.30817 5.5752 4.002 5.575H4.003ZM5.339 15.339H2.666V6.75H5.34V15.339H5.339ZM16.67 0H1.329C0.593 0 0 0.58 0 1.297V16.703C0 17.42 0.594 18 1.328 18H16.666C17.4 18 18 17.42 18 16.703V1.297C18 0.58 17.4 0 16.666 0H16.669H16.67Z" fill="currentColor"/>
@@ -57,28 +55,49 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* БЛОК С EMAIL (теперь чистый) */}
-        <div className="footer-contact-block">
-          <span className="label">Contact me</span>
-          <a href="mailto:ux@horoshov.ru" className="footer-email-link">
+        {/* 2. БЛОК КОНТАКТОВ */}
+        <div className="custom-contact-section">
+          <p className="footer-label">Contact me</p>
+          <a href="mailto:ux@horoshov.ru" className="custom-email-link">
             ux@horoshov.ru
           </a>
+          
+          <div className="custom-actions-row">
+            <button className="custom-btn-black">Contact Now ➔</button>
+            <button className="custom-btn-outline">
+              Schedule a Call 
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{marginLeft: '8px'}}>
+                <path d="M15 10L20 15L15 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 4V14C4 14.5304 4.21071 15.0391 4.58579 15.4142C4.96086 15.7893 5.46957 16 6 16H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
-        {/* НАВИГАЦИЯ */}
-        <div className="footer-sub-grid">
-          <div className="footer-col">
-            <span className="label">Navigation</span>
-            <div className="footer-links">
-              <Link to="/" className="menu-item">Home</Link>
-              <Link to="/about" className="menu-item">About</Link>
-              <Link to="/projects" className="menu-item">Projects</Link>
-              <Link to="/contact" className="menu-item">Contact</Link>
-            </div>
+        {/* 3. НАВИГАЦИЯ (3 КОЛОНКИ) */}
+        <div className="custom-nav-grid">
+          <div className="custom-nav-col">
+            <p className="footer-label">Main Pages</p>
+            <Link to="/" className="custom-nav-link">Home</Link>
+            <Link to="/about" className="custom-nav-link">About</Link>
+            <Link to="/projects" className="custom-nav-link">Projects</Link>
+            <Link to="/project-single" className="custom-nav-link">Project Single</Link>
           </div>
-          <div className="footer-col">
-            <span className="label">Status</span>
-            <p className="value">Available for freelance</p>
+          
+          <div className="custom-nav-col">
+            <p className="footer-label">More Pages</p>
+            <Link to="/services" className="custom-nav-link">Services</Link>
+            <Link to="/blog" className="custom-nav-link">Blog</Link>
+            <Link to="/blog-single" className="custom-nav-link">Blog Single</Link>
+            <Link to="/contact" className="custom-nav-link">Contact</Link>
+          </div>
+
+          <div className="custom-nav-col">
+            <p className="footer-label">Utility Pages</p>
+            <Link to="/style-guide" className="custom-nav-link">Style Guide</Link>
+            <Link to="/licenses" className="custom-nav-link">Licenses</Link>
+            <Link to="/changelog" className="custom-nav-link">Changelog</Link>
+            <Link to="/404" className="custom-nav-link">404 page</Link>
           </div>
         </div>
       </div>
@@ -87,5 +106,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
