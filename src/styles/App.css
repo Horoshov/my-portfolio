@@ -228,23 +228,30 @@
   
   .giant-title-wrapper {
     width: 100%;
-    /* Вертикальные отступы: 120px сверху, 80px снизу для воздуха */
-    padding: 120px 0 80px 0; 
+    padding: 120px 0 80px 0;
     display: flex;
-    justify-content: flex-start; /* Выравниваем по левому краю сетки */
-    overflow: hidden; /* Защита от вылета текста за края */
+    justify-content: flex-start;
+    /* Добавляем, чтобы заголовок не вылетал за пределы */
+    overflow: hidden; 
+    position: relative;
   }
   
   .giant-title {
+    /* ИСПРАВЛЕНИЕ: меняем nowrap на normal, чтобы текст мог переноситься */
+    white-space: normal; 
+    /* ИСПРАВЛЕНИЕ: добавляем break-word для очень узких экранов */
+    overflow-wrap: break-word; 
+    
     font-size: 6.9vw;
     line-height: 0.85;
-    letter-spacing: -0.05em; /* Чуть уменьшил, чтобы не слипалось слишком сильно */
+    letter-spacing: -0.05em;
     font-weight: 900;
     text-transform: uppercase;
-    white-space: nowrap;
     color: var(--text-color);
     
-    /* Плавное появление при загрузке */
+    /* Гарантируем, что заголовок не шире родителя */
+    max-width: 100%; 
+    
     animation: slideUp 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
   }
   
