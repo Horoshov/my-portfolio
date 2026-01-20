@@ -1054,7 +1054,7 @@
 .work-steps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Две колонки как в примере */
-  gap: 24px;
+  gap: 20px;
   width: 100%;
 }
 
