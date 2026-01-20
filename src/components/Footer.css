@@ -89,7 +89,7 @@
 
 /* 2. СЕКЦИЯ КОНТАКТОВ (EMAIL + КНОПКИ) */
 .custom-contact-section {
-  margin-top: 30px;
+  margin-top: 16px;
   display: flex;
   flex-direction: column;
 }
@@ -186,5 +186,29 @@
   
   .custom-actions-row {
       flex-direction: column;
+  }
+}
+
+.footer-cta-text {
+  margin-bottom: 32px; /* Отступ до кнопок или профиля */
+  max-width: 450px;    /* Чтобы текст не растягивался слишком широко */
+}
+
+.footer-description {
+  font-size: 24px;     /* Размер как в качественных портфолио */
+  line-height: 1.4;
+  color: var(--text-color);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.footer-description strong {
+  font-weight: 600;    /* Акцент на важных словах */
+}
+
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+  .footer-description {
+    font-size: 20px;
   }
 }

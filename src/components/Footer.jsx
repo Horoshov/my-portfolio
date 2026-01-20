@@ -61,6 +61,12 @@ const Footer = () => {
           <a href="mailto:ux@horoshov.ru" className="custom-email-link">
             ux@horoshov.ru
           </a>
+          {/* Блок с призывом к действию */}
+<div className="footer-cta-text">
+  <p className="footer-description">
+    Looking for a UX/UI designer who moves <strong>fast</strong> without compromising quality? <strong>Let’s talk.</strong>
+  </p>
+</div>
           
           <div className="custom-actions-row">
             <button className="custom-btn-black">Contact Now ➔</button>
