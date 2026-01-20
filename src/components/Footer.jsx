@@ -21,8 +21,10 @@ const Footer = () => {
         <div className="footer-profile-box">
           <img src={profileImg} alt="Alex" className="footer-avatar" />
           <div className="footer-profile-info">
+          <div className="footer-text-stack">
             <p className="value">Alex Horoshov</p>
             <p className="label">Designer & Developer</p>
+             </div>
             
             {/* Иконки теперь СТРОГО здесь */}
             <div className="social-media-links-wrap-alt">
@@ -38,10 +40,14 @@ const Footer = () => {
               </a>
               <a href="https://twitter.com" className="social-icon-link" target="_blank" rel="noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="4" fill="black"></rect>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" fill="white"></path>
+                <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"></rect>
+                
+                <path fill-rule="evenodd" clip-rule="evenodd" 
+                  d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" 
+                  fill="var(--bg-color)">
+                </path>
               </svg>
-              </a>
+            </a>
               <a href="https://linkedin.com" className="social-icon-link" target="_blank" rel="noreferrer">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.335 15.339H12.67V11.162C12.67 10.166 12.65 8.884 11.28 8.884C9.891 8.884 9.679 9.968 9.679 11.089V15.339H7.013V6.75H9.573V7.92H9.608C9.966 7.246 10.836 6.533 12.136 6.533C14.836 6.533 15.336 8.311 15.336 10.624V15.339H15.335ZM4.003 5.575C3.79956 5.57526 3.59806 5.53537 3.41006 5.45761C3.22207 5.37984 3.05127 5.26574 2.90746 5.12184C2.76365 4.97793 2.64965 4.80706 2.57201 4.61901C2.49437 4.43097 2.4546 4.22944 2.455 4.026C2.4552 3.71983 2.54618 3.4206 2.71644 3.16615C2.8867 2.91169 3.12859 2.71343 3.41153 2.59645C3.69447 2.47947 4.00574 2.44902 4.30598 2.50894C4.60622 2.56886 4.88196 2.71648 5.09831 2.93311C5.31466 3.14974 5.46191 3.42566 5.52145 3.72598C5.58099 4.0263 5.55013 4.33753 5.43278 4.62032C5.31543 4.9031 5.11687 5.14474 4.86219 5.31467C4.60751 5.4846 4.30817 5.5752 4.002 5.575H4.003ZM5.339 15.339H2.666V6.75H5.34V15.339H5.339ZM16.67 0H1.329C0.593 0 0 0.58 0 1.297V16.703C0 17.42 0.594 18 1.328 18H16.666C17.4 18 18 17.42 18 16.703V1.297C18 0.58 17.4 0 16.666 0H16.669H16.67Z" fill="currentColor"/>
