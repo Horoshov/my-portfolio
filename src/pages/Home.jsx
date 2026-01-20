@@ -7,11 +7,32 @@ import ProjectCard from '../components/ProjectCard';
 import alexProfile from '../assets/alex-profile.jpg'; 
 import { allProjects } from '../data/projects';
 
+// ИСПРАВЛЕНО: Обновлены ссылки на изображения. Добавлены явные размеры и уникальные ключи.
 const services = [
-  { id: '01', title: 'Motion Graphics & Animations', img: 'https://picsum.photos/seed/serv1/600/400', tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads'] },
-  { id: '02', title: 'Web design and development', img: 'https://picsum.photos/seed/serv2/600/400', tags: ['React / Next.js', 'Webflow', 'UI/UX Design'] },
-  { id: '03', title: 'SEO and content marketing', img: 'https://picsum.photos/seed/serv3/600/400', tags: ['Strategy', 'Copywriting', 'Analytics'] },
-  { id: '04', title: 'Branding and Identity', img: 'https://picsum.photos/seed/serv4/600/400', tags: ['Logotype', 'Visual Language', 'Brand Books'] }
+  { 
+    id: '01', 
+    title: 'Motion Graphics & Animations', 
+    img: 'https://picsum.photos/600/400?random=1', 
+    tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads'] 
+  },
+  { 
+    id: '02', 
+    title: 'Web design and development', 
+    img: 'https://picsum.photos/600/400?random=2', 
+    tags: ['React / Next.js', 'Webflow', 'UI/UX Design'] 
+  },
+  { 
+    id: '03', 
+    title: 'SEO and content marketing', 
+    img: 'https://picsum.photos/600/400?random=3', 
+    tags: ['Strategy', 'Copywriting', 'Analytics'] 
+  },
+  { 
+    id: '04', 
+    title: 'Branding and Identity', 
+    img: 'https://picsum.photos/600/400?random=4', 
+    tags: ['Logotype', 'Visual Language', 'Brand Books'] 
+  }
 ];
 
 const featuredProjects = allProjects.slice(0, 5);
@@ -19,7 +40,6 @@ const featuredProjects = allProjects.slice(0, 5);
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
 
-  // Данные для статистики на главной
   const homeStats = [
     { value: '10', label: 'Years of Experience', title: 'Expertise' },
     { value: '80+', label: 'Projects Completed', title: 'Experience' },
@@ -106,7 +126,7 @@ const Home = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <div className="service-image-preview">
-                      <img src={service.img} alt={service.title} />
+                      <img src={service.img} alt={service.title} loading="lazy" />
                     </div>
                     <div className="service-tags">
                       {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
@@ -123,26 +143,10 @@ const Home = () => {
           </div>
         </section>
         
-        {/* ИСПРАВЛЕНО: Теперь передаем массив данных */}
-        <StatList stats={homeStats} />
+        <section className="stats-section">
+          <StatList stats={homeStats} />
+        </section>
       </div>
-    </motion.div>
-  );
-};
-
-const About = () => {
-  const aboutStats = [
-    { value: '10', label: 'of Experience', title: 'Years' },
-    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
-    { value: '95', label: 'Customer Satisfaction', title: 'Percent' }
-  ];
-
-  return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      {/* ИСПРАВЛЕНО: Убрана лишняя обертка .stats-grid, передаем пропс напрямую */}
-      <section className="stats-section">
-        <StatList stats={aboutStats} />
-      </section>
     </motion.div>
   );
 };

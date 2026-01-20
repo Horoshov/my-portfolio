@@ -20,9 +20,7 @@ const About = () => {
       <PageHeader title="About Me" />
       
       <section className="stats-section">
-        {/* ИСПРАВЛЕНО: Убрали <div className="stats-grid">, 
-           так как она теперь внутри StatList 
-        */}
+        
         <StatList stats={aboutStats} />
       </section>
     </motion.div>

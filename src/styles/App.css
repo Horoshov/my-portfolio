@@ -8,7 +8,7 @@
     --photo-bg: #ececec;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    --container-width: 1400px; /* Добавил переменную, так как она используется в .pd-container */
+    --container-width: 1400px;
     --border-color: rgba(122, 122, 122, 0.2);
   }
   
@@ -52,7 +52,6 @@
     flex-direction: column;
   }
   
-  /* Выравнивание PageHeader по левому краю на всех страницах */
   .page-header {
     width: 100%;
     display: flex;
@@ -137,7 +136,6 @@
     gap: 60px;
   }
   
-  /* HERO CENTER & PHOTO MASK */
   .hero-col.center {
     grid-column: span 2;
     display: flex;
@@ -276,7 +274,6 @@
   /* =========================================
      6. PROJECTS GRID & CARDS
      ========================================= */
-  /* Основной контейнер сетки */
   .projects-grid {
     display: flex;
     flex-direction: column;
@@ -293,7 +290,6 @@
   .two-cols { grid-template-columns: repeat(2, 1fr); }
   .three-cols { grid-template-columns: repeat(3, 1fr); }
   
-  /* Контейнер для сетки на странице Projects (объединенный) */
   .projects-grid-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -318,7 +314,7 @@
   
   .project-image-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 10; /* Оставили последний вариант (был 16/11) */
+    aspect-ratio: 16 / 10;
     background-color: var(--photo-bg);
     border-radius: clamp(12px, 2vw, 20px);
     overflow: hidden;
@@ -366,9 +362,9 @@
     line-height: 1.4;
   }
   
-  /* Адаптивность проектов */
   @media (max-width: 1024px) {
     .projects-grid-custom {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 30px 20px;
     }
@@ -388,9 +384,6 @@
     .projects-grid-custom {
       grid-template-columns: 1fr;
       gap: 25px;
-    }
-    .projects-grid-custom > * {
-      grid-column: span 1 !important;
     }
     .project-image-wrapper {
       border-radius: 12px;
@@ -611,30 +604,29 @@
   }
   
   /* =========================================
-     9. STATS SECTION (MERGED)
+     9. STATS SECTION (CONSOLIDATED)
      ========================================= */
   .stats-section {
-    padding: 80px 0px;
-    width: 100%;
+    padding: 80px 20px 120px 20px; 
+  width: 100%;
   }
   
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    width: 100%;
   }
   
   .stat-card {
-    background-color: var(--photo-bg);
-    /* Объединенные стили: берем последние актуальные значения */
-    padding: 32px;
-    border-radius: clamp(12px, 2vw, 20px);
-    min-height: 224px;
+    background: rgba(122, 122, 122, 0.05);
+    padding: 40px;
+    border-radius: 24px;
+    min-height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
-    overflow: hidden;
   }
   
   .stat-card:hover {
@@ -642,14 +634,11 @@
   }
   
   .stat-number-wrapper {
-    font-family: var(--font-main);
-    /* Объединенные стили */
-    font-size: clamp(2.5rem, 4vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    line-height: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: baseline;
+    font-size: 64px;
+    font-weight: 600;
+    line-height: 1;
     color: var(--text-color);
   }
   
@@ -658,21 +647,28 @@
     margin-left: 2px;
   }
   
-  .stat-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  .stat-text-group {
+    align-self: flex-end;
     text-align: right;
+    max-width: 200px;
   }
   
-  .stat-label {
+  .stat-small-title {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  
+  .stat-main-label {
     font-size: 18px;
-    font-weight: 600;
-    max-width: 180px;
+    font-weight: 700;
     line-height: 1.2;
   }
   
-  /* Элементы счетчика */
+  /* Counter Elements */
   .rolling-counter {
     display: flex;
     overflow: hidden;
@@ -699,45 +695,13 @@
     font-variant-numeric: tabular-nums;
   }
   
-  /* Дополнительные элементы из дубликата */
-  .stat-text-group {
-    align-self: flex-end;
-    text-align: right;
-    max-width: 200px;
-  }
-  
-  .stat-small-title {
-    display: block;
-    font-size: 14px;
-    text-transform: capitalize;
-    color: var(--gray-text);
-    letter-spacing: 0.01em;
-    margin-bottom: 6px;
-    font-weight: 500;
-  }
-  
-  .stat-main-label {
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.01em;
-    color: var(--text-color);
-    margin: 0;
-  }
-  
   @media (max-width: 900px) {
     .stats-grid {
       grid-template-columns: 1fr;
     }
     .stat-card {
       min-height: 180px;
-      padding: 24px;
-    }
-    .stat-number-wrapper {
-      font-size: 3rem;
-    }
-    .stat-main-label {
-      font-size: 18px;
+      padding: 30px;
     }
   }
   
@@ -923,7 +887,6 @@
     margin-bottom: 60px;
     color: var(--text-color);
     text-align: left;
-    margin-left: 0;
   }
   
   .pd-info-grid {
@@ -995,7 +958,6 @@
     }
   }
   
-  /* Стили для расширенного описания кейса */
   .pd-text-block-new {
     margin-top: 60px;
     margin-bottom: 120px;
