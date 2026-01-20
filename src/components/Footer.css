@@ -89,7 +89,7 @@
 
 /* 2. СЕКЦИЯ КОНТАКТОВ (EMAIL + КНОПКИ) */
 .custom-contact-section {
-  margin-top: 16px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
 }
