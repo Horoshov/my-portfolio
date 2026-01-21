@@ -11,6 +11,29 @@ const About = () => {
     { value: '95', label: 'Customer Satisfaction', title: 'Percent' }
   ];
 
+  const skills = [
+    { 
+      name: 'Figma', 
+      level: '95%', 
+      desc: 'Expert in collaborative interface design, creating seamless UI systems and efficient workflows.' 
+    },
+    { 
+      name: 'Framer', 
+      level: '85%', 
+      desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' 
+    },
+    { 
+      name: 'WordPress', 
+      level: '90%', 
+      desc: 'Experienced in developing custom, scalable WordPress solutions with a focus on performance.' 
+    },
+    { 
+      name: 'Python', 
+      level: '75%', 
+      desc: 'Proficient in Python for automation and data handling, enhancing project functionality.' 
+    }
+  ];
+
   return (
     <motion.div
       className="app-container"
@@ -52,16 +75,39 @@ const About = () => {
       </section>
       {/* ... после </section> (about-intro-section) */}
 
-<section className="skills-section">
+      <section className="skills-section">
   <div className="about-intro-grid"> 
-    {/* Используем вашу сетку для выравнивания */}
     <PageHeader 
       title="My Skills" 
       subtitle="Expertise shaped through experience, precision, and thoughtful design." 
     />
     
-    <div className="skills-content-placeholder">
-      {/* Здесь позже будет список ваших навыков */}
+    <div className="skills-list">
+      {skills.map((skill, index) => (
+        <div key={index} className="skill-item">
+          {/* Черный квадрат для иконки */}
+          <div className="skill-icon-box">
+             {/* Сюда можно будет вставить SVG или иконку позже */}
+          </div>
+          
+          <div className="skill-info">
+            <div className="skill-head">
+              <h3>{skill.name}</h3>
+              <p>{skill.desc}</p>
+            </div>
+            
+            <div className="skill-progress-wrapper">
+              <div className="skill-progress-bar">
+                <div 
+                  className="skill-progress-fill" 
+                  style={{ width: skill.level }}
+                ></div>
+              </div>
+              <span className="skill-number">{skill.level}</span>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
