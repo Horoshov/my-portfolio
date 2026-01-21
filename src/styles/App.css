@@ -1122,3 +1122,63 @@
     min-height: auto;
   }
 }
+
+.about-intro-section {
+  padding: 80px 0;
+  margin-bottom: 60px;
+}
+
+.about-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Соотношение фото и текста */
+  gap: 80px;
+  align-items: flex-start;
+}
+
+.about-main-image {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px; /* Закругление как на скриншоте */
+}
+
+.about-date-label {
+  display: block;
+  font-family: monospace; /* Для технического вида [SINCE 2013] */
+  color: #888;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.about-description {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.description-lead {
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.description-body {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 968px) {
+  .about-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .description-lead {
+    font-size: 22px;
+  }
+}
