@@ -93,12 +93,13 @@ const About = () => {
                   
                   <div className="skill-progress-wrapper">
                     <div className="skill-progress-bar">
+                      {/* 1. Только закрашенная область */}
                       <div 
                         className="skill-progress-fill" 
                         style={{ width: skill.level }}
-                      >
-                        {/* Плашка вынесена за пределы overflow индикатора через CSS */}
-                      </div>
+                      ></div>
+                      
+                      {/* 2. Плашка вынесена наружу, чтобы быть ПОВЕРХ всех слоев */}
                       <div 
                         className="skill-progress-pin"
                         style={{ left: skill.level }}
