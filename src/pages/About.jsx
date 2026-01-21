@@ -23,12 +23,37 @@ const About = () => {
       desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' 
     },
     { 
-      name: 'WordPress', 
+      name: 'Cinema', 
       level: '90%', 
       desc: 'Experienced in developing custom, scalable WordPress solutions with a focus on performance.' 
     },
     { 
       name: 'React', 
+      level: '35%', 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
+    },
+    {
+      name: 'Сursor', 
+      level: '35%', 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
+    },
+    { 
+      name: 'Miro', 
+      level: '35%', 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
+    },
+    { 
+      name: 'Git', 
+      level: '35%', 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
+    },
+    { 
+      name: 'Adobe Photoshop', 
+      level: '35%', 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
+    },
+    { 
+      name: 'Adobe Illustrator', 
       level: '35%', 
       desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
     }
@@ -74,7 +99,7 @@ const About = () => {
       <section className="skills-section">
         <div className="about-intro-grid"> 
           <PageHeader 
-            title="My Skills" 
+            title="Hard Skills" 
             subtitle="Expertise shaped through experience, precision, and thoughtful design." 
           />
           
