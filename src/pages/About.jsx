@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
-import alexProfile from '../assets/alex-profile.jpg'; // Используем ваш существующий ассет
+import alexProfile from '../assets/alex-profile.jpg';
 
 const About = () => {
   const aboutStats = [
@@ -30,7 +30,7 @@ const About = () => {
     { 
       name: 'React', 
       level: '35%', 
-      desc: 'Proficient in Python for automation and data handling, enhancing project functionality.' 
+      desc: 'Building modern web applications with a focus on component-based architecture and performance.' 
     }
   ];
 
@@ -43,7 +43,6 @@ const About = () => {
     >
       <PageHeader title="About Me" />
       
-      {/* Новый блок контента согласно макету */}
       <section className="about-intro-section">
         <div className="about-intro-grid">
           <div className="about-image-wrapper">
@@ -65,52 +64,55 @@ const About = () => {
               <p className="description-body">
                 Over the years, I've worked with brands, startups, and 
                 individuals to bring ideas to life through thoughtful design and 
-                innovation. Whether it's building a brand identity, shaping a 
-                digital product, or refining an experience, my focus remains the 
-                same to design with intention, empathy, and impact.
+                innovation.
               </p>
             </div>
           </div>
         </div>
       </section>
-      {/* ... после </section> (about-intro-section) */}
 
       <section className="skills-section">
-  <div className="about-intro-grid"> 
-    <PageHeader 
-      title="My Skills" 
-      subtitle="Expertise shaped through experience, precision, and thoughtful design." 
-    />
-    
-    <div className="skills-list">
-      {skills.map((skill, index) => (
-        <div key={index} className="skill-item">
-          {/* Черный квадрат для иконки */}
-          <div className="skill-icon-box">
-             {/* Сюда можно будет вставить SVG или иконку позже */}
-          </div>
+        <div className="about-intro-grid"> 
+          <PageHeader 
+            title="My Skills" 
+            subtitle="Expertise shaped through experience, precision, and thoughtful design." 
+          />
           
-          <div className="skill-info">
-            <div className="skill-head">
-              <h3>{skill.name}</h3>
-              <p>{skill.desc}</p>
-            </div>
-            
-            <div className="skill-progress-wrapper">
-              <div className="skill-progress-bar">
-                <div 
-                  className="skill-progress-fill" 
-                  style={{ width: skill.level }}
-                ></div>
+          <div className="skills-list">
+            {skills.map((skill, index) => (
+              <div key={index} className="skill-item">
+                <div className="skill-icon-box">
+                   {/* Иконка будет добавлена здесь */}
+                </div>
+                
+                <div className="skill-info">
+                  <div className="skill-head">
+                    <h3>{skill.name}</h3>
+                    <p>{skill.desc}</p>
+                  </div>
+                  
+                  <div className="skill-progress-wrapper">
+                    <div className="skill-progress-bar">
+                      <div 
+                        className="skill-progress-fill" 
+                        style={{ width: skill.level }}
+                      >
+                        {/* Плашка вынесена за пределы overflow индикатора через CSS */}
+                      </div>
+                      <div 
+                        className="skill-progress-pin"
+                        style={{ left: skill.level }}
+                      >
+                        {skill.level}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="skill-number">{skill.level}</span>
-            </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       <section className="stats-section">
         <StatList stats={aboutStats} />
