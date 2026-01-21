@@ -28,8 +28,8 @@ const About = () => {
       desc: 'Experienced in developing custom, scalable WordPress solutions with a focus on performance.' 
     },
     { 
-      name: 'Python', 
-      level: '75%', 
+      name: 'React', 
+      level: '35%', 
       desc: 'Proficient in Python for automation and data handling, enhancing project functionality.' 
     }
   ];
