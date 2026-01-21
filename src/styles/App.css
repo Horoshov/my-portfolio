@@ -1084,7 +1084,7 @@
 }
 
 .work-step-card {
-  background: var(--photo-bg); /* Светлый/темный фон из переменных */
+  background: rgba(122, 122, 122, 0.05);
   padding: 48px;
   border-radius: 24px;
   display: flex;
@@ -1214,7 +1214,7 @@
   }
   
   .skill-item {
-    background: var(--photo-bg); /* Используем переменную из вашего конфига */
+    background:rgba(122, 122, 122, 0.05);
     border-radius: 24px;
     padding: 40px;
     display: flex;
