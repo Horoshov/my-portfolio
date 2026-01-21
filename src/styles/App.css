@@ -270,6 +270,27 @@
     margin: 0;
     text-transform: capitalize;
   }
+
+  /* Добавляем только стиль для подзаголовка */
+.section-header-subtitle {
+  font-size: 18px;
+  line-height: 1.4;
+  color: #555;
+  font-weight: 400;
+  margin-top: 24px;
+  /* Ограничиваем ширину, чтобы текст переносился узким блоком как на макете */
+  max-width: 280px; 
+  text-transform: none;
+  margin-bottom: 0;
+}
+
+/* На мобильных устройствах убираем ограничение ширины */
+@media (max-width: 768px) {
+  .section-header-subtitle {
+    max-width: 100%;
+    margin-top: 15px;
+  }
+}
   
   /* =========================================
      6. PROJECTS GRID & CARDS

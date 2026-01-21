@@ -50,6 +50,21 @@ const About = () => {
           </div>
         </div>
       </section>
+      {/* ... после </section> (about-intro-section) */}
+
+<section className="skills-section">
+  <div className="about-intro-grid"> 
+    {/* Используем вашу сетку для выравнивания */}
+    <PageHeader 
+      title="My Skills" 
+      subtitle="Expertise shaped through experience, precision, and thoughtful design." 
+    />
+    
+    <div className="skills-content-placeholder">
+      {/* Здесь позже будет список ваших навыков */}
+    </div>
+  </div>
+</section>
 
       <section className="stats-section">
         <StatList stats={aboutStats} />
