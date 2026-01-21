@@ -635,7 +635,7 @@
   
   .stat-number-wrapper {
     display: flex;
-    align-items: baseline;
+    align-items: flex-start;
     font-size: 64px;
     font-weight: 600;
     line-height: 1;
@@ -643,8 +643,12 @@
   }
   
   .stat-suffix {
-    font-size: 0.76em;
+    font-size: 0.7em; /* Уменьшает размер относительно цифр */
     margin-left: 2px;
+    margin-top: 9px; /* Регулировка высоты «на глаз» без изменения логики */
+    font-weight: 600;
+    display: inline-block;
+    vertical-align: top;
   }
   
   .stat-text-group {
@@ -678,7 +682,7 @@
   .digit-column-wrapper {
     position: relative;
     height: 1em;
-    width: 0.6em;
+    width: 0.56em;
     overflow: hidden;
   }
   
