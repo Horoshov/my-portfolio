@@ -4,7 +4,6 @@ import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
 import alexProfile from '../assets/alex-profile.jpg';
 
-// Исправленный словарь иконок
 const SKILL_ICONS = {
   "Figma": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,10 +29,29 @@ const SKILL_ICONS = {
   "Cursor": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="64" height="64" rx="16" fill="#000"/>
-      <g clipPath="url(#clip0_cursor_icon)">
+      <g clipPath="url(#clip_cursor)">
         <path d="M47.9229 22.0645L32.5918 13.2132C32.0995 12.9289 31.492 12.9289 30.9997 13.2132L15.6694 22.0645C15.2555 22.3035 15 22.7454 15 23.224V41.0728C15 41.5507 15.2555 41.9933 15.6694 42.2323L31.0005 51.0836C31.4928 51.3679 32.1002 51.3679 32.5925 51.0836L47.9236 42.2323C48.3375 41.9933 48.593 41.5514 48.593 41.0728V23.224C48.593 22.7461 48.3375 22.3035 47.9236 22.0645H47.9229ZM46.9599 23.9395L32.1599 49.5736C32.0599 49.7463 31.7958 49.6758 31.7958 49.4757V32.6907C31.7958 32.3553 31.6165 32.0451 31.3258 31.8767L16.79 23.4846C16.6173 23.3846 16.6878 23.1204 16.8879 23.1204H46.4877C46.9081 23.1204 47.1708 23.576 46.9606 23.9402H46.9599V23.9395Z" fill="white"/>
       </g>
-      <defs><clipPath id="clip0_cursor_icon"><rect width="64" height="64" fill="white"/></clipPath></defs>
+      <defs><clipPath id="clip_cursor"><rect width="64" height="64" fill="white"/></clipPath></defs>
+    </svg>
+  ),
+  "Jira": (
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="16" fill="#000"/>
+      <g clipPath="url(#clip1_jira)">
+        <path d="M47.1835 15.4991H29.125C29.125 17.6612 29.9839 19.7346 31.5126 21.2634C33.0414 22.7922 35.1149 23.651 37.2769 23.651H40.6035V26.8629C40.6064 31.361 44.252 35.0067 48.7501 35.0097V17.0657C48.7501 16.2008 48.0489 15.4991 47.1835 15.4991Z" fill="#2684FF"/>
+        <path d="M38.2498 24.497H20.1914C20.1942 28.9951 23.8398 32.6408 28.338 32.6438H31.6646V35.8659C31.6703 40.364 35.3184 44.0072 39.8165 44.0072V26.0639C39.8165 25.1986 39.115 24.497 38.2498 24.497Z" fill="url(#paint0_jira)"/>
+        <path d="M29.3085 33.4898H11.25C11.25 37.992 14.8999 41.6417 19.4019 41.6417H22.7389V44.8534C22.7418 49.3474 26.3811 52.9915 30.8752 53V35.0565C30.8752 34.1913 30.1737 33.4898 29.3085 33.4898Z" fill="url(#paint1_jira)"/>
+      </g>
+      <defs>
+        <linearGradient id="paint0_jira" x1="4932.28" y1="33.4794" x2="2984.14" y2="2310.17" gradientUnits="userSpaceOnUse">
+          <stop offset="0.18" stop-color="#0052CC"/><stop offset="1" stop-color="#2684FF"/>
+        </linearGradient>
+        <linearGradient id="paint1_jira" x1="5055.36" y1="58.8746" x2="2801.86" y2="2542.03" gradientUnits="userSpaceOnUse">
+          <stop offset="0.18" stop-color="#0052CC"/><stop offset="1" stop-color="#2684FF"/>
+        </linearGradient>
+        <clipPath id="clip1_jira"><rect width="38" height="38" fill="white" transform="translate(11 15)"/></clipPath>
+      </defs>
     </svg>
   ),
   "React": (
@@ -57,19 +75,35 @@ const SKILL_ICONS = {
       <path d="M32 13.1974C21.5034 13.1974 13 21.7008 13 32.1974C13 40.604 18.4392 47.7066 25.9908 50.2232C26.9408 50.389 27.2966 49.8208 27.2966 49.3216C27.2966 48.869 27.2742 47.3732 27.2742 45.7824C22.5 46.6616 21.265 44.6182 20.885 43.5508C20.6708 43.0032 19.745 41.3174 18.9384 40.8666C18.2734 40.509 17.3216 39.6316 18.9142 39.6074C20.41 39.5832 21.4792 40.984 21.835 41.5558C23.545 44.4282 26.2758 43.6216 27.3692 43.1224C27.535 41.8874 28.0342 41.0566 28.58 40.5816C24.3516 40.1066 19.935 38.4674 19.935 31.199C19.935 29.1332 20.6708 27.4232 21.8834 26.0932C21.6916 25.6182 21.0266 23.6716 22.0734 21.0582C22.0734 21.0582 23.6642 20.5608 27.2966 23.0066C28.8434 22.5774 30.4415 22.3618 32.0466 22.3658C33.6634 22.3658 35.2784 22.5782 36.7966 23.0066C40.4308 20.5366 42.0216 21.0582 42.0216 21.0582C43.0666 23.6716 42.4034 25.6182 42.2134 26.0932C43.4242 27.4232 44.16 29.1108 44.16 31.199C44.16 38.4916 39.7192 40.1066 35.4908 40.5816C36.18 41.1758 36.7742 42.3158 36.7742 44.0966C36.7742 46.6374 36.75 48.6808 36.75 49.3216C36.75 49.8208 37.1058 50.4132 38.0558 50.2232C45.5608 47.7066 51 40.5816 51 32.1974C51 21.7008 42.4984 13.1974 32 13.1974Z" fill="white"/>
     </svg>
   ),
+  "Maxon": (
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="16" fill="#000"/>
+      <g clipPath="url(#clip_maxon)">
+        <path d="M48 22.998L32.0014 14L16 22.998V40.9993L31.9986 50L47.9973 40.9993V22.998H48ZM46.6524 23.6514L32.0014 31.5867L17.3476 23.6541L32.0014 15.3908L46.6524 23.6541V23.6514ZM29.56 47.1345L21.3932 42.4715V31.5893L32.0041 37.3991L42.6149 31.5893V42.4715L36.2144 46.0717L32.0041 48.4439L29.5627 47.1345H29.56Z" fill="#D32328"/>
+      </g>
+      <defs><clipPath id="clip_maxon"><rect width="64" height="64" fill="white"/></clipPath></defs>
+    </svg>
+  ),
   "Adobe Photoshop": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="64" height="64" rx="16" fill="#000"/>
-      <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="#000B1D"/>
-      <path d="M22.0976 16.6849C30.0492 16.6849 34.5271 20.6123 34.5271 27.1873C34.5271 34.8655 28.4589 37.9545 22.7671 37.9545H18.917V46.2506H11.1328V16.6849H22.0976ZM18.917 23.7013V30.9382H22.3487C24.7342 30.9382 26.4083 29.9233 26.4083 27.3638C26.4083 25.0251 24.9853 23.7013 22.5162 23.7013H18.917Z" fill="#31A8FF"/>
-      <path d="M36.1165 44.7945L36.1585 37.9546C38.3765 39.4991 41.4734 40.4699 43.6078 40.4699C45.0725 40.4699 45.7422 40.0286 45.7422 39.2343C45.7422 38.3518 44.8215 37.9988 43.0637 37.425C39.6737 36.366 35.9492 34.9098 35.9492 30.2323C35.9492 25.4664 39.6738 22.8188 45.0725 22.8188C47.6254 22.8188 49.718 23.2159 51.5593 24.0544L51.5175 30.5853C50.0527 29.6585 47.1651 28.8202 45.2818 28.8202C43.9007 28.8202 43.3567 29.2615 43.3567 29.9233C43.3567 30.7176 44.0263 30.9383 46.0352 31.6002C49.9273 32.8358 53.1915 34.1597 53.1915 38.9695C53.1915 43.5588 49.6343 46.6478 44.0681 46.6478C41.1385 46.6478 38.3765 46.1183 36.1165 44.7945Z" fill="#31A8FF"/>
+      <g clipPath="url(#clip_ps)">
+        <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="#000B1D"/>
+        <path d="M22.0976 16.6849C30.0492 16.6849 34.5271 20.6123 34.5271 27.1873C34.5271 34.8655 28.4589 37.9545 22.7671 37.9545H18.917V46.2506H11.1328V16.6849H22.0976ZM18.917 23.7013V30.9382H22.3487C24.7342 30.9382 26.4083 29.9233 26.4083 27.3638C26.4083 25.0251 24.9853 23.7013 22.5162 23.7013H18.917Z" fill="#31A8FF"/>
+        <path d="M36.1165 44.7945L36.1585 37.9546C38.3765 39.4991 41.4734 40.4699 43.6078 40.4699C45.0725 40.4699 45.7422 40.0286 45.7422 39.2343C45.7422 38.3518 44.8215 37.9988 43.0637 37.425C39.6737 36.366 35.9492 34.9098 35.9492 30.2323C35.9492 25.4664 39.6738 22.8188 45.0725 22.8188C47.6254 22.8188 49.718 23.2159 51.5593 24.0544L51.5175 30.5853C50.0527 29.6585 47.1651 28.8202 45.2818 28.8202C43.9007 28.8202 43.3567 29.2615 43.3567 29.9233C43.3567 30.7176 44.0263 30.9383 46.0352 31.6002C49.9273 32.8358 53.1915 34.1597 53.1915 38.9695C53.1915 43.5588 49.6343 46.6478 44.0681 46.6478C41.1385 46.6478 38.3765 46.1183 36.1165 44.7945Z" fill="#31A8FF"/>
+      </g>
+      <defs><clipPath id="clip_ps"><rect width="64" height="64" fill="white"/></clipPath></defs>
     </svg>
   ),
   "Adobe Illustrator": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="#330000"/>
-      <path d="M21.4445 16H31.3598L42.4799 47.0435H33.3984L31.8695 42.3175H20.2396L18.7107 47.0435H10L21.4445 16ZM29.4601 34.9504L26.0778 24.5254L22.6954 34.9504H29.4601Z" fill="#FF9A00"/>
-      <path d="M44.6953 19.4787C44.6953 17.365 46.1722 16 48.4074 16C50.6026 16 51.9997 17.4091 51.9997 19.4787C51.9997 21.5923 50.6026 23.0454 48.4074 23.0454C46.0922 23.0454 44.6953 21.6363 44.6953 19.4787ZM44.8948 24.0581H51.8799V47.0435H44.8948V24.0581Z" fill="#FF9A00"/>
+      <rect width="64" height="64" rx="16" fill="#000"/>
+      <g clipPath="url(#clip_ai)">
+        <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="#330000"/>
+        <path d="M21.4445 16H31.3598L42.4799 47.0435H33.3984L31.8695 42.3175H20.2396L18.7107 47.0435H10L21.4445 16ZM29.4601 34.9504L26.0778 24.5254L22.6954 34.9504H29.4601Z" fill="#FF9A00"/>
+        <path d="M44.6953 19.4787C44.6953 17.365 46.1722 16 48.4074 16C50.6026 16 51.9997 17.4091 51.9997 19.4787C51.9997 21.5923 50.6026 23.0454 48.4074 23.0454C46.0922 23.0454 44.6953 21.6363 44.6953 19.4787ZM44.8948 24.0581H51.8799V47.0435H44.8948V24.0581Z" fill="#FF9A00"/>
+      </g>
+      <defs><clipPath id="clip_ai"><rect width="64" height="64" fill="white"/></clipPath></defs>
     </svg>
   ),
 };
@@ -86,8 +120,10 @@ const About = () => {
     { name: 'Framer', level: '85%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
     { name: 'React', level: '35%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
     { name: 'Cursor', level: '35%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
-    { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for complex product architectures.' },
+    { name: 'Jira', level: '85%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' }, // Jira после Cursor
+    { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for product design.' },
     { name: 'Git', level: '60%', desc: 'Proficient in version control and team collaboration workflows.' },
+    { name: 'Maxon', level: '90%', desc: 'Expertise in Cinema 4D for 3D modeling, lighting, and creating complex motion graphics.' },
     { name: 'Adobe Photoshop', level: '90%', desc: 'Advanced photo manipulation and visual asset creation for digital products.' },
     { name: 'Adobe Illustrator', level: '85%', desc: 'Creating scalable vector illustrations and brand identity systems.' }
   ];
