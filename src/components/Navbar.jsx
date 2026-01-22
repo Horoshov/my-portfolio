@@ -5,7 +5,7 @@ import './Navbar.css';
 const Navbar = () => (
   <nav className="navbar">
     <div className="nav-col">
-      <span className="nav-label">Hello, I’m</span>
+       <span className="nav-label">Hello, I’m</span>
       <Link to="/" className="nav-logo-link">
         <svg width="99" height="13" viewBox="0 0 99 13" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M90.1123 0.238281L92.7217 9.28516H93.3096L95.9189 0.238281H98.707L94.8682 12.1465H91.1631L87.3242 0.238281H90.1123Z" fill="currentColor"/>
