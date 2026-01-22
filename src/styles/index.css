@@ -1,69 +1,155 @@
-:root {
-  --bg-color: #f2f2f2;
-  --text-color: #000000;
-  --gray-text: #7a7a7a;
-  --border-color: rgba(0, 0, 0, 0.1);
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --container-width: 1300px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #131313;
-    --text-color: #ffffff;
-    --gray-text: #888888;
-    --border-color: rgba(255, 255, 255, 0.1);
+/* =========================================
+   GLOBAL CSS VARIABLES & RESET
+   ========================================= */
+   :root {
+    --bg-color: #f2f2f2;
+    --text-color: #000000;
+    --gray-text: #7a7a7a;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --container-width: 1300px;
+    --container-padding: 40px;
   }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: var(--font-main);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* Глобальный контейнер: консистентность для всех страниц */
-.app-container {
-  max-width: var(--container-width) !important;
-  margin: 0 auto !important;
-  padding: 0 px !important;
-  width: 100% !important;
-}
-
-/* Глобальная логика сетки проектов 2-3-3-2 */
-.projects-grid-custom {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 46px 20px;
-}
-
-.projects-grid-custom > * {
-  grid-column: span 2;
-}
-
-.projects-grid-custom > :nth-child(10n+1),
-.projects-grid-custom > :nth-child(10n+2),
-.projects-grid-custom > :nth-child(10n+9),
-.projects-grid-custom > :nth-child(10n+10) {
-  grid-column: span 3;
-}
-
-@media (max-width: 900px) {
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #131313;
+      --text-color: #ffffff;
+      --gray-text: #888888;
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  /* Responsive Container Padding */
+  @media (max-width: 1400px) {
+    :root {
+      --container-padding: 32px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    :root {
+      --container-padding: 24px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    :root {
+      --container-padding: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    :root {
+      --container-padding: 16px;
+    }
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* =========================================
+     GLOBAL CONTAINER SYSTEM
+     ========================================= */
   .app-container {
-    padding: 0 20px !important;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    width: 100%;
   }
+  
+  /* =========================================
+     GLOBAL PROJECTS GRID (2-3-3-2 Pattern)
+     ========================================= */
   .projects-grid-custom {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 46px 20px;
   }
+  
   .projects-grid-custom > * {
-    grid-column: span 1 !important;
+    grid-column: span 2;
   }
-}
+  
+  /* Special pattern: 1st-2nd-9th-10th span 3 columns */
+  .projects-grid-custom > :nth-child(10n+1),
+  .projects-grid-custom > :nth-child(10n+2),
+  .projects-grid-custom > :nth-child(10n+9),
+  .projects-grid-custom > :nth-child(10n+10) {
+    grid-column: span 3;
+  }
+  
+  /* =========================================
+     RESPONSIVE BREAKPOINTS
+     xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px
+     ========================================= */
+  
+  /* XXL: 1400px and up - default layout */
+  
+  /* XL: 1200px - 1399px */
+  @media (max-width: 1399px) {
+    .projects-grid-custom {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px 20px;
+    }
+    
+    .projects-grid-custom > * {
+      grid-column: span 2;
+    }
+    
+    /* Reset special pattern on smaller screens */
+    .projects-grid-custom > :nth-child(10n+1),
+    .projects-grid-custom > :nth-child(10n+2),
+    .projects-grid-custom > :nth-child(10n+9),
+    .projects-grid-custom > :nth-child(10n+10) {
+      grid-column: span 2;
+    }
+  }
+  
+  /* LG: 992px - 1199px */
+  @media (max-width: 1199px) {
+    .projects-grid-custom {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px 20px;
+    }
+    
+    .projects-grid-custom > * {
+      grid-column: span 1;
+    }
+  }
+  
+  /* MD: 768px - 991px */
+  @media (max-width: 991px) {
+    .projects-grid-custom {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px 15px;
+    }
+  }
+  
+  /* SM: 576px - 767px */
+  @media (max-width: 767px) {
+    .projects-grid-custom {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 12px;
+    }
+  }
+  
+  /* XS: 0 - 575px */
+  @media (max-width: 575px) {
+    .projects-grid-custom {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }

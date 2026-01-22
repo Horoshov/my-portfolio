@@ -118,8 +118,8 @@ const About = () => {
   const skills = [
     { name: 'Figma', level: '95%', desc: 'Expert in collaborative interface design, creating seamless UI systems and efficient workflows.' },
     { name: 'Framer', level: '85%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
-    { name: 'React', level: '35%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
-    { name: 'Cursor', level: '35%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
+    { name: 'React', level: '20%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
+    { name: 'Cursor', level: '25%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
     { name: 'Jira', level: '85%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
     { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for product design.' },
     { name: 'Git', level: '60%', desc: 'Proficient in version control and team collaboration workflows.' },
