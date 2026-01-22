@@ -45,10 +45,10 @@ const SKILL_ICONS = {
       </g>
       <defs>
         <linearGradient id="paint0_jira" x1="4932.28" y1="33.4794" x2="2984.14" y2="2310.17" gradientUnits="userSpaceOnUse">
-          <stop offset="0.18" stop-color="#0052CC"/><stop offset="1" stop-color="#2684FF"/>
+          <stop offset="0.18" stopColor="#0052CC"/><stop offset="1" stopColor="#2684FF"/>
         </linearGradient>
         <linearGradient id="paint1_jira" x1="5055.36" y1="58.8746" x2="2801.86" y2="2542.03" gradientUnits="userSpaceOnUse">
-          <stop offset="0.18" stop-color="#0052CC"/><stop offset="1" stop-color="#2684FF"/>
+          <stop offset="0.18" stopColor="#0052CC"/><stop offset="1" stopColor="#2684FF"/>
         </linearGradient>
         <clipPath id="clip1_jira"><rect width="38" height="38" fill="white" transform="translate(11 15)"/></clipPath>
       </defs>
@@ -120,12 +120,70 @@ const About = () => {
     { name: 'Framer', level: '85%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
     { name: 'React', level: '35%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
     { name: 'Cursor', level: '35%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
-    { name: 'Jira', level: '85%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' }, // Jira после Cursor
+    { name: 'Jira', level: '85%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
     { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for product design.' },
     { name: 'Git', level: '60%', desc: 'Proficient in version control and team collaboration workflows.' },
     { name: 'Maxon', level: '90%', desc: 'Expertise in Cinema 4D for 3D modeling, lighting, and creating complex motion graphics.' },
     { name: 'Adobe Photoshop', level: '90%', desc: 'Advanced photo manipulation and visual asset creation for digital products.' },
     { name: 'Adobe Illustrator', level: '85%', desc: 'Creating scalable vector illustrations and brand identity systems.' }
+  ];
+
+  const experiences = [
+    {
+      company: 'Vision Grid Studio',
+      position: 'Developer & Designer',
+      period: '2024-2025',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8L8 16V32L24 40L40 32V16L24 8Z" stroke="white" strokeWidth="2" fill="none"/>
+          <path d="M24 24L8 16M24 24L40 16M24 24V40" stroke="white" strokeWidth="2"/>
+        </svg>
+      )
+    },
+    {
+      company: 'BrightCore Creative',
+      position: 'UI/UX Designer',
+      period: '2022-2023',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="12" stroke="white" strokeWidth="2" fill="none"/>
+          <path d="M24 12V24L32 32" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+        </svg>
+      )
+    },
+    {
+      company: 'Nova Craft Agency',
+      position: 'Visual Designer',
+      period: '2020-2021',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="12" width="24" height="24" rx="4" stroke="white" strokeWidth="2" fill="none"/>
+          <circle cx="24" cy="24" r="6" fill="white"/>
+        </svg>
+      )
+    },
+    {
+      company: 'Mirano Creative Studio',
+      position: 'Creative Director',
+      period: '2017-2020',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 8L32 20H16L24 8Z" stroke="white" strokeWidth="2" fill="none"/>
+          <path d="M16 28L24 40L32 28L16 28Z" stroke="white" strokeWidth="2" fill="none"/>
+        </svg>
+      )
+    },
+    {
+      company: 'Vision Grid Studio',
+      position: 'Vision Grid Studio',
+      period: '2014-2016',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 24H36M24 12V36" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+          <circle cx="24" cy="24" r="14" stroke="white" strokeWidth="2" fill="none"/>
+        </svg>
+      )
+    }
   ];
 
   return (
@@ -189,6 +247,31 @@ const About = () => {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="career-journey-section">
+          <div className="about-intro-grid">
+            <PageHeader 
+              title="Career Journey" 
+              subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
+            />
+            
+            <div className="career-grid">
+              {experiences.map((exp, index) => (
+                <div key={index} className="career-card">
+                  <div className="career-icon">
+                    {exp.icon}
+                  </div>
+                  
+                  <div className="career-content">
+                    <h3 className="career-company">{exp.company}</h3>
+                    <h2 className="career-position">{exp.position}</h2>
+                    <p className="career-period">{exp.period}</p>
                   </div>
                 </div>
               ))}
