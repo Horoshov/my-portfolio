@@ -99,17 +99,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          <div className="mobile-menu-info">
-            <div className="mobile-menu-info-item">
-              <span className="mobile-menu-info-label">Location</span>
-              <span className="mobile-menu-info-value">Moscow, RU</span>
-            </div>
-            <div className="mobile-menu-info-item">
-              <span className="mobile-menu-info-label">Working Status</span>
-              <span className="mobile-menu-info-value">Available</span>
-            </div>
-          </div>
-
+          
           <nav className="mobile-menu-nav">
             <Link to="/" className="mobile-menu-link" onClick={closeMenu}>
               Home
@@ -127,16 +117,6 @@ const Navbar = () => {
               Contact
             </Link>
           </nav>
-
-          <div className="mobile-menu-footer">
-            <span className="mobile-menu-label">FOCUS</span>
-            <p className="mobile-menu-description">
-              Digital product designer and developer with 10 years of experience. I bridge the gap between complex UX systems and functional frontend implementation.
-            </p>
-            <Link to="/contact" className="mobile-menu-cta" onClick={closeMenu}>
-              Get in touch →
-            </Link>
-          </div>
         </div>
       </div>
     </>
