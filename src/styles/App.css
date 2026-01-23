@@ -168,7 +168,7 @@
   
   @media (max-width: 576px) {
     .navbar {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1, 1fr;
     }
     
     .nav-col {
