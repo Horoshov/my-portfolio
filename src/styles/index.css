@@ -134,7 +134,7 @@
   /* SM: 576px - 767px - 1 КОЛОНКА */
   @media (max-width: 767px) {
     .projects-grid-custom {
-      grid-template-columns: r;
+      grid-template-columns: 1fr;
       gap: 25px;
     }
   }
@@ -142,7 +142,7 @@
   /* XS: 0 - 575px - 1 КОЛОНКА */
   @media (max-width: 575px) {
     .projects-grid-custom {
-      grid-template-columns: fr;
+      grid-template-columns: 1fr;
       gap: 20px;
     }
   }
