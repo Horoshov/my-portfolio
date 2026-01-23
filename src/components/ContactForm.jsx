@@ -53,7 +53,7 @@ const ContactForm = () => {
   const inputStyle = {
     width: '100%',
     padding: '14px 18px',
-    borderRadius: '8px',
+    borderRadius: '16px',
     border: '1px solid rgba(122, 122, 122, 0.2)',
     backgroundColor: 'transparent',
     color: 'var(--text-color)',
