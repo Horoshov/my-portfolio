@@ -9,7 +9,9 @@
     width: 100%;
     aspect-ratio: 16 / 11;
     background-color: var(--photo-bg); /* Темизация фона заглушки */
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: 12px;
+    border: 1px;
+    border-color:var(--gray-text);
     overflow: hidden;
     margin-bottom: 20px;
   }
@@ -52,7 +54,7 @@
   width: 100%;
   aspect-ratio: 16 / 10; /* Сохраняет пропорции до загрузки картинки */
   background-color: #f2f2f2;
-  border-radius: 24px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
