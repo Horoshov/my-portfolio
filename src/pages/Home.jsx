@@ -42,26 +42,26 @@ const howIWorkSteps = [
   {
     category: 'Discovery',
     duration: '1-2 weeks',
-    title: 'I dive deep into your personal goals and long-term vision.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+    title: 'Product Discovery & Requirements Analysis.',
+    description: 'Conducting stakeholder interviews, competitive audit, and user research to define technical constraints, key performance indicators (KPIs), and the product roadmap.'
   },
   {
     category: 'Design',
-    duration: '2-3 weeks',
-    title: 'I always Create clean, impactful mockups for modern brands',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+    duration: '2-4 weeks',
+    title: 'Information Architecture & System Design.',
+    description: 'Developing high-fidelity prototypes, user flows, and a scalable component-based design system in Figma to ensure interface consistency and usability patterns.'
   },
   {
     category: 'Build',
-    duration: '1-3 weeks',
-    title: 'Seamless websites built using powerful no-code tools.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+    duration: '2-4 weeks',
+    title: 'Frontend Implementation & Integration.',
+    description: 'Translating designs into pixel-perfect, responsive code using React/Next.js. Ensuring semantic markup, accessibility (WCAG) compliance, and component modularity.'
   },
   {
     category: 'Launch',
-    duration: '1-2 weeks',
-    title: 'Your website goes live, optimized and ready to make a impact.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
+    duration: '1 week',
+    title: 'QA Testing, Optimization & Deployment.',
+    description: 'Executing cross-browser testing, performance optimization (Core Web Vitals), and SEO configuration before final deployment to the production environment.'
   }
 ];
 
