@@ -120,9 +120,6 @@ const Navbar = () => {
             <Link to="/projects" className="mobile-menu-link" onClick={closeMenu}>
               Projects
             </Link>
-            <Link to="/articles" className="mobile-menu-link" onClick={closeMenu}>
-              Articles
-            </Link>
             <Link to="/about" className="mobile-menu-link" onClick={closeMenu}>
               About
             </Link>
