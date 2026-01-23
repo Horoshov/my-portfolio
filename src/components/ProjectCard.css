@@ -11,7 +11,7 @@
     background-color: var(--photo-bg); /* Темизация фона заглушки */
     border-radius: 12px;
     border: 1px;
-    border-color:var(--gray-text);
+    border-bottom-color: rgba(0, 0, 0, 0.867);
     overflow: hidden;
     margin-bottom: 20px;
   }
