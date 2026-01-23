@@ -538,7 +538,7 @@
   
   @media (max-width: 576px) {
     .projects-grid-custom {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1, 1fr;
       gap: 25px;
     }
     
