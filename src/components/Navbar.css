@@ -6,7 +6,7 @@
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
     padding-bottom: 20px;
-    border-bottom: 0px solid rgba(122, 122, 122, 0.1);
+    border-bottom: 1px solid rgba(122, 122, 122, 0.1);
     max-width: var(--container-width);
     margin: 0 auto;
     padding-left: var(--container-padding);
@@ -67,7 +67,7 @@
     gap: 12px;
   }
   
-  /* Hamburger button - скрыт на десктопе */
+  /* Hamburger button - hidden on desktop */
   .hamburger-btn {
     display: none;
     flex-direction: column;
@@ -78,7 +78,7 @@
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 10;
+    position: relative;
   }
   
   .hamburger-btn span {
@@ -126,128 +126,86 @@
   }
   
   .mobile-menu-content {
-    padding: 32px 24px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    gap: 40px;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
   }
   
+  /* Header с логотипом и крестиком */
   .mobile-menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 24px;
+    padding: 24px 0;
     border-bottom: 1px solid rgba(122, 122, 122, 0.1);
   }
   
-  .mobile-menu-logo {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-color);
+  .mobile-menu-logo-link {
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    letter-spacing: 0.05em;
+    color: var(--text-color);
+    transition: opacity 0.2s ease;
+  }
+  
+  .mobile-menu-logo-link:hover {
+    opacity: 0.5;
+  }
+  
+  .mobile-menu-logo-link svg {
+    display: block;
   }
   
   .mobile-menu-close {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border: none;
     background: transparent;
     color: var(--text-color);
-    font-size: 32px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: opacity 0.2s ease;
     padding: 0;
-    line-height: 1;
   }
   
   .mobile-menu-close:hover {
     opacity: 0.5;
   }
   
-
-  .mobile-menu-info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  
-  .mobile-menu-info-label {
-    font-size: 12px;
-    text-transform: capitalize;
-    color: var(--gray-text);
-    letter-spacing: 0.05em;
-    font-weight: 500;
-  }
-  
-  .mobile-menu-info-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-color);
-  }
-  
+  /* Navigation */
   .mobile-menu-nav {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding-top: 80px;
     flex: 1;
   }
   
   .mobile-menu-link {
-    font-size: 36px;
-    font-weight: 600;
+    font-size: 48px;
+    font-weight: 500;
     color: var(--text-color);
     text-decoration: none;
-    padding: 20px 0;
+    padding: 24px 0;
     transition: opacity 0.2s ease;
-    border-bottom: 1px solid rgba(122, 122, 122, 0.08);
+    text-align: center;
+    border-bottom: none;
+    line-height: 1.1;
+  }
+  
+  .mobile-menu-link:first-child {
+    border-top: 1px solid rgba(122, 122, 122, 0.1);
+    padding-top: 32px;
   }
   
   .mobile-menu-link:hover {
-    opacity: 0.6;
-  }
-  
-  .mobile-menu-footer {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 32px;
-    border-top: 1px solid rgba(122, 122, 122, 0.1);
-  }
-  
-  .mobile-menu-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    color: var(--gray-text);
-    letter-spacing: 0.1em;
-    font-weight: 600;
-  }
-  
-  .mobile-menu-description {
-    font-size: 16px;
-    line-height: 1.5;
-    color: var(--text-color);
-    margin: 0;
-  }
-  
-  .mobile-menu-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 16px;
-    transition: opacity 0.2s ease;
-    width: fit-content;
-  }
-  
-  .mobile-menu-cta:hover {
     opacity: 0.6;
   }
   
@@ -319,12 +277,12 @@
   /* SM: 576px - 767px */
   @media (max-width: 767px) {
     .mobile-menu-link {
-      font-size: 32px;
-      padding: 18px 0;
+      font-size: 42px;
+      padding: 20px 0;
     }
     
-    .mobile-menu-description {
-      font-size: 15px;
+    .mobile-menu-link:first-child {
+      padding-top: 28px;
     }
   }
   
@@ -338,7 +296,8 @@
       padding: 16px 0;
     }
     
-    .nav-logo-link svg {
+    .nav-logo-link svg,
+    .mobile-menu-logo-link svg {
       width: 85px;
       height: auto;
     }
@@ -348,29 +307,25 @@
       height: 20px;
     }
     
-    .mobile-menu-content {
-      padding: 24px 16px;
-      gap: 32px;
-    }
-    
     .mobile-menu-header {
-      padding-bottom: 20px;
+      padding: 20px 0;
     }
     
-    .mobile-menu-logo {
-      font-size: 18px;
+    .mobile-menu-close {
+      width: 28px;
+      height: 28px;
+    }
+    
+    .mobile-menu-nav {
+      padding-top: 60px;
     }
     
     .mobile-menu-link {
-      font-size: 28px;
-      padding: 16px 0;
+      font-size: 36px;
+      padding: 18px 0;
     }
     
-    .mobile-menu-description {
-      font-size: 14px;
-    }
-    
-    .mobile-menu-cta {
-      font-size: 14px;
+    .mobile-menu-link:first-child {
+      padding-top: 24px;
     }
   }
