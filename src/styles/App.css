@@ -457,7 +457,7 @@
     width: 100%;
     aspect-ratio: 16 / 10;
     background-color: var(--photo-bg);
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 20px;
   }
@@ -599,7 +599,7 @@
   .service-image-preview {
     width: 150px;
     height: 90px;
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: 12px;
     overflow: hidden;
     background: var(--photo-bg);
   }
@@ -709,7 +709,7 @@
   .work-step-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 48px;
-    border-radius: 24px;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -809,7 +809,7 @@
   .stat-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 40px;
-    border-radius: 24px;
+    border-radius: 12px;
     min-height: 240px;
     display: flex;
     flex-direction: column;
@@ -941,7 +941,7 @@
     max-width: 400px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 24px;
+    border-radius: 12px;
   }
   
   .about-date-label {
@@ -1025,7 +1025,7 @@
   
   .skill-item {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 40px;
     display: flex;
     gap: 32px;
@@ -1145,7 +1145,7 @@
   
   .career-card {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 24px;
+    border-radius: 12px;
     padding: 40px 32px;
     display: flex;
     flex-direction: column;
@@ -1474,7 +1474,7 @@
   
   .pd-hero-section {
     width: 100%;
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: 12px;
     overflow: hidden;
     margin-bottom: 80px;
   }
