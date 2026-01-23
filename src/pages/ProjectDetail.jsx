@@ -109,15 +109,7 @@ const ProjectDetail = () => {
           </section>
         )}
 
-        {/* СЛЕДУЮЩИЕ ПРОЕКТЫ */}
-        <section className="pd-next-section">
-          <PageHeader title="Next Projects" />
-          <div className="projects-grid-main">
-            {nextProjects.map((item) => (
-              <ProjectCard key={item.id} project={item} />
-            ))}
-          </div>
-        </section>
+
 
         <footer className="pd-back-footer" style={{ marginTop: '80px', paddingBottom: '60px' }}>
           <Link 
