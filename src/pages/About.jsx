@@ -117,13 +117,13 @@ const About = () => {
 
   const skills = [
     { name: 'Figma', level: '95%', desc: 'Expert in collaborative interface design, creating seamless UI systems and efficient workflows.' },
-    { name: 'Framer', level: '85%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
+    { name: 'Framer', level: '65%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
     { name: 'React', level: '20%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
     { name: 'Cursor', level: '25%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
-    { name: 'Jira', level: '85%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
+    { name: 'Jira', level: '75%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
     { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for product design.' },
     { name: 'Git', level: '60%', desc: 'Proficient in version control and team collaboration workflows.' },
-    { name: 'Maxon', level: '90%', desc: 'Expertise in Cinema 4D for 3D modeling, lighting, and creating complex motion graphics.' },
+    { name: 'Maxon', level: '65%', desc: 'Expertise in Cinema 4D for 3D modeling, lighting, and creating complex motion graphics.' },
     { name: 'Adobe Photoshop', level: '90%', desc: 'Advanced photo manipulation and visual asset creation for digital products.' },
     { name: 'Adobe Illustrator', level: '85%', desc: 'Creating scalable vector illustrations and brand identity systems.' }
   ];
