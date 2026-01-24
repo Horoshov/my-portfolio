@@ -1,138 +1,132 @@
-/* Основной контейнер */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.navbar-fixed {
   width: 100%;
-  padding: 30px var(--container-padding);
+  position: relative;
+  z-index: 1000;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 24px 0;
+}
+
+.nav-container {
   max-width: var(--container-width);
   margin: 0 auto;
-  border-bottom: 1px solid rgba(122, 122, 122, 0.1);
-  background: var(--bg-color);
-  position: relative;
-  z-index: 100;
-}
-
-/* Логотип */
-.nav-logo-link {
-  display: flex;
-  color: var(--text-color);
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.nav-logo-link:hover {
-  opacity: 0.6;
-}
-
-/* Правый блок (меню + бургер) */
-.nav-right {
-  display: flex;
+  padding: 0 var(--container-padding);
+  display: flex !important;
+  justify-content: space-between;
   align-items: center;
 }
 
-/* Десктопное меню */
-.nav-desktop {
+/* Правка: Логотип остается видимым при открытом меню */
+.nav-logo-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  position: relative;
+  z-index: 1200; /* Выше мобильного меню (1100) */
+}
+
+.nav-logo svg {
+  color: var(--text-color);
+  display: block;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-desktop-links {
   display: flex;
   gap: 30px;
 }
 
-.nav-link {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-color);
+/* Правка: Текст "С заглавной" и Hover эффект */
+.nav-item {
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: capitalize; 
+  letter-spacing: 0.01em;
+  transition: opacity 0.3s ease; /* Плавность для ховера */
 }
 
-.nav-link:hover {
-  opacity: 0.5;
+.nav-item:hover {
+  opacity: 0.6; /* Эффект наведения */
 }
 
-/* Бургер (по умолчанию скрыт на десктопе) */
-.hamburger-btn {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
+/* БУРГЕР — остается видимым поверх меню */
+.burger-btn {
   background: none;
   border: none;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
   padding: 5px;
+  z-index: 1200; 
+  position: relative;
 }
 
-.hamburger-btn span {
+.burger-btn span {
+  display: block;
   width: 24px;
   height: 2px;
   background: var(--text-color);
-  transition: 0.3s;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Мобильная адаптивность */
-@media (max-width: 900px) {
-  .navbar {
-    padding: 20px var(--container-padding);
-  }
+.burger-btn.open span:nth-child(1) {
+  transform: translateY(4.5px) rotate(45deg);
+}
+.burger-btn.open span:nth-child(2) {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
 
-  .nav-desktop {
-    display: none; /* Скрываем обычные ссылки */
-  }
+/* МОБИЛЬНОЕ МЕНЮ */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 1100; /* Ниже логотипа */
+}
 
-  .hamburger-btn {
-    display: flex; /* Показываем бургер */
-  }
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
-  /* Оверлей меню */
-  .mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: var(--bg-color);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    padding: 0 var(--container-padding);
-    
-    /* Анимация появления */
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  text-align: center;
+}
 
-  .mobile-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  }
+.mobile-nav-list a {
+  font-size: 42px;
+  font-weight: 400;
+  color: var(--text-color);
+  text-decoration: none;
+  text-transform: capitalize; /* Первая заглавная */
+  transition: opacity 0.3s ease;
+}
 
-  .mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-    border-bottom: 1px solid rgba(122, 122, 122, 0.1);
-  }
+.mobile-nav-list a:hover {
+  opacity: 0.6;
+}
 
-  .close-btn {
-    font-size: 40px;
-    background: none;
-    border: none;
-    color: var(--text-color);
-    cursor: pointer;
-  }
-
-  .mobile-nav {
-    display: flex;
-    flex-direction: column;
-    padding-top: 50px;
-    gap: 20px;
-  }
-
-  .mobile-nav a {
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--text-color);
-    text-decoration: none;
-    transition: 0.3s;
+@media (max-width: 1024px) {
+  .nav-desktop-links {
+    display: none;
   }
 }
