@@ -1,6 +1,6 @@
 .navbar-fixed {
   width: 100%;
-  position: relative;
+  position: relaive;
   z-index: 1000;
   background: var(--bg-color);
   border-bottom: 1px solid var(--border-color);
@@ -111,8 +111,8 @@
 }
 
 .mobile-nav-list a {
-  font-size: 42px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 200;
   color: var(--text-color);
   text-decoration: none;
   text-transform: capitalize;
