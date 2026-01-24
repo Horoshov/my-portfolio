@@ -543,7 +543,7 @@
     }
     
     .project-image-wrapper {
-      border-radius: 16px;
+      border-radius: 12px;
       margin-bottom: 12px;
     }
   }
@@ -709,7 +709,7 @@
   .work-step-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 48px;
-    border-radius: 16px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -809,7 +809,7 @@
   .stat-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 40px;
-    border-radius: 16px;
+    border-radius: 24px;
     min-height: 240px;
     display: flex;
     flex-direction: column;
@@ -941,7 +941,7 @@
     max-width: 400px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 16px;
+    border-radius: 24px;
   }
   
   .about-date-label {
@@ -1025,7 +1025,7 @@
   
   .skill-item {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 40px;
     display: flex;
     gap: 32px;
@@ -1145,7 +1145,7 @@
   
   .career-card {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 16px;
+    border-radius: 24px;
     padding: 40px 32px;
     display: flex;
     flex-direction: column;
@@ -1721,20 +1721,6 @@
     .footer-avatar {
       width: 60px;
       height: 60px;
-    }
-  }
-
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Две колонки на десктопе */
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .form-grid {
-      grid-template-columns: 1fr; /* Одна колонка на мобилках */
-      gap: 15px;
     }
   }
   

@@ -7,7 +7,7 @@ import { allProjects } from '../data/projects';
 const Projects = () => {
   return (
     <motion.div 
-      className="projects-page" 
+      className="page-wrapper projects-page" 
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }} 
@@ -15,7 +15,7 @@ const Projects = () => {
     >
       <PageHeader title="Recent Works" />
       
-      <section className="projects-content" style={{ padding: '0px 0 100px' }}>
+      <section className="projects-content" style={{ paddingBottom: '100px' }}>
         <div className="projects-grid-custom">
           <AnimatePresence>
             {allProjects.map((project) => (
@@ -27,6 +27,5 @@ const Projects = () => {
     </motion.div>
   );
 };
-
 
 export default Projects;

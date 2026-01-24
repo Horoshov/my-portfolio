@@ -7,10 +7,6 @@ import ProjectCard from '../components/ProjectCard';
 import alexProfile from '../assets/alex-profile.jpg'; 
 import { allProjects } from '../data/projects';
 
-// СОВЕТ: Добавь реальные изображения в папку assets и импортируй их так:
-// import motionImg from '../assets/services/motion.jpg';
-// import webImg from '../assets/services/web.jpg';
-
 const services = [
   { 
     id: '01', 
@@ -42,26 +38,26 @@ const howIWorkSteps = [
   {
     category: 'Discovery',
     duration: '1-2 weeks',
-    title: 'Product Discovery & Requirements Analysis.',
-    description: 'Conducting stakeholder interviews, competitive audit, and user research to define technical constraints, key performance indicators (KPIs), and the product roadmap.'
+    title: 'I dive deep into your personal goals and long-term vision.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
   },
   {
     category: 'Design',
-    duration: '2-4 weeks',
-    title: 'Information Architecture & System Design.',
-    description: 'Developing high-fidelity prototypes, user flows, and a scalable component-based design system in Figma to ensure interface consistency and usability patterns.'
+    duration: '2-3 weeks',
+    title: 'I always Create clean, impactful mockups for modern brands',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
   },
   {
     category: 'Build',
-    duration: '2-4 weeks',
-    title: 'Frontend Implementation & Integration.',
-    description: 'Translating designs into pixel-perfect, responsive code using React/Next.js. Ensuring semantic markup, accessibility (WCAG) compliance, and component modularity.'
+    duration: '1-3 weeks',
+    title: 'Seamless websites built using powerful no-code tools.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
   },
   {
     category: 'Launch',
-    duration: '1 week',
-    title: 'QA Testing, Optimization & Deployment.',
-    description: 'Executing cross-browser testing, performance optimization (Core Web Vitals), and SEO configuration before final deployment to the production environment.'
+    duration: '1-2 weeks',
+    title: 'Your website goes live, optimized and ready to make a impact.',
+    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
   }
 ];
 
@@ -77,129 +73,130 @@ const Home = () => {
   ];
 
   return (
-    <motion.div className="home-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <div className="app-container">
-        
-        <section className="hero-grid">
-          <div className="hero-col left">
-            <span className="label">Focus</span>
-            <p className="hero-text">Digital product designer and developer with 10 years of experience. I bridge the gap between complex UX systems and functional frontend implementation.</p>
-            <Link to="/contact" className="contact-button">Get in touch <span>→</span></Link>
-          </div>
-
-          <div className="hero-col center">
-            <div className="hero-middle">
-              <svg 
-                className="hero-image-mask" 
-                viewBox="0 0 350 350" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path 
-                  fillRule="evenodd" 
-                  clipRule="evenodd" 
-                  d="M350 350H0V0H350V350ZM253.744 4C220.414 4.0001 191.212 21.6275 175 48.0439C158.788 21.6275 129.586 4 96.2559 4C45.3044 4.00015 4.00007 45.192 4 96.0049C4 129.567 22.0204 158.931 48.9375 175.001C22.0204 191.071 4.00008 220.435 4 253.997C4 304.81 45.3043 346.002 96.2559 346.002C129.587 346.002 158.788 328.374 175 301.957C191.212 328.374 220.413 346.002 253.744 346.002C304.696 346.002 346.001 304.81 346.001 253.997C346.001 220.435 327.98 191.071 301.062 175.001C327.98 158.931 346.001 129.567 346.001 96.0049C346.001 45.192 304.696 4 253.744 4Z" 
-                  fill="var(--bg-color)" 
-                />
-              </svg>
-              <img 
-                src={alexProfile} 
-                className="hero-image" 
-                alt="Alex Horoshov" 
-              />
-            </div>
-          </div>
-
-          <div className="hero-col right">
-            <span className="label">Expertise</span>
-            <ul className="expertise-list">
-              <li>Product Design & UX/UI</li>
-              <li>Frontend Development</li>
-              <li>Design Management</li>
-              <li>3D Graphics</li>
-              <li>SEO Analytics</li>
-            </ul>
-          </div>
-        </section>
-
-        <div className="giant-title-wrapper">
-          <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
+    <motion.div 
+      className="page-wrapper home-page" 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }}
+    >
+      <section className="hero-grid">
+        <div className="hero-col left">
+          <span className="label">Focus</span>
+          <p className="hero-text">Digital product designer and developer with 10 years of experience. I bridge the gap between complex UX systems and functional frontend implementation.</p>
+          <Link to="/contact" className="contact-button">Get in touch <span>→</span></Link>
         </div>
 
-        <PageHeader title="Recent Works" />
-
-        <section className="projects-section">
-          <div className="projects-grid-custom">
-            {featuredProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+        <div className="hero-col center">
+          <div className="hero-middle">
+            <svg 
+              className="hero-image-mask" 
+              viewBox="0 0 350 350" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                fillRule="evenodd" 
+                clipRule="evenodd" 
+                d="M350 350H0V0H350V350ZM253.744 4C220.414 4.0001 191.212 21.6275 175 48.0439C158.788 21.6275 129.586 4 96.2559 4C45.3044 4.00015 4.00007 45.192 4 96.0049C4 129.567 22.0204 158.931 48.9375 175.001C22.0204 191.071 4.00008 220.435 4 253.997C4 304.81 45.3043 346.002 96.2559 346.002C129.587 346.002 158.788 328.374 175 301.957C191.212 328.374 220.413 346.002 253.744 346.002C304.696 346.002 346.001 304.81 346.001 253.997C346.001 220.435 327.98 191.071 301.062 175.001C327.98 158.931 346.001 129.567 346.001 96.0049C346.001 45.192 304.696 4 253.744 4Z" 
+                fill="var(--bg-color)" 
+              />
+            </svg>
+            <img 
+              src={alexProfile} 
+              className="hero-image" 
+              alt="Alex Horoshov" 
+            />
           </div>
-        </section>
+        </div>
 
-        <section className="services-section">
-          <PageHeader title="What I Offer" />
-          <div className="services-list">
-            {services.map((service) => (
-              <div 
-                key={service.id} 
-                className="service-item" 
-                onMouseEnter={() => setHoveredService(service.id)} 
-                onMouseLeave={() => setHoveredService(null)}
-              >
-                <div className="service-row">
-                  <span className="service-number">({service.id})</span>
-                  <h3 className="service-title">{service.title}</h3>
-                  <motion.div 
-                    className="service-details" 
-                    initial={{ opacity: 0, x: -10 }} 
-                    animate={{ opacity: hoveredService === service.id ? 1 : 0, x: hoveredService === service.id ? 0 : -10 }} 
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="service-image-preview">
-                      {service.img ? (
-                        <img src={service.img} alt={service.title} />
-                      ) : (
-                        <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
-                      )}
-                    </div>
-                    <div className="service-tags">
-                      {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-                    </div>
-                  </motion.div>
-                  <div className="service-arrow">
-                    <div className={`arrow-circle ${hoveredService === service.id ? 'active' : ''}`}>
-                      <span>↗</span>
-                    </div>
+        <div className="hero-col right">
+          <span className="label">Expertise</span>
+          <ul className="expertise-list">
+            <li>Product Design & UX/UI</li>
+            <li>Frontend Development</li>
+            <li>Design Management</li>
+            <li>3D Graphics</li>
+            <li>SEO Analytics</li>
+          </ul>
+        </div>
+      </section>
+
+      <div className="giant-title-wrapper">
+        <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
+      </div>
+
+      <PageHeader title="Recent Works" />
+
+      <section className="projects-section">
+        <div className="projects-grid-custom">
+          {featuredProjects.map(project => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+      </section>
+
+      <section className="services-section">
+        <PageHeader title="What I Offer" />
+        <div className="services-list">
+          {services.map((service) => (
+            <div 
+              key={service.id} 
+              className="service-item" 
+              onMouseEnter={() => setHoveredService(service.id)} 
+              onMouseLeave={() => setHoveredService(null)}
+            >
+              <div className="service-row">
+                <span className="service-number">({service.id})</span>
+                <h3 className="service-title">{service.title}</h3>
+                <motion.div 
+                  className="service-details" 
+                  initial={{ opacity: 0, x: -10 }} 
+                  animate={{ opacity: hoveredService === service.id ? 1 : 0, x: hoveredService === service.id ? 0 : -10 }} 
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="service-image-preview">
+                    {service.img ? (
+                      <img src={service.img} alt={service.title} />
+                    ) : (
+                      <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
+                    )}
+                  </div>
+                  <div className="service-tags">
+                    {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                  </div>
+                </motion.div>
+                <div className="service-arrow">
+                  <div className={`arrow-circle ${hoveredService === service.id ? 'active' : ''}`}>
+                    <span>↗</span>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </section>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* Блок HOW I WORK (теперь над stat-list) */}
-        <section className="how-i-work-section">
-          <PageHeader title="How I Work" />
-          <div className="work-steps-grid">
-            {howIWorkSteps.map((step, index) => (
-              <div key={index} className="work-step-card">
-                <div className="step-card-header">
-                  <span className="step-badge">{step.category}</span>
-                  <span className="step-duration">{step.duration}</span>
-                </div>
-                <div className="step-card-content">
-                  <h3 className="step-card-title">{step.title}</h3>
-                  <p className="step-card-description">{step.description}</p>
-                </div>
+      <section className="how-i-work-section">
+        <PageHeader title="How I Work" />
+        <div className="work-steps-grid">
+          {howIWorkSteps.map((step, index) => (
+            <div key={index} className="work-step-card">
+              <div className="step-card-header">
+                <span className="step-badge">{step.category}</span>
+                <span className="step-duration">{step.duration}</span>
               </div>
-            ))}
-          </div>
-        </section>
-        
-        <section className="stats-section">
-          <StatList stats={homeStats} />
-        </section>
-      </div>
+              <div className="step-card-content">
+                <h3 className="step-card-title">{step.title}</h3>
+                <p className="step-card-description">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      
+      <section className="stats-section">
+        <StatList stats={homeStats} />
+      </section>
     </motion.div>
   );
 };
