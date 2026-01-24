@@ -1,20 +1,43 @@
 .navbar-fixed {
   width: 100%;
-  position: relaive;
+  position: fixed; /* Фиксируем сверху */
+  top: 0;
+  left: 0;
   z-index: 1000;
   background: var(--bg-color);
   border-bottom: 1px solid var(--border-color);
-  padding: 24px 0;
+  padding: 24px var(--container-padding); /* Используем переменную отступа из твоего App.css */
 }
 
 .nav-container {
-  /* Узкие отступы как на Horoshov: убираем ограничение в 1300px */
-  width: 100%; 
-  max-width: 100%; 
-  padding: 0 0px; /* Фиксированные узкие отступы по краям */
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
   display: flex !important;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Фикс для гамбургера, чтобы он был кликабелен поверх всего */
+.burger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* По умолчанию скрыт на десктопе */
+  flex-direction: column;
+  gap: 7px;
+  padding: 5px;
+  z-index: 2000; /* Выше, чем overlay */
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .burger-btn {
+    display: flex;
+  }
+  .nav-desktop-links {
+    display: none;
+  }
 }
 
 .nav-logo-wrapper {
