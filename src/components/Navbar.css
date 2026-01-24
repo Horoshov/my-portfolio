@@ -11,7 +11,7 @@
   /* Узкие отступы как на Horoshov: убираем ограничение в 1300px */
   width: 100%; 
   max-width: 100%; 
-  padding: 0 20px; /* Фиксированные узкие отступы по краям */
+  padding: 0 0px; /* Фиксированные узкие отступы по краям */
   display: flex !important;
   justify-content: space-between;
   align-items: center;
