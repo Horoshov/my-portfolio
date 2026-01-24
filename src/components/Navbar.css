@@ -4,9 +4,7 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  background: rgba(var(--bg-rgb, 13, 13, 13), 0.1);
-  backdrop-filter: blur(12px); 
-  -webkit-backdrop-filter: blur(12px); /* Для Safari */
+  background: var(--bg-color);
   border-bottom: 1px solid var(--border-color);
   padding: 24px var(--container-padding); /* Используем переменную отступа из твоего App.css */
 }
