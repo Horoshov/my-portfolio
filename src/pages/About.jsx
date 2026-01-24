@@ -193,7 +193,7 @@ const About = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="home-container">
+      <div className="page-wrapper about-page">
         <PageHeader title="About Me" />
         
         <section className="about-intro-section">
