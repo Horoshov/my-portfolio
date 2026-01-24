@@ -83,7 +83,7 @@ const Home = () => {
       <section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
-          <p className="hero-text">Digital product designer and developer with 10 years of experience. I bridge the gap between complex UX systems and functional frontend implementation.</p>
+          <p className="hero-text">UX/UI & Product Designer. Опыт проектирования сложных систем: BI, FinTech, PropTech и ML-сервисы. Специализируюсь на создании масштабируемых дизайн-систем и ускорении разработки через связку Figma, React и AI-инструменты. Фокусируюсь на сокращении Time-to-Market при запуске MVP и Enterprise-продуктов.</p>
           <Link to="/contact" className="contact-button">Get in touch <span>→</span></Link>
         </div>
 

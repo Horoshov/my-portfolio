@@ -9,7 +9,7 @@
     width: 100%;
     aspect-ratio: 16 / 11;
     background-color: var(--photo-bg); /* Темизация фона заглушки */
-    border-radius: 16px;
+    border-radius: 12px;
     border: 1px;
     border-bottom-color: rgba(0, 0, 0, 0.867);
     overflow: hidden;
@@ -52,9 +52,9 @@
 .project-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10; /* Сохраняет пропорции до загрузки картинки */
+  aspect-ratio: 16 / 11; /* Сохраняет пропорции до загрузки картинки */
   background-color: #f2f2f2;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
