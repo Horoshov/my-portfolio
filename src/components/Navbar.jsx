@@ -34,9 +34,9 @@ const Navbar = () => {
 
         <div className="nav-actions">
           <nav className="nav-desktop-links">
-            <Link to="/company" className="nav-item">Компания</Link>
+            <Link to="/" className="nav-item">Главная</Link>
             <Link to="/projects" className="nav-item">Кейсы</Link>
-            <Link to="/services" className="nav-item">Услуги</Link>
+            <Link to="/about" className="nav-item">Услуги</Link>
             <Link to="/contact" className="nav-item">Контакты</Link>
           </nav>
 
@@ -52,9 +52,9 @@ const Navbar = () => {
 
       <div className={`mobile-overlay ${isMenuOpen ? 'active' : ''}`}>
         <nav className="mobile-nav-list">
-          <Link to="/company" onClick={() => setIsMenuOpen(false)}>Компания</Link>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>Главная</Link>
           <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Кейсы</Link>
-          <Link to="/services" onClick={() => setIsMenuOpen(false)}>Услуги</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>Услуги</Link>
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Контакты</Link>
         </nav>
       </div>
