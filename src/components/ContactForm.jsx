@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const ContactForm = () => {
-  const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
+  const [status, setStatus] = useState('idle'); 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -53,11 +53,11 @@ const ContactForm = () => {
   const inputStyle = {
     width: '100%',
     padding: '14px 18px',
-    borderRadius: '16px',
+    borderRadius: '8px',
     border: '1px solid rgba(122, 122, 122, 0.2)',
     backgroundColor: 'transparent',
     color: 'var(--text-color)',
-    fontSize: '16px',
+    fontSize: '14px',
     outline: 'none',
     transition: 'all 0.3s ease',
     fontFamily: 'var(--font-main)',
@@ -69,33 +69,24 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
+      {/* Сетка имен */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
-        <div className="form-group" style={{ border: 'none', padding: 0 }}>
-          <label className="label">First name</label>
-          <input type="text" name="firstName" placeholder="First name" value={formData.firstName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-        </div>
-        <div className="form-group" style={{ border: 'none', padding: 0 }}>
-          <label className="label">Last name</label>
-          <input type="text" name="lastName" placeholder="Last name" value={formData.lastName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-        </div>
+        <input type="text" name="firstName" placeholder="First name" aria-label="First name" value={formData.firstName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+        <input type="text" name="lastName" placeholder="Last name" aria-label="Last name" value={formData.lastName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
       </div>
 
+      {/* Сетка контактов */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
-        <div className="form-group" style={{ border: 'none', padding: 0 }}>
-          <label className="label">Email</label>
-          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-        </div>
-        <div className="form-group" style={{ border: 'none', padding: 0 }}>
-          <label className="label">Phone Number</label>
-          <input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
-        </div>
+        <input type="email" name="email" placeholder="Email" aria-label="Email" value={formData.email} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
+        <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number" value={formData.phone} onChange={handleChange} style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
       </div>
 
-      <div className="form-group full-width" style={{ border: 'none', padding: 0, marginBottom: '20px' }}>
-        <label className="label">Message</label>
-        <textarea name="message" placeholder="Type your message here" rows="5" value={formData.message} onChange={handleChange} required style={{ ...inputStyle, resize: 'none' }} onFocus={handleFocus} onBlur={handleBlur}></textarea>
+      {/* Сообщение */}
+      <div style={{ marginBottom: '20px' }}>
+        <textarea name="message" placeholder="Type your message here" aria-label="Message" rows="5" value={formData.message} onChange={handleChange} required style={{ ...inputStyle, resize: 'none' }} onFocus={handleFocus} onBlur={handleBlur}></textarea>
       </div>
 
+      {/* Чекбокс согласия */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '30px' }}>
         <input type="checkbox" id="agree" name="agree" checked={formData.agree} onChange={handleChange} required style={{ width: '18px', height: '18px', accentColor: 'var(--text-color)', cursor: 'pointer' }} />
         <label htmlFor="agree" style={{ fontSize: '14px', color: 'var(--gray-text)', cursor: 'pointer' }}>
@@ -103,7 +94,6 @@ const ContactForm = () => {
         </label>
       </div>
 
-      {/* КНОПКА БЕЗ ГАЛОЧКИ */}
       <button 
         type="submit" 
         className="submit-btn" 
@@ -118,7 +108,6 @@ const ContactForm = () => {
           borderRadius: '100px',
           transition: 'all 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
           cursor: (status === 'sending' || status === 'success') ? 'not-allowed' : 'pointer',
-          // Инверсия стиля
           backgroundColor: status === 'success' ? 'transparent' : 'var(--text-color)',
           color: status === 'success' ? 'var(--text-color)' : 'var(--bg-color)',
           border: `1px solid ${status === 'success' ? 'var(--text-color)' : 'transparent'}`,
@@ -132,7 +121,6 @@ const ContactForm = () => {
           {status === 'error' && 'Try again'}
         </span>
         
-        {/* Стрелочка видна только в обычном состоянии */}
         {status === 'idle' && (
           <span style={{ fontSize: '20px', marginLeft: '12px' }}>→</span>
         )}
