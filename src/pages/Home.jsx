@@ -122,7 +122,9 @@ const Home = () => {
       </section>
 
       <div className="giant-title-wrapper">
-        <h1 className="giant-title">UX UI PRODUCT DESIGNER</h1>
+        <h1 className="giant-title">
+         UX UI Product Designer
+        </h1>
       </div>
 
       <PageHeader title="Recent Works" />

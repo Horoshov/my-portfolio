@@ -308,50 +308,52 @@
   }
   
   /* =========================================
-     6. GIANT TITLE
-     ========================================= */
-  .giant-title-wrapper {
+   6. GIANT TITLE
+   ========================================= */
+   .giant-title-wrapper {
     width: 100%;
-    padding: 20px 0 80px 0;
+    padding: 40px 0 80px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; 
     position: relative;
   }
   
   .giant-title {
-    font-size: 8vw;
+    /* clamp(min, preferred, max) 
+       Минимум 40px, основа 9vw, максимум 180px (подбери под свой экран) */
+    font-size: clamp(40px, 8vw, 160px); 
+    
     line-height: 0.85;
     letter-spacing: -0.05em;
     font-weight: 900;
     text-transform: uppercase;
     color: var(--text-color);
-    white-space: normal;
-    width: 100%;
-    max-width: 100%;
+    
+    /* Гарантируем одну строку на десктопе */
+    white-space: nowrap; 
+    display: inline-block;
+    width: auto;
+    
+    margin: 0;
+    /* Убираем боковые padding, чтобы не «подталкивать» текст к переносу */
+    padding: 0; 
+    
     animation: slideUp 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
   }
   
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  @media (max-width: 768px) {
-    .giant-title-wrapper {
-      padding: 80px 0 60px 0;
-    }
-    
+  /* Перенос только для мобильных */
+  @media (max-width: 1024px) {
     .giant-title {
-      font-size: 9vw;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .giant-title-wrapper {
-      padding: 60px 0 40px 0;
+      /* На мобильных разрешаем перенос в 2 строки */
+      white-space: normal; 
+      font-size: 14vw;
+      line-height: 0.9;
+      display: block;
+      width: 100%;
+      padding: 0 20px;
     }
   }
   
