@@ -324,8 +324,7 @@
   .giant-title {
     /* clamp(min, preferred, max) 
        Минимум 40px, основа 9vw, максимум 180px (подбери под свой экран) */
-    font-size: clamp(40px, 8vw, 160px); 
-    
+    font-size: clamp(32.4px, 6vw, 129.6px);
     line-height: 0.85;
     letter-spacing: -0.05em;
     font-weight: 900;

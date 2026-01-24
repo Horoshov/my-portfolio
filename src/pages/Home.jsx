@@ -35,30 +35,31 @@ const services = [
 ];
 
 const howIWorkSteps = [
-  {
-    category: 'Discovery',
-    duration: '1-2 weeks',
-    title: 'I dive deep into your personal goals and long-term vision.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
-  },
-  {
-    category: 'Design',
-    duration: '2-3 weeks',
-    title: 'I always Create clean, impactful mockups for modern brands',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
-  },
-  {
-    category: 'Build',
-    duration: '1-3 weeks',
-    title: 'Seamless websites built using powerful no-code tools.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
-  },
-  {
-    category: 'Launch',
-    duration: '1-2 weeks',
-    title: 'Your website goes live, optimized and ready to make a impact.',
-    description: 'I explore your personal objectives, brand values, and long-term vision in depth to create a clear, strategic direction that guides every creative and functional decision.'
-  }
+    {
+      category: 'Discovery',
+      duration: '1-2 weeks',
+      title: 'I dive deep into your personal goals and long-term vision.',
+      description: 'I perform comprehensive stakeholder interviews and competitive analysis to define project KPIs. This stage focuses on aligning product strategy with user needs through rigorous research and market positioning.'
+    },
+    {
+      category: 'Design',
+      duration: '2-3 weeks',
+      title: 'I always Create clean, impactful mockups for modern brands',
+      description: 'Developing scalable design systems and high-fidelity wireframes with a focus on intuitive Information Architecture (IA). I prioritize conversion-centric UI and accessibility standards to ensure a seamless user experience.'
+    },
+    {
+      category: 'Build',
+      duration: '1-3 weeks',
+      title: 'Seamless websites built using powerful no-code tools.',
+      description: 'Translating design tokens into functional frontend code. I utilize modern frameworks and no-code architecture to build responsive, modular components that ensure technical stability and ease of future scaling.'
+    },
+    {
+      category: 'Launch',
+      duration: '1-2 weeks',
+      title: 'Your website goes live, optimized and ready to make a impact.',
+      description: 'Finalizing technical SEO, performance audits, and cross-browser QA testing. I ensure the product is fully optimized for Core Web Vitals, providing a high-performance deployment ready for market competition.'
+    }
+  
 ];
 
 const featuredProjects = allProjects.slice(0, 5);
