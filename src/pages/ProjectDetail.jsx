@@ -104,7 +104,7 @@ const ProjectDetail = () => {
               src={project.imageFooter} 
               alt={`${project.title} detailed view`} 
               className="pd-hero-img" 
-              style={{ borderRadius: '16px', width: '100%', height: 'auto', display: 'block' }} 
+              style={{ borderRadius: '12px', width: '100%', height: 'auto', display: 'block' }} 
             />
           </section>
         )}

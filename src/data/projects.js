@@ -216,7 +216,7 @@ export const allProjects = [
     id: "109",
     title: 'NDV',
     cat: 'Real Estate / PropTech',
-    image: '/assets/projects/NDV_.webp',
+    image: '/assets/projects/NDV.webp',
     imageFooter: '/assets/projects/NDV_footer.webp',
     year: '2021',
     description: '<b>Маркетплейс-агрегатор агентства недвижимости</b>',
