@@ -12,7 +12,7 @@ const Footer = () => {
           Let’s shape <br /> something <br /> remarkable, <br /> together.
         </h2>
         <p className="footer-label" style={{ marginTop: 'auto' }}>
-          © 2026 Alex Horoshov. All Rights Reserved
+          © 2026 All Rights Reserved
         </p>
       </div>
 
