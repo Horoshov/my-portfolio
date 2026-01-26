@@ -5,7 +5,7 @@
   left: 0;
   z-index: 1000;
   background: var(--bg-color);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 0px solid var(--border-color);
   padding: 24px var(--container-padding); /* Используем переменную отступа из твоего App.css */
 }
 
