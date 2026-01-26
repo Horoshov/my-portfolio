@@ -26,6 +26,24 @@ const SKILL_ICONS = {
       <path d="M19 13L32 25.6685H45V13H19Z" fill="#88DDFF"/>
     </svg>
   ),
+  "Webflow": (
+    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_4441_6863)">
+      <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="black"/>
+      <g clip-path="url(#clip1_4441_6863)">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M52.5 20L40.3746 44H28.9856L34.06 34.0534H33.8323C29.6459 39.5558 23.3998 43.178 14.5 44V34.191C14.5 34.191 20.1934 33.8506 23.5404 30.2877H14.5V20.0002H24.6605V28.4615L24.8885 28.4605L29.0404 20.0002H36.7245V28.4078L36.9525 28.4075L41.2602 20H52.5Z" fill="white"/>
+      </g>
+      </g>
+      <defs>
+      <clipPath id="clip0_4441_6863">
+      <rect width="64" height="64" fill="white"/>
+      </clipPath>
+      <clipPath id="clip1_4441_6863">
+      <rect width="39" height="24" fill="white" transform="translate(14 20)"/>
+      </clipPath>
+      </defs>
+    </svg>
+  ),
   "Cursor": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect width="64" height="64" rx="16" fill="#000"/>
@@ -117,7 +135,8 @@ const About = () => {
 
   const skills = [
     { name: 'Figma', level: '95%', desc: 'Expert in collaborative interface design, creating seamless UI systems and efficient workflows.' },
-    { name: 'Framer', level: '65%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
+    { name: 'Framer', level: '55%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
+    { name: 'Webflow', level: '65%', desc: 'Skilled in building dynamic, high-quality websites using Framer\'s powerful no-code capabilities.' },
     { name: 'React', level: '20%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
     { name: 'Cursor', level: '25%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
     { name: 'Jira', level: '75%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
