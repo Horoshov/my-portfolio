@@ -1,114 +1,90 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import profileImg from '../assets/alex-profile.jpg';
-import './Footer.css'; // Убедитесь, что этот импорт есть!
+import './Footer.css';
 
 const Footer = () => {
   return (
     <footer className="main-footer">
-      {/* ЛЕВАЯ КОЛОНКА */}
-      <div className="footer-left">
-        <h2 className="footer-huge-text">
-          Let’s shape <br /> something <br /> remarkable, <br /> together.
-        </h2>
-        <p className="footer-label" style={{ marginTop: 'auto' }}>
-          © 2026 All Rights Reserved
-        </p>
-      </div>
-
-      {/* ПРАВАЯ КОЛОНКА */}
-      <div className="footer-right">
+      <div className="footer-container">
         
-        {/* 1. ПРОФИЛЬ (Вернул оригинальный класс контейнера для иконок) */}
-        <div className="footer-profile-box">
-          <img src={profileImg} alt="Alex" className="footer-avatar" />
-          <div className="footer-profile-info">
-            <div className="footer-text-stack">
-              <p className="footer-value">Alex Horoshov</p>
-              <p className="footer-label">Designer & Developer</p>
-            </div>
-            
-            {/* ИСПРАВЛЕНО: Класс social-links-wrap (как в CSS), а не alt */}
-            <div className="social-links-wrap">
-              <a href="https://facebook.com" className="social-icon-link" target="_blank" rel="noreferrer">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 0C4.477 0 0 4.477 0 10C0 14.991 3.657 19.128 8.438 19.879V12.89H5.898V10H8.438V7.797C8.438 5.291 9.93 3.907 12.215 3.907C13.309 3.907 14.453 4.102 14.453 4.102V6.562H13.193C11.95 6.562 11.563 7.333 11.563 8.124V10H14.336L13.893 12.89H11.563V19.879C16.343 19.129 20 14.99 20 10C20 4.477 15.523 0 10 0Z" fill="currentColor"/>
-                </svg>
-              </a>
-              <a href="https://instagram.com" className="social-icon-link" target="_blank" rel="noreferrer">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 0C12.717 0 13.056 0.00999994 14.122 0.0599999C15.187 0.11 15.912 0.277 16.55 0.525C17.21 0.779 17.766 1.123 18.322 1.678C18.8305 2.1779 19.224 2.78259 19.475 3.45C19.722 4.087 19.89 4.813 19.94 5.878C19.987 6.944 20 7.283 20 10C20 12.717 19.99 13.056 19.94 14.122C19.89 15.187 19.722 15.912 19.475 16.55C19.2247 17.2178 18.8311 17.8226 18.322 18.322C17.822 18.8303 17.2173 19.2238 16.55 19.475C15.913 19.722 15.187 19.89 14.122 19.94C13.056 19.987 12.717 20 10 20C7.283 20 6.944 19.99 5.878 19.94C4.813 19.89 4.088 19.722 3.45 19.475C2.78233 19.2245 2.17753 18.8309 1.678 18.322C1.16941 17.8222 0.775931 17.2175 0.525 16.55C0.277 15.913 0.11 15.187 0.0599999 14.122C0.0129999 13.056 0 12.717 0 10C0 7.283 0.00999994 6.944 0.0599999 5.878C0.11 4.812 0.277 4.088 0.525 3.45C0.775236 2.78218 1.1688 2.17732 1.678 1.678C2.17767 1.16923 2.78243 0.775729 3.45 0.525C4.088 0.277 4.812 0.11 5.878 0.0599999C6.944 0.0129999 7.283 0 10 0ZM10 5C8.67392 5 7.40215 5.52678 6.46447 6.46447C5.52678 7.40215 5 8.67392 5 10C5 11.3261 5.52678 12.5979 6.46447 13.5355C7.40215 14.4732 8.67392 15 10 15C11.3261 15 12.5979 14.4732 13.5355 13.5355C14.4732 12.5979 15 11.3261 15 10C15 8.67392 14.4732 7.40215 13.5355 6.46447C12.5979 5.52678 11.3261 5 10 5ZM16.5 4.75C16.5 4.41848 16.3683 4.10054 16.1339 3.86612C15.8995 3.6317 15.5815 3.5 15.25 3.5C14.9185 3.5 14.6005 3.6317 14.3661 3.86612C14.1317 4.10054 14 4.41848 14 4.75C14 5.08152 14.1317 5.39946 14.3661 5.63388C14.6005 5.8683 14.9185 6 15.25 6C15.5815 6 15.8995 5.8683 16.1339 5.63388C16.3683 5.39946 16.5 5.08152 16.5 4.75ZM10 7C10.7956 7 11.5587 7.31607 12.1213 7.87868C12.6839 8.44129 13 9.20435 13 10C13 10.7956 12.6839 11.5587 12.1213 12.1213C11.5587 12.6839 10.7956 13 10 13C9.20435 13 8.44129 12.6839 7.87868 12.1213C7.31607 11.5587 7 10.7956 7 10C7 9.20435 7.31607 8.44129 7.87868 7.87868C8.44129 7.31607 9.20435 7 10 7Z" fill="currentColor"/>
-                </svg>
-              </a>
-              <a href="https://twitter.com" className="social-icon-link" target="_blank" rel="noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="4" fill="currentColor"></rect>
-                  <path fillRule="evenodd" clipRule="evenodd" d="M14.0598 18L11.1622 13.6855L7.53467 18H6L10.4813 12.6715L6 6H9.94016L12.6712 10.0664L16.093 6H17.6277L13.3543 11.0817L18 18H14.0598ZM15.7689 16.7836H14.7357L8.19741 7.21636H9.23076L11.8494 11.0472L12.3022 11.7119L15.7689 16.7836Z" fill="var(--bg-color)"></path>
-                </svg>
-              </a>
-              <a href="https://linkedin.com" className="social-icon-link" target="_blank" rel="noreferrer">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.335 15.339H12.67V11.162C12.67 10.166 12.65 8.884 11.28 8.884C9.891 8.884 9.679 9.968 9.679 11.089V15.339H7.013V6.75H9.573V7.92H9.608C9.966 7.246 10.836 6.533 12.136 6.533C14.836 6.533 15.336 8.311 15.336 10.624V15.339H15.335ZM4.003 5.575C3.79956 5.57526 3.59806 5.53537 3.41006 5.45761C3.22207 5.37984 3.05127 5.26574 2.90746 5.12184C2.76365 4.97793 2.64965 4.80706 2.57201 4.61901C2.49437 4.43097 2.4546 4.22944 2.455 4.026C2.4552 3.71983 2.54618 3.4206 2.71644 3.16615C2.8867 2.91169 3.12859 2.71343 3.41153 2.59645C3.69447 2.47947 4.00574 2.44902 4.30598 2.50894C4.60622 2.56886 4.88196 2.71648 5.09831 2.93311C5.31466 3.14974 5.46191 3.42566 5.52145 3.72598C5.58099 4.0263 5.55013 4.33753 5.43278 4.62032C5.31543 4.9031 5.11687 5.14474 4.86219 5.31467C4.60751 5.4846 4.30817 5.5752 4.002 5.575H4.003ZM5.339 15.339H2.666V6.75H5.34V15.339H5.339ZM16.67 0H1.329C0.593 0 0 0.58 0 1.297V16.703C0 17.42 0.594 18 1.328 18H16.666C17.4 18 18 17.42 18 16.703V1.297C18 0.58 17.4 0 16.666 0H16.669H16.67Z" fill="currentColor"/>
-                </svg>
-              </a>
-            </div>
-          </div>
+        {/* ЛЕВАЯ ЧАСТЬ: Логотип, Почта и Копирайт */}
+        <div className="footer-brand-side">
+          <Link to="/" className="footer-logo">
+            <svg width="125" height="17" viewBox="0 0 125 17" fill="none" xmlns="http://www.w3.org/2000/svg" className="footer-logo-svg">
+              <path d="M117.678 11.9918L114.485 1.2157H111.074L115.77 15.7842H120.303L124.999 1.2157H121.589L118.162 11.9918H117.678Z" fill="currentColor"/>
+              <path d="M74.1348 11.5783C74.1348 10.5243 73.46 10.0812 72.4482 9.99721L69.0316 9.68098C66.0789 9.40701 64.5391 8.24695 64.5391 5.44255C64.5391 2.6382 66.4375 1.09875 69.1579 1.09875H76.7079V3.75544H69.3686C68.3143 3.75544 67.6396 4.30389 67.6396 5.35804C67.6396 6.41213 68.3353 6.91833 69.3902 7.00289L72.8697 7.29822C75.5063 7.52993 77.2353 8.73225 77.2353 11.5575C77.2353 14.3827 75.4009 15.9013 72.8068 15.9013H64.9192V13.2446H72.5111C73.5025 13.2446 74.1348 12.5699 74.1348 11.5789V11.5783Z" fill="currentColor"/>
+              <path d="M102.894 0.864746C107.533 0.864746 110.466 3.83036 110.466 8.479C110.466 13.1276 107.408 16.1353 102.767 16.1353C98.1273 16.1353 95.1953 13.1276 95.1953 8.479C95.1953 3.83036 98.2536 0.864746 102.894 0.864746ZM107.281 8.49979C107.281 5.38682 105.467 3.55706 102.83 3.55706C100.194 3.55706 98.3794 5.38682 98.3794 8.49979C98.3794 11.6127 100.194 13.4425 102.83 13.4425C105.467 13.4425 107.281 11.6127 107.281 8.49979Z" fill="currentColor"/>
+              <path d="M45.84 5.29448C45.84 6.93939 44.885 8.20435 43.6113 8.75288V8.79513C44.9483 8.98511 45.6279 9.93383 45.6484 11.2202L45.7123 15.9013H42.6136L42.5503 11.7264C42.5292 10.7985 41.9767 10.2292 40.8735 10.2292H35.7154V15.9013H32.6172V1.09875H41.1705C43.9728 1.09875 45.84 2.51143 45.84 5.29504V5.29448ZM42.7196 5.7167C42.7196 4.45169 42.0406 3.75554 40.7674 3.75554H35.7154V7.67728H40.809C41.9761 7.67728 42.7196 6.98165 42.7196 5.71613V5.7167Z" fill="currentColor"/>
+              <path d="M55.2532 0.864746C59.8928 0.864746 62.8253 3.83036 62.8253 8.479C62.8253 13.1276 59.767 16.1353 55.1268 16.1353C50.4867 16.1353 47.5547 13.1276 47.5547 8.479C47.5547 3.83036 50.613 0.864746 55.2532 0.864746ZM59.6401 8.49979C59.6401 5.38682 57.8259 3.55706 55.1891 3.55706C52.5529 3.55706 50.7388 5.38682 50.7388 8.49979C50.7388 11.6127 52.5529 13.4425 55.1891 13.4425C57.8259 13.4425 59.6401 11.6127 59.6401 8.49979Z" fill="currentColor"/>
+              <path d="M0.527344 15.7257V1.15723H3.59241V6.85019H10.5752V1.15723H13.6331V15.7257H10.5752V9.38972H3.59241V15.7257H0.527344Z" fill="currentColor"/>
+              <path d="M23.3313 0.864746C27.9709 0.864746 30.9034 3.83036 30.9034 8.479C30.9034 13.1276 27.8451 16.1353 23.2049 16.1353C18.5648 16.1353 15.6328 13.1276 15.6328 8.479C15.6328 3.83036 18.6911 0.864746 23.3313 0.864746ZM27.7182 8.49979C27.7182 5.38682 25.9041 3.55706 23.2673 3.55706C20.631 3.55706 18.8169 5.38682 18.8169 8.49979C18.8169 11.6127 20.631 13.4425 23.2673 13.4425C25.9041 13.4425 27.7182 11.6127 27.7182 8.49979Z" fill="currentColor"/>
+              <path d="M80.0898 15.7257V1.15723H83.1549V6.85019H90.1377V1.15723H93.1956V15.7257H90.1377V9.38972H83.1549V15.7257H80.0898Z" fill="currentColor"/>
+            </svg>
+          </Link>
+          
+          {/* Ссылка на почту прямо под логотипом */}
+          <a href="mailto:ux@horoshov.ru" className="footer-email">ux@horoshov.ru</a>
+          
+          <div className="footer-copyright">© 2026 All Rights Reserved</div>
         </div>
 
-        {/* 2. БЛОК КОНТАКТОВ */}
-        <div className="custom-contact-section">
-          <p className="footer-label">Contact me</p>
-          <a href="mailto:ux@horoshov.ru" className="custom-email-link">
-            ux@horoshov.ru
-          </a>
-          {/* Блок с призывом к действию */}
-<div className="footer-cta-text">
-  <p className="footer-description">
-    Looking for a UX/UI designer who moves <strong>fast</strong> without compromising quality? <strong>Let’s talk.</strong>
-  </p>
-</div>
-          
-          <div className="custom-actions-row">
-            <button className="custom-btn-black">Contact Now ➔</button>
-            <button className="custom-btn-outline">
-              Schedule a Call 
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style={{marginLeft: '8px'}}>
-                <path d="M15 10L20 15L15 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M4 4V14C4 14.5304 4.21071 15.0391 4.58579 15.4142C4.96086 15.7893 5.46957 16 6 16H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* 3. НАВИГАЦИЯ (3 КОЛОНКИ) */}
-        <div className="custom-nav-grid">
-          <div className="custom-nav-col">
-            <p className="footer-label">Main Pages</p>
-            <Link to="/" className="custom-nav-link">Home</Link>
-            <Link to="/about" className="custom-nav-link">About</Link>
-            <Link to="/projects" className="custom-nav-link">Projects</Link>
-            <Link to="/project-single" className="custom-nav-link">Project Single</Link>
-          </div>
-          
-          <div className="custom-nav-col">
-            <p className="footer-label">More Pages</p>
-            <Link to="/services" className="custom-nav-link">Services</Link>
-            <Link to="/blog" className="custom-nav-link">Blog</Link>
-            <Link to="/blog-single" className="custom-nav-link">Blog Single</Link>
-            <Link to="/contact" className="custom-nav-link">Contact</Link>
+        {/* ПРАВАЯ ЧАСТЬ: Меню */}
+        <div className="footer_menu-wrapper">
+          <div className="footer_link-list">
+            <div className="footer_section-title">Nav</div>
+            <FooterLink to="/work" label="Work" />
+            <FooterLink to="/about" label="About" />
+            <FooterLink to="/recognition" label="Recognition" />
+            <FooterLink to="/contact" label="Contact" />
           </div>
 
-          <div className="custom-nav-col">
-            <p className="footer-label">Utility Pages</p>
-            <Link to="/style-guide" className="custom-nav-link">Style Guide</Link>
-            <Link to="/licenses" className="custom-nav-link">Licenses</Link>
-            <Link to="/changelog" className="custom-nav-link">Changelog</Link>
-            <Link to="/404" className="custom-nav-link">404 page</Link>
+          <div className="footer_link-list">
+            <div className="footer_section-title">Legal</div>
+            <FooterLink to="/privacy-policy" label="Privacy Policy" />
+            <FooterLink to="/terms-and-conditions" label="Terms" />
+          </div>
+
+          <div className="footer_link-list">
+            <div className="footer_section-title">Social</div>
+            <FooterExternalLink href="http://t.me/thehoroshov" label="Telegram" />
+            <FooterExternalLink href="" label="Dribbble" />
+            <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" />
+            <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" />
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
+const FooterLink = ({ to, label }) => (
+  <Link to={to} className="link-no-line">
+    <div className="link-icon">
+      <svg width="100%" height="100%" viewBox="0 0 17 16" fill="none">
+        <path d="M12 5L16 9L12 13" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M1 2V6.09091C1 6.86245 1.36875 7.60239 2.02513 8.14795C2.6815 8.69351 3.57174 9 4.5 9H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+    <div className="link-text-wr">
+      <div>{label}</div>
+      <div className="link-line-wr"><div className="link-line-hover"></div></div>
+    </div>
+  </Link>
+);
+
+const FooterExternalLink = ({ href, label }) => (
+  <a href={href} target="_blank" rel="noreferrer" className="link-no-line">
+    <div className="link-icon">
+      <svg width="100%" height="100%" viewBox="0 0 17 16" fill="none">
+        <path d="M12 5L16 9L12 13" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M1 2V6.09091C1 6.86245 1.36875 7.60239 2.02513 8.14795C2.6815 8.69351 3.57174 9 4.5 9H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+    <div className="link-text-wr">
+      <div>{label}</div>
+      <div className="link-line-wr"><div className="link-line-hover"></div></div>
+    </div>
+  </a>
+);
 
 export default Footer;
