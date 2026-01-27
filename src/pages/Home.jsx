@@ -69,8 +69,8 @@ const Home = () => {
 
   const homeStats = [
     { value: '10', label: 'Years of Experience', title: 'Expertise' },
-    { value: '80+', label: 'Projects Completed', title: 'Experience' },
-    { value: '15', label: 'Design Awards', title: 'Recognition' }
+    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
+    { value: '96', label: 'Customer Satisfaction', title: 'Percent' }
   ];
 
   return (

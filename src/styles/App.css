@@ -811,7 +811,7 @@
   .stat-text-group {
     align-self: flex-end;
     text-align: right;
-    max-width: 200px;
+    max-width: 300px;
   }
   
   .stat-small-title {
