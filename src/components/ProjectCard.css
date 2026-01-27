@@ -32,6 +32,10 @@
     color: var(--gray-text); /* Темизация текста */
     font-weight: 400;
   }
+
+  .pc-dot {
+    color: var(--gray-text);
+  }
   
   .pc-title {
     font-size: 24px;
