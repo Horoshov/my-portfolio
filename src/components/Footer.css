@@ -78,12 +78,14 @@
 
 .social-icon-link {
   color: var(--gray-text);
-  transition: transform 0.2s;
+  /* ИЗМЕНЕНИЕ ЗДЕСЬ: добавляем color в transition */
+  transition: transform 0.2s ease, color 0.2s ease; 
   display: flex;
 }
 
 .social-icon-link:hover {
-  transform: translateY(-2px);
+  /* Теперь и цвет, и движение будут плавными */
+  transform: translateY(2px); /* Можно даже чуть уменьшить до -2px или 2px */
   color: var(--text-color);
 }
 

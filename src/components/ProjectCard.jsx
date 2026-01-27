@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
         <div className="pc-body">
           <div className="pc-meta">
             <span className="pc-tag">{project.cat}</span>
-            <span className="pc-dot"></span>
+            <span className="pc-dot">•</span>
             <span className="pc-tag">{project.year || '2026'}</span>
           </div>
           <h3 className="pc-title">{project.title}</h3>

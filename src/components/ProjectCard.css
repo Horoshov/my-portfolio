@@ -30,12 +30,12 @@
   .pc-tag {
     font-size: 16px;
     color: var(--gray-text); /* Темизация текста */
-    font-weight: 500;
+    font-weight: 400;
   }
   
   .pc-title {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--text-color); /* Темизация заголовка */
     margin: 0;
   }
@@ -112,7 +112,7 @@
 /* Инфо-блок */
 .project-title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
 }
 
