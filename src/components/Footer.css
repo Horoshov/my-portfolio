@@ -1,44 +1,44 @@
 .main-footer {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--bg-color);
+  width: 100%;
+  background: var(--bg-color);
   border-top: 1px solid var(--border-color);
-  padding: 40px 0 60px 0;
-  margin-top: 120px;
+  /* Отступы как в Navbar */
+  padding: 80px var(--container-padding); 
+  box-sizing: border-box;
+  margin-top: 100px;
 }
 
 .footer-container {
-  width: 100%;
-  padding: 0 var(--container-padding);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
 }
 
 .footer-brand-side {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 12px;
 }
 
-.footer-logo {
+/* Логотип: серый, без ховера */
+.footer-logo-static {
+  color: #666; /* Серый цвет */
   display: flex;
-  color: var(--text-color);
-  text-decoration: none;
 }
 
-.footer-copyright {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--gray-text);
-  letter-spacing: 0.05em;
+.footer-email {
+  font-size: 16px;
+  color: var(--text-color) !important;
+  text-decoration: none !important;
+  transition: opacity 0.3s;
 }
 
-/* ГРИД ДЛЯ ССЫЛОК */
+.footer-email:hover {
+  opacity: 0.6;
+}
+
+/* Сетка ссылок */
 .footer_menu-wrapper {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -48,25 +48,24 @@
 .footer_link-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .footer_section-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: var(--text-color);
+  font-size: 12px;
+  color: #666;
+  text-transform: capitalize; /* Как в твоем примере: Nav, Legal, Social */
+  margin-bottom: 4px;
 }
 
-/* СТИЛЬ ССЫЛОК СО СТРЕЛКОЙ */
 .link-no-line {
   display: flex;
   align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: var(--text-color);
-  font-size: 15px;
-  transition: opacity 0.3s ease;
+  gap: 8px;
+  text-decoration: none !important;
+  color: var(--text-color) !important;
+  font-size: 14px;
+  transition: opacity 0.3s;
 }
 
 .link-no-line:hover {
@@ -74,83 +73,32 @@
 }
 
 .link-icon {
-  width: 16px;
-  height: 16px;
-  display: flex;
-  align-items: center;
-  color: var(--gray-text);
+  width: 14px;
+  height: 14px;
+  color: #666; /* Цвет стрелочки */
 }
 
-.link-text-wr {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Линия при ховере (имитация Webflow) */
-.link-line-wr {
-  width: 100%;
-  height: 1px;
-  background: var(--text-color);
-  margin-top: 2px;
-  overflow: hidden;
-  position: relative;
-  display: none; /* Включи, если нужны подчеркивания */
-}
-
-/* Адаптив */
-@media (max-width: 991px) {
-  .footer_menu-wrapper {
-    gap: 40px;
-  }
-}
-
-@media (max-width: 768px) {
+/* АДАПТИВ ДЛЯ МОБИЛОК */
+@media (max-width: 1024px) {
   .footer-container {
     flex-direction: column;
-    gap: 60px;
-  }
-  .footer_menu-wrapper {
-    grid-template-columns: 1fr;
     gap: 48px;
+    padding: 0; /* Контейнер внутри уже имеет padding от родителя */
+  }
+
+  .footer_menu-wrapper {
+    width: 100%;
+    /* Ссылки выстроены в 3 колонки под логотипом */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 }
 
-/* Цвет логотипа в футере */
-.footer-logo-svg {
-  color: var(--gray-text) !important; /* Используем твою переменную для серого */
-  transition: color 0.3s ease;
-}
-
-.footer-logo:hover .footer-logo-svg {
-  color: var(--text-color) !important; /* При наведении становится основным цветом */
-}
-
-/* Ссылка на почту */
-.footer-email {
-  display: block;
-  font-size: 24px; /* Крупный размер для акцента */
-  font-weight: 500;
-  color: var(--text-color);
-  text-decoration: none;
-  margin-top: 10px;
-  transition: opacity 0.3s ease;
-}
-
-.footer-email:hover {
-  opacity: 0.6;
-}
-
-.footer-brand-side {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Отступы между лого, почтой и копирайтом */
-}
-
-.footer-copyright {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--gray-text);
-  letter-spacing: 0.05em;
-  margin-top: 10px;
+@media (max-width: 480px) {
+  .footer_menu-wrapper {
+    gap: 10px;
+  }
+  .link-no-line {
+    font-size: 12px;
+  }
 }
