@@ -40,7 +40,7 @@ export const allProjects = [
   {
     id: "103",
     title: 'Betonika',
-    cat: 'Industrial / PropTech',
+    cat: 'Industrial • PropTech',
     image: '/assets/projects/Betonika.webp',
     imageFooter: '/assets/projects/Betonika_footer.webp',
     year: '2024',
@@ -77,7 +77,7 @@ export const allProjects = [
   {
     id: "106",
     title: 'Polymatica',
-    cat: 'BI & Big Data',
+    cat: 'BI • Big Data',
     image: '/assets/projects/Polymatica.webp',
     imageFooter: '/assets/projects/Polymatica_footer.webp',
     year: '2023',
@@ -127,7 +127,7 @@ export const allProjects = [
   {
     id: "105",
     title: 'M.Video-Eldorado B2B',
-    cat: 'E-commerce / Marketplace',
+    cat: 'E-commerce • Marketplace',
     image: '/assets/projects/MVideo.webp',
     imageFooter: '/assets/projects/MVideo_footer.webp',
     year: '2022',
@@ -169,7 +169,7 @@ export const allProjects = [
   {
     id: "107",
     title: 'Postman tracker',
-    cat: 'iOS Design-System / Product',
+    cat: 'Design-System • Product',
     image: '/assets/projects/Postman.webp',
     imageFooter: '/assets/projects/Postman_footer.webp',
     year: '2021',
@@ -215,7 +215,7 @@ export const allProjects = [
   {
     id: "109",
     title: 'NDV',
-    cat: 'Real Estate / PropTech',
+    cat: 'Real Estate • PropTech',
     image: '/assets/projects/NDV.webp',
     imageFooter: '/assets/projects/NDV_footer.webp',
     year: '2021',
@@ -390,7 +390,7 @@ export const allProjects = [
   {
     id: "108",
     title: 'Cashoff',
-    cat: 'Fintech / PFM',
+    cat: 'Fintech • PFM',
     image: '/assets/projects/Cashoff.webp',
     imageFooter: '/assets/projects/Cashoff_footer.webp',
     year: '2016',
