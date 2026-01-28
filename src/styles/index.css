@@ -22,27 +22,19 @@
   
   /* Responsive Container Padding */
   @media (max-width: 1400px) {
-    :root {
-      --container-padding: 32px;
-    }
+    :root { --container-padding: 32px; }
   }
   
   @media (max-width: 1200px) {
-    :root {
-      --container-padding: 24px;
-    }
+    :root { --container-padding: 24px; }
   }
   
   @media (max-width: 768px) {
-    :root {
-      --container-padding: 20px;
-    }
+    :root { --container-padding: 20px; }
   }
   
   @media (max-width: 576px) {
-    :root {
-      --container-padding: 16px;
-    }
+    :root { --container-padding: 16px; }
   }
   
   * {
@@ -83,7 +75,7 @@
     grid-column: span 2;
   }
   
-  /* Special pattern: 1st-2nd-9th-10th span 3 columns */
+  /* Special pattern: 1st, 2nd, 9th, 10th span 3 columns */
   .projects-grid-custom > :nth-child(10n+1),
   .projects-grid-custom > :nth-child(10n+2),
   .projects-grid-custom > :nth-child(10n+9),
@@ -93,21 +85,16 @@
   
   /* =========================================
      RESPONSIVE BREAKPOINTS
-     xs: 0-575px, sm: 576-767px, md: 768-991px, lg: 992-1199px, xl: 1200-1399px, xxl: 1400px+
      ========================================= */
   
-  /* XL: 1200px - 1399px - Переход на 2 колонки */
+  /* XL: 1200px - 1399px → 2 columns */
   @media (max-width: 1399px) {
     .projects-grid-custom {
       grid-template-columns: repeat(2, 1fr);
       gap: 30px 20px;
     }
     
-    .projects-grid-custom > * {
-      grid-column: span 1;
-    }
-    
-    /* Убираем специальный паттерн */
+    .projects-grid-custom > *,
     .projects-grid-custom > :nth-child(10n+1),
     .projects-grid-custom > :nth-child(10n+2),
     .projects-grid-custom > :nth-child(10n+9),
@@ -116,22 +103,21 @@
     }
   }
   
-  /* LG: 992px - 1199px - 2 колонки */
+  /* LG: 992px - 1199px → 2 columns */
   @media (max-width: 1199px) {
     .projects-grid-custom {
-      grid-template-columns: repeat(2, 1fr);
       gap: 25px 18px;
     }
   }
   
-  /* MD: 768px - 991px - 2 колонки */
+  /* MD: 768px - 991px → 2 columns */
   @media (max-width: 991px) {
     .projects-grid-custom {
       gap: 22px 16px;
     }
   }
   
-  /* SM: 576px - 767px - 1 КОЛОНКА */
+  /* SM: 576px - 767px → 1 column */
   @media (max-width: 767px) {
     .projects-grid-custom {
       grid-template-columns: 1fr;
@@ -139,10 +125,9 @@
     }
   }
   
-  /* XS: 0 - 575px - 1 КОЛОНКА */
+  /* XS: 0 - 575px → 1 column */
   @media (max-width: 575px) {
     .projects-grid-custom {
-      grid-template-columns: 1fr;
       gap: 20px;
     }
   }
