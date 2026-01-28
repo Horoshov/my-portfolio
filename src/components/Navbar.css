@@ -66,7 +66,7 @@
 .nav-item {
   text-decoration: none;
   color: var(--text-color);
-  font-size: 14px;
+  font-size: 16px;
   /* ВОЗВРАЩЕНО СТРОГО ПО ТВОЕМУ CSV: */
   font-weight: 400; 
   letter-spacing: 0.02em;
