@@ -22,9 +22,12 @@ const Footer = () => {
             </svg>
           </div>
           <a href="mailto:ux@horoshov.ru" className="footer-email">ux@horoshov.ru</a>
+          
+          {/* Копирайт Десктоп */}
+          <div className="footer-copyright desktop-only">© 2026 HOROSHOV</div>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Меню */}
+        {/* ПРАВАЯ ЧАСТЬ: Меню + Копирайт Мобайл */}
         <div className="footer_menu-wrapper">
           <div className="footer_link-list">
             <div className="footer_section-title">Nav</div>
@@ -47,6 +50,9 @@ const Footer = () => {
             <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" />
             <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" />
           </div>
+
+          {/* Копирайт Мобайл (встанет ниже ссылок) */}
+          <div className="footer-copyright mobile-only">© 2026 HOROSHOV</div>
         </div>
       </div>
     </footer>
