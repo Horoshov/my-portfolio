@@ -555,8 +555,8 @@
   }
   
   .service-title {
-    font-size: 28px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 400;
   }
   
   .service-details {
@@ -568,7 +568,7 @@
   .service-image-preview {
     width: 150px;
     height: 90px;
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: clamp(12px, 2vw, 12px);
     overflow: hidden;
     background: var(--photo-bg);
   }
@@ -582,7 +582,7 @@
   .tag {
     padding: 4px 12px;
     border: 1px solid rgba(122, 122, 122, 0.3);
-    border-radius: 100px;
+    border-radius: 8px;
     font-size: 11px;
     margin-right: 5px;
     color: var(--gray-text);

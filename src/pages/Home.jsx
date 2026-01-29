@@ -10,27 +10,33 @@ import { allProjects } from '../data/projects';
 const services = [
   { 
     id: '01', 
-    title: 'Motion Graphics & Animations', 
+    title: 'Data-Driven UX & Analytics', 
     img: null, 
-    tags: ['UI Motion Design', 'Brand Animations', 'Animated Ads'] 
+    tags: ['Analytics', 'CJM', 'User Testing', 'JTBD'] 
   },
   { 
     id: '02', 
-    title: 'Web design and development', 
+    title: 'Complex Interfaces', 
     img: null, 
-    tags: ['React / Next.js', 'Webflow', 'UI/UX Design'] 
+    tags: ['FinTech', 'BI Systems', 'Dashboard', 'SaaS'] 
   },
   { 
     id: '03', 
-    title: 'SEO and content marketing', 
+    title: 'Scalable Design Systems', 
     img: null, 
-    tags: ['Strategy', 'Copywriting', 'Analytics'] 
+    tags: ['Components', 'Design Tokens', 'Documentation'] 
   },
   { 
     id: '04', 
-    title: 'Branding and Identity', 
+    title: ' Frontend Focus (Engineering)', 
     img: null, 
-    tags: ['Logotype', 'Visual Language', 'Brand Books'] 
+    tags: ['Frontend-friendly', 'Technical Audit', 'Analytics'] 
+  },
+  { 
+    id: '05', 
+    title: 'End-to-End Product Design', 
+    img: null, 
+    tags: ['Visual Language', 'Web', 'iOS / Android'] 
   }
 ];
 
