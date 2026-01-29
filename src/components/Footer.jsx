@@ -24,7 +24,7 @@ const Footer = () => {
           <a href="mailto:ux@horoshov.ru" className="footer-email">ux@horoshov.ru</a>
           
           {/* Копирайт Десктоп */}
-          <div className="footer-copyright desktop-only">© 2026 HOROSHOV</div>
+          <div className="footer-copyright desktop-only">© 2026 </div>
         </div>
 
         {/* ПРАВАЯ ЧАСТЬ: Меню + Копирайт Мобайл */}
@@ -52,7 +52,7 @@ const Footer = () => {
           </div>
 
           {/* Копирайт Мобайл (встанет ниже ссылок) */}
-          <div className="footer-copyright mobile-only">© 2026 HOROSHOV</div>
+          <div className="footer-copyright mobile-only">© 2026 </div>
         </div>
       </div>
     </footer>
