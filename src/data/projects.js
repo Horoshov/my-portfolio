@@ -82,7 +82,7 @@ export const allProjects = [
     descriptionSecondary: "Развитие функциональных модулей платформы Polymatica (SL Soft). Работа над системными решениями для глубокого анализа данных, построения прогнозных моделей (ML) и управления эффективностью предприятия (EPM). Проект включал имплементацию дизайн-системы для объединения разрозненных аналитических инструментов в единую среду.",
     timeline: '10 месяцев',
     location: 'Москва, Россия',
-    linkDisplay: 'slsoft.ru/polymatica',
+    linkDisplay: 'polymatica.ru',
     role: 'Lead Product Designer',
     sectionTitle: "Polymatica: Экосистема BI, EPM и ML",
     sectionText: `<div class="project-case-content">
@@ -173,7 +173,7 @@ export const allProjects = [
     timeline: 'Задание',
     location: 'Remote',
     linkDisplay: 'Link',
-    role: 'Product Designer',
+    role: 'Product UX/UI Designer',
     sectionTitle: "Postman tracker: Цифровой помощник логистики",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
