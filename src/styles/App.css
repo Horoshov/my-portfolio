@@ -467,7 +467,7 @@
     }
     
     .project-image-wrapper {
-      border-radius: 12px;
+      border-radius: 24px;
       margin-bottom: 12px;
     }
   }
@@ -537,7 +537,7 @@
   .tag {
     padding: 4px 12px;
     border: 1px solid rgba(122, 122, 122, 0.3);
-    border-radius: 12px;
+    border-radius: 24px;
     font-size: 12px;
     margin-right: 5px;
     color: var(--gray-text);
@@ -633,7 +633,7 @@
   .work-step-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 48px;
-    border-radius: 12px;
+    border-radius: 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -733,7 +733,7 @@
   .stat-card {
     background: rgba(122, 122, 122, 0.08);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 24px;
     min-height: 240px;
     display: flex;
     flex-direction: column;
@@ -865,7 +865,7 @@
     max-width: 400px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: 24px;
   }
   
   .about-date-label {
@@ -949,7 +949,7 @@
   
   .skill-item {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 12px;
+    border-radius: 24px;
     padding: 40px;
     display: flex;
     gap: 32px;
@@ -960,7 +960,7 @@
     width: 64px;
     height: 64px;
     background: #000;
-    border-radius: 12px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1069,7 +1069,7 @@
   
   .career-card {
     background: rgba(122, 122, 122, 0.08);
-    border-radius: 12px;
+    border-radius: 24px;
     padding: 40px 32px;
     display: flex;
     flex-direction: column;
@@ -1087,7 +1087,7 @@
     width: 64px;
     height: 64px;
     background: #000;
-    border-radius: 12px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1398,7 +1398,7 @@
   
   .pd-hero-section {
     width: 100%;
-    border-radius: clamp(12px, 2vw, 20px);
+    border-radius: clamp(24px, 2vw, 24px);
     overflow: hidden;
     margin-bottom: 80px;
   }
