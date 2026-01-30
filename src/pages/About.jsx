@@ -224,15 +224,15 @@ const About = () => {
               <span className="about-date-label">[SINCE 2013]</span>
               <div className="about-description">
                 <p className="description-lead">
-                  I'm Alex Horoshov, a digital designer who blends creativity with 
-                  strategy to craft meaningful experiences that connect people 
-                  and ideas. My work focuses on clarity, emotion, and purpose.
+                Привет, я Алексей.
+                Создаю интерфейсы с фокусом на результат, превращая идеи в цифровые продукты сочетающие технологии и осмысленный пользовательский опыт
                 </p>
                 <p className="description-body">
-                  Over the years, I've worked with brands, startups, and 
-                  individuals to bring ideas to life through thoughtful design and 
-                  innovation.
+                10 лет в индустрии (FinTech, PropTech, BI, Retail, e-Commerce и CPQ). Создаю сложные интерфейсы и дизайн-системы, которые работают.
                 </p>
+                <p className="description-body">
+                Инструменты: Figma, Adobe, React, Cursor, GenAi, Cinema 4D
+                  </p>
               </div>
             </div>
           </div>
