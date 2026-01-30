@@ -1,0 +1,157 @@
+.stats-cards-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.stats-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  /* Отступы сокращены вдвое */
+  padding: 40px 20px; 
+}
+
+.stats-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  grid-auto-rows: 70px; /* Жесткий шаг ряда как в макете */
+  gap: 16px;
+}
+
+.stats-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 35px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.4s ease;
+}
+
+.stats-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+.stats-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили заголовков и значений */
+.stats-card-title {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #000;
+  margin: 0;
+  max-width: 280px;
+}
+
+.stats-card-title b {
+  font-weight: 700;
+}
+
+.stats-card-value {
+  font-size: clamp(40px, 6vw, 100px);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+/* Логика размещения контента (Layouts) */
+.layout-top-group .stats-card-content {
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.layout-spread .stats-card-content {
+  justify-content: space-between;
+}
+
+.layout-bottom-group .stats-card-content {
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.layout-spread-center .stats-card-content {
+  justify-content: space-between;
+}
+.layout-spread-center .stats-card-title {
+  margin-top: auto; /* Смещает заголовок к середине */
+  margin-bottom: 20px;
+}
+
+/* Иконки */
+.stats-card-icon {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-top-right { top: 25px; right: 25px; }
+.icon-bottom-right { bottom: 25px; right: 25px; }
+
+.stats-card:hover .stats-card-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Изображение */
+.stats-card-image {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+}
+
+.stats-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Адаптив */
+@media (max-width: 1024px) {
+  .stats-cards-grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: auto;
+  }
+  .stats-card {
+    grid-area: auto !important;
+    min-height: 320px;
+  }
+}
+
+/* Убираем отступы карточки, если в ней видео */
+.stats-card.card-video-mode {
+  padding: 0 !important;
+}
+
+/* Контейнер видео на всю площадь */
+.stats-card-video-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.stats-card-video-full video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Заполняет всё пространство без искажений */
+}
+
+/* Иконка поверх видео */
+.stats-card-icon {
+  z-index: 2;
+}

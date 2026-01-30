@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
+import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
 import ProjectCard from '../components/ProjectCard'; 
 import alexProfile from '../assets/alex-profile.jpg'; 
@@ -41,31 +42,30 @@ const services = [
 ];
 
 const howIWorkSteps = [
-    {
-      category: 'Discovery',
-      duration: '1-2 weeks',
-      title: 'I dive deep into your personal goals and long-term vision.',
-      description: 'I perform comprehensive stakeholder interviews and competitive analysis to define project KPIs. This stage focuses on aligning product strategy with user needs through rigorous research and market positioning.'
-    },
-    {
-      category: 'Design',
-      duration: '2-3 weeks',
-      title: 'I always Create clean, impactful mockups for modern brands',
-      description: 'Developing scalable design systems and high-fidelity wireframes with a focus on intuitive Information Architecture (IA). I prioritize conversion-centric UI and accessibility standards to ensure a seamless user experience.'
-    },
-    {
-      category: 'Build',
-      duration: '1-3 weeks',
-      title: 'Seamless websites built using powerful no-code tools.',
-      description: 'Translating design tokens into functional frontend code. I utilize modern frameworks and no-code architecture to build responsive, modular components that ensure technical stability and ease of future scaling.'
-    },
-    {
-      category: 'Launch',
-      duration: '1-2 weeks',
-      title: 'Your website goes live, optimized and ready to make a impact.',
-      description: 'Finalizing technical SEO, performance audits, and cross-browser QA testing. I ensure the product is fully optimized for Core Web Vitals, providing a high-performance deployment ready for market competition.'
-    }
-  
+  {
+    category: 'Discovery',
+    duration: '1-2 weeks',
+    title: 'I dive deep into your personal goals and long-term vision.',
+    description: 'I perform comprehensive stakeholder interviews and competitive analysis to define project KPIs. This stage focuses on aligning product strategy with user needs through rigorous research and market positioning.'
+  },
+  {
+    category: 'Design',
+    duration: '2-3 weeks',
+    title: 'I always Create clean, impactful mockups for modern brands',
+    description: 'Developing scalable design systems and high-fidelity wireframes with a focus on intuitive Information Architecture (IA). I prioritize conversion-centric UI and accessibility standards to ensure a seamless user experience.'
+  },
+  {
+    category: 'Build',
+    duration: '1-3 weeks',
+    title: 'Seamless websites built using powerful no-code tools.',
+    description: 'Translating design tokens into functional frontend code. I utilize modern frameworks and no-code architecture to build responsive, modular components that ensure technical stability and ease of future scaling.'
+  },
+  {
+    category: 'Launch',
+    duration: '1-2 weeks',
+    title: 'Your website goes live, optimized and ready to make a impact.',
+    description: 'Finalizing technical SEO, performance audits, and cross-browser QA testing. I ensure the product is fully optimized for Core Web Vitals, providing a high-performance deployment ready for market competition.'
+  }
 ];
 
 const featuredProjects = allProjects.slice(0, 5);
@@ -86,7 +86,13 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-      <section className="hero-grid">
+
+
+      {/* STATS CARDS SECTION - НОВАЯ СЕКЦИЯ */}
+      <StatsCardsSection />
+
+      {/* HERO SECTION */}
+      {/*<section className="hero-grid">
         <div className="hero-col left">
           <span className="label">Focus</span>
           <p className="hero-text">UX/UI, Продуктовый дизайнер. Опыт проектирования сложных систем: BI, FinTech, PropTech и ML-сервисы. Специализируюсь на создании масштабируемых дизайн-систем и ускорении разработки через связку Figma, React и AI-инструменты. Фокусируюсь на сокращении Time-to-Market при запуске MVP и Enterprise-продуктов.</p>
@@ -126,14 +132,16 @@ const Home = () => {
             <li>SEO Analytics</li>
           </ul>
         </div>
-      </section>
+      </section> */}
 
-      <div className="giant-title-wrapper">
+      {/* GIANT TITLE */}
+      {/*<div className="giant-title-wrapper">
         <h1 className="giant-title">
-         UX UI Product Designer
+          UX UI Product Designer
         </h1>
-      </div>
+      </div>*/}
 
+      {/* RECENT WORKS */}
       <PageHeader title="Recent Works" />
 
       <section className="projects-section">
@@ -144,6 +152,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* WHAT I OFFER */}
       <section className="services-section">
         <PageHeader title="What I Offer" />
         <div className="services-list">
@@ -185,6 +194,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* HOW I WORK */}
       <section className="how-i-work-section">
         <PageHeader title="How I Work" />
         <div className="work-steps-grid">
@@ -203,6 +213,7 @@ const Home = () => {
         </div>
       </section>
       
+      {/* STATS SECTION (Rolling Counter) */}
       <section className="stats-section">
         <StatList stats={homeStats} />
       </section>
