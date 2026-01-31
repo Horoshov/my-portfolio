@@ -889,15 +889,16 @@
   }
   
   .description-lead {
-    font-size: 28px;
+    
+    font-size: 22px;
     line-height: 1.3;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-color);
   }
   
   .description-body {
     font-size: 20px;
-    line-height: 1.5;
+    line-height: 1.3;
     color: var(--text-color);
     opacity: 0.9;
   }
