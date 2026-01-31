@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import './StatsCardsSection.css';
 
 const StatsCardsSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  const carouselRef = useRef(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const cards = [
     {
@@ -126,77 +139,89 @@ const StatsCardsSection = () => {
     </svg>
   );
 
-return (
+  const renderCard = (card, index) => (
+    <motion.div
+      key={card.id}
+      className={`stats-card layout-${card.layout || 'spread'} ${card.isVideo ? 'card-video-mode' : ''}`}
+      style={{ gridArea: !isMobile ? card.gridArea : 'auto', backgroundColor: card.bgColor }}
+      custom={index}
+      initial={!isMobile ? "hidden" : false}
+      whileInView={!isMobile ? "visible" : false}
+      viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
+      variants={!isMobile ? cardVariants : undefined}
+      whileHover={!isMobile ? { 
+        y: -8, 
+        scale: 1.015,
+        transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } 
+      } : undefined}
+    >
+      {/* Видео */}
+      {card.isVideo ? (
+        <div className="stats-card-video-full">
+          <video 
+            src={card.videoUrl} 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+          />
+        </div>
+      ) : (
+        <div className="stats-card-content">
+          {card.hasImage ? (
+            <div className="stats-card-image">
+              <img src={card.imageUrl} alt="" />
+            </div>
+          ) : (
+            <>
+              <p className="stats-card-title" dangerouslySetInnerHTML={{ __html: card.title }} />
+              <motion.div 
+                className="stats-card-value"
+                custom={index}
+                initial={!isMobile ? "hidden" : false}
+                whileInView={!isMobile ? "visible" : false}
+                viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
+                variants={!isMobile ? valueVariants : undefined}
+              >
+                {card.value}
+              </motion.div>
+            </>
+          )}
+        </div>
+      )}
+
+      {/* Иконка */}
+      {card.hasIcon !== false && (
+        <motion.div 
+          className={`stats-card-icon icon-${card.iconPosition}`} 
+          style={{ backgroundColor: card.iconBg }}
+          initial={!isMobile ? "hidden" : false}
+          whileInView={!isMobile ? "visible" : false}
+          viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
+          variants={!isMobile ? iconVariants : undefined}
+        >
+          {renderIcon(card.iconType)}
+        </motion.div>
+      )}
+    </motion.div>
+  );
+
+  return (
     <section className="stats-cards-section">
       <div className="stats-container">
-        <div className="stats-cards-grid">
-          {cards.map((card, index) => (
-            <motion.div
-              key={card.id}
-              className={`stats-card layout-${card.layout || 'spread'} ${card.isVideo ? 'card-video-mode' : ''}`}
-              style={{ gridArea: card.gridArea, backgroundColor: card.bgColor }}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.15 }}
-              variants={cardVariants}
-              whileHover={{ 
-                y: -8, 
-                scale: 1.015,
-                transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } 
-              }}
-            >
-              {/* Видео */}
-              {card.isVideo ? (
-                <div className="stats-card-video-full">
-                  <video 
-                    src={card.videoUrl} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                  />
-                </div>
-              ) : (
-                <div className="stats-card-content">
-                  {card.hasImage ? (
-                    <div className="stats-card-image">
-                      <img src={card.imageUrl} alt="" />
-                    </div>
-                  ) : (
-                    <>
-                      <p className="stats-card-title" dangerouslySetInnerHTML={{ __html: card.title }} />
-                      <motion.div 
-                        className="stats-card-value"
-                        custom={index}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.15 }}
-                        variants={valueVariants}
-                      >
-                        {card.value}
-                      </motion.div>
-                    </>
-                  )}
-                </div>
-              )}
-
-              {/* Иконка — не рендеряется на карточке с видео */}
-              {card.hasIcon !== false && (
-                <motion.div 
-                  className={`stats-card-icon icon-${card.iconPosition}`} 
-                  style={{ backgroundColor: card.iconBg }}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  variants={iconVariants}
-                >
-                  {renderIcon(card.iconType)}
-                </motion.div>
-              )}
-            </motion.div>
-          ))}
+        {/* Desktop Grid */}
+        <div className={`stats-cards-grid ${isMobile ? 'mobile-hidden' : ''}`}>
+          {cards.map((card, index) => renderCard(card, index))}
         </div>
+
+        {/* Mobile Carousel */}
+        {isMobile && (
+          <div className="stats-cards-carousel" ref={carouselRef}>
+            <div className="stats-cards-carousel-track">
+              {cards.map((card, index) => renderCard(card, index))}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
