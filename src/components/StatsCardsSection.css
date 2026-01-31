@@ -62,7 +62,55 @@
     }
   }
   
-  /* Card Content */
+  /* =========================================
+     CARD INDIVIDUAL COLORS
+     ========================================= */
+  /* Card 1 - Light Blue */
+  .stats-card-1 {
+    background-color: #D6F0FF;
+  }
+  
+  /* Card 2 - Black (Video) */
+  .stats-card-2 {
+    background-color: #000000;
+  }
+  
+  /* Card 3 - Beige */
+  .stats-card-3 {
+    background-color: #F5F0EB;
+  }
+  
+  /* Card 4 - Light Gray */
+  .stats-card-4 {
+    background-color: #F8F8F8;
+  }
+  
+  /* Card 5 - Light Purple */
+  .stats-card-5 {
+    background-color: #E0D9FF;
+  }
+  
+  /* Card 6 - Light Gray */
+  .stats-card-6 {
+    background-color: #F8F8F8;
+  }
+  
+  /* Dark Mode - Keep original colors (don't override) */
+  @media (prefers-color-scheme: dark) {
+    /* Colors stay the same in dark mode */
+    .stats-card-1,
+    .stats-card-2,
+    .stats-card-3,
+    .stats-card-4,
+    .stats-card-5,
+    .stats-card-6 {
+      /* Colors preserved as-is */
+    }
+  }
+  
+  /* =========================================
+     CARD CONTENT
+     ========================================= */
   .stats-card-content {
     height: 100%;
     display: flex;
@@ -75,7 +123,7 @@
   .stats-card-title {
     font-size: 14px;
     line-height: 1.4;
-    color: var(--text-color);
+    color: #000000; /* Всегда черный */
     margin: 0;
     max-width: 280px;
   }
@@ -90,7 +138,7 @@
     font-weight: 700;
     line-height: 0.85;
     letter-spacing: -0.04em;
-    color: var(--text-color);
+    color: #000000; /* Всегда черный */
   }
   
   /* Layout Modes */
@@ -222,8 +270,8 @@
   }
   
   .stats-cards-carousel .stats-card {
-    flex: 0 0 42.5%;
-    min-width: 42.5%;
+    flex: 0 0 85%;
+    min-width: 85%;
     scroll-snap-align: center;
     min-height: 420px;
   }
@@ -286,8 +334,8 @@
     }
     
     .stats-cards-carousel .stats-card {
-      flex: 0 0 40%;
-      min-width: 40%;
+      flex: 0 0 85%;
+      min-width: 85%;
       min-height: 380px;
       padding: 28px;
     }
@@ -308,11 +356,11 @@
     }
     
     .stats-cards-carousel .stats-card {
-      flex: 0 0 42.5%;
-      min-width: 42.5%;
+      flex: 0 0 88%;
+      min-width: 88%;
       min-height: 340px;
       padding: 24px;
-      border-radius: 24px;
+      border-radius: 20px;
     }
     
     .stats-card-icon {
@@ -347,11 +395,11 @@
     }
     
     .stats-cards-carousel .stats-card {
-      flex: 0 0 45%;
-      min-width: 45%;
+      flex: 0 0 90%;
+      min-width: 90%;
       min-height: 300px;
       padding: 20px;
-      border-radius: 24px;
+      border-radius: 18px;
     }
     
     .stats-card-icon {

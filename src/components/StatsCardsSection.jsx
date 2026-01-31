@@ -142,8 +142,8 @@ const StatsCardsSection = () => {
   const renderCard = (card, index) => (
     <motion.div
       key={card.id}
-      className={`stats-card layout-${card.layout || 'spread'} ${card.isVideo ? 'card-video-mode' : ''}`}
-      style={{ gridArea: !isMobile ? card.gridArea : 'auto', backgroundColor: card.bgColor }}
+      className={`stats-card stats-card-${card.id} layout-${card.layout || 'spread'} ${card.isVideo ? 'card-video-mode' : ''}`}
+      style={{ gridArea: !isMobile ? card.gridArea : 'auto' }}
       custom={index}
       initial={!isMobile ? "hidden" : false}
       whileInView={!isMobile ? "visible" : false}
