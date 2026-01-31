@@ -5,6 +5,7 @@ import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
 import ProjectCard from '../components/ProjectCard'; 
+import ProjectsGrid from '../components/ProjectsGrid'; // 1. Импортировали новый компонент
 import alexProfile from '../assets/alex-profile.jpg'; 
 import { allProjects } from '../data/projects';
 
@@ -145,11 +146,12 @@ const Home = () => {
       <PageHeader title="Recent Works" />
 
       <section className="projects-section">
-        <div className="projects-grid-custom">
+        {/* 2. Заменили старый div на новый компонент ProjectsGrid */}
+        <ProjectsGrid>
           {featuredProjects.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </div>
+        </ProjectsGrid>
       </section>
 
       {/* WHAT I OFFER */}

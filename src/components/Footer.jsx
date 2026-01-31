@@ -1,16 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className="main-footer">
-      <div className="footer-container">
+    <footer className={styles.mainFooter}>
+      <div className={styles.footerContainer}>
         
         {/* ЛЕВАЯ ЧАСТЬ: Логотип и Почта */}
-        <div className="footer-brand-side">
-          <div className="footer-logo-static">
-            <svg width="125" height="17" viewBox="0 0 125 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className={styles.footerBrandSide}>
+          <div className={styles.footerLogoStatic}>
+            <svg 
+              width="125" 
+              height="17" 
+              viewBox="0 0 125 17" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Horoshov Logo"
+            >
+              <title>Horoshov</title>
               <path d="M117.678 11.9918L114.485 1.2157H111.074L115.77 15.7842H120.303L124.999 1.2157H121.589L118.162 11.9918H117.678Z" fill="currentColor"/>
               <path d="M74.1348 11.5783C74.1348 10.5243 73.46 10.0812 72.4482 9.99721L69.0316 9.68098C66.0789 9.40701 64.5391 8.24695 64.5391 5.44255C64.5391 2.6382 66.4375 1.09875 69.1579 1.09875H76.7079V3.75544H69.3686C68.3143 3.75544 67.6396 4.30389 67.6396 5.35804C67.6396 6.41213 68.3353 6.91833 69.3902 7.00289L72.8697 7.29822C75.5063 7.52993 77.2353 8.73225 77.2353 11.5575C77.2353 14.3827 75.4009 15.9013 72.8068 15.9013H64.9192V13.2446H72.5111C73.5025 13.2446 74.1348 12.5699 74.1348 11.5789V11.5783Z" fill="currentColor"/>
               <path d="M102.894 0.864746C107.533 0.864746 110.466 3.83036 110.466 8.479C110.466 13.1276 107.408 16.1353 102.767 16.1353C98.1273 16.1353 95.1953 13.1276 95.1953 8.479C95.1953 3.83036 98.2536 0.864746 102.894 0.864746ZM107.281 8.49979C107.281 5.38682 105.467 3.55706 102.83 3.55706C100.194 3.55706 98.3794 5.38682 98.3794 8.49979C98.3794 11.6127 100.194 13.4425 102.83 13.4425C105.467 13.4425 107.281 11.6127 107.281 8.49979Z" fill="currentColor"/>
@@ -21,67 +30,67 @@ const Footer = () => {
               <path d="M80.0898 15.7257V1.15723H83.1549V6.85019H90.1377V1.15723H93.1956V15.7257H90.1377V9.38972H83.1549V15.7257H80.0898Z" fill="currentColor"/>
             </svg>
           </div>
-          <a href="mailto:ux@horoshov.ru" className="footer-email">ux@horoshov.ru</a>
+          <a href="mailto:ux@horoshov.ru" className={styles.footerEmail}>ux@horoshov.ru</a>
           
           {/* Копирайт Десктоп */}
-          <div className="footer-copyright desktop-only">© 2026 </div>
+          <div className={`${styles.footerCopyright} ${styles.desktopOnly}`}>© 2026 </div>
         </div>
 
         {/* ПРАВАЯ ЧАСТЬ: Меню + Копирайт Мобайл */}
-        <div className="footer_menu-wrapper">
-          <div className="footer_link-list">
-            <div className="footer_section-title">Nav</div>
-            <FooterLink to="/work" label="Work" />
-            <FooterLink to="/about" label="About" />
-            <FooterLink to="/recognition" label="Recognition" />
-            <FooterLink to="/contact" label="Contact" />
+        <div className={styles.footerMenuWrapper}>
+          <div className={styles.footerLinkList}>
+            <div className={styles.footerSectionTitle}>Nav</div>
+            <FooterLink to="/work" label="Work" styles={styles} />
+            <FooterLink to="/about" label="About" styles={styles} />
+            <FooterLink to="/recognition" label="Recognition" styles={styles} />
+            <FooterLink to="/contact" label="Contact" styles={styles} />
           </div>
 
-          <div className="footer_link-list">
-            <div className="footer_section-title">Legal</div>
-            <FooterLink to="/privacy-policy" label="Privacy Policy" />
-            <FooterLink to="/terms-and-conditions" label="Terms" />
+          <div className={styles.footerLinkList}>
+            <div className={styles.footerSectionTitle}>Legal</div>
+            <FooterLink to="/privacy-policy" label="Privacy Policy" styles={styles} />
+            <FooterLink to="/terms-and-conditions" label="Terms" styles={styles} />
           </div>
 
-          <div className="footer_link-list">
-            <div className="footer_section-title">Social</div>
-            <FooterExternalLink href="http://t.me/thehoroshov" label="Telegram" />
-            <FooterExternalLink href="" label="Dribbble" />
-            <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" />
-            <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" />
+          <div className={styles.footerLinkList}>
+            <div className={styles.footerSectionTitle}>Social</div>
+            <FooterExternalLink href="http://t.me/thehoroshov" label="Telegram" styles={styles} />
+            <FooterExternalLink href="#" label="Dribbble" styles={styles} />
+            <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" styles={styles} />
+            <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" styles={styles} />
           </div>
 
-          {/* Копирайт Мобайл (встанет ниже ссылок) */}
-          <div className="footer-copyright mobile-only">© 2026 </div>
+          {/* Копирайт Мобайл */}
+          <div className={`${styles.footerCopyright} ${styles.mobileOnly}`}>© 2026 </div>
         </div>
       </div>
     </footer>
   );
 };
 
-const FooterLink = ({ to, label }) => (
-  <Link to={to} className="link-no-line">
-    <div className="link-icon">
+const FooterLink = ({ to, label, styles }) => (
+  <Link to={to} className={styles.linkNoLine}>
+    <div className={styles.linkIcon}>
       <svg width="100%" height="100%" viewBox="0 0 17 16" fill="none">
         <path d="M12 5L16 9L12 13" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M1 2V6.09091C1 6.86245 1.36875 7.60239 2.02513 8.14795C2.6815 8.69351 3.57174 9 4.5 9H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </div>
-    <div className="link-text-wr">
+    <div className={styles.linkTextWr}>
       <div>{label}</div>
     </div>
   </Link>
 );
 
-const FooterExternalLink = ({ href, label }) => (
-  <a href={href} target="_blank" rel="noreferrer" className="link-no-line">
-    <div className="link-icon">
+const FooterExternalLink = ({ href, label, styles }) => (
+  <a href={href} target="_blank" rel="noreferrer" className={styles.linkNoLine}>
+    <div className={styles.linkIcon}>
       <svg width="100%" height="100%" viewBox="0 0 17 16" fill="none">
         <path d="M12 5L16 9L12 13" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
         <path d="M1 2V6.09091C1 6.86245 1.36875 7.60239 2.02513 8.14795C2.6815 8.69351 3.57174 9 4.5 9H15" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </div>
-    <div className="link-text-wr">
+    <div className={styles.linkTextWr}>
       <div>{label}</div>
     </div>
   </a>

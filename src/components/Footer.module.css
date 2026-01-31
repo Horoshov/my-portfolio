@@ -1,0 +1,122 @@
+/* Footer.module.css */
+.mainFooter {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    padding: 40px 0 60px;
+    margin-top: 120px;
+  }
+  
+  .footerContainer {
+    width: 100%;
+    max-width: 1728px;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footerBrandSide {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 180px;
+    position: relative;
+  }
+  
+  .footerLogoStatic {
+    color: var(--gray-text);
+    display: flex;
+  }
+  
+  .footerEmail {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .footerEmail:hover { opacity: 0.6; }
+  
+  .footerCopyright {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--gray-text);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  
+  .footerCopyright.desktopOnly {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+  
+  .footerCopyright.mobileOnly { display: none; }
+  
+  .footerMenuWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 80px;
+  }
+  
+  .footerLinkList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .footerSectionTitle {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-color);
+  }
+  
+  .linkNoLine {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 15px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .linkNoLine:hover { opacity: 0.6; }
+  
+  .linkIcon {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    color: var(--gray-text);
+  }
+  
+  /* Медиазапросы внутри модуля */
+  @media (max-width: 1024px) {
+    .footerContainer { flex-direction: column; gap: 60px; }
+    .footerCopyright.desktopOnly { display: none; }
+    .footerCopyright.mobileOnly {
+      display: block;
+      grid-column: span 3;
+      margin-top: 40px;
+    }
+    .footerMenuWrapper {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+    }
+  }
+  /* ... добавь остальные медиазапросы по аналогии ... */

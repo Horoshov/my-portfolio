@@ -1,7 +1,6 @@
-/* =========================================
-   NAVBAR
-   ========================================= */
-   .navbar-fixed {
+/* Navbar.module.css */
+
+.navbarFixed {
     width: 100%;
     position: fixed;
     top: 0;
@@ -12,41 +11,39 @@
     padding: 24px var(--container-padding);
   }
   
-  .nav-container {
+  .navContainer {
     width: 100%;
-    max-width: 100%;
+    max-width: 1728px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  /* Logo */
-  .nav-logo-wrapper {
+  .navLogoWrapper {
     flex-shrink: 0;
     display: flex;
     position: relative;
     z-index: 1200;
   }
   
-  .nav-logo svg {
+  .navLogo svg {
     color: var(--text-color);
     display: block;
   }
   
-  /* Desktop Navigation */
-  .nav-actions {
+  .navActions {
     display: flex;
     align-items: center;
     gap: 40px;
   }
   
-  .nav-desktop-links {
+  .navDesktopLinks {
     display: flex;
     gap: 40px;
   }
   
-  .nav-item {
+  .navItem {
     text-decoration: none;
     color: var(--text-color);
     font-size: 16px;
@@ -56,12 +53,11 @@
     transition: opacity 0.3s ease;
   }
   
-  .nav-item:hover {
+  .navItem:hover {
     opacity: 0.6;
   }
   
-  /* Burger Menu */
-  .burger-btn {
+  .burgerBtn {
     background: none;
     border: none;
     cursor: pointer;
@@ -73,7 +69,7 @@
     position: relative;
   }
   
-  .burger-btn span {
+  .burgerBtn span {
     display: block;
     width: 24px;
     height: 2px;
@@ -81,16 +77,16 @@
     transition: transform 0.3s, opacity 0.3s;
   }
   
-  .burger-btn.open span:nth-child(1) {
+  /* Комбинированный класс для анимации бургера */
+  .burgerBtn.open span:nth-child(1) {
     transform: translateY(4.5px) rotate(45deg);
   }
   
-  .burger-btn.open span:nth-child(2) {
+  .burgerBtn.open span:nth-child(2) {
     transform: translateY(-4.5px) rotate(-45deg);
   }
   
-  /* Mobile Overlay */
-  .mobile-overlay {
+  .mobileOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -106,19 +102,19 @@
     z-index: 1100;
   }
   
-  .mobile-overlay.active {
+  .mobileOverlay.active {
     opacity: 1;
     visibility: visible;
   }
   
-  .mobile-nav-list {
+  .mobileNavList {
     display: flex;
     flex-direction: column;
     gap: 32px;
     text-align: center;
   }
   
-  .mobile-nav-list a {
+  .mobileNavList a {
     font-size: 32px;
     font-weight: 200;
     color: var(--text-color);
@@ -127,31 +123,25 @@
     transition: opacity 0.3s ease;
   }
   
-  .mobile-nav-list a:hover {
-    opacity: 0.6;
-  }
-  
-  /* =========================================
-     RESPONSIVE
-     ========================================= */
+  /* МЕДИАЗАПРОСЫ ПЕРЕЕЗЖАЮТ СЮДА */
   @media (max-width: 1024px) {
-    .nav-desktop-links {
+    .navDesktopLinks {
       display: none;
     }
   }
   
   @media (max-width: 768px) {
-    .navbar-fixed {
+    .navbarFixed {
       padding: 20px var(--container-padding);
     }
   }
   
   @media (max-width: 576px) {
-    .navbar-fixed {
+    .navbarFixed {
       padding: 16px var(--container-padding);
     }
     
-    .mobile-nav-list a {
+    .mobileNavList a {
       font-size: 28px;
     }
   }

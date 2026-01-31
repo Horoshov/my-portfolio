@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import ProjectCard from '../components/ProjectCard';
+import ProjectsGrid from '../components/ProjectsGrid'; // 1. Импортировали компонент сетки
 import { allProjects } from '../data/projects';
 
 const Projects = () => {
@@ -16,13 +17,14 @@ const Projects = () => {
       <PageHeader title="Recent Works" />
       
       <section className="projects-content" style={{ paddingBottom: '100px' }}>
-        <div className="projects-grid-custom">
+        {/* 2. Заменили div с классом на компонент ProjectsGrid */}
+        <ProjectsGrid>
           <AnimatePresence>
             {allProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
           </AnimatePresence>
-        </div>
+        </ProjectsGrid>
       </section>
     </motion.div>
   );
