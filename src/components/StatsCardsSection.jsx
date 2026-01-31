@@ -1,10 +1,8 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import './StatsCardsSection.css';
 
 const StatsCardsSection = () => {
-  const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   const cards = [
     {
@@ -32,7 +30,7 @@ const StatsCardsSection = () => {
       bgColor: '#F5F0EB',
       title: 'Оптимизированные решения на уровне кода, плюс к <b>Performance</b>',
       value: 'kWh',
-      layout: 'spread',
+      layout: 'bottom-group',
       iconType: 'layout',
       iconBg: '#FFFFFF',
       iconPosition: 'top-right'
@@ -43,7 +41,7 @@ const StatsCardsSection = () => {
       bgColor: '#F8F8F8',
       title: 'Синхронизация с продуктом',
       value: '100%',
-      layout: 'spread',
+      layout: 'bottom-group',
       iconType: 'layout',
       iconBg: '#FFD4A8',
       iconPosition: 'bottom-right'
@@ -129,7 +127,7 @@ const StatsCardsSection = () => {
   );
 
 return (
-    <section className="stats-cards-section" ref={sectionRef}>
+    <section className="stats-cards-section">
       <div className="stats-container">
         <div className="stats-cards-grid">
           {cards.map((card, index) => (
@@ -139,7 +137,8 @@ return (
               style={{ gridArea: card.gridArea, backgroundColor: card.bgColor }}
               custom={index}
               initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
               variants={cardVariants}
               whileHover={{ 
                 y: -8, 
@@ -171,7 +170,8 @@ return (
                         className="stats-card-value"
                         custom={index}
                         initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.15 }}
                         variants={valueVariants}
                       >
                         {card.value}
@@ -187,7 +187,8 @@ return (
                   className={`stats-card-icon icon-${card.iconPosition}`} 
                   style={{ backgroundColor: card.iconBg }}
                   initial="hidden"
-                  animate={isInView ? "visible" : "hidden"}
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
                   variants={iconVariants}
                 >
                   {renderIcon(card.iconType)}
