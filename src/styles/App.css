@@ -33,6 +33,12 @@
     flex-direction: column;
   }
   
+  @media (max-width: 1720px) {
+    :root {
+      --container-padding: 40px;
+    }
+  }
+
   /* Responsive container padding */
   @media (max-width: 1400px) {
     :root {

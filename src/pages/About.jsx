@@ -231,8 +231,12 @@ const About = () => {
                 10 лет в индустрии (FinTech, PropTech, BI, Retail, e-Commerce и CPQ). Создаю сложные интерфейсы и дизайн-системы, которые работают.
                 </p>
                 <p className="description-body">
-                Инструменты: Figma, Adobe, React, Cursor, GenAi, Cinema 4D
-                  </p>
+                <b>Product:</b> Веду проект от идеи и MVP до масштабирования, опираясь на метрики и бизнес-задачи.
+                </p>
+                <p className="description-body">
+                <b>Tech:</b> Учитываю технические ограничения и возможности стека еще на этапе прототипирования.
+                UI/UX: Создаю системные, технически реализуемые дизайн-решения.
+                </p>
               </div>
             </div>
           </div>
