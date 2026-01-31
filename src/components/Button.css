@@ -1,10 +1,13 @@
-.custom-btn {
+/* =========================================
+   BUTTON COMPONENT
+   ========================================= */
+   .custom-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 14px 28px;
-    border-radius: 100px; /* Идеальный овал */
+    border-radius: 100px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -14,31 +17,33 @@
     font-family: var(--font-main);
   }
   
-  /* Основная кнопка (черная в светлой теме) */
+  /* Primary Button (черная в светлой теме) */
   .btn-primary {
     background-color: var(--text-color);
     color: var(--bg-color);
     border-color: var(--text-color);
   }
   
-  /* Вторичная кнопка (прозрачная) */
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--text-color);
-  }
-  
-  /* Эффекты при наведении */
-  .custom-btn:hover {
-    transform: translateY(-2px);
-    background-color: var(--text-color);
-    color: var(--bg-color);
-  }
-  
-  /* Если primary кнопка при ховере должна становиться чуть светлее */
   .btn-primary:hover {
+    transform: translateY(-2px);
     opacity: 0.9;
   }
   
+  /* Secondary Button (прозрачная) */
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+  
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border-color: var(--text-color);
+  }
+  
+  /* Arrow Animation */
   .btn-arrow {
     font-size: 12px;
     transition: transform 0.3s ease;
@@ -46,4 +51,21 @@
   
   .custom-btn:hover .btn-arrow {
     transform: translate(2px, -2px);
+  }
+  
+  /* =========================================
+     RESPONSIVE
+     ========================================= */
+  @media (max-width: 768px) {
+    .custom-btn {
+      padding: 12px 24px;
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .custom-btn {
+      padding: 10px 20px;
+      font-size: 12px;
+    }
   }

@@ -1,163 +1,306 @@
-.stats-cards-section {
-  padding: 100px 0;
-  margin-top: 10px;
-  background-color: #fff;
-}
-
-.stats-container {
-  width: 100%;
-  max-width: 100%;
-  /* Отступы сокращены вдвое */
-}
-
-.stats-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(24, 1fr);
-  grid-auto-rows: 70px; /* Жесткий шаг ряда как в макете */
-  gap: 16px;
-}
-
-.stats-card {
-  position: relative;
-  border-radius: 24px;
-  padding: 35px;
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  transition: box-shadow 0.4s ease;
-}
-
-.stats-card:hover {
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
-}
-
-.stats-card-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  z-index: 2;
-}
-
-/* Стили заголовков и значений */
-.stats-card-title {
-  font-size: 14px;
-  line-height: 1.4;
-  color: #000;
-  margin: 0;
-  max-width: 280px;
-}
-
-.stats-card-title b {
-  font-weight: 700;
-}
-
-.stats-card-value {
-  font-size: clamp(40px, 6vw, 100px);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-}
-
-/* Логика размещения контента (Layouts) */
-.layout-top-group .stats-card-content {
-  justify-content: flex-start;
-  gap: 10px;
-}
-
-.layout-spread .stats-card-content {
-  justify-content: space-between;
-}
-
-.layout-bottom-group .stats-card-content {
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.layout-spread-center .stats-card-content {
-  justify-content: space-between;
-}
-.layout-spread-center .stats-card-title {
-  margin-top: auto; /* Смещает заголовок к середине */
-  margin-bottom: 20px;
-}
-
-/* Иконки */
-.stats-card-icon {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.icon-top-right { top: 25px; right: 25px; }
-.icon-bottom-right { bottom: 25px; right: 25px; }
-
-.stats-card:hover .stats-card-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-/* Изображение */
-.stats-card-image {
-  position: absolute;
-  inset: 0;
-  background: #fff;
-}
-
-.stats-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Адаптив */
-@media (max-width: 1024px) {
+/* =========================================
+   STATS CARDS SECTION
+   ========================================= */
+   .stats-cards-section {
+    padding: 100px 0;
+    margin-top: 10px;
+    background-color: var(--bg-color);
+    width: 100%;
+  }
+  
+  /* Grid Layout */
   .stats-cards-grid {
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-auto-rows: 70px;
+    gap: 16px;
   }
+  
+  /* Card Base */
   .stats-card {
-    grid-area: auto !important;
-    min-height: 320px;
+    position: relative;
+    border-radius: 24px;
+    padding: 35px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.4s ease;
   }
-}
-
-/* Убираем отступы карточки, если в ней видео */
-.stats-card.card-video-mode {
-  padding: 0 !important;
-}
-
-/* Контейнер видео на всю площадь */
-.stats-card-video-full {
-  position: absolute;
-  inset: 0; /* Растягиваем на всю карточку */
-  z-index: 1;
-  overflow: hidden;
-  border-radius: 24px;
-  background: #F3EDE8; /* Черная подложка */
-}
-
-.stats-card-video-full video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* МАГИЯ: Рамка-накладка поверх видео */
-.stats-card-video-full::after {
-  content: "";
-  position: absolute;
-  inset: -1px; /* Чуть-чуть выходим за границы, чтобы перекрыть стык */
-  border-radius: 24px; /* На 1px больше, чем у контейнера */
-  /* Делаем жирную рамку в 2px, которая "съедает" мерцающий край */
-  border: 2px solid #F3EDE8; 
-  pointer-events: none; /* Чтобы можно было кликать сквозь неё */
-  z-index: 2;
-}
+  
+  .stats-card:hover {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Dark Mode Shadows */
+  @media (prefers-color-scheme: dark) {
+    .stats-card:hover {
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+  }
+  
+  /* Card Content */
+  .stats-card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Title */
+  .stats-card-title {
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--text-color);
+    margin: 0;
+    max-width: 280px;
+  }
+  
+  .stats-card-title b {
+    font-weight: 700;
+  }
+  
+  /* Value */
+  .stats-card-value {
+    font-size: clamp(40px, 6vw, 100px);
+    font-weight: 700;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    color: var(--text-color);
+  }
+  
+  /* Layout Modes */
+  .layout-top-group .stats-card-content {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .layout-spread .stats-card-content {
+    justify-content: space-between;
+  }
+  
+  .layout-bottom-group .stats-card-content {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .layout-spread-center .stats-card-content {
+    justify-content: space-between;
+  }
+  
+  .layout-spread-center .stats-card-title {
+    margin-top: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Icons */
+  .stats-card-icon {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .icon-top-right {
+    top: 25px;
+    right: 25px;
+  }
+  
+  .icon-bottom-right {
+    bottom: 25px;
+    right: 25px;
+  }
+  
+  .stats-card:hover .stats-card-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  /* Image Card */
+  .stats-card-image {
+    position: absolute;
+    inset: 0;
+    background: var(--photo-bg);
+  }
+  
+  .stats-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Video Card */
+  .stats-card.card-video-mode {
+    padding: 0;
+  }
+  
+  .stats-card-video-full {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #F3EDE8;
+  }
+  
+  .stats-card-video-full video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Video Border Fix */
+  .stats-card-video-full::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 24px;
+    border: 2px solid #F3EDE8;
+    pointer-events: none;
+    z-index: 2;
+  }
+  
+  /* =========================================
+     RESPONSIVE
+     ========================================= */
+  @media (max-width: 1400px) {
+    .stats-cards-section {
+      padding: 90px 0;
+    }
+    
+    .stats-card {
+      padding: 32px;
+    }
+    
+    .stats-card-icon {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .icon-top-right,
+    .icon-bottom-right {
+      top: 22px;
+      right: 22px;
+    }
+    
+    .icon-bottom-right {
+      top: auto;
+      bottom: 22px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .stats-cards-section {
+      padding: 80px 0;
+    }
+    
+    .stats-cards-grid {
+      gap: 14px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .stats-cards-section {
+      padding: 70px 0;
+    }
+    
+    .stats-cards-grid {
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: auto;
+      gap: 12px;
+    }
+    
+    .stats-card {
+      grid-area: auto !important;
+      min-height: 320px;
+      padding: 28px;
+    }
+    
+    .stats-card-title {
+      font-size: 13px;
+      max-width: 240px;
+    }
+    
+    .stats-card-value {
+      font-size: clamp(36px, 5vw, 80px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .stats-cards-section {
+      padding: 60px 0;
+    }
+    
+    .stats-card {
+      min-height: 280px;
+      padding: 24px;
+      border-radius: 20px;
+    }
+    
+    .stats-card-icon {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .icon-top-right,
+    .icon-bottom-right {
+      top: 20px;
+      right: 20px;
+    }
+    
+    .icon-bottom-right {
+      top: auto;
+      bottom: 20px;
+    }
+    
+    .stats-card-title {
+      font-size: 12px;
+      max-width: 200px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .stats-cards-section {
+      padding: 50px 0;
+    }
+    
+    .stats-cards-grid {
+      gap: 10px;
+    }
+    
+    .stats-card {
+      min-height: 240px;
+      padding: 20px;
+      border-radius: 18px;
+    }
+    
+    .stats-card-icon {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .icon-top-right,
+    .icon-bottom-right {
+      top: 18px;
+      right: 18px;
+    }
+    
+    .icon-bottom-right {
+      top: auto;
+      bottom: 18px;
+    }
+    
+    .stats-card-title {
+      font-size: 11px;
+    }
+    
+    .stats-card-value {
+      font-size: clamp(32px, 8vw, 64px);
+    }
+  }
