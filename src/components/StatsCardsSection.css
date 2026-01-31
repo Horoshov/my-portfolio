@@ -3,13 +3,7 @@
   background-color: #fff;
 }
 
-.stats-container {
-  width: 100%;
-  max-width: 1740px;
-  margin: 0 auto;
-  /* Отступы сокращены вдвое */
-  padding: 20px 20px; 
-}
+
 
 .stats-cards-grid {
   display: grid;
