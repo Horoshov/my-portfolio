@@ -6,7 +6,7 @@
     --text-color: #000000;
     --gray-text: #7a7a7a;
     --border-color: rgba(0, 0, 0, 0.1);
-    --font-main: 'Founders Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --container-width: 100%;
     --container-padding: 40px;
   }
