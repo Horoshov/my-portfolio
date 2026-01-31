@@ -4,7 +4,7 @@ import './StatsCardsSection.css';
 
 const StatsCardsSection = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
 
   const cards = [
     {
@@ -22,11 +22,9 @@ const StatsCardsSection = () => {
       id: 2,
       gridArea: '1 / 9 / 6 / 16',
       bgColor: '#000',
-      isVideo: true, // Изменено: используем локальное видео
-      videoUrl: '/assets/videos/Frame_Lane_Anim.mp4', // Путь к файлу в public/assets/videos/
-      iconType: 'layout',
-      iconBg: 'rgba(255, 255, 255, 0.2)',
-      iconPosition: 'top-right'
+      isVideo: true,
+      videoUrl: '/assets/videos/Frame_Lane_Anim.mp4',
+      hasIcon: false
     },
     {
       id: 3,
@@ -75,11 +73,48 @@ const StatsCardsSection = () => {
   ];
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 50, scale: 0.92, filter: 'blur(4px)' },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { type: 'spring', stiffness: 60, damping: 15, delay: i * 0.1 }
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: { 
+        type: 'spring', 
+        stiffness: 60, 
+        damping: 18, 
+        delay: i * 0.09,
+        mass: 0.8
+      }
+    })
+  };
+
+  const iconVariants = {
+    hidden: { scale: 0, rotate: -60, opacity: 0 },
+    visible: {
+      scale: 1,
+      rotate: 0,
+      opacity: 1,
+      transition: { 
+        type: 'spring', 
+        stiffness: 180, 
+        damping: 12, 
+        delay: 0.25 
+      }
+    }
+  };
+
+  const valueVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { 
+        type: 'spring', 
+        stiffness: 80, 
+        damping: 14, 
+        delay: i * 0.09 + 0.2 
+      }
     })
   };
 
@@ -106,9 +141,13 @@ return (
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
               variants={cardVariants}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              whileHover={{ 
+                y: -8, 
+                scale: 1.015,
+                transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } 
+              }}
             >
-              {/* Рендеринг видео mp4 без отступов */}
+              {/* Видео */}
               {card.isVideo ? (
                 <div className="stats-card-video-full">
                   <video 
@@ -121,22 +160,39 @@ return (
                 </div>
               ) : (
                 <div className="stats-card-content">
-                   {card.hasImage ? (
-                      <div className="stats-card-image">
-                        <img src={card.imageUrl} alt="" />
-                      </div>
-                    ) : (
-                      <>
-                        <p className="stats-card-title" dangerouslySetInnerHTML={{ __html: card.title }} />
-                        <div className="stats-card-value">{card.value}</div>
-                      </>
-                    )}
+                  {card.hasImage ? (
+                    <div className="stats-card-image">
+                      <img src={card.imageUrl} alt="" />
+                    </div>
+                  ) : (
+                    <>
+                      <p className="stats-card-title" dangerouslySetInnerHTML={{ __html: card.title }} />
+                      <motion.div 
+                        className="stats-card-value"
+                        custom={index}
+                        initial="hidden"
+                        animate={isInView ? "visible" : "hidden"}
+                        variants={valueVariants}
+                      >
+                        {card.value}
+                      </motion.div>
+                    </>
+                  )}
                 </div>
               )}
 
-              <div className={`stats-card-icon icon-${card.iconPosition}`} style={{ backgroundColor: card.iconBg }}>
-                {renderIcon(card.iconType)}
-              </div>
+              {/* Иконка — не рендеряется на карточке с видео */}
+              {card.hasIcon !== false && (
+                <motion.div 
+                  className={`stats-card-icon icon-${card.iconPosition}`} 
+                  style={{ backgroundColor: card.iconBg }}
+                  initial="hidden"
+                  animate={isInView ? "visible" : "hidden"}
+                  variants={iconVariants}
+                >
+                  {renderIcon(card.iconType)}
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>

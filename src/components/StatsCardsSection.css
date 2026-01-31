@@ -1,5 +1,6 @@
 .stats-cards-section {
   padding: 100px 0;
+  margin-top: 80px;
   background-color: #fff;
 }
 
@@ -149,7 +150,3 @@
   object-fit: cover; /* Заполняет всё пространство без искажений */
 }
 
-/* Иконка поверх видео */
-.stats-card-icon {
-  z-index: 2;
-}
