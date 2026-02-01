@@ -1,0 +1,36 @@
+.customPage {
+    width: 100%;
+    background: var(--bg-color);
+  }
+  
+  .hero {
+    /* Синий градиент из вашего макета */
+    background: linear-gradient(180deg, #2D68FF 0%, #5EA2FF 100%);
+    min-height: 80vh;
+    width: 100vw;
+    position: relative;
+    /* Выход за пределы стандартного контейнера, если нужно на всю ширину */
+    margin-left: calc(-1 * var(--container-padding)); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 160px; /* Отступ под Navbar + запас */
+    overflow: hidden;
+  }
+  
+  .title {
+    color: white;
+    font-size: clamp(40px, 8vw, 120px);
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .screensWrapper {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* Место под ваши будущие анимированные устройства */
+  }

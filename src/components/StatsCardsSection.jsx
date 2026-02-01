@@ -22,7 +22,7 @@ const StatsCardsSection = () => {
       id: 1,
       gridArea: '1 / 1 / 7 / 9',
       bgColor: '#D6F0FF',
-      title: 'Использование <b>GenAi</b> пушит процессы и дает прирост производительности',
+      title: 'Использование <b>GenAi</b> ускоряет процессы увеличивая эффективность',
       value: '5x',
       layout: 'top-group', 
       iconType: 'cube',
