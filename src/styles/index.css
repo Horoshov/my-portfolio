@@ -9,10 +9,24 @@
     --photo-bg: #f5f5f5;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     
-    /* Ограничиваем контент шириной твоего MacBook 16. 
-       Теперь на 4K экранах сайт не будет шире этой отметки. */
+    /* Container */
     --container-width: 1728px; 
     --container-padding: 40px;
+    
+    /* Border Radius System */
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 20px;
+    --radius-xl: 24px;
+    
+    /* Spacing System */
+    --spacing-xs: 8px;
+    --spacing-sm: 12px;
+    --spacing-md: 16px;
+    --spacing-lg: 20px;
+    --spacing-xl: 24px;
+    --spacing-2xl: 32px;
+    --spacing-3xl: 40px;
   }
   
   @media (prefers-color-scheme: dark) {
@@ -25,25 +39,56 @@
     }
   }
   
-  /* На очень больших экранах (4K+) можно еще немного увеличить боковые поля для воздуха */
+  /* Breakpoints */
   @media (min-width: 2500px) {
     :root {
       --container-padding: 80px;
     }
   }
   
-  /* Твои существующие адаптивные отступы */
   @media (max-width: 1400px) {
-    :root { --container-padding: 32px; }
+    :root {
+      --container-padding: 32px;
+      --spacing-3xl: 32px;
+    }
   }
+  
   @media (max-width: 1200px) {
-    :root { --container-padding: 24px; }
+    :root {
+      --container-padding: 24px;
+      --spacing-3xl: 24px;
+      --spacing-2xl: 24px;
+    }
   }
+  
+  @media (max-width: 1024px) {
+    :root {
+      --radius-xl: 20px;
+      --radius-lg: 18px;
+    }
+  }
+  
   @media (max-width: 768px) {
-    :root { --container-padding: 20px; }
+    :root {
+      --container-padding: 20px;
+      --spacing-3xl: 20px;
+      --spacing-2xl: 20px;
+      --radius-xl: 18px;
+      --radius-lg: 16px;
+      --radius-md: 14px;
+    }
   }
+  
   @media (max-width: 576px) {
-    :root { --container-padding: 16px; }
+    :root {
+      --container-padding: 16px;
+      --spacing-3xl: 16px;
+      --spacing-2xl: 16px;
+      --radius-xl: 16px;
+      --radius-lg: 14px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+    }
   }
   
   /* =========================================
@@ -68,13 +113,9 @@
      GLOBAL CONTAINER SYSTEM
      ========================================= */
   .app-container {
-    /* max-width берет значение из переменной */
     max-width: var(--container-width);
-    
-    /* margin: 0 auto центрирует сайт по горизонтали на широких экранах */
     margin-left: auto;
     margin-right: auto;
-    
     padding-left: var(--container-padding);
     padding-right: var(--container-padding);
     width: 100%;

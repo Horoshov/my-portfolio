@@ -1,49 +1,54 @@
-/* ProjectsGrid.module.css */
+/* =========================================
+   PROJECTS GRID MODULE
+   ========================================= */
 
-.projectsGridCustom {
+   .projectsGridCustom {
     display: grid;
-    /* По умолчанию (на больших экранах вроде MacBook 16) — 2 колонки */
     grid-template-columns: repeat(2, 1fr);
     gap: 46px 20px;
     width: 100%;
   }
   
-  /* XL: 1200px - 1399px → Сохраняем 2 колонки, но меняем gap */
-  @media (max-width: 1399px) {
+  /* =========================================
+     RESPONSIVE
+     ========================================= */
+  
+  /* XL: 1200-1400px */
+  @media (max-width: 1400px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px 20px;
+      gap: 38px 20px;
     }
   }
   
-  /* LG: 992px - 1199px → 2 колонки, еще меньше gap */
-  @media (max-width: 1199px) {
+  /* LG: 1024-1200px */
+  @media (max-width: 1200px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px 18px;
+      gap: 30px 18px;
     }
   }
   
-  /* MD: 768px - 991px → 2 колонки */
-  @media (max-width: 991px) {
+  /* MD: 768-1024px */
+  @media (max-width: 1024px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px 16px;
+      gap: 25px 16px;
     }
   }
   
-  /* SM: 576px - 767px → Переход в 1 колонку */
-  @media (max-width: 767px) {
+  /* SM: 576-768px → 1 колонка */
+  @media (max-width: 768px) {
     .projectsGridCustom {
       grid-template-columns: 1fr;
-      gap: 25px;
+      gap: 30px;
     }
   }
   
-  /* XS: 0 - 575px → 1 колонка, минимальный gap */
-  @media (max-width: 575px) {
+  /* XS: 0-576px */
+  @media (max-width: 576px) {
     .projectsGridCustom {
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 24px;
     }
   }

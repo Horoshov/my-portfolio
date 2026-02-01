@@ -92,55 +92,6 @@ const Home = () => {
       {/* STATS CARDS SECTION - НОВАЯ СЕКЦИЯ */}
       <StatsCardsSection />
 
-      {/* HERO SECTION */}
-      {/*<section className="hero-grid">
-        <div className="hero-col left">
-          <span className="label">Focus</span>
-          <p className="hero-text">UX/UI, Продуктовый дизайнер. Опыт проектирования сложных систем: BI, FinTech, PropTech и ML-сервисы. Специализируюсь на создании масштабируемых дизайн-систем и ускорении разработки через связку Figma, React и AI-инструменты. Фокусируюсь на сокращении Time-to-Market при запуске MVP и Enterprise-продуктов.</p>
-          <Link to="/contact" className="contact-button">Get in touch <span>→</span></Link>
-        </div>
-
-        <div className="hero-col center">
-          <div className="hero-middle">
-            <svg 
-              className="hero-image-mask" 
-              viewBox="0 0 350 350" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path 
-                fillRule="evenodd" 
-                clipRule="evenodd" 
-                d="M350 350H0V0H350V350ZM253.744 4C220.414 4.0001 191.212 21.6275 175 48.0439C158.788 21.6275 129.586 4 96.2559 4C45.3044 4.00015 4.00007 45.192 4 96.0049C4 129.567 22.0204 158.931 48.9375 175.001C22.0204 191.071 4.00008 220.435 4 253.997C4 304.81 45.3043 346.002 96.2559 346.002C129.587 346.002 158.788 328.374 175 301.957C191.212 328.374 220.413 346.002 253.744 346.002C304.696 346.002 346.001 304.81 346.001 253.997C346.001 220.435 327.98 191.071 301.062 175.001C327.98 158.931 346.001 129.567 346.001 96.0049C346.001 45.192 304.696 4 253.744 4Z" 
-                fill="var(--bg-color)" 
-              />
-            </svg>
-            <img 
-              src={alexProfile} 
-              className="hero-image" 
-              alt="Alex Horoshov" 
-            />
-          </div>
-        </div>
-
-        <div className="hero-col right">
-          <span className="label">Expertise</span>
-          <ul className="expertise-list">
-            <li>Product Design & UX/UI</li>
-            <li>Frontend Development</li>
-            <li>Design Management</li>
-            <li>3D Graphics</li>
-            <li>SEO Analytics</li>
-          </ul>
-        </div>
-      </section> */}
-
-      {/* GIANT TITLE */}
-      {/*<div className="giant-title-wrapper">
-        <h1 className="giant-title">
-          UX UI Product Designer
-        </h1>
-      </div>*/}
 
       {/* RECENT WORKS */}
       <PageHeader title="Recent Works" />
