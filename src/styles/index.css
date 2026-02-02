@@ -9,11 +9,12 @@
     --photo-bg: #f5f5f5;
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     
-    
-    /* Container */
+    /* Container System */
     --container-width: 1728px; 
     --container-padding: 40px;
-    --content-indent: 40px; /* Величина, на которую контент будет уже навбара */
+    
+    /* Content Indent - дополнительное сужение контента относительно navbar */
+    --content-indent: 40px;
     
     /* Border Radius System */
     --radius-sm: 12px;
@@ -63,11 +64,12 @@
     }
   }
   
+  /* На планшетах убираем content-indent */
   @media (max-width: 1024px) {
     :root {
       --radius-xl: 20px;
       --radius-lg: 18px;
-      --content-indent: 0px; /* На планшетах и мобилках сужение исчезает */
+      --content-indent: 0px; /* Убираем дополнительное сужение */
     }
   }
   
@@ -112,5 +114,14 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-
-  
+  /* =========================================
+     GLOBAL CONTAINER SYSTEM
+     ========================================= */
+  .page-container {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(var(--container-padding) + var(--content-indent));
+    padding-right: calc(var(--container-padding) + var(--content-indent));
+    width: 100%;
+  }

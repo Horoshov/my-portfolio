@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { allProjects } from '../data/projects';
-import PageHeader from '../components/PageHeader'; 
-import ProjectCard from '../components/ProjectCard'; 
-// ИСПРАВЛЕНО: Путь из src/pages в src/pages/layouts
+import PageContainer from '../components/PageContainer';
+import PageHeader from '../components/PageHeader';
 import PostmanTrackerLayout from './layouts/PostmanTrackerLayout';
 
 const ProjectDetail = () => {
@@ -15,26 +14,37 @@ const ProjectDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  if (!project) return <div className="pd-not-found">Project not found</div>;
+  // Обработка случая когда проект не найден
+  if (!project) {
+    return (
+      <PageContainer>
+        <div className="pd-not-found">
+          <h1>Project not found</h1>
+          <Link to="/projects" className="pd-back-link">
+            ← Back to Projects
+          </Link>
+        </div>
+      </PageContainer>
+    );
+  }
 
   // Проверка ID для переключения на кастомный макет
   const isPostman = String(id) === 'postman-tracker';
 
   return (
     <motion.div 
-      className="pd-wrapper"
+      className="project-detail-page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      {/* ВАЖНО: Если это Postman, мы рендерим ТОЛЬКО PostmanTrackerLayout.
-        Мы не оборачиваем его в app-container здесь, если внутри 
-        самого макета PostmanTrackerLayout предусмотрена своя сетка.
-      */}
       {isPostman ? (
+        // Для Postman используется полностью кастомный layout БЕЗ PageContainer
         <PostmanTrackerLayout project={project} />
       ) : (
-        <div className="app-container">
+        // Для всех остальных проектов используем PageContainer
+        <PageContainer>
           <PageHeader title={project.title} category={project.cat} />
 
           <section className="pd-info-grid">
@@ -45,8 +55,7 @@ const ProjectDetail = () => {
               />
               {project.descriptionSecondary && (
                 <div 
-                  className="pd-desc-secondary" 
-                  style={{ marginTop: '30px', opacity: 0.8 }}
+                  className="pd-desc-secondary"
                   dangerouslySetInnerHTML={{ __html: project.descriptionSecondary }} 
                 />
               )}
@@ -67,7 +76,7 @@ const ProjectDetail = () => {
           </section>
 
           {project.sectionText && (
-            <section className="pd-text-block-new" style={{ marginTop: '60px' }}>
+            <section className="pd-text-block-new">
               {project.sectionTitle && (
                 <h2 className="section-subtitle">{project.sectionTitle}</h2>
               )}
@@ -79,26 +88,21 @@ const ProjectDetail = () => {
           )}
 
           {project.imageFooter && (
-            <section className="pd-footer-image-section" style={{ marginTop: '60px' }}>
+            <section className="pd-footer-image-section">
               <img 
                 src={project.imageFooter} 
                 alt={`${project.title} detailed view`} 
                 className="pd-hero-img" 
-                style={{ borderRadius: '12px', width: '100%', height: 'auto', display: 'block' }} 
               />
             </section>
           )}
 
-          <footer className="pd-back-footer" style={{ marginTop: '80px', paddingBottom: '60px' }}>
-            <Link 
-              to="/projects" 
-              className="pd-back-link" 
-              style={{ textDecoration: 'none', color: 'var(--text-color)', fontWeight: '600' }}
-            >
+          <footer className="pd-back-footer">
+            <Link to="/projects" className="pd-back-link">
               ← Back to Projects
             </Link>
           </footer>
-        </div>
+        </PageContainer>
       )}
     </motion.div>
   );
