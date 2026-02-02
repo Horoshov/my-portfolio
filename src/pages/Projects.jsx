@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import PageContainer from '../components/PageContainer';
+import PageContainer from '../components/PageСontainer';
 import PageHeader from '../components/PageHeader';
 import ProjectCard from '../components/ProjectCard';
 import ProjectsGrid from '../components/ProjectsGrid';

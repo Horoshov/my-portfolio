@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import PageContainer from '../components/PageContainer';
+import PageContainer from '../components/PageСontainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
