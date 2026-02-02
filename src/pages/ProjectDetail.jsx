@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { allProjects } from '../data/projects';
-import PageContainer from '../components/PageСontainer';
+import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import PostmanTrackerLayout from './layouts/PostmanTrackerLayout';
 

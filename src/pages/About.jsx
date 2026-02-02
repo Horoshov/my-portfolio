@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import PageContainer from '../components/PageСontainer';
+import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
 import alexProfile from '../assets/alex-profile.jpg';

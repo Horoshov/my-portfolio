@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import PageContainer from '../components/PageСontainer';
+// ИСПРАВЛЕНО: Теперь здесь латинская 'C', а не русская 'С'
+import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
@@ -86,12 +87,9 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-      {/* StatsCards НЕ в PageContainer - у него свой stats-container */}
       <StatsCardsSection />
 
-      {/* Весь остальной контент В PageContainer */}
       <PageContainer noPaddingTop>
-        {/* RECENT WORKS */}
         <PageHeader title="Recent Works" />
 
         <section className="projects-section">
@@ -102,7 +100,6 @@ const Home = () => {
           </ProjectsGrid>
         </section>
 
-        {/* WHAT I OFFER */}
         <section className="services-section">
           <PageHeader title="What I Offer" />
           <div className="services-list">
@@ -147,7 +144,6 @@ const Home = () => {
           </div>
         </section>
 
-        {/* HOW I WORK */}
         <section className="how-i-work-section">
           <PageHeader title="How I Work" />
           <div className="work-steps-grid">
@@ -166,7 +162,6 @@ const Home = () => {
           </div>
         </section>
         
-        {/* STATS SECTION (Rolling Counter) */}
         <section className="stats-section">
           <StatList stats={homeStats} />
         </section>
