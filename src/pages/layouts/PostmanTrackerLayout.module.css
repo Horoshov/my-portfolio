@@ -35,7 +35,7 @@
 
 .screensWrapper {
   position: absolute;
-  bottom: -140px; 
+  bottom: -180px; 
   width: 100%; 
   /* Уменьшено на 10% (было 1380px стало ~1240px) */
   max-width: 1350px; 
