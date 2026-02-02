@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import ContactForm from '../components/ContactForm';
-// Обязательно добавь импорт твоего контейнера
-import PageContainer from '../components/PageContainer'; 
+import PageContainer from '../components/PageContainer';
+import FAQ from '../components/FAQ';
 
 const Contact = () => {
   return (
@@ -13,21 +13,25 @@ const Contact = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* 1. Оборачиваем заголовок в контейнер, если PageHeader сам этого не делает */}
       <PageContainer>
         <PageHeader title="Get In Touch" />
       </PageContainer>
       
-      {/* 2. Основная секция с формой */}
       <PageContainer>
         <section className="contact-section" style={{ 
           display: 'flex', 
-          justifyContent: 'center',
-          padding: '40px 0 100px' // Добавим отступы сверху и снизу
+          flexDirection: 'column', 
+          alignItems: 'center',
+          padding: '40px 0 100px' 
         }}>
-          {/* Контейнер формы с ограничением ширины */}
-          <div style={{ width: '100%', maxWidth: '800px' }}> 
+          {/* Форма: оставляем 800px, как было */}
+          <div style={{ width: '100%', maxWidth: '800px', marginBottom: '100px' }}> 
             <ContactForm />
+          </div>
+
+          {/* FAQ: делаем шире (1000px) и центрируем */}
+          <div style={{ width: '100%', maxWidth: '1000px' }}>
+            <FAQ />
           </div>
         </section>
       </PageContainer>
