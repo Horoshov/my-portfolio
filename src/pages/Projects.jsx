@@ -16,7 +16,7 @@ const Projects = () => {
       transition={{ duration: 0.5 }}
     >
       <PageContainer>
-        <PageHeader title="Recent Works" />
+        <PageHeader title="Продуктовые кейсы" />
         
         <section className="projects-content">
           <ProjectsGrid>

@@ -90,7 +90,7 @@ const Home = () => {
       <StatsCardsSection />
 
       <PageContainer noPaddingTop>
-        <PageHeader title="Recent Works" />
+        <PageHeader title="Продуктовые кейсы" />
 
         <section className="projects-section">
           <ProjectsGrid>
