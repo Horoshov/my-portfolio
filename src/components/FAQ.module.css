@@ -1,78 +1,79 @@
 .faqSection {
-    width: 100%;
-  }
-  
-  .title {
-    font-size: clamp(32px, 5vw, 42px);
-    font-weight: 600;
-    margin-bottom: 50px;
-    color: #ffffff;
-    text-align: center; /* Центрируем заголовок */
-  }
-  
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  
+  width: 100%;
+  margin-top: 40px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 42px);
+  font-weight: 600;
+  margin-bottom: 50px;
+  /* Используем глобальный цвет текста */
+  color: var(--text-color); 
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  /* Используем цвет текста с низкой непрозрачностью для фона плашек */
+  background: var(--card-bg, rgba(128, 128, 128, 0.05));
+  border: none !important;
+  border-radius: 24px;
+  padding: 32px 40px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Если в твоей теме есть переменная для ховера, используй её */
+.faqItem:hover {
+  background: var(--card-hover, rgba(128, 128, 128, 0.1));
+  transform: translateY(-2px);
+}
+
+.questionWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-color);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Иконка подстраивается под текст */
+  background: var(--text-color);
+  color: var(--bg-color); 
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.8;
+}
+
+.answer {
+  padding-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  /* Вторичный текст через переменную или прозрачность */
+  color: var(--text-secondary, var(--text-color));
+  opacity: 0.6;
+  margin: 0;
+  max-width: 90%;
+}
+
+@media (max-width: 768px) {
   .faqItem {
-    background: rgba(255, 255, 255, 0.04);
-    border: none !important; /* Убираем бордер */
-    border-radius: 24px;
-    padding: 32px 40px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    padding: 24px;
   }
-  
-  .faqItem:hover {
-    background: rgba(255, 255, 255, 0.07);
-    transform: translateY(-2px);
-  }
-  
-  .questionWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .question {
-    font-size: 19px;
-    font-weight: 500;
-    margin: 0;
-    color: #ffffff;
-  }
-  
-  .icon {
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    color: #ffffff;
-    flex-shrink: 0;
-  }
-  
-  .answerWrapper {
-    overflow: hidden;
-  }
-  
-  .answer {
-    padding-top: 20px;
-    font-size: 16px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-    max-width: 90%;
-  }
-  
-  @media (max-width: 768px) {
-    .faqItem {
-      padding: 24px;
-    }
-    .question {
-      font-size: 17px;
-    }
-  }
+}
