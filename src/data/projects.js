@@ -11,6 +11,12 @@ export const allProjects = [
     location: "РФ, Москва",
     linkDisplay: "horoshov.ru",
     role: "Creative Developer",
+    details: [
+      { label: "Timeline", value: "2 недели" },
+      { label: "Location", value: "РФ, Москва" },
+      { label: "Role", value: "Creative Developer" },
+      { label: "Link", value: "horoshov.ru" }
+    ],
     sectionTitle: "Horoshov: Технологический стек",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
@@ -48,6 +54,12 @@ export const allProjects = [
     location: 'Россия',
     linkDisplay: 'Coming Soon',
     role: 'Product Designer',
+    details: [
+      { label: "Timeline", value: "8 месяцев" },
+      { label: "Location", value: "Россия" },
+      { label: "Role", value: "Product Designer" },
+      { label: "Link", value: "Coming Soon" }
+    ],
     sectionTitle: "Betonika: Индустриальное 3D-проектирование",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
@@ -84,6 +96,12 @@ export const allProjects = [
     location: 'Москва, Россия',
     linkDisplay: 'polymatica.ru',
     role: 'Lead Product Designer',
+    details: [
+      { label: "Timeline", value: "10 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "Lead Product Designer" },
+      { label: "Link", value: "polymatica.ru" }
+    ],
     sectionTitle: "Polymatica: Экосистема BI, EPM и ML",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
@@ -133,6 +151,12 @@ export const allProjects = [
     location: 'Москва, Россия',
     linkDisplay: 'mtech.mvideoeldorado.ru',
     role: 'Senior UX Architect',
+    details: [
+      { label: "Timeline", value: "6 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "Senior UX Architect" },
+      { label: "Link", value: "mtech.mvideoeldorado.ru" }
+    ],
     sectionTitle: "B2B Marketplace: Масштабирование ритейл-экосистемы",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
@@ -174,6 +198,12 @@ export const allProjects = [
     location: 'Remote',
     linkDisplay: 'Link',
     role: 'Product UX/UI Designer',
+    details: [
+      { label: "Timeline", value: "Задание" },
+      { label: "Location", value: "Remote" },
+      { label: "Role", value: "Product UX/UI Designer" },
+      { label: "Link", value: "Link" }
+    ],
     sectionTitle: "Postman tracker: Цифровой помощник логистики",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
@@ -219,6 +249,12 @@ export const allProjects = [
     location: 'Москва, Россия',
     linkDisplay: 'ndv.ru',
     role: 'UX/UI Lead',
+    details: [
+      { label: "Timeline", value: "4 месяца" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "UX/UI Lead" },
+      { label: "Link", value: "ndv.ru" }
+    ],
     sectionTitle: "NDV: Экосистема поиска недвижимости",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
@@ -252,6 +288,12 @@ export const allProjects = [
     location: "Москва, Россия",
     linkDisplay: "domyland.ru",
     role: "Lead UX/UI Designer",
+    details: [
+      { label: "Timeline", value: "16 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "Lead UX/UI Designer" },
+      { label: "Link", value: "domyland.ru" }
+    ],
     sectionTitle: "Domyland: Scaling the Industry leader",
     sectionText: `
       <div class="project-case-content">
@@ -314,6 +356,12 @@ export const allProjects = [
     location: 'Москва, Россия',
     linkDisplay: 'coincom.io',
     role: 'UX/UI Designer',
+    details: [
+      { label: "Timeline", value: "10 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "UX/UI Designer" },
+      { label: "Link", value: "coincom.io" }
+    ],
     sectionTitle: "Coincom: Экосистема терминалов самообслуживания",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
@@ -391,6 +439,12 @@ export const allProjects = [
     location: 'Москва, Россия',
     linkDisplay: 'cashoff.ru',
     role: 'Product Designer',
+    details: [
+      { label: "Timeline", value: "9 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "Product Designer" },
+      { label: "Link", value: "cashoff.ru" }
+    ],
     sectionTitle: "Cashoff: Экосистема цифрового банкинга",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
@@ -447,6 +501,12 @@ export const allProjects = [
     location: 'Россия',
     linkDisplay: 'rustelecom.ru',
     role: 'Дизайнер интерфейсов',
+    details: [
+      { label: "Timeline", value: "1 год 6 месяцев" },
+      { label: "Location", value: "Россия" },
+      { label: "Role", value: "Дизайнер интерфейсов" },
+      { label: "Link", value: "rustelecom.ru" }
+    ],
     sectionTitle: "RusTelecom: Цифровое пространство ЭЦП",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
