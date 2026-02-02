@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
 import alexProfile from '../assets/alex-profile.jpg';
@@ -28,10 +29,10 @@ const SKILL_ICONS = {
   ),
   "Webflow": (
     <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_4441_6863)">
+      <g clipPath="url(#clip0_4441_6863)">
       <path d="M48 0H16C7.16344 0 0 7.16344 0 16V48C0 56.8366 7.16344 64 16 64H48C56.8366 64 64 56.8366 64 48V16C64 7.16344 56.8366 0 48 0Z" fill="black"/>
-      <g clip-path="url(#clip1_4441_6863)">
-      <path fillRule="evenodd" clip-rule="evenodd" d="M52.5 20L40.3746 44H28.9856L34.06 34.0534H33.8323C29.6459 39.5558 23.3998 43.178 14.5 44V34.191C14.5 34.191 20.1934 33.8506 23.5404 30.2877H14.5V20.0002H24.6605V28.4615L24.8885 28.4605L29.0404 20.0002H36.7245V28.4078L36.9525 28.4075L41.2602 20H52.5Z" fill="white"/>
+      <g clipPath="url(#clip1_4441_6863)">
+      <path fillRule="evenodd" clipRule="evenodd" d="M52.5 20L40.3746 44H28.9856L34.06 34.0534H33.8323C29.6459 39.5558 23.3998 43.178 14.5 44V34.191C14.5 34.191 20.1934 33.8506 23.5404 30.2877H14.5V20.0002H24.6605V28.4615L24.8885 28.4605L29.0404 20.0002H36.7245V28.4078L36.9525 28.4075L41.2602 20H52.5Z" fill="white"/>
       </g>
       </g>
       <defs>
@@ -207,12 +208,12 @@ const About = () => {
 
   return (
     <motion.div
-      className="page-wrapper about-page"
+      className="about-page"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="page-wrapper about-page">
+      <PageContainer>
         <PageHeader title="About Me" />
         
         <section className="about-intro-section">
@@ -308,7 +309,7 @@ const About = () => {
         <section className="stats-section">
           <StatList stats={aboutStats} />
         </section>
-      </div>
+      </PageContainer>
     </motion.div>
   );
 };

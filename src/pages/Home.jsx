@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
 import ProjectCard from '../components/ProjectCard'; 
-import ProjectsGrid from '../components/ProjectsGrid'; // 1. Импортировали новый компонент
-import alexProfile from '../assets/alex-profile.jpg'; 
+import ProjectsGrid from '../components/ProjectsGrid';
 import { allProjects } from '../data/projects';
 
 const services = [
@@ -82,94 +81,96 @@ const Home = () => {
 
   return (
     <motion.div 
-      className="page-wrapper home-page" 
+      className="home-page"
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
-
-
-      {/* STATS CARDS SECTION - НОВАЯ СЕКЦИЯ */}
+      {/* StatsCards НЕ в PageContainer - у него свой stats-container */}
       <StatsCardsSection />
 
+      {/* Весь остальной контент В PageContainer */}
+      <PageContainer noPaddingTop>
+        {/* RECENT WORKS */}
+        <PageHeader title="Recent Works" />
 
-      {/* RECENT WORKS */}
-      <PageHeader title="Recent Works" />
+        <section className="projects-section">
+          <ProjectsGrid>
+            {featuredProjects.map(project => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </ProjectsGrid>
+        </section>
 
-      <section className="projects-section">
-        {/* 2. Заменили старый div на новый компонент ProjectsGrid */}
-        <ProjectsGrid>
-          {featuredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </ProjectsGrid>
-      </section>
-
-      {/* WHAT I OFFER */}
-      <section className="services-section">
-        <PageHeader title="What I Offer" />
-        <div className="services-list">
-          {services.map((service) => (
-            <div 
-              key={service.id} 
-              className="service-item" 
-              onMouseEnter={() => setHoveredService(service.id)} 
-              onMouseLeave={() => setHoveredService(null)}
-            >
-              <div className="service-row">
-                <span className="service-number">({service.id})</span>
-                <h3 className="service-title">{service.title}</h3>
-                <motion.div 
-                  className="service-details" 
-                  initial={{ opacity: 0, x: -10 }} 
-                  animate={{ opacity: hoveredService === service.id ? 1 : 0, x: hoveredService === service.id ? 0 : -10 }} 
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="service-image-preview">
-                    {service.img ? (
-                      <img src={service.img} alt={service.title} />
-                    ) : (
-                      <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
-                    )}
-                  </div>
-                  <div className="service-tags">
-                    {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
-                  </div>
-                </motion.div>
-                <div className="service-arrow">
-                  <div className={`arrow-circle ${hoveredService === service.id ? 'active' : ''}`}>
-                    <span>↗</span>
+        {/* WHAT I OFFER */}
+        <section className="services-section">
+          <PageHeader title="What I Offer" />
+          <div className="services-list">
+            {services.map((service) => (
+              <div 
+                key={service.id} 
+                className="service-item" 
+                onMouseEnter={() => setHoveredService(service.id)} 
+                onMouseLeave={() => setHoveredService(null)}
+              >
+                <div className="service-row">
+                  <span className="service-number">({service.id})</span>
+                  <h3 className="service-title">{service.title}</h3>
+                  <motion.div 
+                    className="service-details" 
+                    initial={{ opacity: 0, x: -10 }} 
+                    animate={{ 
+                      opacity: hoveredService === service.id ? 1 : 0, 
+                      x: hoveredService === service.id ? 0 : -10 
+                    }} 
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="service-image-preview">
+                      {service.img ? (
+                        <img src={service.img} alt={service.title} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
+                      )}
+                    </div>
+                    <div className="service-tags">
+                      {service.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                    </div>
+                  </motion.div>
+                  <div className="service-arrow">
+                    <div className={`arrow-circle ${hoveredService === service.id ? 'active' : ''}`}>
+                      <span>↗</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* HOW I WORK */}
-      <section className="how-i-work-section">
-        <PageHeader title="How I Work" />
-        <div className="work-steps-grid">
-          {howIWorkSteps.map((step, index) => (
-            <div key={index} className="work-step-card">
-              <div className="step-card-header">
-                <span className="step-badge">{step.category}</span>
-                <span className="step-duration">{step.duration}</span>
+        {/* HOW I WORK */}
+        <section className="how-i-work-section">
+          <PageHeader title="How I Work" />
+          <div className="work-steps-grid">
+            {howIWorkSteps.map((step, index) => (
+              <div key={index} className="work-step-card">
+                <div className="step-card-header">
+                  <span className="step-badge">{step.category}</span>
+                  <span className="step-duration">{step.duration}</span>
+                </div>
+                <div className="step-card-content">
+                  <h3 className="step-card-title">{step.title}</h3>
+                  <p className="step-card-description">{step.description}</p>
+                </div>
               </div>
-              <div className="step-card-content">
-                <h3 className="step-card-title">{step.title}</h3>
-                <p className="step-card-description">{step.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      
-      {/* STATS SECTION (Rolling Counter) */}
-      <section className="stats-section">
-        <StatList stats={homeStats} />
-      </section>
+            ))}
+          </div>
+        </section>
+        
+        {/* STATS SECTION (Rolling Counter) */}
+        <section className="stats-section">
+          <StatList stats={homeStats} />
+        </section>
+      </PageContainer>
     </motion.div>
   );
 };

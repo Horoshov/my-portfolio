@@ -17,11 +17,11 @@ const AppContent = () => {
   const location = useLocation();
 
   return (
-    <div className="app-container">
+    <>
       <Navbar />
 
-      {/* Теперь роуты только здесь и обернуты в сужающий класс */}
-      <main className="main-content-narrow">
+      {/* Main - semantic wrapper БЕЗ стилей контейнера */}
+      <main className="main-content">
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
@@ -36,6 +36,7 @@ const AppContent = () => {
 
       <Footer />
 
+      {/* SVG фильтры */}
       <svg style={{ position: 'absolute', width: 0, height: 0, pointerEvents: 'none' }}>
         <filter id="grain">
           <feTurbulence type="fractalNoise" baseFrequency="0.60" numOctaves="3" stitchTiles="stitch" />
@@ -43,7 +44,7 @@ const AppContent = () => {
           <feBlend in="SourceGraphic" in2="monoNoise" mode="multiply" />
         </filter>
       </svg>
-    </div>
+    </>
   );
 };
 

@@ -112,33 +112,5 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
-  /* =========================================
-     GLOBAL CONTAINER SYSTEM
-     ========================================= */
-     .app-container {
-      max-width: var(--container-width);
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: var(--container-padding);
-      padding-right: var(--container-padding);
-      width: 100%;
-    }
-    
-    /* Добавляем класс, который управляет сужением */
-    .main-content-narrow {
-      width: 100%;
-      padding-left: var(--content-indent);
-      padding-right: var(--content-indent);
-      transition: padding 0.3s ease;
-    }
-    
-    @media (max-width: 1024px) {
-      .main-content-narrow {
-        /* Здесь переменная --content-indent и так 0 благодаря твоим медиа-запросам,
-           но явное обнуление защищает от багов */
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
 
   
