@@ -29,7 +29,8 @@ const ProjectDetail = () => {
   }
 
   // Проверка ID для переключения на кастомный макет
-  const isPostman = String(id) === 'postman-tracker';
+  // Добавлена проверка и на строковый ID 'postman-tracker' и на числовой '107' из твоего файла данных
+  const isPostman = String(id) === 'postman-tracker' || String(id) === '107';
 
   return (
     <motion.div 
@@ -43,7 +44,7 @@ const ProjectDetail = () => {
         // Для Postman используется полностью кастомный layout БЕЗ PageContainer
         <PostmanTrackerLayout project={project} />
       ) : (
-        // Для всех остальных проектов используем PageContainer
+        // ДЛЯ ВСЕХ ОСТАЛЬНЫХ ПРОЕКТОВ ОСТАВЛЯЕМ ВСЕ В ТОЧНОСТИ КАК БЫЛО
         <PageContainer>
           <PageHeader title={project.title} category={project.cat} />
 
