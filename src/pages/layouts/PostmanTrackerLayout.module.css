@@ -35,10 +35,10 @@
 
 .screensWrapper {
   position: absolute;
-  bottom: -100px; 
+  bottom: -140px; 
   width: 100%; 
   /* Уменьшено на 10% (было 1380px стало ~1240px) */
-  max-width: 1240px; 
+  max-width: 1350px; 
   display: flex;
   justify-content: center;
   z-index: 1;

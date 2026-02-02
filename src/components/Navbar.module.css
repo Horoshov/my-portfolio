@@ -148,3 +148,26 @@
       font-size: 28px;
     }
   }
+
+  /* Применяем только когда Navbar находится над синим блоком */
+header[data-theme="dark"] {
+  /* Переопределяем переменные темы локально для хедера */
+  --text-color: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  /* Если бургер использует специфическую переменную для цвета линий, например: */
+  --burger-color: #ffffff;
+  /* Цвет ссылок и логотипа */
+  color: #ffffff;
+  }
+  
+  /* Если иконка бургера — это SVG, которая использует currentColor */
+  header[data-theme="dark"] .hamburger-inner,
+  header[data-theme="dark"] .hamburger-inner::before,
+  header[data-theme="dark"] .hamburger-inner::after {
+  background-color: #ffffff !important;
+  }
+  
+  /* Если бургер — это компонент, который меняет инверсию */
+  header[data-theme="dark"] .burger-icon {
+  filter: brightness(0) invert(1);
+  }

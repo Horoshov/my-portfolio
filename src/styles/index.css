@@ -125,3 +125,40 @@
     padding-right: calc(var(--container-padding) + var(--content-indent));
     width: 100%;
   }
+  
+  /* Навбар в синей зоне */
+  header[data-theme="dark"] {
+    --text-color: #ffffff !important;
+    color: #ffffff !important;
+    }
+    
+    /* Логотип и иконки */
+    header[data-theme="dark"] svg path,
+    header[data-theme="dark"] .logo {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+    }
+    
+    /* Бургер (линии) */
+    header[data-theme="dark"] [class*="burger"] span,
+    header[data-theme="dark"] .hamburger-inner {
+    background-color: #ffffff !important;
+    }
+    
+    /* Выпадающее меню (если оно инвертируется в черный) */
+    header[data-theme="dark"].is-open {
+    background-color: #131313 !important; /* Принудительный черный фон выпадашки */
+    }
+    
+    /* Если хедер в режиме dark, инвертируем его и выпадающее меню */
+    header[data-theme="dark"] {
+    --bg-color: #131313 !important;
+    --text-color: #ffffff !important;
+    }
+    
+    /* Это заставит выпадающее меню при открытии стать черным */
+    header[data-theme="dark"] [class*="menu"],
+    header[data-theme="dark"] [class*="dropdown"] {
+    background-color: #131313 !important;
+  }
+  
