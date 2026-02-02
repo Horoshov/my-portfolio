@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-// ИСПРАВЛЕНО: Теперь здесь латинская 'C', а не русская 'С'
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
@@ -45,27 +44,27 @@ const services = [
 const howIWorkSteps = [
   {
     category: 'Discovery',
-    duration: '1-2 weeks',
-    title: 'I dive deep into your personal goals and long-term vision.',
-    description: 'I perform comprehensive stakeholder interviews and competitive analysis to define project KPIs. This stage focuses on aligning product strategy with user needs through rigorous research and market positioning.'
+    duration: '1-2 недели',
+    title: 'Глубокое погружение в продуктовые цели',
+    description: 'Провожу интервью со стейкхолдерами и конкурентный анализ для определения KPI проекта. На этом этапе мы фокусируемся на согласовании стратегии продукта с потребностями пользователей через исследования и позиционирование на рынке.'
   },
   {
     category: 'Design',
-    duration: '2-3 weeks',
-    title: 'I always Create clean, impactful mockups for modern brands',
-    description: 'Developing scalable design systems and high-fidelity wireframes with a focus on intuitive Information Architecture (IA). I prioritize conversion-centric UI and accessibility standards to ensure a seamless user experience.'
+    duration: '2-3 недели',
+    title: 'Создание эффективных сценариев',
+    description: 'Разработка масштабируемых дизайн-систем и детализированных прототипов с акцентом на интуитивно понятную информационную архитектуру (IA). Приоритет отдается UI, ориентированному на конверсию, и стандартам доступности.'
   },
   {
     category: 'Build',
-    duration: '1-3 weeks',
-    title: 'Seamless websites built using powerful no-code tools.',
-    description: 'Translating design tokens into functional frontend code. I utilize modern frameworks and no-code architecture to build responsive, modular components that ensure technical stability and ease of future scaling.'
+    duration: '1-3 недели',
+    title: 'Разработка с использованием мощных инструментов',
+    description: 'Перенос дизайн-токенов в функциональный фронтенд. Использую современные фреймворки и no-code архитектуру для создания адаптивных модульных компонентов, обеспечивающих техническую стабильность и легкость масштабирования.'
   },
   {
     category: 'Launch',
-    duration: '1-2 weeks',
-    title: 'Your website goes live, optimized and ready to make a impact.',
-    description: 'Finalizing technical SEO, performance audits, and cross-browser QA testing. I ensure the product is fully optimized for Core Web Vitals, providing a high-performance deployment ready for market competition.'
+    duration: '1-2 недели',
+    title: 'Запуск оптимизированного продукта для реальных результатов',
+    description: 'Финальная настройка технического SEO, аудит производительности и QA-тестирование. Гарантирую полную оптимизацию продукта по показателям Core Web Vitals, обеспечивая высокую скорость работы и готовность к рыночной конкуренции.'
   }
 ];
 
@@ -101,7 +100,7 @@ const Home = () => {
         </section>
 
         <section className="services-section">
-          <PageHeader title="What I Offer" />
+          <PageHeader title="Технологии" />
           <div className="services-list">
             {services.map((service) => (
               <div 
@@ -145,7 +144,7 @@ const Home = () => {
         </section>
 
         <section className="how-i-work-section">
-          <PageHeader title="How I Work" />
+          <PageHeader title="Решения" />
           <div className="work-steps-grid">
             {howIWorkSteps.map((step, index) => (
               <div key={index} className="work-step-card">
