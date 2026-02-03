@@ -7,9 +7,9 @@
     left: 0;
     z-index: 1000;
     /*background: var(--bg-color);*/
-    background: rgba(255, 255, 255, 0.01); /* Почти прозрачный */
-    backdrop-filter: blur(0.65px); /* Эффект размытия стекла */
-    -webkit-backdrop-filter: blur(0.65px);
+    background: rgba(255, 255, 255, 0); /* Почти прозрачный */
+    backdrop-filter: blur(0.85px); /* Эффект размытия стекла */
+    -webkit-backdrop-filter: blur(0.75px);
     border-bottom: px solid var(--border-color);
     padding: 24px var(--container-padding);
   }

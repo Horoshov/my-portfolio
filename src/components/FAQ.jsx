@@ -43,24 +43,24 @@ const FAQItem = ({ question, answer }) => {
 
 const faqData = [
   {
-    question: "Do you work with startups as well as established brands?",
-    answer: "Yes—whether you’re a new startup just establishing your brand or an established company looking to refresh your digital presence, I create designs that align perfectly with your business goals."
+    question: "Вы работаете как со стартапами, так и с известными брендами?",
+    answer: "Да — будь то новый стартап, только создающий свой продукт, или состоявшаяся компания, желающая обновить свое цифровое присутствие, я создаю дизайн, который соответствует вашим бизнес-целям."
   },
   {
-    question: "Can you design both websites and mobile apps?",
-    answer: "Absolutely. I specialize in end-to-end digital product design, including complex web platforms and native mobile applications for iOS and Android."
+    question: "Вы проектируете и сайты, и мобильные приложения?",
+    answer: "Безусловно. Я специализируюсь на сквозном проектировании цифровых продуктов, включая сложные веб-платформы и нативные мобильные приложения для iOS и Android."
   },
   {
-    question: "What is your typical project timeline?",
-    answer: "Timelines vary depending on scope, but a standard project usually takes between 4 to 8 weeks from research to final handoff."
+    question: "Каковы типичные сроки реализации проекта?",
+    answer: "Сроки варьируются в зависимости от объема, но стандартный проект обычно занимает от 4 до 8 недель от исследования до финальной передачи материалов."
   },
   {
-    question: "Do you offer development services or just design?",
-    answer: "My primary focus is UI/UX design, but I work closely with developers and can provide Webflow development or refer you to trusted partners for custom coding."
+    question: "Вы предлагаете услуги разработки или только дизайн?",
+    answer: "Мой основной фокус — UI/UX дизайн, я так же могу обеспечить разработку своими силами или порекомендовать проверенных партнеров для кастомного программирования."
   },
   {
-    question: "How do we get started with a new project?",
-    answer: "Simply fill out the contact form above! I’ll review your requirements and schedule a brief discovery call to discuss your goals."
+    question: "Как нам начать работу над новым проектом?",
+    answer: "Просто заполните контактную форму выше! Я пришлю бриф, изучу ваши требования и запланирую короткий звонок для обсуждения ваших целей."
   }
 ];
 
