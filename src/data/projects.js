@@ -5,7 +5,7 @@ export const allProjects = [
     cat: "Portfolio • 2025",
     image: "/assets/projects/Horoshov.webp",
     imageFooter: "/assets/projects/Horoshov_footer.webp",
-    description: "<b>Разработка личного сайта-портфолио Horoshov</b>",
+    description: "<b>Разработка сайта-портфолио</b>",
     descriptionSecondary: "Интерфейс реализован на базе <b>React + Vite</b>. Для плавных переходов и интерактивных элементов интегрирована библиотека <b>Framer Motion</b>. В процессе разработки использованы возможности AI-редактора <b>Cursor</b> и система контроля версий <b>Git</b>. Настроена интеграция внешних <b>API</b> для форм обратной связи на Email. Выполнена оптимизация <b>DOM</b> для достижения высоких показателей быстродействия.",
     timeline: "2 недели",
     location: "РФ, Москва",
