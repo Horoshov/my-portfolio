@@ -214,7 +214,7 @@ const About = () => {
       exit={{ opacity: 0 }}
     >
       <PageContainer>
-        <PageHeader title="About Me" />
+        <PageHeader title="Компетенции" />
         
         <section className="about-intro-section">
           <div className="about-intro-grid">
@@ -236,7 +236,7 @@ const About = () => {
                 <b>Product:</b> Решаем задачи бизнеса от MVP до масштабирования, опираясь на метрики и Data.
                 </p>
                 <p className="description-body">
-                <b>Tech:</b> Учитывем ресурсы, технические ограничения, возможности команды и стек.
+                <b>Tech:</b> Учитывем технологический стек, ограничения, ресурсы.
                 </p>
                 <p className="description-body">
                 <b>UI/UX:</b> Проживаем пользовательский опыт, создавая интуитивные и технически реализуемые дизайн-решения

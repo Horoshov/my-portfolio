@@ -1,8 +1,4 @@
-/* =========================================
-   PROJECT CARD COMPONENT
-   ========================================= */
-
-/* Legacy Classes (для совместимости) */
+/* --- Оригинальные стили карточки и подписей --- */
 .pc-card {
   display: flex;
   flex-direction: column;
@@ -17,17 +13,14 @@
   border-radius: 24px;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative; /* Для позиционирования кнопки */
 }
 
 .pc-img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.pc-card:hover img {
-  transform: scale(1.05);
+  transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .pc-body {
@@ -36,20 +29,10 @@
   gap: 4px;
 }
 
-.pc-meta {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
 .pc-tag {
   font-size: 16px;
   color: var(--gray-text);
   font-weight: 400;
-}
-
-.pc-dot {
-  color: var(--gray-text);
 }
 
 .pc-title {
@@ -61,172 +44,58 @@
   margin: 0;
 }
 
-/* New Classes (современный вариант) */
-.project-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  width: 100%;
-  cursor: pointer;
-}
-
-/* Image Container */
-.project-image-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 11;
-  background-color: var(--photo-bg);
-  border-radius: 24px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.project-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .project-image-container img {
-  transform: scale(1.05);
-}
-
-/* Image Loading States */
-.project-img.is-hidden {
-  opacity: 0;
-}
-
-.project-img.is-visible {
-  opacity: 1;
-}
-
-/* Skeleton Overlay */
-.skeleton-overlay {
+/* --- Стили для анимированной кнопки по центру --- */
+.pc-hover-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--photo-bg);
-  z-index: 1;
-}
-
-/* Shimmer Animation */
-.shimmer {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--photo-bg) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    var(--photo-bg) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer-animation 1.5s infinite linear;
-}
-
-@keyframes shimmer-animation {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Dark Mode Shimmer */
-@media (prefers-color-scheme: dark) {
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      var(--photo-bg) 0%,
-      rgba(255, 255, 255, 0.15) 50%,
-      var(--photo-bg) 100%
-    );
-  }
-}
-
-/* Card Body */
-.project-body {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Meta Information */
-.project-meta {
-  display: flex;
-  gap: 8px;
   align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
 }
 
-.project-category,
-.project-tag {
-  font-size: 16px;
-  color: var(--gray-text);
-  font-weight: 400;
-}
-
-.project-dot {
-  color: var(--gray-text);
-}
-
-/* Title */
-.project-title {
-  font-size: 24px;
-  letter-spacing: -0.01em;
-  font-weight: 500;
-  line-height: 1.2;
-  color: var(--text-color);
-  margin: 0;
-}
-
-/* =========================================
-   RESPONSIVE
-   ========================================= */
-@media (max-width: 1200px) {
-  .project-image-container {
-    border-radius: 20px;
-    margin-bottom: 16px;
-  }
+.pc-center-button {
+  width: 80px; /* Размер кнопки как в примере */
+  height: 80px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
   
-  .project-title {
-    font-size: 22px;
-  }
-  
-  .project-category {
-    font-size: 15px;
-  }
+  /* Анимация: скрыта и уменьшена */
+  opacity: 0;
+  transform: scale(0.3);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+.pc-center-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+/* Эффекты при ховере на всю карточку */
+.pc-card:hover img {
+  transform: scale(1.08);
+}
+
+.pc-card:hover .pc-center-button {
+  opacity: 1;
+  transform: scale(1); /* Плавное увеличение до нормального размера */
+}
+
+/* Адаптив для мобилок */
 @media (max-width: 768px) {
-  .project-image-container {
-    border-radius: 18px;
-    margin-bottom: 14px;
-  }
-  
-  .project-title {
-    font-size: 20px;
-  }
-  
-  .project-category {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 576px) {
-  .project-image-container {
-    border-radius: 16px;
-    margin-bottom: 12px;
-  }
-  
-  .project-title {
-    font-size: 18px;
-  }
-  
-  .project-category {
-    font-size: 13px;
+  .pc-center-button {
+    width: 60px;
+    height: 60px;
+    opacity: 1; /* На мобилках лучше показать сразу */
+    transform: scale(0.9);
   }
 }

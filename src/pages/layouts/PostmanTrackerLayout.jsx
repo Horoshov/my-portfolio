@@ -2,46 +2,30 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './PostmanTrackerLayout.module.css';
 import PageContainer from "../../components/PageContainer"; 
+import PageHeader from "../../components/PageHeader"; 
 
-// Твоя картинка в формате webp
 import screensImg from '../../assets/Screens.webp'; 
+import backgroundSvg from '../../assets/Background.svg'; 
+import mindMapSvg from '../../assets/MindMap.svg';
 
 const PostmanTrackerLayout = ({ project }) => {
   const heroRef = useRef(null);
   const { scrollY } = useScroll();
 
-  // 1. АНИМАЦИЯ: Параллакс (смещение Y) и Зум (scale)
-  // Мы уменьшили интенсивность на 10% относительно прошлых итераций
   const yRange = useTransform(scrollY, [0, 800], [0, -120]);
   const scaleRange = useTransform(scrollY, [0, 800], [1, 1.21]);
 
-  // 2. ЛОГИКА НАВБАРА: Переключение в темный режим при скролле
   useEffect(() => {
-    // Ищем хедер (если у тебя другой селектор, например '.navbar', замени 'header')
     const header = document.querySelector('header');
     if (!header) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Когда синий блок в зоне видимости — вешаем атрибут темной темы
-        // Это заставит навбар стать белым, а выпадашку (в CSS) — черной
-        if (entry.isIntersecting) {
-          header.setAttribute('data-theme', 'dark');
-        } else {
-          header.removeAttribute('data-theme');
-        }
+        if (entry.isIntersecting) header.setAttribute('data-theme', 'dark');
+        else header.removeAttribute('data-theme');
       },
-      { 
-        threshold: 0.1, 
-        // Смещение, чтобы тема менялась ровно под хедером (80px — высота нава)
-        rootMargin: "-80px 0px 0px 0px" 
-      }
+      { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
     );
-
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
-    }
-
+    if (heroRef.current) observer.observe(heroRef.current);
     return () => {
       observer.disconnect();
       header.removeAttribute('data-theme');
@@ -50,7 +34,7 @@ const PostmanTrackerLayout = ({ project }) => {
 
   return (
     <div className={styles.customPage}>
-      {/* Секция Hero с синим фоном */}
+      {/* 1. HERO SECTION */}
       <PageContainer fullWidth noPadding noPaddingTop>
         <section className={styles.hero} ref={heroRef}>
           <div className={styles.content}>
@@ -62,36 +46,81 @@ const PostmanTrackerLayout = ({ project }) => {
               {project.title}
             </motion.h1>
           </div>
-
-          {/* Контейнер картинки: выезжает снизу из-под белого блока */}
-          <motion.div 
-            style={{ y: yRange, scale: scaleRange }} 
-            className={styles.screensWrapper}
-          >
-            <img 
-              src={screensImg} 
-              alt="Project Screens" 
-              className={styles.mainImage} 
-            />
+          <motion.div style={{ y: yRange, scale: scaleRange }} className={styles.screensWrapper}>
+            <img src={screensImg} alt="Screens" className={styles.mainImage} />
           </motion.div>
         </section>
       </PageContainer>
 
-      {/* Белый блок (Product Overview), который перекрывает картинку */}
+      {/* 2. ТЕКСТОВЫЙ БЛОК (80%) */}
       <div className={styles.whiteOverlap}>
-        <PageContainer>
-          <section className="pd-text-block-new">
-            <div className="section-header-col">
-              <h2 className="section-subtitle">Product Overview</h2>
-              <div className="section-description">
-                <p className={styles.overviewSubtitle}>
-                  Concept, Research & Key Features
-                </p>
+        <div className={styles.mainContainer80}>
+          <div className={styles.headerWrapper}>
+            <PageHeader title={project.title} />
+          </div>
+          <div className={styles.projectInfoGrid}>
+            <section className={styles.taskSection}>
+              <div className={styles.labelWrapper}>
+                <span className={styles.icon}>🔘</span>
+                <span className={styles.label}>Задание</span>
               </div>
+              <p className={styles.taskText}>
+                Вы участвуете в разработке мобильного iOS-приложения для сотрудников частной почтовой службы. 
+                Сотрудники разносят почту физически и помещают ее в почтовые ящики. 
+                Как бы вы могли улучшить их пользовательский опыт? Спроектируйте User Flow и отрисуйте экраны.
+              </p>
+            </section>
+            
+            <div className={styles.detailsRow}>
+              <section className={styles.immersionCol}>
+                <div className={styles.labelWrapper}>
+                  <span className={styles.icon}>💡</span>
+                  <span className={styles.label}>Погружение</span>
+                </div>
+                <p className={styles.bodyText}>
+                  Трекер задач с календарем и личным помощником. Включает в себя специальный инструментарий 
+                  сотрудника почтовой службы. Он планирует работу в течение дня, отправляет отчеты 
+                  руководителю, помогает в решении служебных вопросов.
+                </p>
+              </section>
+              <section className={styles.checklistCol}>
+                <div className={styles.labelWrapper}>
+                  <span className={styles.iconCheck}>✅</span>
+                  <span className={styles.label}>Чек-лист</span>
+                </div>
+                <ul className={styles.list}>
+                  <li>1. Трекер задач</li>
+                  <li>2. Календарь</li>
+                  <li>3. Личный помощник</li>
+                  <li>4. Программа обучения</li>
+                  <li>5. Инструменты</li>
+                </ul>
+              </section>
             </div>
-          </section>
-        </PageContainer>
+          </div>
+        </div>
       </div>
+
+      {/* 3. DIAGRAM SECTION (Full Width) */}
+      <PageContainer fullWidth noPadding>
+        <section className={styles.diagramSection}>
+          {/* Фон — самый нижний слой */}
+          <div className={styles.vectorBgLayer}>
+            <img src={backgroundSvg} alt="" className={styles.bgSvg} />
+          </div>
+
+          {/* Иллюстрация — слой над фоном */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 40 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className={styles.mindMapLayer}
+          >
+            <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapSvg} />
+          </motion.div>
+        </section>
+      </PageContainer>
     </div>
   );
 };

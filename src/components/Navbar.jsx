@@ -49,8 +49,8 @@ const Navbar = () => {
         <div className={styles.navActions}>
           <nav className={styles.navDesktopLinks}>
             <Link to="/" className={styles.navItem}>Главная</Link>
+            <Link to="/about" className={styles.navItem}>Компетенции</Link>
             <Link to="/projects" className={styles.navItem}>Кейсы</Link>
-            <Link to="/about" className={styles.navItem}>Услуги</Link>
             <Link to="/contact" className={styles.navItem}>Контакты</Link>
           </nav>
 
@@ -68,8 +68,8 @@ const Navbar = () => {
       <div className={`${styles.mobileOverlay} ${isMenuOpen ? styles.active : ''}`}>
         <nav className={styles.mobileNavList}>
           <Link to="/" onClick={() => setIsMenuOpen(false)}>Главная</Link>
-          <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Кейсы</Link>
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>Услуги</Link>
+          <Link to="/about" onClick={() => setIsMenuOpen(false)}>Компетенции</Link>
+          <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Кейсы</Link>         
           <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Контакты</Link>
         </nav>
       </div>
