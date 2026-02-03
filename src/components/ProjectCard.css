@@ -4,8 +4,8 @@
   flex-direction: column;
   text-decoration: none;
   width: 100%;
-  /* Убираем возможные артефакты при трансформации дочерних элементов */
-  isolation: isolate;
+  /* Убираем лишние блики при касании на мобильных */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .pc-img-box {
@@ -16,9 +16,27 @@
   overflow: hidden;
   margin-bottom: 20px;
   position: relative;
-  /* Предотвращает дергание скругленных углов в Safari */
-  mask-image: -webkit-radial-gradient(white, black);
+  
+  /* Исправление для Safari: скругление углов при трансформации */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: -webkit-radial-gradient(white, black);
+  
+  /* Создаем аппаратное ускорение */
+  transform: translateZ(0);
+}
+
+/* Создаем слой затемнения через псевдоэлемент */
+.pc-img-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.6s ease;
+  z-index: 1; /* Выше картинки, но ниже кнопки */
+  pointer-events: none;
 }
 
 .pc-img-box img {
@@ -26,8 +44,7 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
-  /* Оптимизация для плавной анимации */
-  will-change: transform;
+  /* Оптимизация против мерцания */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -53,7 +70,7 @@
   margin: 0;
 }
 
-/* --- Стили для анимированной кнопки и затемнения --- */
+/* --- Стили для анимированной кнопки --- */
 .pc-hover-overlay {
   position: absolute;
   top: 0;
@@ -63,14 +80,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Важно: игнорируем события мыши, чтобы не прерывать hover на ссылке */
   pointer-events: none;
-  z-index: 2;
-  
-  background-color: rgba(0, 0, 0, 0);
-  transition: background-color 0.5s ease;
-  /* Плавность для слоя */
-  will-change: background-color;
+  z-index: 2; /* Кнопка выше всех слоев */
 }
 
 .pc-center-button {
@@ -84,11 +95,9 @@
   color: #000000;
   
   opacity: 0;
-  transform: scale(0.3);
+  transform: scale(0.3) translateZ(0);
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  /* Убираем дрожание при масштабировании */
-  backface-visibility: hidden;
 }
 
 .pc-center-button svg {
@@ -97,18 +106,21 @@
 }
 
 /* Эффекты при ховере */
+
+/* 1. Увеличиваем картинку */
 .pc-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
+/* 2. Затемняем фон на 0.2 */
+.pc-card:hover .pc-img-box::after {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Показываем кнопку */
 .pc-card:hover .pc-center-button {
   opacity: 1;
   transform: scale(1);
-}
-
-/* Затемнение на 4% при ховере (исправлено значение на 0.04) */
-.pc-card:hover .pc-hover-overlay {
-  background-color: rgba(0, 0, 0, 0.124);
 }
 
 /* Адаптив для мобилок */
@@ -118,5 +130,9 @@
     height: 60px;
     opacity: 1;
     transform: scale(0.9);
+  }
+  /* На мобилках можно сделать затемнение чуть меньше или оставить 0.2 */
+  .pc-img-box::after {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
