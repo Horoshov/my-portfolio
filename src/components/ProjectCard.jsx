@@ -16,7 +16,7 @@ const ProjectCard = ({ project }) => {
         <div className="pc-img-box">
           <img src={project.image} alt={project.title} loading="lazy" />
           
-          {/* Центрированная анимированная кнопка */}
+          {/* Центрированная анимированная кнопка и слой затемнения */}
           <div className="pc-hover-overlay">
             <div className="pc-center-button">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

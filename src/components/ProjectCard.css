@@ -4,6 +4,8 @@
   flex-direction: column;
   text-decoration: none;
   width: 100%;
+  /* Убираем возможные артефакты при трансформации дочерних элементов */
+  isolation: isolate;
 }
 
 .pc-img-box {
@@ -13,7 +15,10 @@
   border-radius: 24px;
   overflow: hidden;
   margin-bottom: 20px;
-  position: relative; /* Для позиционирования кнопки */
+  position: relative;
+  /* Предотвращает дергание скругленных углов в Safari */
+  mask-image: -webkit-radial-gradient(white, black);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .pc-img-box img {
@@ -21,6 +26,10 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+  /* Оптимизация для плавной анимации */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .pc-body {
@@ -44,7 +53,7 @@
   margin: 0;
 }
 
-/* --- Стили для анимированной кнопки по центру --- */
+/* --- Стили для анимированной кнопки и затемнения --- */
 .pc-hover-overlay {
   position: absolute;
   top: 0;
@@ -54,12 +63,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Важно: игнорируем события мыши, чтобы не прерывать hover на ссылке */
   pointer-events: none;
   z-index: 2;
+  
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.5s ease;
+  /* Плавность для слоя */
+  will-change: background-color;
 }
 
 .pc-center-button {
-  width: 80px; /* Размер кнопки как в примере */
+  width: 80px;
   height: 80px;
   background-color: #ffffff;
   border-radius: 50%;
@@ -68,11 +83,12 @@
   justify-content: center;
   color: #000000;
   
-  /* Анимация: скрыта и уменьшена */
   opacity: 0;
   transform: scale(0.3);
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  /* Убираем дрожание при масштабировании */
+  backface-visibility: hidden;
 }
 
 .pc-center-button svg {
@@ -80,14 +96,19 @@
   height: 30px;
 }
 
-/* Эффекты при ховере на всю карточку */
+/* Эффекты при ховере */
 .pc-card:hover img {
   transform: scale(1.08);
 }
 
 .pc-card:hover .pc-center-button {
   opacity: 1;
-  transform: scale(1); /* Плавное увеличение до нормального размера */
+  transform: scale(1);
+}
+
+/* Затемнение на 4% при ховере (исправлено значение на 0.04) */
+.pc-card:hover .pc-hover-overlay {
+  background-color: rgba(0, 0, 0, 0.124);
 }
 
 /* Адаптив для мобилок */
@@ -95,7 +116,7 @@
   .pc-center-button {
     width: 60px;
     height: 60px;
-    opacity: 1; /* На мобилках лучше показать сразу */
+    opacity: 1;
     transform: scale(0.9);
   }
 }
