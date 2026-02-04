@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
@@ -254,29 +254,64 @@ const About = () => {
             />
             
             <div className="skills-list">
-              {skills.map((skill, index) => (
-                <div key={index} className="skill-item">
-                  <div className="skill-icon-box">
-                     {SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}
-                  </div>
+              {skills.map((skill, index) => {
+                const SkillItem = () => {
+                  const ref = useRef(null);
+                  const isInView = useInView(ref, { once: true, amount: 0.5 });
                   
-                  <div className="skill-info">
-                    <div className="skill-head">
-                      <h3>{skill.name}</h3>
-                      <p>{skill.desc}</p>
-                    </div>
-                    
-                    <div className="skill-progress-wrapper">
-                      <div className="skill-progress-bar">
-                        <div className="skill-progress-fill" style={{ width: skill.level }}></div>
-                        <div className="skill-progress-pin" style={{ left: skill.level }}>
-                          {skill.level}
+                  return (
+                    <div className="skill-item">
+                      <div className="skill-icon-box">
+                         {SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}
+                      </div>
+                      
+                      <div className="skill-info">
+                        <div className="skill-head">
+                          <h3>{skill.name}</h3>
+                          <p>{skill.desc}</p>
+                        </div>
+                        
+                        <div className="skill-progress-wrapper" ref={ref}>
+                          <div className="skill-progress-bar">
+                            <motion.div 
+                              className="skill-progress-fill"
+                              initial={{ width: 0 }}
+                              animate={{ width: isInView ? skill.level : 0 }}
+                              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                            />
+                           <motion.div 
+                               className="skill-progress-pin"
+                               style={{ 
+                                 left: skill.level,
+                                 position: 'absolute',
+                                 top: '-12px', 
+                                 transform: 'translate(-130%, 0)',
+                                 background: '#fff',
+                                 color: '#000',
+                                 padding: '5px 14px',
+                                 borderRadius: '100px',
+                                 fontSize: '14px',
+                                 fontWeight: '800',
+                                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                 zIndex: 10,
+                                 whiteSpace: 'nowrap',
+                                 border: '1px solid rgba(0, 0, 0, 0.05)'
+                               }}
+                               initial={{ opacity: 0, scale: 0.8 }}
+                               animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
+                               transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
+                             >
+                               {skill.level}
+                            </motion.div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  );
+                };
+                
+                return <SkillItem key={index} />;
+              })}
             </div>
           </div>
         </section>
