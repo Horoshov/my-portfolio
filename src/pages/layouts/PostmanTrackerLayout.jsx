@@ -10,6 +10,7 @@ import mindMapSvg from '../../assets/MindMap.svg';
 
 const PostmanTrackerLayout = ({ project }) => {
   const heroRef = useRef(null);
+  const diagramRef = useRef(null); // Реф для секции с диаграммой
   const { scrollY } = useScroll();
 
   const yRange = useTransform(scrollY, [0, 800], [0, -120]);
@@ -18,14 +19,21 @@ const PostmanTrackerLayout = ({ project }) => {
   useEffect(() => {
     const header = document.querySelector('header');
     if (!header) return;
+
+    // Используем существующий механизм для переключения темы
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) header.setAttribute('data-theme', 'dark');
+      (entries) => {
+        // Проверяем, пересекается ли хотя бы один из отслеживаемых элементов
+        const isDark = entries.some(entry => entry.isIntersecting);
+        if (isDark) header.setAttribute('data-theme', 'dark');
         else header.removeAttribute('data-theme');
       },
       { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
     );
+
     if (heroRef.current) observer.observe(heroRef.current);
+    if (diagramRef.current) observer.observe(diagramRef.current); // Подключаем вторую секцию
+
     return () => {
       observer.disconnect();
       header.removeAttribute('data-theme');
@@ -103,13 +111,13 @@ const PostmanTrackerLayout = ({ project }) => {
 
       {/* 3. DIAGRAM SECTION (Full Width) */}
       <PageContainer fullWidth noPadding>
-        <section className={styles.diagramSection}>
-          {/* Фон — самый нижний слой */}
-          <div className={styles.vectorBgLayer}>
-            <img src={backgroundSvg} alt="" className={styles.bgSvg} />
+        <section className={styles.diagramSection} ref={diagramRef}>
+          {/* Заголовок отцентрирован по горизонтали */}
+          <div className={styles.diagramHeader}>
+            <PageHeader title="Минимальный функционал" />
           </div>
 
-          {/* Иллюстрация — слой над фоном */}
+          {/* Схема под заголовком */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}

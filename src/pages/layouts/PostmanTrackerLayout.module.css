@@ -113,8 +113,9 @@
 .diagramSection {
   position: relative;
   width: 100%;
-  min-height: 800px; /* Высота под иллюстрацию */
+  min-height: 800px; 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -135,22 +136,46 @@
   object-fit: cover;
 }
 
-.mindMapLayer {
+/* Секция без фона */
+.diagramSection {
   position: relative;
-  z-index: 2; /* Поверх фона */
+  width: 100%;
+  padding: 120px 0; /* Отступы сверху и снизу */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центрирует всё содержимое по горизонтали */
+  background-color: var(--bg-color); /* Или прозрачный, если нужно */
+}
+
+/* Обертка заголовка */
+.diagramHeader {
+  width: 80%;
+  max-width: 1400px;
+  margin-bottom: 60px; /* Расстояние до схемы */
+  display: flex;
+  justify-content: center; /* Центрирует текст внутри PageHeader */
+}
+
+/* Контейнер схемы */
+.mindMapLayer {
   width: 100%;
   max-width: 1300px;
+  display: flex;
+  justify-content: center;
 }
 
 .mindMapSvg {
   width: 100%;
   height: auto;
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.05));
+  display: block;
 }
 
 @media (max-width: 1024px) {
-  .hero { height: 80vh; }
-  .mainContainer80 { width: 90%; }
-  .detailsRow { grid-template-columns: 1fr; gap: 60px; }
-  .diagramSection { min-height: 500px; padding: 100px 0; }
+  .diagramSection {
+    padding: 60px 0;
+  }
+  .diagramHeader {
+    width: 90%;
+    margin-bottom: 40px;
+  }
 }
