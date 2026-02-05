@@ -47,7 +47,7 @@
   width: 100%;
   position: relative;
   z-index: 10;
-  padding: 300px 0 120px;
+  padding: 300px 0 100px;
 }
 
 .mainContainer80 {
@@ -109,56 +109,31 @@
   font-weight: 500;
 }
 
-/* DIAGRAM SECTION */
-.diagramSection {
-  position: relative;
+/* НОВЫЕ СЕКЦИИ (Исправленное центрирование) */
+.simpleSection {
   width: 100%;
-  min-height: 800px; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  align-items: center; /* Центрирует MindMap и обертку заголовка */
+  padding: 80px 0;
 }
 
-.vectorBgLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
+.centeredHeader {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.bgSvg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Секция без фона */
-.diagramSection {
-  position: relative;
-  width: 100%;
-  padding: 120px 0; /* Отступы сверху и снизу */
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Центрирует всё содержимое по горизонтали */
-  background-color: var(--bg-color); /* Или прозрачный, если нужно */
+  justify-content: center; /* Центрирует PageHeader по горизонтали */
+  margin-bottom: 60px;
 }
 
-/* Обертка заголовка */
-.diagramHeader {
-  width: 80%;
-  max-width: 1400px;
-  margin-bottom: 60px; /* Расстояние до схемы */
-  display: flex;
-  justify-content: center; /* Центрирует текст внутри PageHeader */
+/* Если PageHeader внутри имеет фиксированную ширину или paddings, 
+  мы заставляем его выравнивать текст по центру. 
+*/
+.centeredHeader div {
+  text-align: center;
 }
 
-/* Контейнер схемы */
 .mindMapLayer {
-  width: 100%;
+  width: 90%;
   max-width: 1300px;
   display: flex;
   justify-content: center;
@@ -167,15 +142,12 @@
 .mindMapSvg {
   width: 100%;
   height: auto;
-  display: block;
 }
 
 @media (max-width: 1024px) {
-  .diagramSection {
-    padding: 60px 0;
-  }
-  .diagramHeader {
-    width: 90%;
-    margin-bottom: 40px;
-  }
+  .hero { height: 80vh; }
+  .mainContainer80 { width: 90%; }
+  .detailsRow { grid-template-columns: 1fr; gap: 60px; }
+  .whiteOverlap { padding-top: 200px; }
+  .simpleSection { padding: 40px 0; }
 }

@@ -5,12 +5,10 @@ import PageContainer from "../../components/PageContainer";
 import PageHeader from "../../components/PageHeader"; 
 
 import screensImg from '../../assets/Screens.webp'; 
-import backgroundSvg from '../../assets/Background.svg'; 
 import mindMapSvg from '../../assets/MindMap.svg';
 
 const PostmanTrackerLayout = ({ project }) => {
   const heroRef = useRef(null);
-  const diagramRef = useRef(null); // Реф для секции с диаграммой
   const { scrollY } = useScroll();
 
   const yRange = useTransform(scrollY, [0, 800], [0, -120]);
@@ -19,21 +17,14 @@ const PostmanTrackerLayout = ({ project }) => {
   useEffect(() => {
     const header = document.querySelector('header');
     if (!header) return;
-
-    // Используем существующий механизм для переключения темы
     const observer = new IntersectionObserver(
-      (entries) => {
-        // Проверяем, пересекается ли хотя бы один из отслеживаемых элементов
-        const isDark = entries.some(entry => entry.isIntersecting);
-        if (isDark) header.setAttribute('data-theme', 'dark');
+      ([entry]) => {
+        if (entry.isIntersecting) header.setAttribute('data-theme', 'dark');
         else header.removeAttribute('data-theme');
       },
       { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
     );
-
     if (heroRef.current) observer.observe(heroRef.current);
-    if (diagramRef.current) observer.observe(diagramRef.current); // Подключаем вторую секцию
-
     return () => {
       observer.disconnect();
       header.removeAttribute('data-theme');
@@ -60,7 +51,7 @@ const PostmanTrackerLayout = ({ project }) => {
         </section>
       </PageContainer>
 
-      {/* 2. ТЕКСТОВЫЙ БЛОК (80%) */}
+      {/* 2. ТЕКСТОВЫЙ БЛОК (Оригинальная архитектура сохранена) */}
       <div className={styles.whiteOverlap}>
         <div className={styles.mainContainer80}>
           <div className={styles.headerWrapper}>
@@ -109,24 +100,29 @@ const PostmanTrackerLayout = ({ project }) => {
         </div>
       </div>
 
-      {/* 3. DIAGRAM SECTION (Full Width) */}
+      {/* 3. MINDMAP SECTION */}
       <PageContainer fullWidth noPadding>
-        <section className={styles.diagramSection} ref={diagramRef}>
-          {/* Заголовок отцентрирован по горизонтали */}
-          <div className={styles.diagramHeader}>
-            <PageHeader title="Минимальный функционал" />
+        <section className={styles.simpleSection}>
+          <div className={styles.centeredHeader}>
+            <PageHeader title="Необходимый функционал" />
           </div>
-
-          {/* Схема под заголовком */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, y: 40 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
             className={styles.mindMapLayer}
           >
             <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapSvg} />
           </motion.div>
+        </section>
+      </PageContainer>
+
+      {/* 4. WORKFLOW SECTION */}
+      <PageContainer fullWidth noPadding>
+        <section className={styles.simpleSection}>
+          <div className={styles.centeredHeader}>
+            <PageHeader title="Процессы в workflow сотрудника" />
+          </div>
         </section>
       </PageContainer>
     </div>

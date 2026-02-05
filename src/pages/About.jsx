@@ -194,6 +194,17 @@ const About = () => {
       )
     },
     {
+      company: 'Global Tech Solution',
+      position: 'Senior UI/UX Designer',
+      period: '2016-2017',
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 14L34 34M34 14L14 34" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+          <rect x="8" y="8" width="32" height="32" rx="2" stroke="white" strokeWidth="2" fill="none"/>
+        </svg>
+      )
+    },
+    {
       company: 'Vision Grid Studio',
       position: 'Vision Grid Studio',
       period: '2014-2016',
@@ -317,27 +328,27 @@ const About = () => {
         </section>
 
         <section className="career-journey-section">
-          <div className="about-intro-grid">
+          {/* 1. Заголовок теперь в отдельном центрированном контейнере над сеткой */}
+          <div className="career-section-header">
             <PageHeader 
               title="Career Journey" 
               subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
             />
-            
-            <div className="career-grid">
-              {experiences.map((exp, index) => (
-                <div key={index} className="career-card">
-                  <div className="career-icon">
-                    {exp.icon}
-                  </div>
-                  
-                  <div className="career-content">
-                    <h3 className="career-company">{exp.company}</h3>
-                    <h2 className="career-position">{exp.position}</h2>
-                    <p className="career-period">{exp.period}</p>
-                  </div>
+          </div>
+          
+          <div className="career-grid">
+            {experiences.map((exp, index) => (
+              <div key={index} className="career-card">
+                <div className="career-icon">
+                  {exp.icon}
                 </div>
-              ))}
-            </div>
+                <div className="career-content">
+                  <h3 className="career-company">{exp.company}</h3>
+                  <h2 className="career-position">{exp.position}</h2>
+                  <p className="career-period">{exp.period}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
