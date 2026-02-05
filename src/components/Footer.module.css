@@ -129,7 +129,7 @@
   background-color: rgba(125, 125, 125, 0.1);
   padding: 4px;
   border-radius: 99px;
-  border: 1px solid var(--border-color);
+  /*border: 1px solid var(--border-color);*/
 }
 
 /* Скрытый инпут */
@@ -141,6 +141,10 @@
 }
 
 /* Кнопка-иконка */
+.themeSwitcherWrapper {
+  /* ...старые стили... */
+  gap: 1px; /* Добавит расстояние между кнопками */
+}
 .themeLabel {
   width: 32px;
   height: 32px;
