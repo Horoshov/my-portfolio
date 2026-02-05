@@ -142,12 +142,20 @@
 
 /* Кнопка-иконка */
 .themeSwitcherWrapper {
-  /* ...старые стили... */
-  gap: 1px; /* Добавит расстояние между кнопками */
+  display: inline-flex; /* inline-flex уже заставляет сжиматься, но fit-content подстрахует */
+  width: fit-content;   /* Фиксирует ширину строго по кнопкам */
+  
+  /* Ваши остальные стили */
+  margin-top: 16px;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 4px;
+  border-radius: 99px;
+  /*border: 1px solid var(--border-color);*/
+  gap: 2px; /* Расстояние между кнопками */
 }
 .themeLabel {
-  width: 32px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
