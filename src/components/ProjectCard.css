@@ -4,7 +4,6 @@
   flex-direction: column;
   text-decoration: none;
   width: 100%;
-  /* Убираем лишние блики при касании на мобильных */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -16,16 +15,11 @@
   overflow: hidden;
   margin-bottom: 20px;
   position: relative;
-  
-  /* Исправление для Safari: скругление углов при трансформации */
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   mask-image: -webkit-radial-gradient(white, black);
-  
-  /* Создаем аппаратное ускорение */
   transform: translateZ(0);
 }
 
-/* Создаем слой затемнения через псевдоэлемент */
 .pc-img-box::after {
   content: '';
   position: absolute;
@@ -35,7 +29,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0);
   transition: background-color 0.6s ease;
-  z-index: 1; /* Выше картинки, но ниже кнопки */
+  z-index: 1;
   pointer-events: none;
 }
 
@@ -44,7 +38,6 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
-  /* Оптимизация против мерцания */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -81,7 +74,7 @@
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2; /* Кнопка выше всех слоев */
+  z-index: 2;
 }
 
 .pc-center-button {
@@ -93,7 +86,6 @@
   align-items: center;
   justify-content: center;
   color: #000000;
-  
   opacity: 0;
   transform: scale(0.3) translateZ(0);
   transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -105,34 +97,49 @@
   height: 30px;
 }
 
-/* Эффекты при ховере */
-
-/* 1. Увеличиваем картинку */
-.pc-card:hover img {
-  transform: scale(1.05);
-}
-
-/* 2. Затемняем фон на 0.2 */
-.pc-card:hover .pc-img-box::after {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-/* 3. Показываем кнопку */
-.pc-card:hover .pc-center-button {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Адаптив для мобилок */
-@media (max-width: 768px) {
-  .pc-center-button {
-    width: 60px;
-    height: 60px;
-    opacity: 1;
-    transform: scale(0.9);
+/* Эффекты при ховере (Desktop) */
+@media (min-width: 769px) {
+  .pc-card:hover img {
+    transform: scale(1.05);
   }
-  /* На мобилках можно сделать затемнение чуть меньше или оставить 0.2 */
+
+  .pc-card:hover .pc-img-box::after {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .pc-card:hover .pc-center-button {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Адаптив для мобилок (Исправлено) */
+@media (max-width: 768px) {
+  /* Полностью скрываем оверлей с кнопкой */
+  .pc-hover-overlay {
+    display: none;
+  }
+  
+  /* Убираем затемнение */
   .pc-img-box::after {
-    background-color: rgba(0, 0, 0, 0.05);
+    content: none;
+  }
+
+  /* Отключаем трансформацию картинки для стабильности клика */
+  .pc-card:hover img {
+    transform: none;
+  }
+
+  .pc-img-box {
+    border-radius: 20px;
+    margin-bottom: 15px;
+  }
+
+  .pc-title {
+    font-size: 20px;
+  }
+  
+  .pc-tag {
+    font-size: 14px;
   }
 }
