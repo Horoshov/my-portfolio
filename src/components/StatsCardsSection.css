@@ -47,7 +47,7 @@
     }
     
     .stats-card:hover {
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 30px 60px rgba(50, 63, 72, 0.165);
     }
     
     .stats-cards-carousel .stats-card:hover {
