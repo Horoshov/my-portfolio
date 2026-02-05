@@ -153,7 +153,7 @@ const Home = () => {
                   <span className="step-duration">{step.duration}</span>
                 </div>
                 <div className="step-card-content">
-                  <h3 className="step-card-title">{step.title}</h3>
+                  <h4 className="step-card-title">{step.title}</h4>
                   <p className="step-card-description">{step.description}</p>
                 </div>
               </div>

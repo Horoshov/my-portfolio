@@ -31,7 +31,7 @@ const ProjectCard = ({ project }) => {
           <div className="pc-meta">
             <span className="pc-tag">{project.cat}</span>
           </div>
-          <h3 className="pc-title">{project.title}</h3>
+          <h4 className="pc-title">{project.title}</h4>
         </div>
       </Link>
     </motion.div>
