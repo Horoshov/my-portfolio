@@ -1451,3 +1451,7 @@
   }
 }
  
+.pd-detail-value a {
+  /* 1. Убираем стандартную кривую линию, которая режет буквы */
+  text-decoration: none !important;
+}

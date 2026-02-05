@@ -66,7 +66,20 @@ const ProjectDetail = () => {
               {project.details && project.details.map((detail, idx) => (
                 <div key={idx} className="pd-detail-item">
                   <span className="pd-detail-label">{detail.label}</span>
-                  <span className="pd-detail-value">{detail.value}</span>
+                  <span className="pd-detail-value">
+                    {detail.label === "Link" ? (
+                      <a 
+                        href={detail.value.startsWith('http') ? detail.value : `https://${detail.value}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ color: 'inherit', textDecoration: 'underline' }}
+                      >
+                        {detail.value}
+                      </a>
+                    ) : (
+                      detail.value
+                    )}
+                  </span>
                 </div>
               ))}
             </div>

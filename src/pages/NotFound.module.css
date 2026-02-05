@@ -1,6 +1,6 @@
 .wrapper {
   /* Центрируем контент по вертикали, вычитая примерную высоту хедера */
-  min-height: 85vh; 
+  min-height: 100vh; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,10 +16,10 @@
 
 .code {
   /* Огромный, агрессивный заголовок */
-  font-size: clamp(120px, 20vw, 320px);
+  font-size: clamp(110px, 20vw, 320px);
   font-weight: 600;
   line-height: 0.8;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.05em;
   margin: 0;
   color: var(--text-color);
 }
@@ -56,11 +56,11 @@
   text-decoration: none;
   font-size: 16px;
   font-weight: 500;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform translate3d(0%, 0px, 0px);
 }
 
 .backButton:hover {
-  transform: scale(1.03);
+  transform: scale3d(1, 1, 1);
 }
 
 .backButton svg {
@@ -68,7 +68,7 @@
 }
 
 .backButton:hover svg {
-  transform: translate(3px, -3px);
+  transform: translate(5px, 0px);
 }
 
 @media (max-width: 768px) {

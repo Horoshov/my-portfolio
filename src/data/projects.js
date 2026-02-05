@@ -253,7 +253,7 @@ export const allProjects = [
       { label: "Timeline", value: "4 месяца" },
       { label: "Location", value: "Москва, Россия" },
       { label: "Role", value: "UX/UI Lead" },
-      { label: "Link", value: "ndv.ru" }
+      { label: "Link", value: "www.ndv.ru" }
     ],
     sectionTitle: "NDV: Экосистема поиска недвижимости",
     sectionText: `<div class="project-case-content">
@@ -505,7 +505,7 @@ export const allProjects = [
       { label: "Timeline", value: "1 год 6 месяцев" },
       { label: "Location", value: "Россия" },
       { label: "Role", value: "Дизайнер интерфейсов" },
-      { label: "Link", value: "rustelecom.ru" }
+      { label: "Link", value: "rus-telecom.ru" }
     ],
     sectionTitle: "RusTelecom: Цифровое пространство ЭЦП",
     sectionText: `<div class="project-case-content">
