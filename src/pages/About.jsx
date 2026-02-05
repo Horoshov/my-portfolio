@@ -327,13 +327,13 @@ const About = () => {
         </section>
 
         <section className="career-journey-section">
-          {/* 1. Заголовок теперь в отдельном центрированном контейнере над сеткой */}
-          <div className="career-section-header">
-            <PageHeader 
-              title="Career Journey" 
-              subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
-            />
-          </div>
+        {/* Добавляем этот контейнер для управления выравниванием */}
+        <div className="career-section-header">
+          <PageHeader 
+            title="Career Journey" 
+            subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
+          />
+        </div>
           
           <div className="career-grid">
             {experiences.map((exp, index) => (
