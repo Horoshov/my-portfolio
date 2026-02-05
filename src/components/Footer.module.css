@@ -154,8 +154,8 @@
   gap: 2px; /* Расстояние между кнопками */
 }
 .themeLabel {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,7 +178,16 @@
 }
 
 /* ГЛОБАЛЬНАЯ СМЕНА ЦВЕТОВ */
-/* Это работает на весь сайт */
+/* Состояние по умолчанию (Светлая тема) */
+:global(body) {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --gray-text: #888888;
+  --border-color: #eeeeee;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Состояние принудительной темной темы */
 :global(body.dark-theme) {
   --bg-color: #0e0e0e;
   --text-color: #ffffff;

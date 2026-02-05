@@ -104,21 +104,41 @@ const ThemeSwitcher = ({ styles }) => {
   }, []);
 
   useEffect(() => {
-    const root = document.body; // Используем body, чтобы сработал CSS
-    const applyDark = () => root.classList.add('dark-theme');
-    const removeDark = () => root.classList.remove('dark-theme');
+    const root = document.body;
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
 
-    if (theme === 'dark') {
-      applyDark();
-      localStorage.setItem('theme', 'dark');
-    } else if (theme === 'light') {
-      removeDark();
-      localStorage.setItem('theme', 'light');
-    } else {
-      localStorage.removeItem('theme');
-      const media = window.matchMedia('(prefers-color-scheme: dark)');
-      if (media.matches) applyDark(); else removeDark();
-    }
+    const applyTheme = () => {
+      // Очищаем класс перед применением новой логики
+      root.classList.remove('dark-theme');
+
+      if (theme === 'dark') {
+        root.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+      } else if (theme === 'light') {
+        // Просто удаляем класс, body вернется к дефолтным светлым переменным
+        root.classList.remove('dark-theme'); 
+        localStorage.setItem('theme', 'light');
+      } else {
+        // Логика System
+        localStorage.removeItem('theme');
+        if (media.matches) {
+          root.classList.add('dark-theme');
+        }
+      }
+    };
+
+    applyTheme();
+
+    // Слушатель системных изменений (только для режима system)
+    const listener = (e) => {
+      if (theme === 'system') {
+        if (e.matches) root.classList.add('dark-theme');
+        else root.classList.remove('dark-theme');
+      }
+    };
+
+    media.addEventListener('change', listener);
+    return () => media.removeEventListener('change', listener);
   }, [theme]);
 
   // Простые иконки, чтобы не загромождать SVG
