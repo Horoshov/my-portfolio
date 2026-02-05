@@ -10,6 +10,7 @@ import Projects from './pages/Projects';
 import Articles from './pages/Articles';
 import Contact from './pages/Contact';
 import ProjectDetail from './pages/ProjectDetail';
+import NotFound from './pages/NotFound';
 
 import './styles/App.css';
 
@@ -30,6 +31,7 @@ const AppContent = () => {
             <Route path="/articles" element={<Articles />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>
       </main>
