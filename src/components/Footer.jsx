@@ -1,4 +1,5 @@
-import React from 'react';
+// 1. [NEW] Добавьте { useState, useEffect } в импорт
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
@@ -7,18 +8,10 @@ const Footer = () => {
     <footer className={styles.mainFooter}>
       <div className={styles.footerContainer}>
         
-        {/* ЛЕВАЯ ЧАСТЬ: Логотип и Почта */}
+        {/* ЛЕВАЯ ЧАСТЬ */}
         <div className={styles.footerBrandSide}>
           <div className={styles.footerLogoStatic}>
-            <svg 
-              width="125" 
-              height="17" 
-              viewBox="0 0 125 17" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Horoshov Logo"
-            >
+            <svg width="125" height="17" viewBox="0 0 125 17" fill="none" role="img" aria-label="Horoshov Logo">
               <title>Horoshov</title>
               <path d="M117.678 11.9918L114.485 1.2157H111.074L115.77 15.7842H120.303L124.999 1.2157H121.589L118.162 11.9918H117.678Z" fill="currentColor"/>
               <path d="M74.1348 11.5783C74.1348 10.5243 73.46 10.0812 72.4482 9.99721L69.0316 9.68098C66.0789 9.40701 64.5391 8.24695 64.5391 5.44255C64.5391 2.6382 66.4375 1.09875 69.1579 1.09875H76.7079V3.75544H69.3686C68.3143 3.75544 67.6396 4.30389 67.6396 5.35804C67.6396 6.41213 68.3353 6.91833 69.3902 7.00289L72.8697 7.29822C75.5063 7.52993 77.2353 8.73225 77.2353 11.5575C77.2353 14.3827 75.4009 15.9013 72.8068 15.9013H64.9192V13.2446H72.5111C73.5025 13.2446 74.1348 12.5699 74.1348 11.5789V11.5783Z" fill="currentColor"/>
@@ -32,11 +25,14 @@ const Footer = () => {
           </div>
           <a href="mailto:ux@horoshov.ru" className={styles.footerEmail}>ux@horoshov.ru</a>
           
+          {/* 2. [NEW] Вставляем компонент переключателя СЮДА */}
+          <ThemeSwitcher styles={styles} />
+
           {/* Копирайт Десктоп */}
           <div className={`${styles.footerCopyright} ${styles.desktopOnly}`}>© 2026 </div>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ: Меню + Копирайт Мобайл */}
+        {/* ПРАВАЯ ЧАСТЬ БЕЗ ИЗМЕНЕНИЙ */}
         <div className={styles.footerMenuWrapper}>
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Nav</div>
@@ -68,6 +64,7 @@ const Footer = () => {
   );
 };
 
+// ... Ваши компоненты FooterLink и FooterExternalLink оставьте здесь ...
 const FooterLink = ({ to, label, styles }) => (
   <Link to={to} className={styles.linkNoLine}>
     <div className={styles.linkIcon}>
@@ -95,5 +92,56 @@ const FooterExternalLink = ({ href, label, styles }) => (
     </div>
   </a>
 );
+
+// 3. [NEW] Вставляем сам компонент переключателя в конце файла
+const ThemeSwitcher = ({ styles }) => {
+  const [theme, setTheme] = useState('system');
+
+  useEffect(() => {
+    // Безопасное чтение из localStorage
+    const saved = localStorage.getItem('theme');
+    if (saved) setTheme(saved);
+  }, []);
+
+  useEffect(() => {
+    const root = document.body; // Используем body, чтобы сработал CSS
+    const applyDark = () => root.classList.add('dark-theme');
+    const removeDark = () => root.classList.remove('dark-theme');
+
+    if (theme === 'dark') {
+      applyDark();
+      localStorage.setItem('theme', 'dark');
+    } else if (theme === 'light') {
+      removeDark();
+      localStorage.setItem('theme', 'light');
+    } else {
+      localStorage.removeItem('theme');
+      const media = window.matchMedia('(prefers-color-scheme: dark)');
+      if (media.matches) applyDark(); else removeDark();
+    }
+  }, [theme]);
+
+  // Простые иконки, чтобы не загромождать SVG
+  const IconSystem = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>;
+  const IconLight = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
+  const IconDark = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
+
+  return (
+    <div className={styles.themeSwitcherWrapper}>
+      <label className={styles.themeLabel} title="System">
+        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'system'} onChange={() => setTheme('system')} />
+        <IconSystem />
+      </label>
+      <label className={styles.themeLabel} title="Light">
+        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'light'} onChange={() => setTheme('light')} />
+        <IconLight />
+      </label>
+      <label className={styles.themeLabel} title="Dark">
+        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'dark'} onChange={() => setTheme('dark')} />
+        <IconDark />
+      </label>
+    </div>
+  );
+};
 
 export default Footer;

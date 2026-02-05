@@ -119,4 +119,62 @@
       width: 100%;
     }
   }
-  /* ... добавь остальные медиазапросы по аналогии ... */
+  /* ... переключатель тем ... */
+  /* --- Вставьте это в конец Footer.module.css --- */
+
+/* Контейнер переключателя */
+.themeSwitcherWrapper {
+  margin-top: 16px;
+  display: inline-flex;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 4px;
+  border-radius: 99px;
+  border: 1px solid var(--border-color);
+}
+
+/* Скрытый инпут */
+.themeInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Кнопка-иконка */
+.themeLabel {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--gray-text);
+  transition: all 0.2s ease;
+}
+
+.themeLabel:hover {
+  color: var(--text-color);
+  background-color: rgba(125, 125, 125, 0.1);
+}
+
+/* Активное состояние */
+.themeInput:checked + .themeLabel {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* ГЛОБАЛЬНАЯ СМЕНА ЦВЕТОВ */
+/* Это работает на весь сайт */
+:global(body.dark-theme) {
+  --bg-color: #0e0e0e;
+  --text-color: #ffffff;
+  --gray-text: #a0a0a0;
+  --border-color: #333333;
+}
+
+/* Плавный переход */
+:global(body) {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
