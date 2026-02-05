@@ -68,7 +68,7 @@ const howIWorkSteps = [
   }
 ];
 
-const featuredProjects = allProjects.slice(0, 5);
+const featuredProjects = allProjects.slice(0, 6);
 
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
