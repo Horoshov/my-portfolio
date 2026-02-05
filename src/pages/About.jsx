@@ -150,9 +150,9 @@ const About = () => {
 
   const experiences = [
     {
-      company: 'Vision Grid Studio',
+      company: 'Freelance',
       position: 'Developer & Designer',
-      period: '2024-2025',
+      period: '2025-2026',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 8L8 16V32L24 40L40 32V16L24 8Z" stroke="white" strokeWidth="2" fill="none"/>
@@ -161,9 +161,9 @@ const About = () => {
       )
     },
     {
-      company: 'BrightCore Creative',
-      position: 'UI/UX Designer',
-      period: '2022-2023',
+      company: 'SL SOFT',
+      position: 'Senior UI/UX Designer',
+      period: '2023-2024',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="24" cy="24" r="12" stroke="white" strokeWidth="2" fill="none"/>
@@ -172,9 +172,9 @@ const About = () => {
       )
     },
     {
-      company: 'Nova Craft Agency',
-      position: 'Visual Designer',
-      period: '2020-2021',
+      company: 'М.Video-Eldorado',
+      position: 'UX/UI Architect',
+      period: '2022-2023',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="12" y="12" width="24" height="24" rx="4" stroke="white" strokeWidth="2" fill="none"/>
@@ -183,9 +183,9 @@ const About = () => {
       )
     },
     {
-      company: 'Mirano Creative Studio',
-      position: 'Creative Director',
-      period: '2017-2020',
+      company: 'NDV',
+      position: 'Lead Designer',
+      period: '2021-2022',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 8L32 20H16L24 8Z" stroke="white" strokeWidth="2" fill="none"/>
@@ -194,9 +194,9 @@ const About = () => {
       )
     },
     {
-      company: 'Global Tech Solution',
+      company: 'Domyland',
       position: 'Senior UI/UX Designer',
-      period: '2016-2017',
+      period: '2020-2021',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M14 14L34 34M34 14L14 34" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -205,9 +205,9 @@ const About = () => {
       )
     },
     {
-      company: 'Vision Grid Studio',
-      position: 'Vision Grid Studio',
-      period: '2014-2016',
+      company: 'Cashoff',
+      position: 'UX/UI Designer',
+      period: '2016-2018',
       icon: (
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 24H36M24 12V36" stroke="white" strokeWidth="2" strokeLinecap="round"/>
@@ -233,7 +233,6 @@ const About = () => {
               <img src={alexProfile} alt="Alex Horoshov" className="about-main-image" />
             </div>
             <div className="about-text-content">
-              <span className="about-date-label">[SINCE 2013]</span>
               <div className="about-description">
                 <p className="description-lead">
                 Привет, я Алексей.<br />
