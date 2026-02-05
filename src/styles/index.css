@@ -161,4 +161,7 @@
     header[data-theme="dark"] [class*="dropdown"] {
     background-color: #131313 !important;
   }
-  
+
+  html {
+    scrollbar-gutter: stable;
+  }
