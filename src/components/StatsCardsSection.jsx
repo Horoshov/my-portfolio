@@ -22,10 +22,10 @@ const StatsCardsSection = () => {
       id: 1,
       gridArea: '1 / 1 / 7 / 9',
       bgColor: '#D6F0FF',
-      title: 'Использование <b>GenAi</b> ускоряет процессы увеличивая эффективность',
-      value: '5x',
+      title: '<b>GenAi</b> ускоряет процессы увеличивая эффективность',
+      value: 'х10',
       layout: 'top-group', 
-      iconType: 'cube',
+      iconType: 'icon1',
       iconBg: '#8BD3FF',
       iconPosition: 'bottom-right'
     },
@@ -44,7 +44,7 @@ const StatsCardsSection = () => {
       title: '<b>Design tokens</b> — оптимизация на уровне кода, плюс к <b>Performance</b>',
       value: 'kWh',
       layout: 'bottom-group',
-      iconType: 'layout',
+      iconType: 'icon3',
       iconBg: '#FFFFFF',
       iconPosition: 'top-right'
     },
@@ -55,7 +55,7 @@ const StatsCardsSection = () => {
       title: 'Синхронизация с продуктом',
       value: '100%',
       layout: 'bottom-group',
-      iconType: 'layout',
+      iconType: 'icon4',
       iconBg: '#FFD4A8',
       iconPosition: 'bottom-right'
     },
@@ -66,7 +66,7 @@ const StatsCardsSection = () => {
       title: '<b>Storybook</b>, документация',
       value: 'А — Я',
       layout: 'bottom-group',
-      iconType: 'layout',
+      iconType: 'icon5',
       iconBg: '#FFFFFF',
       iconPosition: 'top-right'
     },
@@ -77,7 +77,7 @@ const StatsCardsSection = () => {
       title: ' <b>UX/UI</b> архитектура не просто набор экранов, это прямая трансляция бизнес-логики в визуальный язык коммуникаций',
       value: '$',
       layout: 'spread-center',
-      iconType: 'layout',
+      iconType: 'icon6',
       iconBg: '#FFFFFF',
       iconPosition: 'top-right'
     }
@@ -130,11 +130,21 @@ const StatsCardsSection = () => {
   };
 
   const renderIcon = (type) => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2">
-      {type === 'cube' ? (
-        <><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M12 22V12"/><path d="M3 8l9 4 9-4"/></>
-      ) : (
-        <><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      {type === 'icon1' && (
+        <><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></>
+      )}
+      {type === 'icon3' && (
+        <><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></>
+      )}
+      {type === 'icon4' && (
+        <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>
+      )}
+      {type === 'icon5' && (
+        <><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></>
+      )}
+      {type === 'icon6' && (
+        <><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></>
       )}
     </svg>
   );
@@ -155,7 +165,6 @@ const StatsCardsSection = () => {
         transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } 
       } : undefined}
     >
-      {/* Видео */}
       {card.isVideo ? (
         <div className="stats-card-video-full">
           <video 
@@ -190,7 +199,6 @@ const StatsCardsSection = () => {
         </div>
       )}
 
-      {/* Иконка */}
       {card.hasIcon !== false && (
         <motion.div 
           className={`stats-card-icon icon-${card.iconPosition}`} 
@@ -209,12 +217,10 @@ const StatsCardsSection = () => {
   return (
     <section className="stats-cards-section">
       <div className="stats-container">
-        {/* Desktop Grid */}
         <div className={`stats-cards-grid ${isMobile ? 'mobile-hidden' : ''}`}>
           {cards.map((card, index) => renderCard(card, index))}
         </div>
 
-        {/* Mobile Carousel */}
         {isMobile && (
           <div className="stats-cards-carousel" ref={carouselRef}>
             <div className="stats-cards-carousel-track">
