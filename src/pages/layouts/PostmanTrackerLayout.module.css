@@ -1,10 +1,9 @@
 .customPage {
   background-color: var(--bg-color);
   width: 100%;
-  overflow-x: hidden;
 }
 
-/* HERO */
+/* --- HERO SECTION --- */
 .hero {
   background-color: #246BFD;
   width: 100%;
@@ -12,7 +11,8 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  height: 860px; 
+  height: 860px;
+  overflow: hidden; /* Обрезает изображение по границе синей области */
 }
 
 .title {
@@ -41,113 +41,183 @@
   filter: drop-shadow(0px -10px 40px rgba(0,0,0,0.15));
 }
 
-/* CONTENT OVERLAY */
-.whiteOverlap {
-  background-color: var(--bg-color);
-  width: 100%;
-  position: relative;
-  z-index: 10;
-  padding: 300px 0 100px;
-}
-
-.mainContainer80 {
-  width: 80%;
-  margin: 0 auto;
-  max-width: 1400px;
-}
-
-.headerWrapper {
-  margin-bottom: 80px;
-}
-
-.projectInfoGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-.labelWrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-
-.label {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.5;
-}
-
-.taskText {
-  font-size: 24px;
-  line-height: 1.5;
-  max-width: 900px;
-}
-
-.detailsRow {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 100px;
-}
-
-.bodyText {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-}
-
-.list li {
-  font-size: 18px;
-  margin-bottom: 12px;
-  font-weight: 500;
-}
-
-/* НОВЫЕ СЕКЦИИ (Исправленное центрирование) */
-.simpleSection {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Центрирует MindMap и обертку заголовка */
-  padding: 80px 0;
-}
-
-.centeredHeader {
-  width: 100%;
-  display: flex;
-  justify-content: center; /* Центрирует PageHeader по горизонтали */
-  margin-bottom: 60px;
-}
-
-/* Если PageHeader внутри имеет фиксированную ширину или paddings, 
-  мы заставляем его выравнивать текст по центру. 
-*/
-.centeredHeader div {
-  text-align: center;
-}
-
-.mindMapLayer {
-  width: 90%;
-  max-width: 1300px;
+/* --- SECTION HEADERS (CAREER JOURNEY STYLE) --- */
+.projectSectionHeader {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
-.mindMapSvg {
+.projectSectionHeader :global(.section-header-col) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   width: 100%;
+}
+
+/* Локальная ширина подзаголовка 600px */
+.projectSectionHeader :global(.section-header-subtitle) {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* --- SPACING & CONTENT --- */
+.descriptionSection {
+  padding-top: 20px;
+  margin-bottom: 120px;
+}
+
+.simpleSection {
+  padding: 100px 0;
+}
+
+.mindMapContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.mindMapImg {
+  width: 80%; 
+  max-width: 1100px;
   height: auto;
 }
 
+/* --- HORIZONTAL WORKFLOW SECTION --- */
+.horizontalSectionWrapper {
+  position: relative;
+  height: 500vh;
+}
+
+.stickyContainer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.scrollTrack {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.cardsRow {
+  display: flex;
+  gap: 20px;
+  padding: 0 10vw;
+}
+
+.workflowCard {
+  flex-shrink: 0;
+  width: 600px;
+  min-height: 400px;
+  background-color: #246BFD;
+  border-radius: 24px;
+  padding: 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.iconCircle {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+.statBadge {
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.cardTitle {
+  font-size: 38px;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.cardDesc {
+  font-size: 18px;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
 @media (max-width: 1024px) {
-  .hero { height: 80vh; }
-  .mainContainer80 { width: 90%; }
-  .detailsRow { grid-template-columns: 1fr; gap: 60px; }
-  .whiteOverlap { padding-top: 200px; }
-  .simpleSection { padding: 40px 0; }
+  .projectSectionHeader :global(.section-header-subtitle) {
+    max-width: 100%;
+  }
+}
+
+/* ... весь предыдущий код остается без изменений ... */
+
+/* --- АДАПТИВНОСТЬ КАРТОЧЕК --- */
+@media (max-width: 1024px) {
+  .workflowCard {
+    width: 450px; /* Уменьшаем ширину на планшетах */
+    min-height: 380px;
+    padding: 40px;
+  }
+
+  .cardTitle {
+    font-size: 40px; /* Уменьшаем заголовок */
+  }
+
+  .statBadge {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollTrack {
+    margin-top: 40px;
+  }
+
+  .cardsRow {
+    gap: 16px;
+    padding: 0 20px; /* Уменьшаем боковые отступы трека */
+  }
+
+  .workflowCard {
+    width: 320px; /* Компактный размер для мобильных */
+    min-height: 350px;
+    padding: 30px;
+    border-radius: 20px;
+  }
+
+  .cardTitle {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .cardDesc {
+    font-size: 16px;
+  }
+
+  .iconCircle {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .statBadge {
+    font-size: 24px;
+  }
 }

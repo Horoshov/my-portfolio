@@ -40,7 +40,7 @@
       color: #555;
       font-weight: 400;
       margin-top: 24px;
-      max-width: 300px; /* Возвращено исходное ограничение */
+      max-width: 370px; /* Возвращено исходное ограничение */
       text-transform: none;
       margin-bottom: 0;
     }
