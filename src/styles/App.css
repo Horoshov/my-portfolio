@@ -31,7 +31,7 @@
       font-weight: 600;
       letter-spacing: -0.02em;
       margin: 0;
-      text-transform: capitalize;
+      text-transform: none;
     }
     
     .section-header-subtitle {

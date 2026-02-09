@@ -1,6 +1,7 @@
 .customPage {
   background-color: var(--bg-color);
   width: 100%;
+  position: relative;
 }
 
 /* --- HERO SECTION --- */
@@ -12,7 +13,7 @@
   align-items: center;
   position: relative;
   height: 860px;
-  overflow: hidden; /* Обрезает изображение по границе синей области */
+  overflow: hidden;
 }
 
 .title {
@@ -41,35 +42,60 @@
   filter: drop-shadow(0px -10px 40px rgba(0,0,0,0.15));
 }
 
-/* --- SECTION HEADERS (CAREER JOURNEY STYLE) --- */
+/* --- INTRO SECTION --- */
+.introSection {
+  padding-top: 60px;
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .projectSectionHeader {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 80px;
 }
 
-.projectSectionHeader :global(.section-header-col) {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+/* СЕТКА 70/30 */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 80px;
   width: 100%;
+  max-width: 1100px;
 }
 
-/* Локальная ширина подзаголовка 600px */
-.projectSectionHeader :global(.section-header-subtitle) {
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.4;
+.blockTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-transform: none !important;
 }
 
-/* --- SPACING & CONTENT --- */
-.descriptionSection {
-  padding-top: 20px;
-  margin-bottom: 120px;
+.blockText, 
+.list li {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-transform: none !important;
 }
 
+.blockText + .blockText {
+  margin-top: 24px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  margin-bottom: 12px;
+}
+
+/* --- MINDMAP SECTION --- */
 .simpleSection {
   padding: 100px 0;
 }
@@ -81,7 +107,7 @@
 }
 
 .mindMapImg {
-  width: 80%; 
+  width: 90%; 
   max-width: 1100px;
   height: auto;
 }
@@ -144,7 +170,7 @@
 }
 
 .statBadge {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
 }
 
@@ -160,64 +186,19 @@
   opacity: 0.9;
 }
 
+/* АДАПТИВНОСТЬ */
 @media (max-width: 1024px) {
-  .projectSectionHeader :global(.section-header-subtitle) {
-    max-width: 100%;
+  .detailsGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-}
-
-/* ... весь предыдущий код остается без изменений ... */
-
-/* --- АДАПТИВНОСТЬ КАРТОЧЕК --- */
-@media (max-width: 1024px) {
   .workflowCard {
-    width: 450px; /* Уменьшаем ширину на планшетах */
+    width: 450px;
     min-height: 380px;
-    padding: 40px;
-  }
-
-  .cardTitle {
-    font-size: 40px; /* Уменьшаем заголовок */
-  }
-
-  .statBadge {
-    font-size: 32px;
   }
 }
 
 @media (max-width: 768px) {
-  .scrollTrack {
-    margin-top: 40px;
-  }
-
-  .cardsRow {
-    gap: 16px;
-    padding: 0 20px; /* Уменьшаем боковые отступы трека */
-  }
-
-  .workflowCard {
-    width: 320px; /* Компактный размер для мобильных */
-    min-height: 350px;
-    padding: 30px;
-    border-radius: 20px;
-  }
-
-  .cardTitle {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .cardDesc {
-    font-size: 16px;
-  }
-
-  .iconCircle {
-    width: 48px;
-    height: 48px;
-    font-size: 24px;
-  }
-
-  .statBadge {
-    font-size: 24px;
-  }
+  .introSection { padding-top: 40px; }
+  .workflowCard { width: 320px; min-height: 350px; }
 }

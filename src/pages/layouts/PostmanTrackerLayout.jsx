@@ -50,7 +50,7 @@ const PostmanTrackerLayout = ({ project }) => {
       {/* 1. HERO SECTION */}
       <PageContainer fullWidth noPadding noPaddingTop>
         <section className={styles.hero} ref={heroRef}>
-          <div className={styles.content}>
+          <div className={styles.heroContent}>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -65,21 +65,52 @@ const PostmanTrackerLayout = ({ project }) => {
         </section>
       </PageContainer>
 
-      {/* 2. DESCRIPTION */}
-      <PageContainer>
-        <section className={styles.descriptionSection}>
+      {/* 2. INTRO SECTION (Subtitle + Grid 70/30) */}
+      <PageContainer noPaddingTop>
+        <section className={styles.introSection}>
+          {/* Заголовок с Подзаголовком (Текст задания) */}
           <div className={styles.projectSectionHeader}>
             <PageHeader 
-              title={project.title} 
-              subtitle="Спроектируйте User Flow и отрисуйте экраны мобильного приложения для сотрудников почтовой службы." 
+              title="Postman tracker" 
+              subtitle="Разработка iOS-приложения"
             />
+          </div>
+
+          {/* Сетка: Погружение и Чек-лист */}
+          <div className={styles.detailsGrid}>
+            <div className={styles.immersionBlock}>
+              <h3 className={styles.blockTitle}>Исследование</h3>
+              <p className={styles.blockText}>
+                Необходим трекер задач с календарём и личным помощником. Приложение включает в себя специальный инструментарий сотрудника почтовой службы. 
+                Он планирует работу в течении дня, отправляет отчеты руководителю, помогает в решении служебных вопросов, имеет режим наставника для новых сотрудников. 
+                Выводит успехи и достижения сотрудников.
+              </p>
+              {/* Второй абзац (дубль задания) */}
+              <p className={styles.blockText}>
+                Вы участвуете в разработке мобильного iOS-приложения для сотрудников частной почтовой службы. 
+                Сотрудники разносят почту физически и помещают ее в почтовые ящики. 
+                Как бы вы могли улучшить их пользовательский опыт? 
+                Спроектируйте User Flow и отрисуйте экраны.
+              </p>
+            </div>
+
+            <div className={styles.checklistBlock}>
+              <h3 className={styles.blockTitle}>Чек-лист</h3>
+              <ul className={styles.list}>
+                <li>1. Трекер задач</li>
+                <li>2. Календарь</li>
+                <li>3. Личный помощник</li>
+                <li>4. Программа обучения</li>
+                <li>5. Инструменты</li>
+              </ul>
+            </div>
           </div>
         </section>
       </PageContainer>
 
-      {/* 3. MINDMAP */}
+      {/* 3. MINDMAP SECTION */}
       <PageContainer>
-        <section className={styles.simpleSection}>
+        <section className={styles.mindMapSection}>
           <div className={styles.projectSectionHeader}>
             <PageHeader title="Минимально необходимый функционал" />
           </div>
