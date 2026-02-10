@@ -40,7 +40,6 @@
       color: #555;
       font-weight: 400;
       margin-top: 24px;
-      max-width: 500px; /* Возвращено исходное ограничение */
       text-transform: none;
       margin-bottom: 0;
     }
@@ -757,13 +756,6 @@
       margin-bottom: 60px;
     }
     
-    /* Переопределяем глобальное ограничение ширины только для этой секции */
-    .career-section-header .section-header-subtitle {
-      max-width: 500px; /* Позволяет тексту распределиться шире */
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.5;
-    }
     
     /* Сетка карточек 3 в ряд */
     .career-grid {

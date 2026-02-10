@@ -257,11 +257,16 @@ const About = () => {
         </section>
 
         <section className="skills-section">
-          <div className="about-intro-grid"> 
-            <PageHeader 
-              title="Hard Skills" 
-              subtitle="Expertise shaped through experience, precision, and thoughtful design." 
-            />
+  <div className="about-intro-grid"> 
+    <PageHeader 
+      title="Hard Skills" 
+      subtitle={
+        <>
+          Expertise shaped through experience,<br /> 
+          precision, and thoughtful design.
+        </>
+      }
+      />
             
             <div className="skills-list">
               {skills.map((skill, index) => {
