@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // Добавили useEffect в импорт
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
@@ -16,6 +16,12 @@ import './styles/App.css';
 
 const AppContent = () => {
   const location = useLocation();
+
+  // Логика автоматического скролла вверх при изменении пути (URL)
+  useEffect(() => {
+    // window.scrollTo(0, 0) мгновенно переносит вьюпорт в начало страницы
+    window.scrollTo(0, 0);
+  }, [location.pathname]); // Эффект срабатывает каждый раз, когда меняется pathname
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
@@ -59,7 +59,7 @@ const SKILL_ICONS = {
       <rect width="64" height="64" rx="16" fill="#000"/>
       <g clipPath="url(#clip1_jira)">
         <path d="M47.1835 15.4991H29.125C29.125 17.6612 29.9839 19.7346 31.5126 21.2634C33.0414 22.7922 35.1149 23.651 37.2769 23.651H40.6035V26.8629C40.6064 31.361 44.252 35.0067 48.7501 35.0097V17.0657C48.7501 16.2008 48.0489 15.4991 47.1835 15.4991Z" fill="#2684FF"/>
-        <path d="M38.2498 24.497H20.1914C20.1942 28.9951 23.8398 32.6408 28.338 32.6438H31.6646V35.8659C31.6703 40.364 35.3184 44.0072 39.8165 44.0072V26.0639C39.8165 25.1986 39.115 24.497 38.2498 24.497Z" fill="url(#paint0_jira)"/>
+        <path d="M38.2498 24.497H20.1914C20.1942 28.9951 23.8398 32.6408 28.338 32.6438H31.6646V35.8659C31.6703 40.364 35.3184 44.0072 39.8165 44.0072V26.0639C39.8165 25.1986 39.115 24.497Z" fill="url(#paint0_jira)"/>
         <path d="M29.3085 33.4898H11.25C11.25 37.992 14.8999 41.6417 19.4019 41.6417H22.7389V44.8534C22.7418 49.3474 26.3811 52.9915 30.8752 53V35.0565C30.8752 34.1913 30.1737 33.4898 29.3085 33.4898Z" fill="url(#paint1_jira)"/>
       </g>
       <defs>
@@ -128,6 +128,10 @@ const SKILL_ICONS = {
 };
 
 const About = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  // Реф для заголовка секции Hard Skills
+  const skillsHeaderRef = useRef(null);
+  
   const aboutStats = [
     { value: '10', label: 'of Experience', title: 'Years' },
     { value: '80+', label: 'Completed Successfully', title: 'Projects' },
@@ -147,6 +151,29 @@ const About = () => {
     { name: 'Adobe Photoshop', level: '90%', desc: 'Advanced photo manipulation and visual asset creation for digital products.' },
     { name: 'Adobe Illustrator', level: '85%', desc: 'Creating scalable vector illustrations and brand identity systems.' }
   ];
+
+  const visibleSkills = isExpanded ? skills : skills.slice(0, 4);
+
+  const handleToggleSkills = () => {
+    if (isExpanded) {
+      // Сначала сворачиваем список
+      setIsExpanded(false);
+      
+      // Даем браузеру время обновить высоту DOM, затем скроллим
+      setTimeout(() => {
+        if (skillsHeaderRef.current) {
+          // Высчитываем позицию с учетом возможной липкой шапки (отступ 80px)
+          const yOffset = -80; 
+          const element = skillsHeaderRef.current;
+          const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 50);
+    } else {
+      setIsExpanded(true);
+    }
+  };
 
   const experiences = [
     {
@@ -239,106 +266,140 @@ const About = () => {
                 Проектирую интерфейсы с фокусом на результат, переводя идеи в продукты сочетающие технологии и осмысленный пользовательский опыт. <br />
                 10 лет в продуктовой разработке (FinTech, PropTech, BI, Retail, E-Commerce, CPQ). Исследую, упрощаю сценарии, проверяю гипотизы, и строю дизайн-системы которые работают.
                 </p>
-                <p className="description-body">
-                
-                </p>
-                <p className="description-body">
-                <b>Product:</b> Решаем задачи бизнеса от MVP до масштабирования, опираясь на метрики и Data.
-                </p>
-                <p className="description-body">
-                <b>Tech:</b> Учитывем технологический стек, ограничения, ресурсы.
-                </p>
-                <p className="description-body">
-                <b>UI/UX:</b> Проживаем пользовательский опыт, создавая интуитивные и технически реализуемые дизайн-решения
-                </p>
+                <div style={{ marginTop: '1.5rem' }}>
+                  <p className="description-body">
+                  <b>Product:</b> Решаем задачи бизнеса от MVP до масштабирования, опираясь на метрики и Data.
+                  </p>
+                  <p className="description-body">
+                  <b>Tech:</b> Учитывем технологический стек, ограничения, ресурсы.
+                  </p>
+                  <p className="description-body">
+                  <b>UI/UX:</b> Проживаем пользовательский опыт, создавая интуитивные и технически реализуемые дизайн-решения
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         <section className="skills-section" style={{ position: 'relative' }}>
-  <div className="about-intro-grid"> 
-    <PageHeader 
-      title="Hard Skills" 
-      subtitle={
-        <>
-          Expertise shaped through experience,<br /> 
-          precision, and thoughtful design.
-        </>
-      } 
-    />
+          <div className="about-intro-grid"> 
+            {/* Левая колонка - Заголовок с Ref для скролла */}
+            <div ref={skillsHeaderRef}>
+              <PageHeader 
+                title="Hard Skills" 
+                subtitle={
+                  <>
+                    Expertise shaped through experience,<br /> 
+                    precision, and thoughtful design.
+                  </>
+                } 
+              />
+            </div>
 
-            <div className="skills-list">
-              {skills.map((skill, index) => {
-                const SkillItem = () => {
-                  const ref = useRef(null);
-                  const isInView = useInView(ref, { once: true, amount: 0.5 });
-                  
-                  return (
-                    <div className="skill-item">
-                      <div className="skill-icon-box">
-                         {SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}
-                      </div>
-                      
-                      <div className="skill-info">
-                        <div className="skill-head">
-                          <h3>{skill.name}</h3>
-                          <p>{skill.desc}</p>
+            {/* Правая колонка - Карточки и кнопка */}
+            <div className="skills-content-wrapper" style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+              <div className="skills-list">
+                {visibleSkills.map((skill, index) => {
+                  const SkillItem = () => {
+                    const ref = useRef(null);
+                    const isInView = useInView(ref, { once: true, amount: 0.5 });
+                    
+                    return (
+                      <div className="skill-item" key={skill.name}>
+                        <div className="skill-icon-box">
+                           {SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}
                         </div>
                         
-                        <div className="skill-progress-wrapper" ref={ref}>
-                          <div className="skill-progress-bar">
-                            <motion.div 
-                              className="skill-progress-fill"
-                              initial={{ width: 0 }}
-                              animate={{ width: isInView ? skill.level : 0 }}
-                              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                            />
-                           <motion.div 
-                               className="skill-progress-pin"
-                               style={{ 
-                                 left: skill.level,
-                                 position: 'absolute',
-                                 top: '-12px', 
-                                 transform: 'translate(-130%, 0)',
-                                 background: '#fff',
-                                 color: '#000',
-                                 padding: '5px 14px',
-                                 borderRadius: '100px',
-                                 fontSize: '14px',
-                                 fontWeight: '800',
-                                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                                 zIndex: 10,
-                                 whiteSpace: 'nowrap',
-                                 border: '1px solid rgba(0, 0, 0, 0.05)'
-                               }}
-                               initial={{ opacity: 0, scale: 0.8 }}
-                               animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
-                               transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
-                             >
-                               {skill.level}
-                            </motion.div>
+                        <div className="skill-info">
+                          <div className="skill-head">
+                            <h3>{skill.name}</h3>
+                            <p>{skill.desc}</p>
+                          </div>
+                          
+                          <div className="skill-progress-wrapper" ref={ref}>
+                            <div className="skill-progress-bar">
+                              <motion.div 
+                                className="skill-progress-fill"
+                                initial={{ width: 0 }}
+                                animate={{ width: isInView ? skill.level : 0 }}
+                                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                              />
+                             <motion.div 
+                                 className="skill-progress-pin"
+                                 style={{ 
+                                   left: skill.level,
+                                   position: 'absolute',
+                                   top: '-12px', 
+                                   transform: 'translate(-130%, 0)',
+                                   background: '#fff',
+                                   color: '#000',
+                                   padding: '5px 14px',
+                                   borderRadius: '100px',
+                                   fontSize: '14px',
+                                   fontWeight: '800',
+                                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                                   zIndex: 10,
+                                   whiteSpace: 'nowrap',
+                                   border: '1px solid rgba(0, 0, 0, 0.05)'
+                                 }}
+                                 initial={{ opacity: 0, scale: 0.8 }}
+                                 animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
+                                 transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
+                               >
+                                 {skill.level}
+                              </motion.div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                };
-                
-                return <SkillItem key={index} />;
-              })}
+                    );
+                  };
+                  
+                  return <SkillItem key={index} />;
+                })}
+              </div>
+
+              {skills.length > 4 && (
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-start' }}>
+                  <button 
+                    onClick={handleToggleSkills}
+                    style={{
+                      background: 'transparent',
+                      border: '1px solid rgba(255, 255, 255, 0.2)',
+                      color: 'white',
+                      padding: '12px 32px',
+                      borderRadius: '50px',
+                      cursor: 'pointer',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      transition: 'all 0.3s ease',
+                      outline: 'none'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.background = 'rgba(255, 255, 255, 0.1)';
+                      e.target.style.borderColor = 'rgba(255, 255, 255, 0.5)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.background = 'transparent';
+                      e.target.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                    }}
+                  >
+                    {isExpanded ? 'Показать меньше' : 'Показать больше'}
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
 
         <section className="career-journey-section">
-        {/* Добавляем этот контейнер для управления выравниванием */}
-        <div className="career-section-header">
-          <PageHeader 
-            title="Career Journey" 
-            subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
-          />
-        </div>
+          <div className="career-section-header">
+            <PageHeader 
+              title="Career Journey" 
+              subtitle="A progression of experiences, growth, and milestones that have shaped my path as a creative professional." 
+            />
+          </div>
           
           <div className="career-grid">
             {experiences.map((exp, index) => (
