@@ -48,10 +48,18 @@ const Navbar = () => {
 
         <div className={styles.navActions}>
           <nav className={styles.navDesktopLinks}>
-            <Link to="/" className={styles.navItem}>Главная</Link>
-            <Link to="/about" className={styles.navItem}>Компетенции</Link>
-            <Link to="/projects" className={styles.navItem}>Кейсы</Link>
-            <Link to="/contact" className={styles.navItem}>Контакты</Link>
+            <Link to="/" className={styles.navItem} data-text="Главная">
+              <span>Главная</span>
+            </Link>
+            <Link to="/about" className={styles.navItem} data-text="Компетенции">
+              <span>Компетенции</span>
+            </Link>
+            <Link to="/projects" className={styles.navItem} data-text="Кейсы">
+              <span>Кейсы</span>
+            </Link>
+            <Link to="/contact" className={styles.navItem} data-text="Контакты">
+              <span>Контакты</span>
+            </Link>
           </nav>
 
           <button 
