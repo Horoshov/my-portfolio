@@ -2,7 +2,7 @@
    STATS CARDS SECTION
    ========================================= */
    .stats-cards-section {
-    padding: 100px var(--container-padding) 0;
+    padding: 100px 0 0 0; /* ИСПРАВЛЕНО: убрал var(--container-padding) отсюда */
     background-color: var(--bg-color);
     width: 100%;
   }
@@ -21,7 +21,7 @@
       grid-template-columns: repeat(24, 1fr);
       grid-auto-rows: 70px;
       gap: var(--spacing-lg);
-      padding: 0 var(--container-padding);
+      padding: 0 var(--container-padding); /* ОТСТУПЫ ТЕПЕРЬ ТОЛЬКО ЗДЕСЬ */
     }
     
     .stats-cards-grid.mobile-hidden {
