@@ -3,20 +3,8 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
+import Button from '../components/Button';
 import alexProfile from '../assets/alex-profile.jpg';
-
-// Иконки для кнопок
-const PlusIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-const MinusIcon = () => (
-  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M1 7H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
 
 const SKILL_ICONS = {
   "Figma": (
@@ -274,37 +262,21 @@ const About = () => {
                   })}
                 </AnimatePresence>
               </div>
-
-              {skills.length > 4 && (
-                <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-start' }}>
-                  <button 
-                    onClick={(e) => handleToggleSkills(e)}
-                    className="skills-toggle-link"
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '8px',
-                      background: 'transparent',
-                      border: 'none',
-                      color: 'currentColor', 
-                      padding: '0',
-                      cursor: 'pointer',
-                      fontSize: '14px',
-                      fontWeight: '500',
-                      transition: 'opacity 0.2s ease',
-                      textDecoration: 'none',
-                      fontFamily: 'inherit'
-                    }}
-                    onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
-                    onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-                  >
-                    {isExpanded ? 'Показать меньше' : 'Показать больше'}
-                    {isExpanded ? <MinusIcon /> : <PlusIcon />}
-                  </button>
-                </div>
-              )}
             </div>
           </div>
+
+          {/* Кнопка вынесена за пределы grid - теперь по центру всей страницы */}
+          {skills.length > 4 && !isExpanded && (
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
+              <Button 
+                variant="secondary"
+                icon={true}
+                onClick={(e) => handleToggleSkills(e)}
+              >
+                Показать больше
+              </Button>
+            </div>
+          )}
         </section>
 
         <section className="career-journey-section">

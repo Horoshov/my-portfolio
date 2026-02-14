@@ -1,71 +1,101 @@
-/* =========================================
-   BUTTON COMPONENT
-   ========================================= */
-   .custom-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border: 1px solid var(--border-color);
-    font-family: var(--font-main);
-  }
-  
-  /* Primary Button (черная в светлой теме) */
+/* Button.css */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-main);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary Button */
+.btn-primary {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  border: 2px solid var(--text-color);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1.5px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Button Text */
+.btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+/* Button Icon */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
   .btn-primary {
     background-color: var(--text-color);
     color: var(--bg-color);
-    border-color: var(--text-color);
   }
   
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    opacity: 0.9;
-  }
-  
-  /* Secondary Button (прозрачная) */
   .btn-secondary {
-    background-color: transparent;
-    color: var(--text-color);
     border-color: var(--border-color);
   }
   
   .btn-secondary:hover {
-    transform: translateY(-2px);
-    background-color: var(--text-color);
-    color: var(--bg-color);
     border-color: var(--text-color);
   }
-  
-  /* Arrow Animation */
-  .btn-arrow {
-    font-size: 12px;
-    transition: transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .btn {
+    padding: 14px 28px;
+    font-size: 15px;
   }
-  
-  .custom-btn:hover .btn-arrow {
-    transform: translate(2px, -2px);
+}
+
+@media (max-width: 576px) {
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
   }
-  
-  /* =========================================
-     RESPONSIVE
-     ========================================= */
-  @media (max-width: 768px) {
-    .custom-btn {
-      padding: 12px 24px;
-      font-size: 13px;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .custom-btn {
-      padding: 10px 20px;
-      font-size: 12px;
-    }
-  }
+}
