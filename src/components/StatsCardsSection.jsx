@@ -158,7 +158,7 @@ const StatsCardsSection = () => {
       style={{ gridArea: !isMobile ? card.gridArea : 'auto' }}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.15 }}
+      viewport={{ once: true, amount: 0.05 }}
       variants={cardVariants}
       whileHover={{ 
         y: -8, 

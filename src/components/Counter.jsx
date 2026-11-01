@@ -8,10 +8,8 @@ const Digit = ({ digit }) => {
     visible: { 
       y: `-${digit * 10}%`,
       transition: { 
-        type: "spring", 
-        stiffness: 40, 
-        damping: 15, 
-        mass: 1 
+        duration: 1.5, // Используем tween вместо spring для предсказуемости
+        ease: "easeOut"
       }
     }
   };
@@ -22,7 +20,7 @@ const Digit = ({ digit }) => {
         className="digit-column"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1, margin: "-50px" }}
+        viewport={{ once: true, amount: 0.05 }}
         variants={variants}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
