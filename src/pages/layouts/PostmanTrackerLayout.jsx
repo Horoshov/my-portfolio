@@ -60,7 +60,7 @@ const PostmanTrackerLayout = ({ project }) => {
             </motion.h1>
           </div>
           <motion.div style={{ y: yRange, scale: scaleRange }} className={styles.screensWrapper}>
-            <img src={screensImg} alt="Screens" className={styles.mainImage} />
+            <img src={screensImg} alt="Screens" className={styles.mainImage} fetchPriority="high" decoding="async" />
           </motion.div>
         </section>
       </PageContainer>
@@ -115,7 +115,7 @@ const PostmanTrackerLayout = ({ project }) => {
             <PageHeader title="Минимально необходимый функционал" />
           </div>
           <div className={styles.mindMapContainer}>
-            <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapImg} />
+            <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapImg} loading="lazy" decoding="async" />
           </div>
         </section>
       </PageContainer>

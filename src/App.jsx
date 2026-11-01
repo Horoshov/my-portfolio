@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react'; // Добавили useEffect в импорт
+import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 
 import Navbar from './components/Navbar'; 
 import Footer from './components/Footer'; 
 import Home from './pages/Home'; 
-import About from './pages/About'; 
-import Projects from './pages/Projects';
-import Articles from './pages/Articles';
-import Contact from './pages/Contact';
-import ProjectDetail from './pages/ProjectDetail';
 import NotFound from './pages/NotFound';
+
+const About = lazy(() => import('./pages/About'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Articles = lazy(() => import('./pages/Articles'));
+const Contact = lazy(() => import('./pages/Contact'));
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 import './styles/App.css';
 
@@ -29,17 +30,19 @@ const AppContent = () => {
 
       {/* Main - semantic wrapper БЕЗ стилей контейнера */}
       <main className="main-content">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/articles" element={<Articles />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/project/:id" element={<ProjectDetail />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AnimatePresence>
+        <Suspense fallback={<div style={{ minHeight: '80vh' }} />}>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/project/:id" element={<ProjectDetail />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
       </main>
 
       <Footer />

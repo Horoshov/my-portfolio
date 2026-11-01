@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { allProjects } from '../data/projects';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
-import PostmanTrackerLayout from './layouts/PostmanTrackerLayout';
+
+const PostmanTrackerLayout = lazy(() => import('./layouts/PostmanTrackerLayout'));
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -42,7 +43,9 @@ const ProjectDetail = () => {
     >
       {isPostman ? (
         // Для Postman используется полностью кастомный layout БЕЗ PageContainer
-        <PostmanTrackerLayout project={project} />
+        <Suspense fallback={null}>
+          <PostmanTrackerLayout project={project} />
+        </Suspense>
       ) : (
         // ДЛЯ ВСЕХ ОСТАЛЬНЫХ ПРОЕКТОВ ОСТАВЛЯЕМ ВСЕ В ТОЧНОСТИ КАК БЫЛО
         <PageContainer>
@@ -86,7 +89,7 @@ const ProjectDetail = () => {
           </section>
 
           <section className="pd-hero-section">
-            <img src={project.image} alt={project.title} className="pd-hero-img" />
+            <img src={project.image} alt={project.title} className="pd-hero-img" fetchPriority="high" decoding="async" />
           </section>
 
           {project.sectionText && (
@@ -107,6 +110,8 @@ const ProjectDetail = () => {
                 src={project.imageFooter} 
                 alt={`${project.title} detailed view`} 
                 className="pd-hero-img" 
+                loading="lazy"
+                decoding="async"
               />
             </section>
           )}

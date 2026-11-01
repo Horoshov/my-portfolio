@@ -123,7 +123,7 @@ const Home = () => {
                   >
                     <div className="service-image-preview">
                       {service.img ? (
-                        <img src={service.img} alt={service.title} />
+                        <img src={service.img} alt={service.title} loading="lazy" decoding="async" />
                       ) : (
                         <div style={{ width: '100%', height: '100%', background: 'var(--photo-bg)' }} />
                       )}

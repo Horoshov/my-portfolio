@@ -14,7 +14,7 @@ const ProjectCard = ({ project }) => {
     >
       <Link to={`/project/${project.id}`} className="pc-card">
         <div className="pc-img-box">
-          <img src={project.image} alt={project.title} loading="lazy" />
+          <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
           
           {/* Центрированная анимированная кнопка и слой затемнения */}
           <div className="pc-hover-overlay">

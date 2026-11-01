@@ -210,7 +210,7 @@ const About = () => {
         <section className="about-intro-section">
           <div className="about-intro-grid">
             <div className="about-image-wrapper">
-              <img src={alexProfile} alt="Alex Horoshov" className="about-main-image" />
+              <img src={alexProfile} alt="Alex Horoshov" className="about-main-image" loading="lazy" decoding="async" />
             </div>
             <div className="about-text-content">
               <div className="about-description">
