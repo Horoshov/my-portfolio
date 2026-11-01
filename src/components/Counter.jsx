@@ -22,7 +22,7 @@ const Digit = ({ digit }) => {
         className="digit-column"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.1 }}
+        viewport={{ once: true, amount: 0.1, margin: "-50px" }}
         variants={variants}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
@@ -34,13 +34,17 @@ const Digit = ({ digit }) => {
 };
 
 const Counter = ({ value }) => {
-  const digits = Array.from(String(value), Number);
+  // Игнорируем нечисловые символы для отображения цифр
+  const numericValue = String(value).replace(/[^0-9]/g, '');
+  const digits = Array.from(numericValue, Number);
 
   return (
     <div className="rolling-counter">
       {digits.map((d, i) => (
         <Digit key={i} digit={d} />
       ))}
+      {/* Если есть нечисловой суффикс (например '+'), отображаем его */}
+      {String(value).includes('+') && <span className="stat-suffix">+</span>}
     </div>
   );
 };

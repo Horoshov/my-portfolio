@@ -484,6 +484,12 @@
     overflow: hidden;
     height: 1em;
   }
+  .counter-suffix {
+    display: flex;
+    align-items: center;
+    font-variant-numeric: tabular-nums;
+  }
+
   
   .digit-column-wrapper {
     position: relative;

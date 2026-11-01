@@ -149,8 +149,8 @@ const About = () => {
   const skillsHeaderRef = useRef(null);
   
   const aboutStats = [
-    { value: '10', label: 'of Experience', title: 'Years' },
-    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
+    { value: '15+', label: 'of Experience', title: 'Years' },
+    { value: '20+', label: 'Completed Successfully', title: 'Projects' },
     { value: '95', label: 'Customer Satisfaction', title: 'Percent' }
   ];
 

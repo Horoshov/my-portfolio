@@ -10,10 +10,7 @@ const StatList = ({ stats }) => {
         <div key={index} className="stat-card">
           {/* СВЕРХУ СЛЕВА */}
           <div className="stat-number-wrapper">
-            <Counter value={parseInt(stat.value) || 0} />
-            {(stat.suffix || stat.value.toString().includes('+')) && (
-              <span className="stat-suffix">+</span>
-            )}
+            <Counter value={stat.value} />
           </div>
           
           {/* СНИЗУ СПРАВА */}

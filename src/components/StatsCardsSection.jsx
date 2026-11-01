@@ -154,16 +154,15 @@ const StatsCardsSection = () => {
       key={card.id}
       className={`stats-card stats-card-${card.id} layout-${card.layout || 'spread'} ${card.isVideo ? 'card-video-mode' : ''}`}
       style={{ gridArea: !isMobile ? card.gridArea : 'auto' }}
-      custom={index}
-      initial={!isMobile ? "hidden" : false}
-      whileInView={!isMobile ? "visible" : false}
-      viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
-      variants={!isMobile ? cardVariants : undefined}
-      whileHover={!isMobile ? { 
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={cardVariants}
+      whileHover={{ 
         y: -8, 
         scale: 1.015,
         transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } 
-      } : undefined}
+      }}
     >
       {card.isVideo ? (
         <div className="stats-card-video-full">
@@ -187,10 +186,10 @@ const StatsCardsSection = () => {
               <motion.div 
                 className="stats-card-value"
                 custom={index}
-                initial={!isMobile ? "hidden" : false}
-                whileInView={!isMobile ? "visible" : false}
-                viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
-                variants={!isMobile ? valueVariants : undefined}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
+                variants={valueVariants}
               >
                 {card.value}
               </motion.div>
@@ -203,10 +202,10 @@ const StatsCardsSection = () => {
         <motion.div 
           className={`stats-card-icon icon-${card.iconPosition}`} 
           style={{ backgroundColor: card.iconBg }}
-          initial={!isMobile ? "hidden" : false}
-          whileInView={!isMobile ? "visible" : false}
-          viewport={!isMobile ? { once: true, amount: 0.15 } : undefined}
-          variants={!isMobile ? iconVariants : undefined}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={iconVariants}
         >
           {renderIcon(card.iconType)}
         </motion.div>

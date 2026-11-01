@@ -74,8 +74,8 @@ const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
 
   const homeStats = [
-    { value: '10', label: 'Years of Experience', title: 'Expertise' },
-    { value: '80+', label: 'Completed Successfully', title: 'Projects' },
+    { value: '15+', label: 'Years of Experience', title: 'Expertise' },
+    { value: '20+', label: 'Completed Successfully', title: 'Projects' },
     { value: '96', label: 'Customer Satisfaction', title: 'Percent' }
   ];
 
