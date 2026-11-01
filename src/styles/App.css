@@ -626,10 +626,16 @@
   }
   
   @media (max-width: 768px) {
-    .about-intro-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
+  .about-intro-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+  }
+
+  .skills-content-wrapper {
+    width: 100% !important;
+  }
     
     .about-main-image {
       max-width: 100%;

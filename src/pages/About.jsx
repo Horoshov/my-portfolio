@@ -243,7 +243,7 @@ const About = () => {
               />
             </div>
 
-            <div className="skills-content-wrapper" style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div className="skills-content-wrapper">
               <div className="skills-list">
                 <AnimatePresence initial={false}>
                   {skills.map((skill, index) => {
