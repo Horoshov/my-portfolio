@@ -89,7 +89,7 @@ const ContactForm = () => {
         <span style={{ fontWeight: '700', fontSize: '16px' }}>
           {status === 'idle' && 'Send your message'}
           {status === 'sending' && 'Sending...'}
-          {status === 'success' && 'Message sended'}
+          {status === 'success' && 'Message sent'}
           {status === 'error' && 'Try again'}
         </span>
         {status === 'idle' && <span style={{ fontSize: '20px', marginLeft: '12px' }}>→</span>}
