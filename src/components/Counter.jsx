@@ -34,17 +34,26 @@ const Digit = ({ digit }) => {
 };
 
 const Counter = ({ value }) => {
-  // Игнорируем нечисловые символы для отображения цифр
+  // Извлекаем префикс (например, "х")
+  const prefixMatch = String(value).match(/^[^0-9]+/);
+  const prefix = prefixMatch ? prefixMatch[0] : '';
+  
+  // Извлекаем числовую часть
   const numericValue = String(value).replace(/[^0-9]/g, '');
+  
+  // Извлекаем суффикс (например, "%", "+", "$")
+  const suffixMatch = String(value).match(/[^0-9]+$/);
+  const suffix = suffixMatch ? suffixMatch[0] : '';
+
   const digits = Array.from(numericValue, Number);
 
   return (
     <div className="rolling-counter">
+      {prefix && <span className="counter-prefix">{prefix}</span>}
       {digits.map((d, i) => (
         <Digit key={i} digit={d} />
       ))}
-      {/* Если есть нечисловой суффикс (например '+'), отображаем его */}
-      {String(value).includes('+') && <span className="stat-suffix">+</span>}
+      {suffix && <span className="counter-suffix">{suffix}</span>}
     </div>
   );
 };

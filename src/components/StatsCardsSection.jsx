@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import Counter from './Counter';
+
 import './StatsCardsSection.css';
 
 const StatsCardsSection = () => {
@@ -191,7 +193,7 @@ const StatsCardsSection = () => {
                 viewport={{ once: true, amount: 0.15 }}
                 variants={valueVariants}
               >
-                {card.value}
+                <Counter value={card.value} />
               </motion.div>
             </>
           )}

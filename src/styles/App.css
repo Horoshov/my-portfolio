@@ -488,6 +488,12 @@
     display: flex;
     align-items: center;
     font-variant-numeric: tabular-nums;
+  .counter-prefix {
+    display: flex;
+    align-items: center;
+    font-variant-numeric: tabular-nums;
+  }
+
   }
 
   
