@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'; 
 import Home from './pages/Home'; 
 import NotFound from './pages/NotFound';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 const About = lazy(() => import('./pages/About'));
 const Projects = lazy(() => import('./pages/Projects'));
@@ -15,14 +16,23 @@ const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 
 import './styles/App.css';
 
+if (typeof window !== 'undefined') {
+  window.addEventListener('vite:preloadError', () => {
+    const hasReloaded = sessionStorage.getItem('vite_reload_on_preload_error');
+    if (!hasReloaded) {
+      sessionStorage.setItem('vite_reload_on_preload_error', 'true');
+      window.location.reload();
+    }
+  });
+}
+
 const AppContent = () => {
   const location = useLocation();
 
   // Логика автоматического скролла вверх при изменении пути (URL)
   useEffect(() => {
-    // window.scrollTo(0, 0) мгновенно переносит вьюпорт в начало страницы
     window.scrollTo(0, 0);
-  }, [location.pathname]); // Эффект срабатывает каждый раз, когда меняется pathname
+  }, [location.pathname]);
 
   return (
     <>
@@ -30,19 +40,21 @@ const AppContent = () => {
 
       {/* Main - semantic wrapper БЕЗ стилей контейнера */}
       <main className="main-content">
-        <Suspense fallback={<div style={{ minHeight: '80vh' }} />}>
-          <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/articles" element={<Articles />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/project/:id" element={<ProjectDetail />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AnimatePresence>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<div style={{ minHeight: '80vh' }} />}>
+            <AnimatePresence mode="wait">
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/articles" element={<Articles />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/project/:id" element={<ProjectDetail />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatePresence>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       <Footer />
