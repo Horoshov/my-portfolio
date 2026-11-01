@@ -24,7 +24,6 @@
   border: none !important;
   border-radius: 24px;
   padding: 32px 40px;
-  cursor: pointer;
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
@@ -34,10 +33,24 @@
   transform: translateY(-2px);
 }
 
-.questionWrapper {
+.questionButton {
+  background: transparent;
+  border: none;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.questionButton:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .question {
