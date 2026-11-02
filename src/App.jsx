@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 
 import Navbar from './components/Navbar'; 
@@ -47,6 +47,7 @@ const AppContent = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/work" element={<Projects />} />
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/project/:id" element={<ProjectDetail />} />

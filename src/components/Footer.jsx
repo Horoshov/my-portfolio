@@ -36,7 +36,7 @@ const Footer = () => {
         <div className={styles.footerMenuWrapper}>
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Nav</div>
-            <FooterLink to="/work" label="Work" styles={styles} />
+            <FooterLink to="/projects" label="Work" styles={styles} />
             <FooterLink to="/about" label="About" styles={styles} />
             <FooterLink to="/recognition" label="Recognition" styles={styles} />
             <FooterLink to="/contact" label="Contact" styles={styles} />
