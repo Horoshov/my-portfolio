@@ -448,9 +448,9 @@ export const allProjects = [
     sectionTitle: "Cashoff: Экосистема цифрового банкинга",
     sectionText: `<div class="project-case-content">
           <div class="case-meta-box">
-            <p><strong>👤 Роль:</strong> Product Designer / Mentor</p>
+            <p><strong>👤 Роль:</strong> Product Designer</p>
             <p><strong>📊 Сфера:</strong> Fintech / PFM</p>
-            <p><strong>🛠 Задачи:</strong> Редизайн, внедрение дизайн-системы, проектирование мобильных и web-интерфейсов, менторство</p>
+            <p><strong>🛠 Задачи:</strong> Редизайн, внедрение дизайн-системы, проектирование мобильных и web-интерфейсов</p>
           </div>
   
           <section class="case-section">
@@ -472,7 +472,7 @@ export const allProjects = [
                 <h4>🚀 Процессы</h4>
                 <ul>
                   <li><strong>Пилоты:</strong> Проекты для рынка РФ и международных площадок.</li>
-                  <li><strong>Менторство:</strong> Курирование работы джуниор-дизайнеров.</li>
+                  <li><strong>UX:</strong> Разработка пользовательских сценариев и интерактивных прототипов.</li>
                 </ul>
               </div>
             </div>
