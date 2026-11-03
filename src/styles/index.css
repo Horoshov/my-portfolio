@@ -149,6 +149,8 @@
     background-color: #131313 !important;
   }
 
-  html {
-    scrollbar-gutter: stable;
+  @media (max-width: 1024px) {
+    html {
+      scrollbar-gutter: stable;
+    }
   }
