@@ -14,6 +14,8 @@ const Projects = lazy(() => import('./pages/Projects'));
 const Articles = lazy(() => import('./pages/Articles'));
 const Contact = lazy(() => import('./pages/Contact'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const Terms = lazy(() => import('./pages/Terms'));
 
 import './styles/App.css';
 
@@ -62,6 +64,10 @@ const AppContent = () => {
                 <Route path="/articles" element={<Articles />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/project/:id" element={<ProjectDetail />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
+                <Route path="/terms-and-conditions" element={<Terms />} />
+                <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>

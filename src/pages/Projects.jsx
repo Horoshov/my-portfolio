@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
@@ -7,6 +7,10 @@ import ProjectsGrid from '../components/ProjectsGrid';
 import { allProjects } from '../data/projects';
 
 const Projects = () => {
+  useEffect(() => {
+    document.title = 'Кейсы — Horoshov';
+  }, []);
+
   return (
     <motion.div 
       className="projects-page"
@@ -15,7 +19,6 @@ const Projects = () => {
       exit={{ opacity: 0 }} 
       transition={{ duration: 0.5 }}
     >
-      <title>Кейсы — Horoshov</title>
       <PageContainer>
         <PageHeader title="Продуктовые кейсы" />
         

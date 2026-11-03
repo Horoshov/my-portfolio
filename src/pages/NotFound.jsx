@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import styles from './NotFound.module.css';
 
 const NotFound = () => {
+  useEffect(() => {
+    document.title = 'Страница не найдена — Horoshov';
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -12,7 +16,6 @@ const NotFound = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
-      <title>Страница не найдена — Horoshov</title>
       <PageContainer noPaddingTop>
         <div className={styles.wrapper}>
           <div className={styles.content}>

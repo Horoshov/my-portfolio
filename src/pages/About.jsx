@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
@@ -202,9 +202,12 @@ const About = () => {
     { company: 'Cashoff', position: 'UX/UI Designer', period: '2016-2018' }
   ];
 
+  useEffect(() => {
+    document.title = 'Компетенции — Horoshov';
+  }, []);
+
   return (
     <motion.div className="about-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-      <title>Компетенции — Horoshov</title>
       <PageContainer>
         <PageHeader title="Компетенции" />
         
