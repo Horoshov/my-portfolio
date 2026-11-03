@@ -1,7 +1,7 @@
 // App component entry point
 import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
-import { AnimatePresence, MotionConfig } from 'framer-motion';
+import { AnimatePresence, MotionConfig, LazyMotion, domAnimation } from 'framer-motion';
 
 import Navbar from './components/Navbar'; 
 import Footer from './components/Footer'; 
@@ -92,9 +92,11 @@ const AppContent = () => {
 function App() {
   return (
     <Router>
-      <MotionConfig reducedMotion="user">
-        <AppContent />
-      </MotionConfig>
+      <LazyMotion features={domAnimation}>
+        <MotionConfig reducedMotion="user">
+          <AppContent />
+        </MotionConfig>
+      </LazyMotion>
     </Router>
   );
 }

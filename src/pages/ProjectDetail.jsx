@@ -16,8 +16,27 @@ const ProjectDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    document.title = project ? `${project.title} — Horoshov` : 'Страница не найдена — Horoshov';
-  }, [project]);
+    const pageTitle = project ? `${project.title} — Horoshov` : 'Страница не найдена — Horoshov';
+    const plainDesc = project?.description ? project.description.replace(/<[^>]*>?/gm, '') : 'Портфолио UX/UI дизайнера и разработчика';
+    const pageUrl = window.location.href;
+    const pageImage = project?.image ? `https://horoshov.ru${project.image}` : 'https://horoshov.ru/favicon.svg';
+
+    document.title = pageTitle;
+
+    const updateMeta = (selector, attr, value) => {
+      let el = document.querySelector(selector);
+      if (el) {
+        el.setAttribute(attr, value);
+      }
+    };
+
+    updateMeta('meta[name="description"]', 'content', plainDesc);
+    updateMeta('meta[property="og:title"]', 'content', pageTitle);
+    updateMeta('meta[property="og:description"]', 'content', plainDesc);
+    updateMeta('meta[property="og:url"]', 'content', pageUrl);
+    updateMeta('meta[property="og:image"]', 'content', pageImage);
+    updateMeta('link[rel="canonical"]', 'href', pageUrl);
+  }, [project, id]);
 
   // Обработка случая когда проект не найден
   if (!project) {

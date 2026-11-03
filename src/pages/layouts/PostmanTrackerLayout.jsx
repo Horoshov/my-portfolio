@@ -1,10 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './PostmanTrackerLayout.module.css';
 import PageContainer from "../../components/PageContainer"; 
 import PageHeader from "../../components/PageHeader"; 
 
 import screensImg from '../../assets/Screens.webp'; 
+import screens800 from '../../assets/Screens-800.webp';
+import screens1200 from '../../assets/Screens-1200.webp';
+import screens1600 from '../../assets/Screens-1600.webp';
 import mindMapSvg from '../../assets/MindMap.svg';
 
 const workflowCards = [
@@ -19,13 +22,14 @@ const workflowCards = [
 const PostmanTrackerLayout = ({ project }) => {
   const heroRef = useRef(null);
   const horizontalRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
 
-  const yRange = useTransform(scrollY, [0, 800], [0, -120]);
-  const scaleRange = useTransform(scrollY, [0, 800], [1, 1.21]);
+  const yRange = useTransform(scrollY, [0, 800], [0, shouldReduceMotion ? 0 : -120]);
+  const scaleRange = useTransform(scrollY, [0, 800], [1, shouldReduceMotion ? 1 : 1.21]);
 
   const { scrollYProgress } = useScroll({ target: horizontalRef });
-  const x = useTransform(scrollYProgress, [0, 1], ["-9%", "-127%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["-9%", shouldReduceMotion ? "-9%" : "-127%"]);
 
   useEffect(() => {
     const header = document.querySelector('header');
@@ -62,11 +66,12 @@ const PostmanTrackerLayout = ({ project }) => {
           <motion.div style={{ y: yRange, scale: scaleRange }} className={styles.screensWrapper}>
             <img 
               src={screensImg} 
+              srcSet={`${screens800} 800w, ${screens1200} 1200w, ${screens1600} 1600w, ${screensImg} 2216w`}
+              sizes="(max-width: 768px) 100vw, (max-width: 1440px) 1200px, 1600px"
               alt="Экраны интерфейса мобильного приложения Postman Tracker" 
               className={styles.mainImage} 
               width="2216" 
               height="1329" 
-              sizes="(max-width: 768px) 100vw, 1350px"
               fetchPriority="high" 
               decoding="async" 
             />
@@ -124,7 +129,7 @@ const PostmanTrackerLayout = ({ project }) => {
             <PageHeader title="Минимально необходимый функционал" />
           </div>
           <div className={styles.mindMapContainer}>
-            <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapImg} loading="lazy" decoding="async" />
+            <img src={mindMapSvg} alt="Mind Map" className={styles.mindMapImg} width="1200" height="800" loading="lazy" decoding="async" />
           </div>
         </section>
       </PageContainer>
