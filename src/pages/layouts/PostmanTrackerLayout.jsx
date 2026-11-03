@@ -60,7 +60,16 @@ const PostmanTrackerLayout = ({ project }) => {
             </motion.h1>
           </div>
           <motion.div style={{ y: yRange, scale: scaleRange }} className={styles.screensWrapper}>
-            <img src={screensImg} alt="Screens" className={styles.mainImage} fetchPriority="high" decoding="async" />
+            <img 
+              src={screensImg} 
+              alt="Экраны интерфейса мобильного приложения Postman Tracker" 
+              className={styles.mainImage} 
+              width="2216" 
+              height="1329" 
+              sizes="(max-width: 768px) 100vw, 1350px"
+              fetchPriority="high" 
+              decoding="async" 
+            />
           </motion.div>
         </section>
       </PageContainer>
