@@ -16,10 +16,12 @@ const ProjectDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    const pageTitle = project ? `${project.title} — Horoshov` : 'Страница не найдена — Horoshov';
-    const plainDesc = project?.description ? project.description.replace(/<[^>]*>?/gm, '') : 'Портфолио UX/UI дизайнера и разработчика';
-    const pageUrl = window.location.href;
-    const pageImage = project?.image ? `https://horoshov.ru${project.image}` : 'https://horoshov.ru/favicon.svg';
+    if (!project) return;
+
+    const pageTitle = `${project.title} — Horoshov`;
+    const plainDesc = project.description ? project.description.replace(/<[^>]*>?/gm, '') : 'Портфолио UX/UI дизайнера и разработчика';
+    const pageUrl = `https://horoshov.ru/project/${id}`;
+    const pageImage = project.ogImage || project.image ? `https://horoshov.ru${project.ogImage || project.image}` : 'https://horoshov.ru/favicon.svg';
 
     document.title = pageTitle;
 
@@ -35,7 +37,39 @@ const ProjectDetail = () => {
     updateMeta('meta[property="og:description"]', 'content', plainDesc);
     updateMeta('meta[property="og:url"]', 'content', pageUrl);
     updateMeta('meta[property="og:image"]', 'content', pageImage);
+    updateMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
+    updateMeta('meta[name="twitter:title"]', 'content', pageTitle);
+    updateMeta('meta[name="twitter:description"]', 'content', plainDesc);
+    updateMeta('meta[name="twitter:image"]', 'content', pageImage);
     updateMeta('link[rel="canonical"]', 'href', pageUrl);
+
+    // JSON-LD CreativeWork Schema.org
+    let scriptEl = document.querySelector('#schema-creative-work');
+    if (!scriptEl) {
+      scriptEl = document.createElement('script');
+      scriptEl.id = 'schema-creative-work';
+      scriptEl.type = 'application/ld+json';
+      document.head.appendChild(scriptEl);
+    }
+    scriptEl.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": project.title,
+      "description": plainDesc,
+      "url": pageUrl,
+      "image": pageImage,
+      "author": {
+        "@type": "Person",
+        "name": "Alex Horoshov"
+      }
+    });
+
+    return () => {
+      const existingScript = document.querySelector('#schema-creative-work');
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
   }, [project, id]);
 
   // Обработка случая когда проект не найден
