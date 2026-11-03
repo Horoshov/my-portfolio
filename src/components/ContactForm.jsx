@@ -8,7 +8,8 @@ const ContactForm = () => {
     email: '',
     phone: '',
     message: '',
-    agree: false
+    agree: false,
+    botcheck: false
   });
 
   const handleChange = (e) => {
@@ -35,11 +36,15 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.botcheck) {
+      setStatus('success');
+      return;
+    }
     if (!formData.agree) {
       alert("Пожалуйста, согласитесь с политикой конфиденциальности");
       return;
     }
-    if (!isFormValid) return;
+    if (!isFormValid || status === 'sending') return;
     setStatus('sending');
 
     try {
@@ -50,19 +55,20 @@ const ContactForm = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "8f991255-a937-483b-a1b2-91729ad9a02d", // Замените на ваш реальный ключ с https://web3forms.com
+          access_key: "8f991255-a937-483b-a1b2-91729ad9a02d",
           subject: "Новое сообщение с сайта-портфолио (Horoshov)",
           name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           phone: formData.phone || 'Не указан',
           message: formData.message,
+          botcheck: formData.botcheck
         }),
       });
 
       const result = await response.json();
-      if (result.success) {
+      if (response.ok && result.success) {
         setStatus('success');
-        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', agree: false });
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', agree: false, botcheck: false });
         setTimeout(() => setStatus('idle'), 4000);
       } else {
         setStatus('error');
@@ -95,6 +101,17 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form" noValidate>
+      <input 
+        type="checkbox" 
+        name="botcheck" 
+        checked={formData.botcheck} 
+        onChange={handleChange} 
+        style={{ display: 'none' }} 
+        tabIndex={-1} 
+        autoComplete="off" 
+        aria-hidden="true" 
+      />
+
       <div className="form-grid">
         <input 
           type="text" 
@@ -216,6 +233,17 @@ const ContactForm = () => {
         </span>
         {status === 'idle' && <span style={{ fontSize: '20px', marginLeft: '12px' }}>→</span>}
       </button>
+
+      {status === 'error' && (
+        <p role="alert" style={{ color: '#ef4444', fontSize: '14px', textAlign: 'center', marginTop: '12px' }}>
+          Не удалось отправить сообщение. Пожалуйста, попробуйте ещё раз или свяжитесь с нами напрямую.
+        </p>
+      )}
+      {status === 'success' && (
+        <p role="status" style={{ color: 'var(--text-color)', fontSize: '14px', textAlign: 'center', marginTop: '12px' }}>
+          Сообщение успешно отправлено! Спасибо за обращение.
+        </p>
+      )}
     </form>
   );
 };
