@@ -51,7 +51,7 @@ const Footer = () => {
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Social</div>
             <FooterExternalLink href="http://t.me/thehoroshov" label="Telegram" styles={styles} />
-            <FooterExternalLink href="#" label="Dribbble" styles={styles} />
+            <FooterExternalLink href="https://dribbble.com/thehoroshov" label="Dribbble" styles={styles} />
             <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" styles={styles} />
             <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" styles={styles} />
           </div>
