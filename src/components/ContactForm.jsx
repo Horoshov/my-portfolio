@@ -35,7 +35,7 @@ const ContactForm = () => {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: "8f991255-a937-483b-a1b2-91729ad9a02dS", // Замените на ваш реальный ключ с https://web3forms.com
+          access_key: "8f991255-a937-483b-a1b2-91729ad9a02d", // Замените на ваш реальный ключ с https://web3forms.com
           subject: "Новое сообщение с сайта-портфолио (Horoshov)",
           name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
