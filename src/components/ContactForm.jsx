@@ -22,11 +22,39 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.agree) {
-      alert("Please agree to the Privacy Policy");
+      alert("Пожалуйста, согласитесь с политикой конфиденциальности");
       return;
     }
     setStatus('sending');
-    // ... логика отправки (без изменений)
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // Замените на ваш реальный ключ с https://web3forms.com
+          subject: "Новое сообщение с сайта-портфолио (Horoshov)",
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          phone: formData.phone || 'Не указан',
+          message: formData.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+        setFormData({ firstName: '', lastName: '', email: '', phone: '', message: '', agree: false });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setStatus('error');
+    }
   };
 
   const inputStyle = {
@@ -47,7 +75,6 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
-      {/* ПРИМЕНЯЕМ КЛАСС form-grid ВМЕСТО ИНЛАЙН СТИЛЯ */}
       <div className="form-grid">
         <input type="text" name="firstName" placeholder="First name" aria-label="First name" value={formData.firstName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
         <input type="text" name="lastName" placeholder="Last name" aria-label="Last name" value={formData.lastName} onChange={handleChange} required style={inputStyle} onFocus={handleFocus} onBlur={handleBlur} />
