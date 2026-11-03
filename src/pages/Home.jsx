@@ -102,12 +102,16 @@ const Home = () => {
         <section className="services-section">
           <PageHeader title="Технологии" />
           <div className="services-list">
-            {services.map((service) => (
-              <div 
+            {services.map((service, index) => (
+              <motion.div 
                 key={service.id} 
                 className="service-item" 
                 onMouseEnter={() => setHoveredService(service.id)} 
                 onMouseLeave={() => setHoveredService(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div className="service-row">
                   <span className="service-number">({service.id})</span>
@@ -138,7 +142,7 @@ const Home = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -147,7 +151,14 @@ const Home = () => {
           <PageHeader title="Решения" />
           <div className="work-steps-grid">
             {howIWorkSteps.map((step, index) => (
-              <div key={index} className="work-step-card">
+              <motion.div 
+                key={index} 
+                className="work-step-card"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
                 <div className="step-card-header">
                   <span className="step-badge">{step.category}</span>
                   <span className="step-duration">{step.duration}</span>
@@ -156,7 +167,7 @@ const Home = () => {
                   <h4 className="step-card-title">{step.title}</h4>
                   <p className="step-card-description">{step.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
