@@ -29,10 +29,20 @@ if (typeof window !== 'undefined') {
 
 const AppContent = () => {
   const location = useLocation();
+  const mainRef = React.useRef(null);
+  const isFirstLoad = React.useRef(true);
 
-  // Логика автоматического скролла вверх при изменении пути (URL)
+  // Логика автоматического скролла вверх при изменении пути (URL) и фокус на main
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (isFirstLoad.current) {
+      isFirstLoad.current = false;
+      return;
+    }
+    const timer = setTimeout(() => {
+      mainRef.current?.focus({ preventScroll: true });
+    }, 100);
+    return () => clearTimeout(timer);
   }, [location.pathname]);
 
   return (
@@ -40,7 +50,7 @@ const AppContent = () => {
       <Navbar />
 
       {/* Main - semantic wrapper БЕЗ стилей контейнера */}
-      <main className="main-content">
+      <main ref={mainRef} tabIndex={-1} className="main-content">
         <ErrorBoundary>
           <Suspense fallback={<div style={{ minHeight: '80vh' }} />}>
             <AnimatePresence mode="wait">
