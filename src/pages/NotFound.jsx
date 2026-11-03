@@ -12,6 +12,7 @@ const NotFound = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
+      <title>Страница не найдена — Horoshov</title>
       <PageContainer noPaddingTop>
         <div className={styles.wrapper}>
           <div className={styles.content}>

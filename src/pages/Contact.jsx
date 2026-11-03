@@ -13,6 +13,7 @@ const Contact = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
+      <title>Контакты — Horoshov</title>
       <PageContainer>
         <PageHeader title="Get In Touch" />
       </PageContainer>

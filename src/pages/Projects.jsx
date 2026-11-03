@@ -15,6 +15,7 @@ const Projects = () => {
       exit={{ opacity: 0 }} 
       transition={{ duration: 0.5 }}
     >
+      <title>Кейсы — Horoshov</title>
       <PageContainer>
         <PageHeader title="Продуктовые кейсы" />
         

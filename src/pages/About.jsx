@@ -204,6 +204,7 @@ const About = () => {
 
   return (
     <motion.div className="about-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <title>Компетенции — Horoshov</title>
       <PageContainer>
         <PageHeader title="Компетенции" />
         

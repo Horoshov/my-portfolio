@@ -19,6 +19,7 @@ const ProjectDetail = () => {
   if (!project) {
     return (
       <PageContainer>
+        <title>Страница не найдена — Horoshov</title>
         <div className="pd-not-found">
           <h1>Project not found</h1>
           <Link to="/projects" className="pd-back-link">
@@ -41,6 +42,7 @@ const ProjectDetail = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <title>{`${project.title} — Horoshov`}</title>
       {isPostman ? (
         // Для Postman используется полностью кастомный layout БЕЗ PageContainer
         <Suspense fallback={null}>
