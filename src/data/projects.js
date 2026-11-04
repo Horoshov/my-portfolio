@@ -530,38 +530,56 @@ export const allProjects = [
   {
     id: "111",
     title: 'PSB Bank',
-    cat: 'Fintech • 2021',
+    cat: 'Fintech • Mobile App • 2021',
     image: '/assets/projects/Psb.webp',
-    imageFooter: '/assets/projects/RusTelecom_footer.webp',
-    description: '<b>Интерфейсы аккредитованного удостоверяющего центра</b>',
-    descriptionSecondary: "Разработка сервисов для создания квалифицированных сертификатов электронной подписи (ЭЦП) и систем предоставления отчетности в контролирующие органы.",
-    timeline: '1 год 6 месяцев',
-    location: 'Россия',
-    linkDisplay: 'rustelecom.ru',
-    role: 'Дизайнер интерфейсов',
+    imageFooter: '/assets/projects/Psb_footer.webp',
+    description: '<b>Проектирование интерфейсов мобильного банкинга и платежных сценариев ПСБ</b>',
+    descriptionSecondary: "Разработка обновленных пользовательских сценариев для мобильного приложения Промсвязьбанка. Проект включал проектирование экранов переводов с карты на карту, интеграцию дизайн-системы, адаптацию платежных форм и создание бесшовного финтех-опыта с акцентом на скорость и безопасность ежедневных транзакций.",
+    timeline: '5 месяцев',
+    location: 'Москва, Россия',
+    linkDisplay: 'psbank.ru',
+    role: 'Senior Product Designer',
     details: [
-      { label: "Timeline", value: "1 год 6 месяцев" },
-      { label: "Location", value: "Россия" },
-      { label: "Role", value: "Дизайнер интерфейсов" },
-      { label: "Link", value: "rus-telecom.ru" }
+      { label: "Timeline", value: "5 месяцев" },
+      { label: "Location", value: "Москва, Россия" },
+      { label: "Role", value: "Senior Product Designer" },
+      { label: "Link", value: "psbank.ru" }
     ],
-    sectionTitle: "RusTelecom: Цифровое пространство ЭЦП",
+    sectionTitle: "PSB Bank: Мобильный банкинг и платежные сценарии",
     sectionText: `<div class="project-case-content">
         <div class="case-meta-box">
-          <p><strong>🗓 Период:</strong> 2015 — 2016</p>
-          <p><strong>🛠 Задачи:</strong> Редизайн, UX-исследования, проектирование форм</p>
+          <p><strong>👤 Роль:</strong> Senior Product Designer</p>
+          <p><strong>📱 Платформа:</strong> Mobile App (iOS / Android)</p>
+          <p><strong>💳 Сфера:</strong> Fintech / Mobile Banking</p>
         </div>
+  
         <section class="case-section">
-          <h3 class="case-subtitle">📋 Решаемые задачи</h3>
-          <ul>
-            <li>Работа с коммуникационными сайтами компании и аналитикой.</li>
-            <li>Разработка интерфейса сервиса для предоставления отчетности в контролирующие органы.</li>
-            <li>Проведение исследований и рекламная поддержка.</li>
-          </ul>
+          <h3 class="case-subtitle">🎯 Цели проекта</h3>
+          <p class="case-main-text">
+            Редизайн ключевых сценариев мобильного приложения ПСБ: оптимизация процесса переводов, улучшение визуального отображения цифровых и физических карт, а также снижение когнитивной нагрузки при проведении финансовых операций.
+          </p>
         </section>
+  
+        <section class="case-section">
+          <h3 class="case-subtitle">⚙️ Ключевые модули и UX</h3>
+          <div class="case-grid">
+            <div class="case-item">
+              <h4>💸 Платежи и переводы</h4>
+              <p>Проектирование интуитивных сценариев P2P-переводов, быстрого доступа к истории операций и шаблонам.</p>
+            </div>
+            <div class="case-item">
+              <h4>💳 Управление картами</h4>
+              <p>Интерфейсы для кастомизации карт, управления лимитами и просмотра реквизитов в один клик.</p>
+            </div>
+          </div>
+        </section>
+
         <section class="case-section highlight-box">
-          <h3 class="case-subtitle">🏆 Достижения</h3>
-          <p>Редизайн основного продукта, доработка сценариев и разработка новых форм данных. Создание новых коммуникационных ресурсов компании.</p>
+          <h3 class="case-subtitle">🏆 Результаты</h3>
+          <ul>
+            <li><strong>UX-оптимизация:</strong> Сокращение времени выполнения регулярных переводов.</li>
+            <li><strong>Дизайн-система:</strong> Унификация компонентов под стандарты бренда ПСБ.</li>
+          </ul>
         </section>
       </div>`
   }

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build && cp dist/index.html dist/404.html",
+    "build": "vite build && node scripts/postbuild.mjs && node scripts/check-build.mjs",
+    "check:build": "node scripts/check-build.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run"
