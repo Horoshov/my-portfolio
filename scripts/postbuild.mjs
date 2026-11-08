@@ -21,7 +21,7 @@ function cleanDescription(html) {
 
 function updateHtmlTags(html, { title, description, canonical, ogImage }) {
   let output = html;
-  const imageToUse = ogImage ? (ogImage.startsWith('http') ? ogImage : `https://horoshov.ru${ogImage}`) : 'https://horoshov.ru/assets/projects/Horoshov.webp';
+  const imageToUse = ogImage ? (ogImage.startsWith('http') ? ogImage : `https://horoshov.ru${ogImage}`) : 'https://horoshov.ru/alex-profile.jpg';
 
   if (output.includes('<title>')) {
     output = output.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
