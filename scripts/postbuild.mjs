@@ -21,6 +21,7 @@ function cleanDescription(html) {
 
 function updateHtmlTags(html, { title, description, canonical, ogImage }) {
   let output = html;
+  const imageToUse = ogImage ? (ogImage.startsWith('http') ? ogImage : `https://horoshov.ru${ogImage}`) : 'https://horoshov.ru/assets/projects/Horoshov.webp';
 
   if (output.includes('<title>')) {
     output = output.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`);
@@ -58,6 +59,12 @@ function updateHtmlTags(html, { title, description, canonical, ogImage }) {
     output = output.replace('</head>', `  <meta property="og:url" content="${canonical}" />\n  </head>`);
   }
 
+  if (output.includes('property="og:image"')) {
+    output = output.replace(/<meta property="og:image" content="[^"]*"[^>]*>/, `<meta property="og:image" content="${imageToUse}" />`);
+  } else {
+    output = output.replace('</head>', `  <meta property="og:image" content="${imageToUse}" />\n  </head>`);
+  }
+
   if (output.includes('name="twitter:title"')) {
     output = output.replace(/<meta name="twitter:title" content="[^"]*"[^>]*>/, `<meta name="twitter:title" content="${title}" />`);
   } else {
@@ -68,6 +75,18 @@ function updateHtmlTags(html, { title, description, canonical, ogImage }) {
     output = output.replace(/<meta name="twitter:description" content="[^"]*"[^>]*>/, `<meta name="twitter:description" content="${description}" />`);
   } else {
     output = output.replace('</head>', `  <meta name="twitter:description" content="${description}" />\n  </head>`);
+  }
+
+  if (output.includes('name="twitter:image"')) {
+    output = output.replace(/<meta name="twitter:image" content="[^"]*"[^>]*>/, `<meta name="twitter:image" content="${imageToUse}" />`);
+  } else {
+    output = output.replace('</head>', `  <meta name="twitter:image" content="${imageToUse}" />\n  </head>`);
+  }
+
+  if (output.includes('name="twitter:card"')) {
+    output = output.replace(/<meta name="twitter:card" content="[^"]*"[^>]*>/, `<meta name="twitter:card" content="summary_large_image" />`);
+  } else {
+    output = output.replace('</head>', `  <meta name="twitter:card" content="summary_large_image" />\n  </head>`);
   }
 
   return output;
