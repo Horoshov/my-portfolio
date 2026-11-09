@@ -109,7 +109,7 @@
 
   .home-text-block-right {
     width: 100%;
-    max-width: 760px;
+    max-width: 620px;
     margin-left: auto;
     display: flex;
     flex-direction: column;
@@ -125,7 +125,7 @@
     margin: 0;
     text-align: left;
     width: 100%;
-    max-width: 720px;
+    max-width: 620px;
   }
 
   @media (max-width: 768px) {
