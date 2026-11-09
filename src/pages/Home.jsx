@@ -86,6 +86,37 @@ const Home = () => {
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
     >
+      <section className="home-hero-section">
+        <div className="home-hero-container">
+          <motion.h1 
+            className="home-hero-title"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            Исследования, дизайн<br />
+            и разработка без агентских нагрузок
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="home-text-block-section">
+        <div className="home-text-block-container">
+          <div className="home-text-block-grid">
+            <div className="home-text-block-left">
+              <div className="home-text-with-dot">
+                <p>Мы готовы на любые эксперименты ради крутого результата. От исследований и разработки до брендинга и поддержки готового продукта.</p>
+              </div>
+            </div>
+            <div className="home-text-block-right">
+              <h2 className="home-text-block-heading">
+                Полный цикл создания цифровых продуктов с уникальной экспертизой
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <StatsCardsSection />
 
       <PageContainer noPaddingTop>

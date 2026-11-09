@@ -24,6 +24,118 @@
   }
 
   /* =========================================
+     HOME HERO SECTION
+     ========================================= */
+  .home-hero-section {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 var(--container-padding) 70px var(--container-padding);
+    background-color: var(--bg-color);
+  }
+
+  .home-hero-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+
+  .home-hero-title {
+    font-size: clamp(36px, 5.2vw, 72px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  .hero-red-dot {
+    color: #ff3b30;
+  }
+
+  @media (max-width: 992px) {
+    .home-hero-section {
+      height: 100vh;
+      height: 100dvh;
+      padding: 0 var(--container-padding) 60px var(--container-padding);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home-hero-section {
+      height: 100vh;
+      height: 100dvh;
+      padding: 0 var(--container-padding) 45px var(--container-padding);
+    }
+  }
+
+  /* =========================================
+     HOME TEXT BLOCK SECTION (2 paragraphs)
+     ========================================= */
+  .home-text-block-section {
+    width: 100%;
+    padding: 100px var(--container-padding);
+    background-color: var(--bg-color);
+  }
+
+  .home-text-block-container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+
+  .home-text-block-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    align-items: flex-start;
+  }
+
+  .home-text-block-left {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .home-text-with-dot {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--gray-text);
+  }
+
+  .home-text-block-right {
+    width: 100%;
+  }
+
+  .home-text-block-heading {
+    font-size: clamp(32px, 4.5vw, 64px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text-color);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .home-text-block-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    .home-text-block-section {
+      padding: 60px var(--container-padding);
+    }
+    .home-text-block-left {
+      max-width: 100%;
+    }
+    .home-text-with-dot {
+      font-size: 16px;
+    }
+  }
+
+
+  /* =========================================
      7. SECTION HEADER
      ========================================= */
      .section-header-grid {
@@ -327,7 +439,7 @@
   .work-steps-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 16px;
     width: 100%;
   }
   
@@ -795,7 +907,7 @@
     .career-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
+      gap: 16px;
       width: 100%;
     }
   
