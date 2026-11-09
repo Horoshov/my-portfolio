@@ -619,14 +619,12 @@
   }
   
   .rolling-counter {
-    display: flex;
+    display: inline-flex;
     overflow: hidden;
     height: 1em;
+    align-items: baseline;
   }
-  .counter-suffix {
-    display: flex;
-    align-items: center;
-    font-variant-numeric: tabular-nums;
+
   .stats-card-value .rolling-counter {
     display: inline-flex;
     height: 1em;
@@ -634,27 +632,25 @@
     align-items: baseline;
   }
 
-  .counter-prefix {
+  .counter-prefix,
+  .counter-suffix {
     display: flex;
     align-items: center;
     font-variant-numeric: tabular-nums;
   }
 
-  }
-
-  
   .digit-column-wrapper {
     position: relative;
     height: 1em;
-    width: 40px;
+    width: 0.6em;
     overflow: hidden;
   }
-  
+
   .digit-column {
     display: flex;
     flex-direction: column;
   }
-  
+
   .digit-number {
     height: 1em;
     display: flex;
