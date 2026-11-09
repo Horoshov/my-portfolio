@@ -105,7 +105,7 @@ const Home = () => {
           <div className="home-text-block-grid">
             <div className="home-text-block-left">
               <div className="home-text-with-dot">
-                <p>Мы готовы на любые эксперименты ради крутого результата. От исследований и разработки до брендинга и поддержки готового продукта.</p>
+                <p>Готовность к любым экспериментам ради крутого результата. От исследований и разработки до брендинга и поддержки готового продукта.</p>
               </div>
             </div>
             <div className="home-text-block-right">
