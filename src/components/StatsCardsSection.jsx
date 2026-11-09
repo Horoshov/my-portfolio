@@ -193,7 +193,11 @@ const StatsCardsSection = () => {
                 viewport={{ once: true, amount: 0.15 }}
                 variants={valueVariants}
               >
-                <Counter value={card.value} />
+                {/[0-9]/.test(String(card.value)) ? (
+                  <Counter value={card.value} />
+                ) : (
+                  card.value
+                )}
               </motion.div>
             </>
           )}
