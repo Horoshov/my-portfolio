@@ -12,31 +12,31 @@ const services = [
   { 
     id: '01', 
     title: 'Data-Driven UX & Analytics', 
-    img: null, 
+    img: '/assets/projects/Postman.webp', 
     tags: ['Analytics', 'CJM', 'User Testing', 'JTBD'] 
   },
   { 
     id: '02', 
     title: 'Complex Interfaces', 
-    img: null, 
+    img: '/assets/projects/Polymatica.webp', 
     tags: ['FinTech', 'BI Systems', 'Dashboard', 'SaaS'] 
   },
   { 
     id: '03', 
     title: 'Scalable Design Systems', 
-    img: null, 
+    img: '/assets/projects/Horoshov.webp', 
     tags: ['Components', 'Design Tokens', 'Documentation'] 
   },
   { 
     id: '04', 
     title: ' Frontend Focus (Engineering)', 
-    img: null, 
+    img: '/assets/projects/MVideo.webp', 
     tags: ['Frontend-friendly', 'Technical Audit', 'Analytics'] 
   },
   { 
     id: '05', 
     title: 'End-to-End Product Design', 
-    img: null, 
+    img: '/assets/projects/Domilend.webp', 
     tags: ['Visual Language', 'Web', 'iOS / Android'] 
   }
 ];
