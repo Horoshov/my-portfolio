@@ -1,14 +1,39 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Digit = ({ digit }) => {
-  // Определяем варианты анимации
+const getCharList = (targetChar) => {
+  if (/[0-9]/.test(targetChar)) {
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  }
+  if (/[a-z]/.test(targetChar)) {
+    return ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', targetChar];
+  }
+  if (/[A-Z]/.test(targetChar)) {
+    return ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', targetChar];
+  }
+  if (/[А-ЯЁ]/.test(targetChar)) {
+    return ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', targetChar];
+  }
+  if (/[а-яё]/.test(targetChar)) {
+    return ['а', 'б', 'в', 'г', 'д', 'е', 'ж', 'з', 'и', targetChar];
+  }
+  return ['$', '€', '£', '¥', '+', '-', '%', '—', '#', targetChar];
+};
+
+const CharColumn = ({ char }) => {
+  if (char === ' ') {
+    return <span style={{ display: 'inline-block', width: '0.3em' }}>&nbsp;</span>;
+  }
+
+  const list = getCharList(char);
+  const targetIndex = list.length - 1;
+
   const variants = {
     hidden: { y: 0 },
     visible: { 
-      y: `-${digit * 10}%`,
+      y: `-${targetIndex * 10}%`,
       transition: { 
-        duration: 1.5, // Используем tween вместо spring для предсказуемости
+        duration: 1.5, 
         ease: "easeOut"
       }
     }
@@ -23,8 +48,8 @@ const Digit = ({ digit }) => {
         viewport={{ once: true, amount: 0.05 }}
         variants={variants}
       >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-          <div key={n} className="digit-number">{n}</div>
+        {list.map((item, n) => (
+          <div key={n} className="digit-number">{item}</div>
         ))}
       </motion.div>
     </div>
@@ -32,26 +57,13 @@ const Digit = ({ digit }) => {
 };
 
 const Counter = ({ value }) => {
-  // Извлекаем префикс (например, "х")
-  const prefixMatch = String(value).match(/^[^0-9]+/);
-  const prefix = prefixMatch ? prefixMatch[0] : '';
-  
-  // Извлекаем числовую часть
-  const numericValue = String(value).replace(/[^0-9]/g, '');
-  
-  // Извлекаем суффикс (например, "%", "+", "$")
-  const suffixMatch = String(value).match(/[^0-9]+$/);
-  const suffix = suffixMatch ? suffixMatch[0] : '';
-
-  const digits = Array.from(numericValue, Number);
+  const chars = String(value).split('');
 
   return (
     <div className="rolling-counter">
-      {prefix && <span className="counter-prefix">{prefix}</span>}
-      {digits.map((d, i) => (
-        <Digit key={i} digit={d} />
+      {chars.map((ch, i) => (
+        <CharColumn key={i} char={ch} />
       ))}
-      {suffix && <span className="counter-suffix">{suffix}</span>}
     </div>
   );
 };
