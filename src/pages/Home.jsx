@@ -145,7 +145,6 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
                 <div className="service-row">
-                  <span className="service-number">({service.id})</span>
                   <h3 className="service-title">{service.title}</h3>
                   <motion.div 
                     className="service-details" 
