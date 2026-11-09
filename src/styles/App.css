@@ -646,7 +646,7 @@
   .digit-column-wrapper {
     position: relative;
     height: 1em;
-    width: 0.56em;
+    width: 40px;
     overflow: hidden;
   }
   
