@@ -25,8 +25,8 @@ const Projects = () => {
         <section className="projects-content">
           <ProjectsGrid>
             <AnimatePresence>
-              {allProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {allProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
               ))}
             </AnimatePresence>
           </ProjectsGrid>

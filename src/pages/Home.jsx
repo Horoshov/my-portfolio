@@ -124,8 +124,8 @@ const Home = () => {
 
         <section className="projects-section">
           <ProjectsGrid>
-            {featuredProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
+            {featuredProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </ProjectsGrid>
         </section>

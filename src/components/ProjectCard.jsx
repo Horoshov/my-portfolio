@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './ProjectCard.css';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index = 0 }) => {
   if (!project) return null;
 
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }} 
-      whileInView={{ opacity: 1, y: 0 }} 
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
     >
       <Link to={`/project/${project.id}`} className="pc-card">
         <div className="pc-img-box">
