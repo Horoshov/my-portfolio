@@ -86,7 +86,7 @@ const ContactForm = () => {
     border: '1px solid rgba(122, 122, 122, 0.2)',
     backgroundColor: 'transparent',
     color: 'var(--text-color)',
-    fontSize: '14px',
+    fontSize: '16px',
     outline: 'none',
     transition: 'all 0.3s ease',
     fontFamily: 'var(--font-main)',
