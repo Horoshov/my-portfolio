@@ -54,9 +54,8 @@ const AppContent = () => {
       {/* Main - semantic wrapper БЕЗ стилей контейнера */}
       <main ref={mainRef} tabIndex={-1} className="main-content">
         <ErrorBoundary>
-          <Suspense fallback={<div style={{ minHeight: '80vh' }} />}>
-            <AnimatePresence mode="wait">
-              <Routes location={location} key={location.pathname}>
+          <Suspense fallback={<div style={{ minHeight: '80vh', backgroundColor: 'var(--bg-color)' }} />}>
+            <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/projects" element={<Projects />} />
@@ -69,8 +68,7 @@ const AppContent = () => {
                 <Route path="/terms-and-conditions" element={<Terms />} />
                 <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
                 <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatePresence>
+            </Routes>
           </Suspense>
         </ErrorBoundary>
       </main>
