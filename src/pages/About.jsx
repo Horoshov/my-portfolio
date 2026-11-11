@@ -97,6 +97,18 @@ const SkillItem = ({ skill }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   
+  const numericLevel = parseInt(skill.level, 10);
+  let effectiveLeft = skill.level;
+  let effectiveTransform = 'translate(-130%, 0)';
+
+  if (numericLevel >= 90) {
+    effectiveLeft = '84%';
+    effectiveTransform = 'translate(-50%, 0)';
+  } else if (numericLevel >= 85) {
+    effectiveLeft = '82%';
+    effectiveTransform = 'translate(-50%, 0)';
+  }
+
   return (
     <div className="skill-item" ref={ref}>
       <div className="skill-icon-box">{SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}</div>
@@ -116,10 +128,10 @@ const SkillItem = ({ skill }) => {
             <motion.div 
               className="skill-progress-pin"
               style={{ 
-                left: skill.level,
+                left: effectiveLeft,
                 position: 'absolute',
                 top: '-12px', 
-                transform: 'translate(-130%, 0)',
+                transform: effectiveTransform,
                 background: '#fff',
                 color: '#000',
                 padding: '5px 14px',
