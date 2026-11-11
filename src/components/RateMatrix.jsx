@@ -31,7 +31,7 @@ const rates = [
 
 const RateMatrix = () => {
   return (
-    <div className="rate-matrix-wrapper">
+    <div id="rates" className="rate-matrix-wrapper" style={{ scrollMarginTop: '140px' }}>
       <h3 className="rate-matrix-heading">Форматы сотрудничества и тарифы</h3>
       <div className="rate-matrix-grid">
         {rates.map((item, index) => (

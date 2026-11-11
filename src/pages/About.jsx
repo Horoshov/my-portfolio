@@ -6,6 +6,7 @@ import StatList from '../components/StatList';
 import Button from '../components/Button';
 import ServiceBlock from '../components/ServiceBlock';
 import RateMatrix from '../components/RateMatrix';
+import CompetenciesNav from '../components/CompetenciesNav';
 import alexProfile from '../assets/alex-profile.jpg';
 
 const SKILL_ICONS = {
@@ -218,6 +219,7 @@ const About = () => {
 
   const serviceBlocksData = [
     {
+      id: 'research',
       number: '01',
       title: 'Исследование продукта и UX-аналитика',
       description: 'Глубокое погружение в бизнес-цели и поведение пользователей до написания первой строки кода.',
@@ -231,6 +233,7 @@ const About = () => {
       ]
     },
     {
+      id: 'design',
       number: '02',
       title: 'Продуктовый дизайн и интерфейсы',
       description: 'Проектирование сложных цифровых экосистем, адаптивных веб-сервисов и мобильных приложений, где эстетика подчинена логике бизнеса.',
@@ -245,6 +248,7 @@ const About = () => {
       ]
     },
     {
+      id: 'engineering',
       number: '03',
       title: 'Фронтенд-разработка полного цикла',
       description: 'Превращение выверенных макетов в чистый, масштабируемый и производительный код с вниманием к деталям.',
@@ -261,6 +265,7 @@ const About = () => {
       ]
     },
     {
+      id: 'support',
       number: '04',
       title: 'Сопровождение и эволюция продукта',
       description: 'Итеративное улучшение сервиса после релиза, рефакторинг легаси и аудит безопасности.',
@@ -274,9 +279,49 @@ const About = () => {
     }
   ];
 
+  const [activeId, setActiveId] = useState('research');
+
   useEffect(() => {
     document.title = 'Компетенции — Horoshov';
+
+    const sectionIds = ['research', 'design', 'engineering', 'support', 'rates'];
+    const observers = [];
+
+    const handleIntersect = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    };
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0
+    };
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) {
+        const observer = new IntersectionObserver(handleIntersect, observerOptions);
+        observer.observe(el);
+        observers.push(observer);
+      }
+    });
+
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
   }, []);
+
+  const handleNavClick = (id) => {
+    setActiveId(id);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   return (
     <motion.div className="about-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -287,12 +332,16 @@ const About = () => {
               title="Компетенции" 
               subtitle={<>Комплексная экспертиза от пользовательских исследований<br /> до готового масштабируемого фронтенда.</>} 
             />
+            <div style={{ marginTop: '32px' }}>
+              <CompetenciesNav activeId={activeId} onNavClick={handleNavClick} />
+            </div>
           </div>
           <div className="competencies-scroll-col">
             <div className="services-blocks-list">
               {serviceBlocksData.map((block) => (
                 <ServiceBlock 
                   key={block.number}
+                  id={block.id}
                   number={block.number}
                   title={block.title}
                   description={block.description}
