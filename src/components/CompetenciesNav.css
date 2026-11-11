@@ -1,13 +1,13 @@
 .competencies-nav {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  background: rgba(122, 122, 122, 0.04);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-xl);
-  padding: 24px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  gap: 8px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .competencies-nav-item {

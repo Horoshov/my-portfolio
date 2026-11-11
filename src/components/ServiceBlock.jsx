@@ -15,7 +15,6 @@ const ServiceBlock = ({ id, number, title, description, bubbles }) => {
       style={{ scrollMarginTop: '140px' }}
     >
       <div className="service-block-header">
-        <span className="service-block-number">({number})</span>
         <h3 className="service-block-title">{title}</h3>
       </div>
       <p className="service-block-description">{description}</p>
