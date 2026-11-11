@@ -8,9 +8,10 @@ const ProjectCard = ({ project, index = 0 }) => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 20 }} 
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
+      initial={{ opacity: 0, y: 25 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, delay: (index % 2) * 0.1 }}
     >
       <Link to={`/project/${project.id}`} className="pc-card">
         <div className="pc-img-box">
