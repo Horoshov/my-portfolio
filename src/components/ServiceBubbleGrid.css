@@ -1,0 +1,12 @@
+.service-bubble-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .service-bubble-grid {
+    gap: 10px;
+  }
+}

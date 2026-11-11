@@ -4,6 +4,8 @@ import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatList from '../components/StatList';
 import Button from '../components/Button';
+import ServiceBlock from '../components/ServiceBlock';
+import RateMatrix from '../components/RateMatrix';
 import alexProfile from '../assets/alex-profile.jpg';
 
 const SKILL_ICONS = {
@@ -214,6 +216,64 @@ const About = () => {
     { company: 'Cashoff', position: 'UX/UI Designer', period: '2016-2018' }
   ];
 
+  const serviceBlocksData = [
+    {
+      number: '01',
+      title: 'Исследование продукта и UX-аналитика',
+      description: 'Глубокое погружение в бизнес-цели и поведение пользователей до написания первой строки кода.',
+      bubbles: [
+        'Продуктовая аналитика',
+        'CJM (Карта пути клиента)',
+        'Тестирование концепций',
+        'Глубинные интервью',
+        'Аудит текущих интерфейсов',
+        'Анализ конкурентов'
+      ]
+    },
+    {
+      number: '02',
+      title: 'Продуктовый дизайн и интерфейсы',
+      description: 'Проектирование сложных цифровых экосистем, адаптивных веб-сервисов и мобильных приложений, где эстетика подчинена логике бизнеса.',
+      bubbles: [
+        'UI/UX архитектура',
+        'Сложные веб-интерфейсы',
+        'Мобильные приложения (iOS/Android)',
+        'Дизайн-системы в Figma',
+        'Токены и переменные',
+        'Прототипирование',
+        'Микро-взаимодействия'
+      ]
+    },
+    {
+      number: '03',
+      title: 'Фронтенд-разработка полного цикла',
+      description: 'Превращение выверенных макетов в чистый, масштабируемый и производительный код с вниманием к деталям.',
+      bubbles: [
+        'React',
+        'React Native',
+        'TypeScript',
+        'Vite',
+        'Framer Motion',
+        'Tailwind CSS',
+        'HTML5 / Semantic SVG',
+        'CI/CD & GitHub Actions',
+        'Оптимизация LCP/CLS'
+      ]
+    },
+    {
+      number: '04',
+      title: 'Сопровождение и эволюция продукта',
+      description: 'Итеративное улучшение сервиса после релиза, рефакторинг легаси и аудит безопасности.',
+      bubbles: [
+        'Мониторинг производительности',
+        'Рефакторинг кода',
+        'Масштабирование архитектуры',
+        'Дизайн-поддержка',
+        'Консультации по процессам'
+      ]
+    }
+  ];
+
   useEffect(() => {
     document.title = 'Компетенции — Horoshov';
   }, []);
@@ -247,6 +307,28 @@ const About = () => {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="services-bubbles-section" style={{ marginTop: '100px', marginBottom: '100px' }}>
+          <div style={{ marginBottom: '50px' }}>
+            <PageHeader 
+              title="Услуги и направления" 
+              subtitle={<>Комплексная экспертиза от пользовательских исследований<br /> до готового масштабируемого фронтенда.</>} 
+            />
+          </div>
+          <div className="services-blocks-list">
+            {serviceBlocksData.map((block) => (
+              <ServiceBlock 
+                key={block.number}
+                number={block.number}
+                title={block.title}
+                description={block.description}
+                bubbles={block.bubbles}
+              />
+            ))}
+          </div>
+
+          <RateMatrix />
         </section>
 
         <section className="skills-section">

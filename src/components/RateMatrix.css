@@ -1,0 +1,85 @@
+.rate-matrix-wrapper {
+  margin-top: 120px;
+  width: 100%;
+}
+
+.rate-matrix-heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+  margin-bottom: 50px;
+}
+
+.rate-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.rate-card {
+  background: rgba(122, 122, 122, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  transition: all 0.4s ease;
+}
+
+.rate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  border-color: rgba(122, 122, 122, 0.4);
+}
+
+.rate-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.rate-format {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.rate-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.rate-desc {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gray-text);
+  margin: 0;
+}
+
+.rate-footer {
+  font-size: 14px;
+  color: var(--gray-text);
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .rate-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .rate-matrix-wrapper {
+    margin-top: 80px;
+  }
+  .rate-card {
+    padding: 30px;
+  }
+}
