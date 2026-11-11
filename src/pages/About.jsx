@@ -281,57 +281,31 @@ const About = () => {
   return (
     <motion.div className="about-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <PageContainer>
-        <PageHeader title="Компетенции" />
-        
-        <section className="about-intro-section">
-          <div className="about-intro-grid">
-            <div className="about-image-wrapper">
-              <img src={alexProfile} alt="Alex Horoshov" className="about-main-image" decoding="async" />
-            </div>
-            <div className="about-text-content">
-              <div className="about-description">
-                <p className="description-lead">
-                Привет, я Алексей.<br />
-                Проектирую интерфейсы с фокусом на результат, переводя идеи в продукты сочетающие технологии и осмысленный, бесшовный пользовательский опыт. <br />
-                10 лет в продуктовой разработке (FinTech, PropTech, BI, Retail, E-Commerce, CPQ). Исследую, упрощаю сценарии, проверяю гипотизы, и строю дизайн-системы которые работают.
-                </p>
-                <p className="description-body">
-                <b>Product:</b> Решаем задачи бизнеса от MVP до масштабирования, опираясь на метрики и Data.
-                </p>
-                <p className="description-body">
-                <b>Tech:</b> Учитываем технологический стек, ограничения, ресурсы.
-                </p>
-                <p className="description-body">
-                <b>UI/UX:</b> Проживаем пользовательский опыт, создавая интуитивные и технически реализуемые дизайн-решения
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="services-bubbles-section" style={{ marginTop: '100px', marginBottom: '100px' }}>
-          <div style={{ marginBottom: '50px' }}>
+        <section className="competencies-layout">
+          <div className="competencies-sticky-col">
             <PageHeader 
-              title="Услуги и направления" 
+              title="Компетенции" 
               subtitle={<>Комплексная экспертиза от пользовательских исследований<br /> до готового масштабируемого фронтенда.</>} 
             />
           </div>
-          <div className="services-blocks-list">
-            {serviceBlocksData.map((block) => (
-              <ServiceBlock 
-                key={block.number}
-                number={block.number}
-                title={block.title}
-                description={block.description}
-                bubbles={block.bubbles}
-              />
-            ))}
-          </div>
+          <div className="competencies-scroll-col">
+            <div className="services-blocks-list">
+              {serviceBlocksData.map((block) => (
+                <ServiceBlock 
+                  key={block.number}
+                  number={block.number}
+                  title={block.title}
+                  description={block.description}
+                  bubbles={block.bubbles}
+                />
+              ))}
+            </div>
 
-          <RateMatrix />
+            <RateMatrix />
+          </div>
         </section>
 
-        <section className="skills-section">
+        <section className="skills-section" style={{ marginTop: '140px' }}>
           <div className="about-intro-grid"> 
             {/* Добавлен scrollMarginTop чтобы при скролле был отступ от навбара */}
             <div ref={skillsHeaderRef} style={{ scrollMarginTop: '100px' }}>
@@ -377,7 +351,7 @@ const About = () => {
           )}
         </section>
 
-        <section className="career-journey-section">
+        <section className="career-journey-section" style={{ marginTop: '140px' }}>
           <div className="career-section-header">
             <PageHeader title="Career Journey" subtitle="A progression of experiences, growth, and milestones." />
           </div>
@@ -391,6 +365,33 @@ const About = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Контент с фотографией и описанием перенесен в самый низ страницы */}
+        <section className="about-intro-section" style={{ marginTop: '140px' }}>
+          <div className="about-intro-grid">
+            <div className="about-image-wrapper">
+              <img src={alexProfile} alt="Alex Horoshov" className="about-main-image" decoding="async" />
+            </div>
+            <div className="about-text-content">
+              <div className="about-description">
+                <p className="description-lead">
+                Привет, я Алексей.<br />
+                Проектирую интерфейсы с фокусом на результат, переводя идеи в продукты сочетающие технологии и осмысленный, бесшовный пользовательский опыт. <br />
+                10 лет в продуктовой разработке (FinTech, PropTech, BI, Retail, E-Commerce, CPQ). Исследую, упрощаю сценарии, проверяю гипотизы, и строю дизайн-системы которые работают.
+                </p>
+                <p className="description-body">
+                <b>Product:</b> Решаем задачи бизнеса от MVP до масштабирования, опираясь на метрики и Data.
+                </p>
+                <p className="description-body">
+                <b>Tech:</b> Учитываем технологический стек, ограничения, ресурсы.
+                </p>
+                <p className="description-body">
+                <b>UI/UX:</b> Проживаем пользовательский опыт, создавая интуитивные и технически реализуемые дизайн-решения
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
