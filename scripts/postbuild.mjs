@@ -19,6 +19,13 @@ function cleanDescription(html) {
   return text.length > 160 ? text.slice(0, 157) + '...' : text;
 }
 
+// Утилита для гарантированного добавления закрывающего слэша (кроме файлов с расширениями вроде 404.html)
+function ensureSlash(url) {
+  if (!url) return url;
+  if (url.endsWith('/') || url.includes('.')) return url;
+  return `${url}/`;
+}
+
 function updateHtmlTags(html, { title, description, canonical, ogImage }) {
   let output = html;
   const imageToUse = ogImage ? (ogImage.startsWith('http') ? ogImage : `https://horoshov.ru${ogImage}`) : 'https://horoshov.ru/alex-profile.jpg';
@@ -103,10 +110,12 @@ for (const [routePath, meta] of Object.entries(routesMeta)) {
     fs.mkdirSync(targetDir, { recursive: true });
   }
 
+  const canonical = ensureSlash(meta.canonical);
+
   const updatedHtml = updateHtmlTags(template, {
     title: meta.title,
     description: meta.description,
-    canonical: meta.canonical,
+    canonical,
   });
 
   const outPath = cleanPath ? path.join(targetDir, 'index.html') : indexPath;
@@ -114,7 +123,7 @@ for (const [routePath, meta] of Object.entries(routesMeta)) {
   generatedRoutes.add(routePath);
 
   if (!['/privacy', '/terms', '/work'].includes(routePath)) {
-    sitemapUrls.push(meta.canonical);
+    sitemapUrls.push(canonical);
   }
 }
 
@@ -128,7 +137,7 @@ for (const project of allProjects) {
 
   const title = `${project.title} — Horoshov`;
   const description = cleanDescription(project.description);
-  const canonical = `https://horoshov.ru/project/${project.id}`;
+  const canonical = ensureSlash(`https://horoshov.ru/project/${project.id}`);
   const ogImage = project.ogImage || project.image;
 
   let updatedHtml = updateHtmlTags(template, {
@@ -180,4 +189,3 @@ ${sitemapUrls.map(loc => `  <url>
 fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXml, 'utf-8');
 
 console.log(`Postbuild completed successfully. Generated ${generatedRoutes.size} static routes and sitemap.xml.`);
-
