@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ServiceBubbleGrid from './ServiceBubbleGrid';
 import './ServiceBlock.css';
 
-const ServiceBlock = ({ id, number, title, description, bubbles }) => {
+const ServiceBlock = ({ id, title, description, bubbles }) => {
   return (
     <motion.div 
       id={id}
