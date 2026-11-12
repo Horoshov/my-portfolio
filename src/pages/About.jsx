@@ -343,8 +343,8 @@ const About = () => {
                 <img src={alexProfile} alt="Alex Horoshov" className="sidebar-profile-avatar" />
               </div>
               <p className="sidebar-profile-text">
-                Алексей,<br/>
-                Продуктовый дизайн и разработка.
+                <b>Алексей,</b><br/>
+                Проектирую цифровые продукты с фокусом на результат: объединяю современные технологии и осмысленный, бесшовный пользовательский опыт.
               </p>
             </div>
           </div>

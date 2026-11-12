@@ -68,17 +68,19 @@
 .sidebar-profile {
   margin-top: 70px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 20px;
 }
 
 .sidebar-profile-avatar-wrapper {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
 .sidebar-profile-avatar-wrapper:hover {
@@ -94,37 +96,27 @@
 
 .sidebar-profile-text {
   font-size: 15px;
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--gray-text);
   font-family: var(--font-main);
+  margin-top: 4px;
 }
 
 @media (max-width: 1024px) {
-  .competencies-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding-top: 0;
-  }
-  .competencies-sticky-col {
-    position: relative;
-    top: 0;
-    z-index: 1;
-    background: transparent;
-    padding: 0;
-    margin-bottom: 0;
-  }
-  
   .sidebar-profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     margin-top: 32px;
     margin-bottom: 20px;
   }
-
-  .competencies-scroll-col {
-    padding-top: 0;
+  
+  .sidebar-profile-avatar-wrapper {
+    width: 70px;
+    height: 70px;
   }
 }
+
 
 @media (max-width: 768px) {
   .service-block-item {
