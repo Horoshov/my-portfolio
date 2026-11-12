@@ -19,10 +19,10 @@ function cleanDescription(html) {
   return text.length > 160 ? text.slice(0, 157) + '...' : text;
 }
 
-// Утилита для гарантированного добавления закрывающего слэша (кроме файлов с расширениями вроде 404.html)
+// Исправленная утилита: не трогаем, если уже есть слэш или в самом конце указано расширение файла (.html, .xml и т.д.)
 function ensureSlash(url) {
   if (!url) return url;
-  if (url.endsWith('/') || url.includes('.')) return url;
+  if (url.endsWith('/') || /\.[a-z0-9]+$/i.test(url)) return url;
   return `${url}/`;
 }
 

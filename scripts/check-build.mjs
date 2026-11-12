@@ -18,6 +18,13 @@ function checkFile(filePath, desc) {
   }
 }
 
+// Утилита для согласованной проверки слэшей
+function ensureSlash(url) {
+  if (!url) return url;
+  if (url.endsWith('/') || /\.[a-z0-9]+$/i.test(url)) return url;
+  return `${url}/`;
+}
+
 // 1. Check 404.html
 checkFile(path.join(distDir, '404.html'), '404 page');
 
@@ -46,8 +53,15 @@ for (const route of allRoutes) {
       errors++;
     }
 
-    // Matching og:url
-    const expectedCanonical = route === '/' ? 'https://horoshov.ru/' : route.startsWith('/project/') ? `https://horoshov.ru${route}` : routesMeta[route]?.canonical;
+    // Matching og:url (с гарантированным слэшом на конце)
+    const rawCanonical = route === '/' 
+      ? 'https://horoshov.ru/' 
+      : route.startsWith('/project/') 
+        ? `https://horoshov.ru${route}` 
+        : routesMeta[route]?.canonical;
+        
+    const expectedCanonical = ensureSlash(rawCanonical);
+
     if (expectedCanonical && !content.includes(`property="og:url" content="${expectedCanonical}"`)) {
       console.error(`[FAIL] Route ${route} missing or mismatched og:url (expected ${expectedCanonical}).`);
       errors++;
