@@ -2,11 +2,11 @@ import React from 'react';
 import './CompetenciesNav.css';
 
 const navItems = [
-  { id: 'research', label: '01. Исследования и UX' },
-  { id: 'design', label: '02. Продуктовый дизайн' },
-  { id: 'engineering', label: '03. Разработка' },
-  { id: 'support', label: '04. Поддержка и развитие' },
-  { id: 'rates', label: 'Тарифы и форматы' }
+  { id: 'research', label: 'Исследования и UX' },
+  { id: 'design', label: 'Продуктовый дизайн' },
+  { id: 'engineering', label: 'Разработка' },
+  { id: 'support', label: 'Поддержка и развитие' },
+  { id: 'rates', label: 'Аутстафинг' }
 ];
 
 const CompetenciesNav = ({ activeId, onNavClick }) => {

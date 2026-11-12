@@ -7,6 +7,8 @@ import Button from '../components/Button';
 import ServiceBlock from '../components/ServiceBlock';
 import RateMatrix from '../components/RateMatrix';
 import CompetenciesNav from '../components/CompetenciesNav';
+import ImageModal from '../components/ImageModal';
+
 import alexProfile from '../assets/alex-profile.jpg';
 
 const SKILL_ICONS = {
@@ -278,6 +280,8 @@ const About = () => {
       ]
     }
   ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const [activeId, setActiveId] = useState('research');
 
@@ -326,16 +330,30 @@ const About = () => {
   return (
     <motion.div className="about-page" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <PageContainer>
+        <div className="section-header-col">
+          <h1 className="section-header-title">Компетенции</h1>
+        </div>
         <section className="competencies-layout">
           <div className="competencies-sticky-col">
-            <PageHeader 
-              title="Компетенции" 
-              subtitle={<>Комплексная экспертиза от пользовательских исследований<br /> до готового масштабируемого фронтенда.</>} 
-            />
             <div style={{ marginTop: '32px' }}>
               <CompetenciesNav activeId={activeId} onNavClick={handleNavClick} />
             </div>
+            <div className="sidebar-profile">
+              <div className="sidebar-profile-avatar-wrapper" onClick={() => setIsModalOpen(true)}>
+                <img src={alexProfile} alt="Alex Horoshov" className="sidebar-profile-avatar" />
+              </div>
+              <p className="sidebar-profile-text">
+                Алексей,<br/>
+                Продуктовый дизайн и разработка.
+              </p>
+            </div>
           </div>
+          <ImageModal 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+            imageUrl={alexProfile} 
+            alt="Alex Horoshov" 
+          />
           <div className="competencies-scroll-col">
             <div className="services-blocks-list">
               {serviceBlocksData.map((block) => (
@@ -354,35 +372,30 @@ const About = () => {
           </div>
         </section>
 
-        <section className="skills-section" style={{ marginTop: '140px' }}>
-          <div className="about-intro-grid"> 
-            {/* Добавлен scrollMarginTop чтобы при скролле был отступ от навбара */}
-            <div ref={skillsHeaderRef} style={{ scrollMarginTop: '100px' }}>
-              <PageHeader 
-                title="Hard Skills" 
-                subtitle={<>Expertise shaped through experience,<br /> precision, and thoughtful design.</>} 
-              />
-            </div>
+        <section className="skills-section" style={{ marginTop: '60px' }}>
+          <div className="section-header-centered" ref={skillsHeaderRef} style={{ scrollMarginTop: '100px' }}>
+            <PageHeader title="Hard Skills" />
+            <p>Expertise shaped through experience, precision, and thoughtful design.</p>
+          </div>
 
-            <div className="skills-content-wrapper">
-              <div className="skills-list">
-                <AnimatePresence initial={false}>
-                  {skills.map((skill, index) => {
-                    const isVisible = index < 4 || isExpanded;
-                    return isVisible && (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                        animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
-                        exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
-                        transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
-                      >
-                        <SkillItem skill={skill} />
-                      </motion.div>
-                    );
-                  })}
-                </AnimatePresence>
-              </div>
+          <div className="skills-content-wrapper">
+            <div className="skills-list">
+              <AnimatePresence initial={false}>
+                {skills.map((skill, index) => {
+                  const isVisible = index < 4 || isExpanded;
+                  return isVisible && (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                      animate={{ opacity: 1, height: 'auto', overflow: 'visible' }}
+                      exit={{ opacity: 0, height: 0, overflow: 'hidden' }}
+                      transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    >
+                      <SkillItem skill={skill} />
+                    </motion.div>
+                  );
+                })}
+              </AnimatePresence>
             </div>
           </div>
 
@@ -400,9 +413,10 @@ const About = () => {
           )}
         </section>
 
-        <section className="career-journey-section" style={{ marginTop: '140px' }}>
-          <div className="career-section-header">
-            <PageHeader title="Career Journey" subtitle="A progression of experiences, growth, and milestones." />
+        <section className="career-journey-section" style={{ marginTop: '60px' }}>
+          <div className="section-header-centered">
+            <PageHeader title="Career Journey" />
+            <p>A progression of experiences, growth, and milestones.</p>
           </div>
           <div className="career-grid">
             {experiences.map((exp, index) => (
