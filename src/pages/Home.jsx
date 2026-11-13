@@ -140,7 +140,6 @@ const Home = () => {
             </div>
           )}
         </section>
-        </PageContainer>
 
         <section className="services-section">
           <PageHeader title="Технологии" />
