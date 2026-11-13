@@ -301,7 +301,7 @@ const About = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-20% 0px -60% 0px',
+      rootMargin: '-10% 0px -70% 0px', // Увеличил зону захвата, чтобы активный пункт не перескакивал слишком рано
       threshold: 0
     };
 
