@@ -91,7 +91,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
+    gap: 12px;
     width: 100%;
   }
 
@@ -457,7 +457,7 @@
   .work-steps-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
     width: 100%;
   }
   
@@ -705,7 +705,7 @@
   .about-intro-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
-    gap: 80px;
+    gap: 12px;
     align-items: flex-start;
   }
   
@@ -755,7 +755,7 @@
     }
     
     .about-intro-grid {
-      gap: 60px;
+      gap: 12px;
     }
     
     .description-lead {
@@ -771,7 +771,7 @@
   .about-intro-grid {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 12px;
     width: 100%;
   }
 
@@ -927,7 +927,7 @@
     .career-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 12px;
       width: 100%;
     }
   
@@ -1040,7 +1040,7 @@
   .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 100px;
+    gap: 12px;
   }
   
   .contact-info-col {
@@ -1118,7 +1118,7 @@
   .submit-btn {
     display: inline-flex;
     align-items: center;
-    gap: 24px;
+    gap: 12px;
     background-color: var(--text-color);
     color: var(--bg-color);
     border: none;
@@ -1153,7 +1153,7 @@
   
   @media (max-width: 1200px) {
     .contact-grid {
-      gap: 80px;
+      gap: 12px;
     }
     
     .form-grid {
@@ -1164,14 +1164,14 @@
   @media (max-width: 992px) {
     .contact-grid {
       grid-template-columns: 1fr;
-      gap: 60px;
+      gap: 12px;
     }
   }
   
   @media (max-width: 768px) {
     .form-grid {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 12px;
       margin-bottom: 60px;
     }
     
@@ -1219,7 +1219,7 @@
     /* Используем 1fr для левой колонки и auto для правой, 
        чтобы они подстраивались под контент */
     grid-template-columns: 1fr auto; 
-    gap: 80px; /* Расстояние между текстом и деталями */
+    gap: 12px; /* Расстояние между текстом и деталями */
     width: 100%;
     margin-bottom: 80px;
     align-items: start;
@@ -1235,7 +1235,7 @@
   .pd-specs-col {
     display: grid;
     grid-column-gap: 20px;
-    grid-row-gap: 40px;
+    grid-row-gap: 12px;
     grid-template-columns: 1fr 1fr;
   }
   
@@ -1302,7 +1302,7 @@
   
   @media (max-width: 1200px) {
     .pd-info-grid {
-      gap: 80px;
+      gap: 12px;
     }
   }
   
@@ -1313,7 +1313,7 @@
     
     .pd-info-grid {
       grid-template-columns: 1fr;
-      gap: 60px;
+      gap: 12px;
       margin-bottom: 80px;
     }
     
@@ -1381,7 +1381,7 @@
 .pd-info-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 100px;
+  gap: 12px;
   padding: 20px 0 40px 0;
   margin-bottom: 100px;
   width: 100%;
@@ -1415,7 +1415,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 40px;
+  grid-row-gap: 12px;
 }
 
 .pd-detail-item {
@@ -1524,14 +1524,14 @@
 
 @media (max-width: 1200px) {
   .pd-info-grid {
-    gap: 80px;
+    gap: 12px;
   }
 }
 
 @media (max-width: 992px) {
   .pd-info-grid {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 12px;
     margin-bottom: 80px;
   }
   
@@ -1625,7 +1625,7 @@
 .skills-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 12px;
 }
 
 @media (max-width: 768px) {
