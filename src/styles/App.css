@@ -194,6 +194,7 @@
     }
   
   .project-card {
+    margin: 40px;
     display: flex;
     flex-direction: column;
     cursor: pointer;
