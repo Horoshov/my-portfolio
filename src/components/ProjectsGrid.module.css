@@ -5,7 +5,7 @@
    .projectsGridCustom {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
     width: 100%;
   }
   
@@ -17,7 +17,7 @@
   @media (max-width: 1400px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
   }
   
@@ -25,7 +25,7 @@
   @media (max-width: 1200px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
   }
   
@@ -33,7 +33,7 @@
   @media (max-width: 1024px) {
     .projectsGridCustom {
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
   }
   
@@ -41,7 +41,7 @@
   @media (max-width: 768px) {
     .projectsGridCustom {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 12px;
     }
   }
   
@@ -49,6 +49,6 @@
   @media (max-width: 576px) {
     .projectsGridCustom {
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 12px;
     }
   }

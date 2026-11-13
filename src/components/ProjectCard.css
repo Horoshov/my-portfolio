@@ -45,7 +45,7 @@
 .pc-body {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
 }
 
 .pc-tag {

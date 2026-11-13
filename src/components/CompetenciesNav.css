@@ -1,7 +1,7 @@
 .competencies-nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   background: none;
   border: none;
   border-radius: 0;
@@ -42,7 +42,7 @@
     flex-direction: row;
     overflow-x: auto;
     padding: 12px;
-    gap: 8px;
+    gap: 12px;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
