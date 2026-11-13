@@ -20,7 +20,7 @@
       display: grid;
       grid-template-columns: repeat(24, 1fr);
       grid-auto-rows: 70px;
-      gap: 12px;
+      gap: 16px;
       padding: 0 var(--container-padding); /* ОТСТУПЫ ТЕПЕРЬ ТОЛЬКО ЗДЕСЬ */
     }
     
@@ -125,7 +125,7 @@
     /* Layout Modes */
     .layout-top-group .stats-card-content {
       justify-content: flex-start;
-      gap: 12px;
+      gap: 16px;
     }
     
     .layout-spread .stats-card-content {
@@ -134,7 +134,7 @@
     
     .layout-bottom-group .stats-card-content {
       justify-content: flex-end;
-      gap: 12px;
+      gap: 16px;
     }
     
     .layout-spread-center .stats-card-content {
@@ -225,7 +225,7 @@
     .stats-cards-carousel-track {
       display: none;
       flex-direction: row;
-      gap: 12px;
+      gap: 16px;
       overflow-x: auto;
       overflow-y: hidden;
       scroll-snap-type: x mandatory;
@@ -290,7 +290,7 @@
       }
       
       .stats-cards-grid {
-        gap: 12px;
+        gap: 16px;
       }
     }
     
@@ -306,7 +306,7 @@
       
       .stats-cards-carousel-track {
         display: flex !important;
-        gap: 12px;
+        gap: 16px;
       }
       
       .stats-cards-carousel .stats-card {
@@ -340,12 +340,12 @@
       }
       
       .stats-cards-carousel-track {
-        gap: 12px;
+        gap: 16px;
       }
       
       .stats-cards-carousel .stats-card {
-        flex: 0 0 calc(66.666% - 6px);
-        min-width: calc(66.666% - 6px);
+        flex: 0 0 calc(66.666% - 8px);
+        min-width: calc(66.666% - 8px);
         aspect-ratio: 3 / 4;
         height: auto;
         padding: 28px;
@@ -373,12 +373,12 @@
       }
       
       .stats-cards-carousel-track {
-        gap: 12px;
+        gap: 16px;
       }
       
       .stats-cards-carousel .stats-card {
-        flex: 0 0 calc(66.666% - 6px);
-        min-width: calc(66.666% - 6px);
+        flex: 0 0 calc(66.666% - 8px);
+        min-width: calc(66.666% - 8px);
         aspect-ratio: 3 / 4;
         height: auto;
         padding: var(--spacing-xl);
@@ -402,7 +402,7 @@
     .stats-carousel-dots {
       display: none;
       justify-content: center;
-      gap: 12px;
+      gap: 16px;
       margin-top: var(--spacing-xl);
     }
     
