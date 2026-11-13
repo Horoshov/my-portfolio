@@ -307,10 +307,16 @@ const About = () => {
 
     sectionIds.forEach((id) => {
       const element = document.getElementById(id);
-      if (element) observer.observe(element);
+      if (element) {
+        const obs = new IntersectionObserver(handleIntersect, observerOptions);
+        obs.observe(element);
+        observers.push(obs);
+      }
     });
 
-    return () => observer.disconnect();
+    return () => {
+      observers.forEach((obs) => obs.disconnect());
+    };
   }, []);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
