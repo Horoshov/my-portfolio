@@ -392,7 +392,7 @@
   
   @media (max-width: 992px) {
     .services-section {
-      padding: 80px 0 12px 0;
+      padding: 80px 0 0 0;
     }
     
     .service-row {
@@ -425,7 +425,7 @@
   
   @media (max-width: 576px) {
     .services-section {
-      padding: 60px 0;
+      padding: 60px 0 0 0;
     }
     
     .services-main-title {
@@ -450,7 +450,7 @@
      10. HOW I WORK SECTION
      ========================================= */
   .how-i-work-section {
-    padding: 80px 0 12px 0;
+    padding: 80px 0 0 0;
     width: 100%;
   }
   
@@ -518,7 +518,7 @@
   
   @media (max-width: 992px) {
     .how-i-work-section {
-      padding: 60px 0;
+      padding: 60px 0 0 0;
     }
     
     .work-step-card {
@@ -750,7 +750,7 @@
   
   @media (max-width: 992px) {
     .about-intro-section {
-      padding: 60px 0;
+      padding: 60px 0 0 0;
       margin-bottom: 40px;
     }
     
@@ -796,7 +796,7 @@
      13. SKILLS SECTION
      ========================================= */
   .skills-section {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
   
   .skills-list {
@@ -911,7 +911,7 @@
      14. CAREER JOURNEY SECTION
      ========================================= */
      .career-journey-section {
-      padding: 80px 0 12px 0;
+      padding: 80px 0 0 0;
       width: 100%;
     }
     
@@ -1573,7 +1573,7 @@
 
 @media (max-width: 576px) {
   .pd-not-found {
-    padding: 60px 0;
+    padding: 60px 0 0 0;
   }
   
   .pd-not-found h1 {
