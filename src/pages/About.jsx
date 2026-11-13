@@ -330,6 +330,10 @@ const About = () => {
 
     return () => {
       observers.forEach((obs) => obs.disconnect());
+        <div className="mobile-competencies-header" style={{ display: 'none' }}>
+           <h1 className="section-header-title">Компетенции</h1>
+           <CompetenciesNav activeId={activeId} onNavClick={handleNavClick} />
+        </div>
     };
   }, []);
 

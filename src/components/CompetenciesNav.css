@@ -45,6 +45,7 @@
     gap: 12px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    background: var(--bg-color);
   }
   .competencies-nav::-webkit-scrollbar {
     display: none;
