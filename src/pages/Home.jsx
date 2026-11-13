@@ -134,7 +134,7 @@ const Home = () => {
           </ProjectsGrid>
           {visibleCount < allProjects.length && (
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
-              <Button onClick={handleShowMore} variant="secondary">
+              <Button onClick={handleShowMore} variant="secondary" icon={true}>
                 Показать больше
               </Button>
             </div>
