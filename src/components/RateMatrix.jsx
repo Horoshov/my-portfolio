@@ -41,11 +41,12 @@ const RateMatrix = () => {
             width: '12px', 
             height: '12px', 
             marginRight: '12px',
+            verticalAlign: 'middle',
           }}>
             <span style={{
               position: 'absolute',
-              width: '15.6px',
-              height: '15.6px',
+              width: '18px',
+              height: '18px',
               backgroundColor: '#34c759',
               borderRadius: '50%',
               opacity: 0.4,
