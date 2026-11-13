@@ -423,7 +423,7 @@ const About = () => {
             <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
               <Button 
                 variant="secondary"
-                icon={true}
+                icon={false}
                 onClick={(e) => handleToggleSkills(e)}
               >
                 Показать больше
