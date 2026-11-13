@@ -354,7 +354,7 @@ const About = () => {
             imageUrl={alexProfile} 
             alt="Alex Horoshov" 
           />
-          <div className="competencies-scroll-col" style={{ marginTop: '20px' }}>
+          <div className="competencies-scroll-col" style={{ marginTop: '15px' }}>
             <div className="services-blocks-list">
               {serviceBlocksData.map((block) => (
                 <ServiceBlock 
