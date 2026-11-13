@@ -1,5 +1,4 @@
 /* --- Оригинальные стили карточки и подписей --- */
-  margin-bottom: 80px;
 .pc-card {
   display: flex;
   flex-direction: column;
@@ -45,9 +44,7 @@
 
 .pc-body {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 12px;
 }
 

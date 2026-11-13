@@ -29,8 +29,10 @@ const ProjectCard = ({ project, index = 0 }) => {
         
         {/* Восстановленный блок подписей */}
         <div className="pc-body">
+          <div className="pc-meta">
+            <span className="pc-tag">{project.cat}</span>
+          </div>
           <h4 className="pc-title">{project.title}</h4>
-          <span className="pc-tag">{project.cat}</span>
         </div>
       </Link>
     </motion.div>
