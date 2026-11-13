@@ -285,6 +285,22 @@ const About = () => {
         'Масштабирование архитектуры',
         'Дизайн-поддержка',
         'Консультации по процессам'
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveId(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
       ],
       services: [
         { name: 'Мониторинг', desc: 'Анализ доступности, Метрики производительности' },
