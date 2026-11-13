@@ -45,7 +45,7 @@ const RateMatrix = () => {
             animation: 'pulse 2s infinite',
             verticalAlign: 'middle'
           }}></span>
-          Аутстаффинг персонала
+          Аутстаффинг
         </h3>
         <p className="rate-matrix-subtitle">
           За 5 лет собрали обширную базу специалистов, которых проверили и обучили внутри нашей продуктовой лаборатории
