@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
 import StatList from '../components/StatList'; 
 import ProjectCard from '../components/ProjectCard'; 
 import ProjectsGrid from '../components/ProjectsGrid';
+import Button from '../components/Button';
 import { allProjects } from '../data/projects';
 
 const services = [
@@ -72,12 +73,17 @@ const featuredProjects = allProjects.slice(0, 6);
 
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(6);
 
   const homeStats = [
     { value: '15+', label: 'Years of Experience', title: 'Expertise' },
     { value: '20+', label: 'Completed Successfully', title: 'Projects' },
     { value: '96', label: 'Customer Satisfaction', title: 'Percent' }
   ];
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 3);
+  };
 
   return (
     <motion.div 
@@ -121,6 +127,18 @@ const Home = () => {
       <PageContainer noPaddingTop>
         <PageHeader title="Продуктовые кейсы" />
 
+            {allProjects.slice(0, visibleCount).map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} />
+            ))}
+          </ProjectsGrid>
+          {visibleCount < allProjects.length && (
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+              <Button onClick={handleShowMore} variant="secondary">
+                Показать больше
+              </Button>
+            </div>
+          )}
+        </section>
         <section className="projects-section">
           <ProjectsGrid>
             {featuredProjects.map((project, index) => (
