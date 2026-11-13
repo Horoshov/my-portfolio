@@ -323,7 +323,10 @@ const About = () => {
     setActiveId(id);
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.scrollTo({
+        top: el.offsetTop - 100, // Учитываем отступ (header/scrollMargin)
+        behavior: 'smooth'
+      });
     }
   };
 
