@@ -1633,3 +1633,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+.services-blocks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
