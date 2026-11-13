@@ -15,7 +15,7 @@ describe('ContactForm Component', () => {
 
   it('disables submit button initially when form is empty', () => {
     render(<ContactForm />);
-    const submitBtn = screen.getByRole('button', { name: /Send your message/i });
+    const submitBtn = screen.getByRole('button', { name: /Отправить/i });
     expect(submitBtn).toBeDisabled();
   });
 });
