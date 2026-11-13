@@ -27,7 +27,7 @@ const ServiceBlock = ({ id, title, description, bubbles, services }) => {
           {services.map((s, index) => (
             <div key={index} style={{ marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '20px' }}>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
-                <span style={{ color: '#34c759', marginRight: '10px' }}>•</span>
+                
                 <span style={{ fontWeight: '600', color: 'var(--text-color)' }}>{s.name}</span>
               </div>
               <p style={{ color: 'var(--gray-text)', fontSize: '15px' }}>{s.desc}</p>
