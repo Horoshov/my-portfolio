@@ -211,7 +211,7 @@ const About = () => {
   };
 
   const experiences = [
-    { company: 'Freelance', position: 'Developer & Designer', period: '2025-2026', link: '#' },
+    { company: 'Freelance', position: 'Developer & Designer', period: '2024-2026', link: '#' },
     { company: 'SL SOFT', position: 'Senior UI/UX Designer', period: '2023-2024', link: 'https://slsoft.ru' },
     { company: 'М.Video-Eldorado', position: 'UX/UI Architect', period: '2022-2023', link: 'https://mtech.mvideoeldorado.ru' },
     { company: 'NDV', position: 'Lead Designer', period: '2021-2022', link: 'https://www.ndv.ru' },
