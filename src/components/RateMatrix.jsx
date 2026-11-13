@@ -34,17 +34,31 @@ const RateMatrix = () => {
       <div className="rate-matrix-header">
         <h3 className="rate-matrix-heading">
           <span style={{ 
+            position: 'relative',
             display: 'inline-flex', 
             alignItems: 'center',
             justifyContent: 'center',
             width: '12px', 
             height: '12px', 
-            backgroundColor: '#34c759', 
-            borderRadius: '50%', 
             marginRight: '12px',
-            animation: 'pulse 2s infinite',
-            verticalAlign: 'middle'
-          }}></span>
+          }}>
+            <span style={{
+              position: 'absolute',
+              width: '15.6px',
+              height: '15.6px',
+              backgroundColor: '#34c759',
+              borderRadius: '50%',
+              opacity: 0.4,
+            }}></span>
+            <span style={{ 
+              position: 'relative',
+              width: '12px', 
+              height: '12px', 
+              backgroundColor: '#34c759', 
+              borderRadius: '50%', 
+              animation: 'pulse 2s infinite',
+            }}></span>
+          </span>
           Аутстаффинг
         </h3>
         <p className="rate-matrix-subtitle">
