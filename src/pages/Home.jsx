@@ -126,7 +126,9 @@ const Home = () => {
 
       <PageContainer noPaddingTop>
         <PageHeader title="Продуктовые кейсы" />
+        <section className="projects-section">
 
+          <ProjectsGrid>
             {allProjects.slice(0, visibleCount).map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
@@ -139,13 +141,7 @@ const Home = () => {
             </div>
           )}
         </section>
-        <section className="projects-section">
-          <ProjectsGrid>
-            {featuredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </ProjectsGrid>
-        </section>
+        </PageContainer>
 
         <section className="services-section">
           <PageHeader title="Технологии" />
