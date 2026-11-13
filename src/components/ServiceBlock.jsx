@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ServiceBubbleGrid from './ServiceBubbleGrid';
 import './ServiceBlock.css';
 
-const ServiceBlock = ({ id, title, description, bubbles }) => {
+const ServiceBlock = ({ id, title, description, bubbles, services }) => {
   return (
     <motion.div 
       id={id}
@@ -18,7 +18,23 @@ const ServiceBlock = ({ id, title, description, bubbles }) => {
         <h3 className="service-block-title">{title}</h3>
       </div>
       <p className="service-block-description">{description}</p>
-      <ServiceBubbleGrid bubbles={bubbles} />
+      
+      {bubbles && <ServiceBubbleGrid bubbles={bubbles} />}
+
+      {services && (
+        <div className="services-list" style={{ marginTop: '40px' }}>
+          <h4 style={{ marginBottom: '20px', color: 'var(--text-color)' }}>Услуги</h4>
+          {services.map((s, index) => (
+            <div key={index} style={{ marginBottom: '20px', borderBottom: '1px solid var(--border-color)', paddingBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+                <span style={{ color: '#34c759', marginRight: '10px' }}>•</span>
+                <span style={{ fontWeight: '600', color: 'var(--text-color)' }}>{s.name}</span>
+              </div>
+              <p style={{ color: 'var(--gray-text)', fontSize: '15px' }}>{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </motion.div>
   );
 };

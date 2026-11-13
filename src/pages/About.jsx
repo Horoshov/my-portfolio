@@ -252,18 +252,14 @@ const About = () => {
     {
       id: 'engineering',
       number: '03',
-      title: 'Фронтенд-разработка полного цикла',
-      description: 'Превращение выверенных макетов в чистый, масштабируемый и производительный код с вниманием к деталям.',
-      bubbles: [
-        'React',
-        'React Native',
-        'TypeScript',
-        'Vite',
-        'Framer Motion',
-        'Tailwind CSS',
-        'HTML5 / Semantic SVG',
-        'CI/CD & GitHub Actions',
-        'Оптимизация LCP/CLS'
+      title: 'Разработка продукта',
+      description: 'Полный цикл разработки: сайты, мобилки, проектирование личных кабинетов, сложные интерфейсы, адаптивный веб-дизайн, бизнес-системы и дизайн мобильных приложений',
+      bubbles: ['Html', 'Каскадные таблицы стилей (CSS)', 'DevOps', 'CI/CD', 'Node.js', 'Strapi CMS', 'JavaScript', 'Прогрессивные веб-приложения'],
+      services: [
+        { name: 'Фронтенд', desc: 'HTML/CSS/JS, React, Vue, TypeScript' },
+        { name: 'Бэкенд', desc: 'Node, PHP, Java, Python, GO, Strapi, 1C-Битрикс' },
+        { name: 'Тестирование', desc: 'Тест-план, Ручное, Автоматизированное' },
+        { name: 'Аудит', desc: 'Статический анализ, Профилирование и нагрузочное тестирование, Анализ безопасности, Анализ сетевой инфраструктуры' }
       ]
     },
     {
@@ -365,10 +361,10 @@ const About = () => {
                 <ServiceBlock 
                   key={block.number}
                   id={block.id}
-                  number={block.number}
                   title={block.title}
                   description={block.description}
                   bubbles={block.bubbles}
+                  services={block.services}
                 />
               ))}
             </div>
