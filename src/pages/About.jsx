@@ -335,6 +335,20 @@ const About = () => {
       threshold: 0
     };
 
+  useEffect(() => {
+    if (activeId) {
+      const navElement = document.querySelector('.competencies-nav');
+      const activeElement = document.querySelector(`.competencies-nav-item.active`);
+      if (navElement && activeElement) {
+        const navRect = navElement.getBoundingClientRect();
+        const activeRect = activeElement.getBoundingClientRect();
+        navElement.scrollTo({
+          left: activeElement.offsetLeft - navRect.width / 2 + activeRect.width / 2,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [activeId]);
     sectionIds.forEach((id) => {
       const el = document.getElementById(id);
       if (el) {
