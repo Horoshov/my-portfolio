@@ -37,14 +37,19 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .competencies-nav {
+    display: flex;
     flex-direction: row;
     overflow-x: auto;
     padding: 12px;
-    gap: 12px;
+    gap: 8px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    position: sticky;
+    top: var(--header-h, 60px);
+    z-index: 20;
+    background: var(--bg-color);
   }
   .competencies-nav::-webkit-scrollbar {
     display: none;
@@ -53,5 +58,6 @@
     white-space: nowrap;
     font-size: 14px;
     padding: 8px 14px;
+    flex-shrink: 0;
   }
 }

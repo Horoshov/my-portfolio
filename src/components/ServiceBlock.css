@@ -119,6 +119,21 @@
 
 
 @media (max-width: 768px) {
+
+/* Mobile adaptations */
+@media (max-width: 768px) {
+  .competencies-layout {
+    display: block !important;
+  }
+  .competencies-sticky-col {
+    position: static !important;
+    top: auto !important;
+  }
+  .sidebar-profile {
+    margin-top: 32px !important;
+    margin-bottom: 20px !important;
+  }
+}
   .service-block-item {
     padding: 40px 0;
   }
