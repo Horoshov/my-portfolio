@@ -137,16 +137,16 @@ const SkillItem = ({ skill }) => {
                 position: 'absolute',
                 top: '-12px', 
                 transform: effectiveTransform,
-                background: '#fff',
-                color: '#000',
-                padding: '5px 14px',
-                borderRadius: '100px',
-                fontSize: '14px',
-                fontWeight: '800',
-                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+                background: 'var(--bg-color)',
+                color: 'var(--text-color)',
+                padding: '4px 10px',
+                borderRadius: '8px',
+                fontSize: '13px',
+                fontWeight: '600',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
                 zIndex: 10,
                 whiteSpace: 'nowrap',
-                border: '1px solid rgba(0, 0, 0, 0.05)'
+                border: '1px solid var(--border-color)'
               }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
