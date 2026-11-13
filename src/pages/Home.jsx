@@ -127,7 +127,6 @@ const Home = () => {
       <PageContainer noPaddingTop>
         <PageHeader title="Продуктовые кейсы" />
         <section className="projects-section">
-
           <ProjectsGrid>
             {allProjects.slice(0, visibleCount).map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
