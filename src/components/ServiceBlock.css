@@ -119,6 +119,23 @@
 
 
 @media (max-width: 768px) {
+
+  .competencies-layout {
+    display: block;
+  }
+
+  .competencies-sticky-col {
+    position: static;
+    top: auto;
+  }
+
+  .competencies-nav {
+    position: sticky;
+    top: var(--header-h, 60px);
+    z-index: 20;
+    background: var(--bg-color);
+  }
+
   .service-block-item {
     padding: 40px 0;
   }
