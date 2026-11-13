@@ -6,24 +6,24 @@ const sections = [
   {
     title: 'Дизайн',
     items: [
-      { position: 'Продуктовый UX/UI дизайнер', middle: '3000 ₽/час', senior: '3100 ₽/час' },
-      { position: 'Графический дизайнер', middle: '2900 ₽/час', senior: '3100 ₽/час' },
-      { position: '3D дизайнер', middle: '3200 ₽/час', senior: '3300 ₽/час' },
-      { position: 'Моушен-дизайнер', middle: '3100 ₽/час', senior: '3200 ₽/час' },
-      { position: 'Копирайтер', middle: '2800 ₽/час', senior: '—' }
+      { position: 'Продуктовый UX/UI дизайнер', middle: '1800 ₽/час', senior: '1860 ₽/час' },
+      { position: 'Графический дизайнер', middle: '1740 ₽/час', senior: '1860 ₽/час' },
+      { position: '3D дизайнер', middle: '1920 ₽/час', senior: '1980 ₽/час' },
+      { position: 'Моушен-дизайнер', middle: '1860 ₽/час', senior: '1920 ₽/час' },
+      { position: 'Копирайтер', middle: '1680 ₽/час', senior: '—' }
     ]
   },
   {
     title: 'Разработка',
     items: [
-      { position: 'Фронтенд-разработчик (React)', middle: '3100 ₽/час', senior: '3300 ₽/час' },
-      { position: 'Фронтенд-разработчик (Vue.js)', middle: '3100 ₽/час', senior: '3300 ₽/час' },
-      { position: 'Верстальщик (HTML/CSS/JS)', middle: '2900 ₽/час', senior: '3100 ₽/час' },
-      { position: 'Бэкенд-разработчик (Java, Spring)', middle: '3400 ₽/час', senior: '3600 ₽/час' },
-      { position: 'Бэкенд-разработчик (PHP, Yii2, Laravel)', middle: '3400 ₽/час', senior: '3600 ₽/час' },
-      { position: 'Бэкенд-разработчик (Node.js, Nest.js)', middle: '3400 ₽/час', senior: '3600 ₽/час' },
-      { position: 'Тестировщик (QA-инженер ручного тестирования)', middle: '2300 ₽/час', senior: '2500 ₽/час' },
-      { position: 'Тестировщик (QA-инженер автоматизированного тестирования)', middle: '2700 ₽/час', senior: '2900 ₽/час' }
+      { position: 'Фронтенд-разработчик (React)', middle: '1860 ₽/час', senior: '1980 ₽/час' },
+      { position: 'Фронтенд-разработчик (Vue.js)', middle: '1860 ₽/час', senior: '1980 ₽/час' },
+      { position: 'Верстальщик (HTML/CSS/JS)', middle: '1740 ₽/час', senior: '1860 ₽/час' },
+      { position: 'Бэкенд-разработчик (Java, Spring)', middle: '2040 ₽/час', senior: '2160 ₽/час' },
+      { position: 'Бэкенд-разработчик (PHP, Yii2, Laravel)', middle: '2040 ₽/час', senior: '2160 ₽/час' },
+      { position: 'Бэкенд-разработчик (Node.js, Nest.js)', middle: '2040 ₽/час', senior: '2160 ₽/час' },
+      { position: 'Тестировщик (QA-инженер ручного тестирования)', middle: '1380 ₽/час', senior: '1500 ₽/час' },
+      { position: 'Тестировщик (QA-инженер автоматизированного тестирования)', middle: '1620 ₽/час', senior: '1740 ₽/час' }
     ]
   }
 ];
