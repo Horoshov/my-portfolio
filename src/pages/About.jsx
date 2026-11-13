@@ -211,12 +211,12 @@ const About = () => {
   };
 
   const experiences = [
-    { company: 'Freelance', position: 'Developer & Designer', period: '2025-2026' },
-    { company: 'SL SOFT', position: 'Senior UI/UX Designer', period: '2023-2024' },
-    { company: 'М.Video-Eldorado', position: 'UX/UI Architect', period: '2022-2023' },
-    { company: 'NDV', position: 'Lead Designer', period: '2021-2022' },
-    { company: 'Domyland', position: 'Senior UI/UX Designer', period: '2020-2021' },
-    { company: 'Cashoff', position: 'UX/UI Designer', period: '2016-2018' }
+    { company: 'Freelance', position: 'Developer & Designer', period: '2025-2026', link: '#' },
+    { company: 'SL SOFT', position: 'Senior UI/UX Designer', period: '2023-2024', link: 'https://slsoft.ru' },
+    { company: 'М.Video-Eldorado', position: 'UX/UI Architect', period: '2022-2023', link: 'https://mtech.mvideoeldorado.ru' },
+    { company: 'NDV', position: 'Lead Designer', period: '2021-2022', link: 'https://www.ndv.ru' },
+    { company: 'Domyland', position: 'Senior UI/UX Designer', period: '2020-2021', link: 'https://domyland.ru' },
+    { company: 'Cashoff', position: 'UX/UI Designer', period: '2016-2018', link: 'https://yepy.com' }
   ];
 
   const serviceBlocksData = [
@@ -422,13 +422,20 @@ const About = () => {
           </div>
           <div className="career-grid">
             {experiences.map((exp, index) => (
-              <div key={index} className="career-card">
+              <a 
+                key={index} 
+                href={exp.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="career-card"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
                 <div className="career-content">
                   <h3 className="career-company">{exp.company}</h3>
                   <h2 className="career-position">{exp.position}</h2>
                   <p className="career-period">{exp.period}</p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>
