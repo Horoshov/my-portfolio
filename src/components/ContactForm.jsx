@@ -226,12 +226,11 @@ const ContactForm = () => {
         }}
       >
         <span style={{ fontWeight: '700', fontSize: '16px' }}>
-          {status === 'idle' && 'Send your message'}
+          {status === 'idle' && 'Отправить'}
           {status === 'sending' && 'Sending...'}
           {status === 'success' && 'Message sent'}
           {status === 'error' && 'Try again'}
         </span>
-        {status === 'idle' && <span style={{ fontSize: '20px', marginLeft: '12px' }}>→</span>}
       </button>
 
       {status === 'error' && (
