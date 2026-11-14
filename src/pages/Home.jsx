@@ -126,7 +126,7 @@ const Home = () => {
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'flex-end', 
-          paddingBottom: isMobile ? '38vh' : '40px', 
+          paddingBottom: isMobile ? '42vh' : '80px', 
           boxSizing: 'border-box',
           overflow: 'hidden' 
         }}
