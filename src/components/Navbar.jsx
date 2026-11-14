@@ -12,75 +12,68 @@ const Navbar = () => {
 
   if (location.pathname !== prevLocation) {
     setPrevLocation(location.pathname);
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    }
+    if (isMenuOpen) setIsMenuOpen(false);
   }
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth > 1024) {
-        setIsMenuOpen(false);
-      }
+      if (window.innerWidth > 1024) setIsMenuOpen(false);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
   const isHome = location.pathname === '/';
-
-  // Автономный трекинг скролла всей страницы для анимации на главной
   const { scrollY } = useScroll();
 
-  const [startScale, setStartScale] = useState(6);
+  const [containerWidth, setContainerWidth] = useState(1200);
   const [startY, setStartY] = useState(500);
+  const [heroHeight, setHeroHeight] = useState(800);
 
   useEffect(() => {
+    if (!isHome) return;
     const updateMetrics = () => {
-      if (!isHome) return;
       const heroSection = document.querySelector('.home-hero-section');
       const navbarEl = document.querySelector('header');
+      const container = document.querySelector('.home-hero-container');
+      
       if (heroSection && navbarEl) {
-        const heroHeight = heroSection.offsetHeight;
-        const navbarHeight = navbarEl.offsetHeight;
-        // Точное расстояние от шапки до нижней части героя с учетом отступов
-        const distance = heroHeight - navbarHeight - 60;
-        setStartY(Math.max(distance, 200));
+        const hHeight = heroSection.offsetHeight;
+        const nHeight = navbarEl.offsetHeight;
+        setHeroHeight(hHeight);
 
-        // Ширина контейнера героя для расчета пропорции скейла к 125px в шапке
-        const container = heroSection.querySelector('.home-hero-container');
+        // Точное расстояние от шапки до нижней части героя
+        const distance = hHeight - nHeight - 40;
+        setStartY(Math.max(distance, 150));
+
         if (container) {
-          const scale = container.clientWidth / 125;
-          setStartScale(Math.max(scale, 4));
+          const cWidth = container.clientWidth;
+          setContainerWidth(cWidth > 0 ? cWidth : 1200);
         }
       }
     };
 
     updateMetrics();
     window.addEventListener('resize', updateMetrics);
-    const timer = setTimeout(updateMetrics, 50);
+    const timer = setTimeout(updateMetrics, 100);
     return () => {
       window.removeEventListener('resize', updateMetrics);
       clearTimeout(timer);
     };
   }, [isHome]);
 
-  // Анимация отрабатывает на протяжении высоты первого экрана (hero)
-  const scrollRange = [0, typeof window !== 'undefined' ? window.innerHeight : 800];
+  // SCALE-DOWN МАТЕМАТИКА ДЛЯ SAFARI (Без мыла):
+  // При scrollY = 0: scale = 1 (полная ширина containerWidth, рендерится в высоком разрешении)
+  // При scrollY = heroHeight: scale = сжатие до 125px (125 / containerWidth)
+  const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
-  const rawScale = useTransform(scrollY, scrollRange, [startScale, 1]);
-  const rawY = useTransform(scrollY, scrollRange, [startY, 0]);
+  const rawScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale]);
+  const rawY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0]);
 
   const logoScale = useSpring(rawScale, { stiffness: 120, damping: 25 });
   const logoY = useSpring(rawY, { stiffness: 120, damping: 25 });
@@ -88,7 +81,6 @@ const Navbar = () => {
   return (
     <header className={styles.navbarFixed}>
       <div className={styles.navContainer}>
-        {/* ЛОГОТИП */}
         <div className={styles.navLogoWrapper}>
           <Link 
             to="/" 
@@ -99,8 +91,8 @@ const Navbar = () => {
             <motion.div
               className={styles.motionLogoContainer}
               style={{
-                width: '125px',
-                height: '17px',
+                width: isHome ? `${containerWidth}px` : '125px',
+                height: 'auto',
                 scale: isHome && !shouldReduceMotion ? logoScale : 1,
                 y: isHome && !shouldReduceMotion ? logoY : 0,
                 transformOrigin: 'left top',
