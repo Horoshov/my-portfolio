@@ -46,8 +46,10 @@
     gap: 8px;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    position: sticky;
-    top: var(--header-h, 60px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
     z-index: 20;
     background: var(--bg-color);
   }
