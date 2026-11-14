@@ -74,6 +74,14 @@ const Home = () => {
   const [visibleCount, setVisibleCount] = useState(6);
   const heroContainerRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(1200);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const updateWidth = () => {
@@ -113,11 +121,12 @@ const Home = () => {
         className="home-hero-section"
         style={{ 
           position: 'relative', 
-          height: '100vh', 
+          minHeight: '100vh', 
+          height: '100dvh',
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'flex-end', 
-          paddingBottom: '40px',
+          paddingBottom: isMobile ? '120px' : '40px', // Поднимаем выше на мобильных устройствах
           boxSizing: 'border-box',
           overflow: 'hidden' 
         }}
@@ -145,7 +154,8 @@ const Home = () => {
             и разработка без агентских нагрузок
           </motion.h1>
           
-          <div style={{ height: `${largeLogoHeight}px` }} />
+          {/* Слот с ID для точного замера позиции логотипа */}
+          <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px` }} />
         </div>
       </section>
 

@@ -40,26 +40,19 @@ const Navbar = () => {
     const updateMetrics = () => {
       const heroSection = document.querySelector('.home-hero-section');
       const container = document.querySelector('.home-hero-container');
+      const slotEl = document.getElementById('home-logo-slot');
       
       if (heroSection) {
-        const hHeight = heroSection.offsetHeight;
-        setHeroHeight(hHeight);
+        setHeroHeight(heroSection.offsetHeight);
+      }
 
-        if (container) {
-          const cWidth = container.clientWidth;
-          const validWidth = cWidth > 0 ? cWidth : 1200;
-          setContainerWidth(validWidth);
+      if (container) {
+        const cWidth = container.clientWidth;
+        setContainerWidth(cWidth > 0 ? cWidth : 1200);
+      }
 
-          // Точный расчет высоты большого логотипа по пропорции viewBox (1000x136)
-          const logoH = (validWidth * 136) / 1000;
-          
-          const paddingBottom = 40;
-          const navbarTopOffset = 24;
-
-          const targetTop = hHeight - paddingBottom - logoH;
-          const distance = targetTop - navbarTopOffset;
-          setStartY(Math.max(distance, 100));
-        }
+      if (slotEl) {
+        setStartY(slotEl.offsetTop);
       }
     };
 
@@ -74,7 +67,7 @@ const Navbar = () => {
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
-  // Прямая привязка 1:1 со скроллом без пружинной инерции
+  // Синхронный скролл 1:1, позиция Y (без изменения прозрачности)
   const logoScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale], { clamp: true });
   const logoY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0], { clamp: true });
 
