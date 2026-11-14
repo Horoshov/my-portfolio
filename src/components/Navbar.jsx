@@ -15,6 +15,7 @@ const Navbar = () => {
     if (isMenuOpen) setIsMenuOpen(false);
   }
 
+  // Первый эффект для меню (использует handleResize)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024) setIsMenuOpen(false);
@@ -35,12 +36,12 @@ const Navbar = () => {
   const [startY, setStartY] = useState(500);
   const lastWidthRef = useRef(window.innerWidth);
 
+  // Второй эффект для метрик скролла логотипа
   useEffect(() => {
     if (!isHome) return;
 
     const updateMetrics = () => {
       const currentWidth = window.innerWidth;
-      // Пересчитываем только если изменилась ширина экрана (игнорируем смену высоты панели браузера)
       if (currentWidth === lastWidthRef.current && startY !== 500) return;
       lastWidthRef.current = currentWidth;
 
@@ -63,7 +64,6 @@ const Navbar = () => {
       }
     };
 
-    // Мгновенный запуск + серия таймеров для учета загрузки веб-шрифтов
     updateMetrics();
     const timers = [50, 150, 300, 600].map(ms => setTimeout(updateMetrics, ms));
 
@@ -75,14 +75,12 @@ const Navbar = () => {
 
     window.addEventListener('resize', handleWindowResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleWindowResize);
       timers.forEach(clearTimeout);
     };
-  }, [isHome]);
+  }, [isHome, startY]);
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
-
-  // Главное исправление: диапазон скролла в точности равен расстоянию полета логотипа (startY)
   const scrollRange = startY > 0 ? startY : 500;
 
   const logoScale = useTransform(scrollY, [0, scrollRange], [1, minScale], { clamp: true });
