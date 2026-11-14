@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring, useReducedMotion } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './Navbar.module.css';
 import Logo from './Logo';
 
@@ -53,15 +53,10 @@ const Navbar = () => {
           // Точный расчет высоты большого логотипа по пропорции viewBox (1000x136)
           const logoH = (validWidth * 136) / 1000;
           
-          // Отступ снизу от секции героя (paddingBottom: 40px)
           const paddingBottom = 40;
-          // Отступ шапки сверху (padding: 24px в .navbarFixed)
           const navbarTopOffset = 24;
 
-          // Целевая позиция верха логотипа относительно верха вьюпорта
           const targetTop = hHeight - paddingBottom - logoH;
-
-          // Смещение (startY) = целевая позиция минус отступ шапки
           const distance = targetTop - navbarTopOffset;
           setStartY(Math.max(distance, 100));
         }
@@ -79,11 +74,9 @@ const Navbar = () => {
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
-  const rawScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale]);
-  const rawY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0]);
-
-  const logoScale = useSpring(rawScale, { stiffness: 120, damping: 25 });
-  const logoY = useSpring(rawY, { stiffness: 120, damping: 25 });
+  // Прямая привязка 1:1 со скроллом без пружинной инерции
+  const logoScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale], { clamp: true });
+  const logoY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0], { clamp: true });
 
   const logoContent = (
     <motion.div
