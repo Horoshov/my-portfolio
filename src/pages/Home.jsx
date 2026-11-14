@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
@@ -72,6 +72,26 @@ const howIWorkSteps = [
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
+  const heroContainerRef = useRef(null);
+  const [containerWidth, setContainerWidth] = useState(1200);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (heroContainerRef.current) {
+        const w = heroContainerRef.current.clientWidth;
+        if (w > 0) setContainerWidth(w);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    const timer = setTimeout(updateWidth, 50);
+    return () => {
+      window.removeEventListener('resize', updateWidth);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const largeLogoHeight = (containerWidth * 136) / 1000;
 
   const homeStats = [
     { value: '15+', label: 'Years of Experience', title: 'Expertise' },
@@ -103,29 +123,29 @@ const Home = () => {
         }}
       >
         <div 
+          ref={heroContainerRef}
           className="home-hero-container"
           style={{ 
             width: '100%', 
             maxWidth: '1728px', 
             margin: '0 auto', 
-            paddingLeft: 'var(--container-padding)', 
+            paddingLeft: '0px', 
             paddingRight: 'var(--container-padding)',
-            marginBottom: '32px' 
+            boxSizing: 'border-box'
           }}
         >
           <motion.h1 
             className="home-hero-title"
             style={{ margin: 0 }}
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: -5 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             Исследования, дизайн<br />
             и разработка без агентских нагрузок
           </motion.h1>
           
-          {/* Спейсер под зафиксированный масштабный логотип внизу героя */}
-          <div style={{ height: '17px', marginTop: '32px' }} />
+          <div style={{ height: `${largeLogoHeight}px` }} />
         </div>
       </section>
 

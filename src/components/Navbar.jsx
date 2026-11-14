@@ -39,21 +39,31 @@ const Navbar = () => {
     if (!isHome) return;
     const updateMetrics = () => {
       const heroSection = document.querySelector('.home-hero-section');
-      const navbarEl = document.querySelector('header');
       const container = document.querySelector('.home-hero-container');
       
-      if (heroSection && navbarEl) {
+      if (heroSection) {
         const hHeight = heroSection.offsetHeight;
-        const nHeight = navbarEl.offsetHeight;
         setHeroHeight(hHeight);
-
-        // Точное расстояние от шапки до нижней части героя
-        const distance = hHeight - nHeight - 40;
-        setStartY(Math.max(distance, 150));
 
         if (container) {
           const cWidth = container.clientWidth;
-          setContainerWidth(cWidth > 0 ? cWidth : 1200);
+          const validWidth = cWidth > 0 ? cWidth : 1200;
+          setContainerWidth(validWidth);
+
+          // Точный расчет высоты большого логотипа по пропорции viewBox (1000x136)
+          const logoH = (validWidth * 136) / 1000;
+          
+          // Отступ снизу от секции героя (paddingBottom: 40px)
+          const paddingBottom = 40;
+          // Отступ шапки сверху (padding: 24px в .navbarFixed)
+          const navbarTopOffset = 24;
+
+          // Целевая позиция верха логотипа относительно верха вьюпорта
+          const targetTop = hHeight - paddingBottom - logoH;
+
+          // Смещение (startY) = целевая позиция минус отступ шапки
+          const distance = targetTop - navbarTopOffset;
+          setStartY(Math.max(distance, 100));
         }
       }
     };
@@ -67,9 +77,6 @@ const Navbar = () => {
     };
   }, [isHome]);
 
-  // SCALE-DOWN МАТЕМАТИКА ДЛЯ SAFARI (Без мыла):
-  // При scrollY = 0: scale = 1 (полная ширина containerWidth, рендерится в высоком разрешении)
-  // При scrollY = heroHeight: scale = сжатие до 125px (125 / containerWidth)
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
   const rawScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale]);
@@ -78,29 +85,40 @@ const Navbar = () => {
   const logoScale = useSpring(rawScale, { stiffness: 120, damping: 25 });
   const logoY = useSpring(rawY, { stiffness: 120, damping: 25 });
 
+  const logoContent = (
+    <motion.div
+      className={styles.motionLogoContainer}
+      style={{
+        width: isHome ? `${containerWidth}px` : '125px',
+        height: 'auto',
+        scale: isHome && !shouldReduceMotion ? logoScale : 1,
+        y: isHome && !shouldReduceMotion ? logoY : 0,
+        transformOrigin: 'left top',
+        pointerEvents: isHome ? 'none' : 'auto',
+      }}
+    >
+      <Logo />
+    </motion.div>
+  );
+
   return (
     <header className={styles.navbarFixed}>
       <div className={styles.navContainer}>
         <div className={styles.navLogoWrapper}>
-          <Link 
-            to="/" 
-            className={styles.navLogo} 
-            onClick={() => setIsMenuOpen(false)}
-            aria-label="Horoshov — на главную"
-          >
-            <motion.div
-              className={styles.motionLogoContainer}
-              style={{
-                width: isHome ? `${containerWidth}px` : '125px',
-                height: 'auto',
-                scale: isHome && !shouldReduceMotion ? logoScale : 1,
-                y: isHome && !shouldReduceMotion ? logoY : 0,
-                transformOrigin: 'left top',
-              }}
+          {isHome ? (
+            <div className={styles.navLogo} style={{ cursor: 'default' }}>
+              {logoContent}
+            </div>
+          ) : (
+            <Link 
+              to="/" 
+              className={styles.navLogo} 
+              onClick={() => setIsMenuOpen(false)}
+              aria-label="Horoshov — на главную"
             >
-              <Logo />
-            </motion.div>
-          </Link>
+              {logoContent}
+            </Link>
+          )}
         </div>
 
         <div className={styles.navActions}>
