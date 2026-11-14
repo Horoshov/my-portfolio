@@ -126,7 +126,8 @@ const Home = () => {
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'flex-end', 
-          paddingBottom: isMobile ? '120px' : '40px', // Поднимаем выше на мобильных устройствах
+          // Поднимаем блок на мобилках на 38-40% от высоты экрана для идеального визуального баланса
+          paddingBottom: isMobile ? '38vh' : '40px', 
           boxSizing: 'border-box',
           overflow: 'hidden' 
         }}
@@ -154,7 +155,6 @@ const Home = () => {
             и разработка без агентских нагрузок
           </motion.h1>
           
-          {/* Слот с ID для точного замера позиции логотипа */}
           <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px` }} />
         </div>
       </section>
