@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
@@ -72,6 +72,18 @@ const howIWorkSteps = [
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
+  const heroRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Рассчитываем трансформы для логотипа (Desktop / Mobile)
+  const scale = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [1, 1] : [5, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [200, 0]);
+  const x = useTransform(scrollYProgress, [0, 1], shouldReduceMotion ? [0, 0] : [50, 0]);
 
   const homeStats = [
     { value: '15+', label: 'Years of Experience', title: 'Expertise' },
@@ -89,7 +101,7 @@ const Home = () => {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
     >
-      <section className="home-hero-section">
+      <section ref={heroRef} className="home-hero-section">
         <div className="home-hero-container">
           <motion.h1 
             className="home-hero-title"
