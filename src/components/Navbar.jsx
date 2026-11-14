@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import Logo from './Logo';
 
-const Navbar = () => {
+const Navbar = ({ logoStyle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState(location.pathname);
@@ -47,7 +47,7 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
             aria-label="Horoshov — на главную"
           >
-            <Logo />
+            <Logo style={location.pathname === '/' ? logoStyle : undefined} />
           </Link>
         </div>
 

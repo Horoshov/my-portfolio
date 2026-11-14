@@ -33,6 +33,7 @@ const AppContent = () => {
   const location = useLocation();
   const mainRef = React.useRef(null);
   const isFirstLoad = React.useRef(true);
+  const [logoStyle, setLogoStyle] = React.useState({});
 
   // Логика автоматического скролла вверх при изменении пути (URL) и фокус на main
   useEffect(() => {
@@ -49,7 +50,7 @@ const AppContent = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar logoStyle={logoStyle} />
 
       {/* Main - semantic wrapper БЕЗ стилей контейнера */}
       <main ref={mainRef} tabIndex={-1} className="main-content">
