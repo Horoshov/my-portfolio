@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './Navbar.module.css';
@@ -33,48 +33,60 @@ const Navbar = () => {
 
   const [containerWidth, setContainerWidth] = useState(1200);
   const [startY, setStartY] = useState(500);
-  const [heroHeight, setHeroHeight] = useState(800);
+  const lastWidthRef = useRef(window.innerWidth);
 
   useEffect(() => {
     if (!isHome) return;
+
     const updateMetrics = () => {
-      const heroSection = document.querySelector('.home-hero-section');
+      const currentWidth = window.innerWidth;
+      // Пересчитываем только если изменилась ширина экрана (игнорируем смену высоты панели браузера)
+      if (currentWidth === lastWidthRef.current && startY !== 500) return;
+      lastWidthRef.current = currentWidth;
+
       const container = document.querySelector('.home-hero-container');
       const slotEl = document.getElementById('home-logo-slot');
       const navLogoWrapper = document.querySelector(`.${styles.navLogo}`);
-      
-      if (heroSection) {
-        setHeroHeight(heroSection.offsetHeight);
-      }
 
       if (container) {
         const cWidth = container.clientWidth;
         setContainerWidth(cWidth > 0 ? cWidth : 1200);
       }
 
-      // Точный расчет расстояния между шапкой и слотом в герое через реальные координаты
       if (slotEl && navLogoWrapper) {
         const slotRect = slotEl.getBoundingClientRect();
         const navRect = navLogoWrapper.getBoundingClientRect();
         const distance = slotRect.top - navRect.top;
-        setStartY(Math.max(distance, 50));
+        if (distance > 0) {
+          setStartY(distance);
+        }
       }
     };
 
+    // Мгновенный запуск + серия таймеров для учета загрузки веб-шрифтов
     updateMetrics();
-    window.addEventListener('resize', updateMetrics);
-    const timer = setTimeout(updateMetrics, 100);
+    const timers = [50, 150, 300, 600].map(ms => setTimeout(updateMetrics, ms));
+
+    const handleWindowResize = () => {
+      if (window.innerWidth !== lastWidthRef.current) {
+        updateMetrics();
+      }
+    };
+
+    window.addEventListener('resize', handleWindowResize);
     return () => {
-      window.removeEventListener('resize', updateMetrics);
-      clearTimeout(timer);
+      window.removeEventListener('resize', handleResize);
+      timers.forEach(clearTimeout);
     };
   }, [isHome]);
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
-  // Синхронный скролл 1:1
-  const logoScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale], { clamp: true });
-  const logoY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0], { clamp: true });
+  // Главное исправление: диапазон скролла в точности равен расстоянию полета логотипа (startY)
+  const scrollRange = startY > 0 ? startY : 500;
+
+  const logoScale = useTransform(scrollY, [0, scrollRange], [1, minScale], { clamp: true });
+  const logoY = useTransform(scrollY, [0, scrollRange], [startY, 0], { clamp: true });
 
   const logoContent = (
     <motion.div

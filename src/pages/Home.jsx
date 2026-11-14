@@ -126,7 +126,6 @@ const Home = () => {
           display: 'flex', 
           flexDirection: 'column', 
           justifyContent: 'flex-end', 
-          // Поднимаем блок на мобилках на 38-40% от высоты экрана для идеального визуального баланса
           paddingBottom: isMobile ? '38vh' : '40px', 
           boxSizing: 'border-box',
           overflow: 'hidden' 
