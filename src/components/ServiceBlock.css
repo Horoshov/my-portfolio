@@ -45,8 +45,8 @@
 /* Competencies Sticky Layout (Mish style) */
 .competencies-layout {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
-  gap: 12px;
+  grid-template-columns: 0.85fr 1.6fr;
+  gap: 40px;
   align-items: flex-start;
   position: relative;
   padding-top: 0;
