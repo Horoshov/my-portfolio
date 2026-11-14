@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, useScroll, useTransform, useReducedMotion, useSpring } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
@@ -8,6 +8,8 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectsGrid from '../components/ProjectsGrid';
 import Button from '../components/Button';
 import { allProjects } from '../data/projects';
+import Navbar from '../components/Navbar';
+import Logo from '../components/Logo';
 
 const services = [
   { 
@@ -72,6 +74,54 @@ const howIWorkSteps = [
 const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
+  const heroRef = useRef(null);
+  const logoWrapperRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Динамические метрики для точного расчета ширины контейнера и высоты подъема в шапку
+  const [startWidth, setStartWidth] = useState(1200);
+  const [translateY, setTranslateY] = useState(-500);
+
+  useEffect(() => {
+    const updateMetrics = () => {
+      if (logoWrapperRef.current) {
+        // Узнаем точную ширину сетки контейнера с учетом отступов 40px
+        setStartWidth(logoWrapperRef.current.clientWidth);
+      }
+      const navbar = document.querySelector('header');
+      if (logoWrapperRef.current && navbar) {
+        const logoRect = logoWrapperRef.current.getBoundingClientRect();
+        const navRect = navbar.getBoundingClientRect();
+        // Точное расстояние от верха экрана до логотипа в герове минус положение шапки
+        const distance = logoRect.top - (navRect.top + 24);
+        setTranslateY(-distance);
+      }
+    };
+    
+    updateMetrics();
+    window.addEventListener('resize', updateMetrics);
+    const timer = setTimeout(updateMetrics, 50);
+    return () => {
+      window.removeEventListener('resize', updateMetrics);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Плавная интерполяция ширины (от ширины сетки до 125px в шапке) и вертикального подъема
+  const rawLogoWidth = useTransform(scrollYProgress, [0, 0.75], [startWidth, 125]);
+  const rawLogoY = useTransform(scrollYProgress, [0, 0.75], [0, translateY]);
+
+  const logoWidth = useSpring(rawLogoWidth, { stiffness: 120, damping: 25 });
+  const logoY = useSpring(rawLogoY, { stiffness: 120, damping: 25 });
+
+  // Бесшовная передача видимости (handoff) в конце скролла героя
+  const heroLogoOpacity = useTransform(scrollYProgress, [0.7, 0.75], [1, 0]);
+  const navbarLogoOpacity = useTransform(scrollYProgress, [0.7, 0.75], [0, 1]);
 
   const homeStats = [
     { value: '15+', label: 'Years of Experience', title: 'Expertise' },
@@ -89,10 +139,35 @@ const Home = () => {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
     >
-      <section className="home-hero-section">
-        <div className="home-hero-container">
+      <section 
+        ref={heroRef}
+        className="home-hero-section"
+        style={{ 
+          position: 'relative', 
+          height: '100vh', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'flex-end', 
+          paddingBottom: '40px',
+          boxSizing: 'border-box',
+          overflow: 'hidden' 
+        }}
+      >
+        {/* Заголовок строго в рамках глобальной сетки с отступами */}
+        <div 
+          className="home-hero-container"
+          style={{ 
+            width: '100%', 
+            maxWidth: '1728px', 
+            margin: '0 auto', 
+            paddingLeft: 'var(--container-padding)', 
+            paddingRight: 'var(--container-padding)',
+            marginBottom: '32px' 
+          }}
+        >
           <motion.h1 
             className="home-hero-title"
+            style={{ margin: 0 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -101,7 +176,38 @@ const Home = () => {
             и разработка без агентских нагрузок
           </motion.h1>
         </div>
+
+        {/* Большой логотип внизу героя, строго внутри той же сетки (отступы 40px) */}
+        {!shouldReduceMotion && (
+          <div 
+            ref={logoWrapperRef}
+            style={{ 
+              width: '100%', 
+              maxWidth: '1728px', 
+              margin: '0 auto', 
+              paddingLeft: 'var(--container-padding)', 
+              paddingRight: 'var(--container-padding)',
+              position: 'relative',
+              zIndex: 1100,
+              pointerEvents: 'none'
+            }}
+          >
+            <motion.div 
+              style={{
+                width: logoWidth,
+                y: logoY,
+                opacity: heroLogoOpacity,
+                transformOrigin: 'left top'
+              }}
+            >
+              <Logo style={{ width: '100%', height: 'auto', display: 'block' }} />
+            </motion.div>
+          </div>
+        )}
       </section>
+
+      {/* Шапка сайта с динамической прозрачностью для идеального handoff */}
+      <Navbar logoOpacity={navbarLogoOpacity} />
 
       <section className="home-text-block-section">
         <div className="home-text-block-container">

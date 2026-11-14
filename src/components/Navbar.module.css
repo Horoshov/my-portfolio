@@ -196,3 +196,16 @@ header[data-theme="dark"] .hamburger-inner::after {
 header[data-theme="dark"] .burger-icon {
   filter: brightness(0) invert(1);
 }
+/* Фикс размытия логотипа и аппаратное ускорение (Safari Anti-Blur Fix) */
+.motionLogoContainer {
+  display: inline-flex;
+  align-items: center;
+  transform-origin: left center;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  shape-rendering: geometricPrecision;
+}
