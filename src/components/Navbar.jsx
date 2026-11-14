@@ -40,27 +40,24 @@ const Navbar = () => {
     const updateMetrics = () => {
       const heroSection = document.querySelector('.home-hero-section');
       const container = document.querySelector('.home-hero-container');
+      const slotEl = document.getElementById('home-logo-slot');
+      const navLogoWrapper = document.querySelector(`.${styles.navLogo}`);
       
       if (heroSection) {
-        const hHeight = heroSection.offsetHeight;
-        setHeroHeight(hHeight);
+        setHeroHeight(heroSection.offsetHeight);
+      }
 
-        if (container) {
-          const cWidth = container.clientWidth;
-          const validWidth = cWidth > 0 ? cWidth : 1200;
-          setContainerWidth(validWidth);
+      if (container) {
+        const cWidth = container.clientWidth;
+        setContainerWidth(cWidth > 0 ? cWidth : 1200);
+      }
 
-          // Пропорция логотипа viewBox (1000x136)
-          const logoH = (validWidth * 136) / 1000;
-          
-          const paddingBottom = window.innerWidth <= 768 ? 0 : 40;
-          const navbarTopOffset = 24;
-
-          // Надежный расчет стартовой позиции внизу секции героя
-          const targetTop = hHeight - paddingBottom - logoH;
-          const distance = targetTop - navbarTopOffset;
-          setStartY(Math.max(distance, 100));
-        }
+      // Точный расчет расстояния между шапкой и слотом в герое через реальные координаты
+      if (slotEl && navLogoWrapper) {
+        const slotRect = slotEl.getBoundingClientRect();
+        const navRect = navLogoWrapper.getBoundingClientRect();
+        const distance = slotRect.top - navRect.top;
+        setStartY(Math.max(distance, 50));
       }
     };
 
@@ -75,7 +72,7 @@ const Navbar = () => {
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
 
-  // Синхронный скролл 1:1, позиция Y
+  // Синхронный скролл 1:1
   const logoScale = useTransform(scrollY, [0, heroHeight || 800], [1, minScale], { clamp: true });
   const logoY = useTransform(scrollY, [0, heroHeight || 800], [startY, 0], { clamp: true });
 
@@ -87,7 +84,6 @@ const Navbar = () => {
         height: 'auto',
         scale: isHome && !shouldReduceMotion ? logoScale : 1,
         y: isHome && !shouldReduceMotion ? logoY : 0,
-        // Скрываем логотип при открытом мобильном меню во избежание перекрытий
         opacity: isMenuOpen ? 0 : 1,
         transition: 'opacity 0.2s ease',
         transformOrigin: 'left top',
