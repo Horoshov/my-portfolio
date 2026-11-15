@@ -7,6 +7,7 @@ import StatList from '../components/StatList';
 import ProjectCard from '../components/ProjectCard'; 
 import ProjectsGrid from '../components/ProjectsGrid';
 import Button from '../components/Button';
+import macbookMockup from '../assets/MacBookPro.png';
 import { allProjects } from '../data/projects';
 
 const services = [
@@ -158,7 +159,7 @@ const Home = () => {
             исследования, дизайн<br />
             и разработка без агентских нагрузок
           <div className="home-hero-mockup">
-            <img src="/src/assets/MacBook Pro.png" alt="MacBook Mockup" />
+            <img src={macbookMockup} alt="MacBook Mockup" />
           </div>
 
           </motion.h1>
