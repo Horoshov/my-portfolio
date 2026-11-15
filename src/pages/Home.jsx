@@ -141,45 +141,73 @@ const Home = () => {
             margin: '0 auto', 
             paddingLeft: '0px', 
             paddingRight: 'var(--container-padding)',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end'
           }}
         >
-          <motion.h1 
-            className="home-hero-title"
-            style={{ 
-              margin: 0, 
-              marginTop: isMobile ? '0px' : '40px' 
-            }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: -29, x: 3 }}
+          {/* Заголовок и ноутбук сверху */}
+          <div style={{ position: 'relative', width: '100%', marginBottom: '20px' }}>
+            <motion.div 
+              className="home-hero-mockup"
+              style={{
+                position: 'absolute',
+                right: '0%',
+                top: '-160px',
+                width: isMobile ? '70%' : '48%',
+                maxWidth: '750px',
+                zIndex: 2,
+                pointerEvents: 'none'
+              }}
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <img 
+                src={macbookMockup} 
+                alt="MacBook Mockup" 
+                style={{ width: '100%', height: 'auto', display: 'block' }} 
+              />
+            </motion.div>
 
-            animate={{ opacity: 1, y: -5 }}
-            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            исследования, дизайн<br />
-            и разработка без агентских нагрузок
-          <div className="home-hero-mockup">
-            <img src={macbookMockup} alt="MacBook Mockup" />
+            <motion.h1 
+              className="home-hero-title"
+              style={{ 
+                margin: 0, 
+                position: 'relative',
+                zIndex: 3
+              }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: -5 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              исследования, дизайн<br />
+              и разработка без агентских нагрузок
+            </motion.h1>
           </div>
 
-          </motion.h1>
-          
-          <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px` }} />
+          {/* HOROSHOV в самом низу */}
+          <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px`, width: '100%' }} />
         </div>
       </section>
 
       <section className="home-text-block-section">
         <div className="home-text-block-container">
-          <div className="home-text-block-grid">
-            <div className="home-text-block-left">
-              <div className="home-text-with-dot">
-                <p>Готовность к любым экспериментам ради крутого результата. От исследований и разработки до брендинга и поддержки готового продукта.</p>
-              </div>
+          <div className="home-text-block-grid" style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '0.5fr 1fr 1fr 1fr', 
+            gap: '24px' 
+          }}>
+            <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}></div>
+            <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}>
+              <p>Принимаю решения на основе данных и исследований, чтобы растить метрики вашего продукта.</p>
             </div>
-            <div className="home-text-block-right">
-              <h2 className="home-text-block-heading">
-                Полный цикл создания цифровых продуктов с уникальной экспертизой
-              </h2>
+            <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}>
+              <p>Проектирую интуитивно понятные интерфейсы и продуманные сценарии взаимодействия.</p>
+            </div>
+            <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}>
+              <p>Реализую дизайн в чистом коде, обеспечивая техническую надежность и масштабируемость.</p>
             </div>
           </div>
         </div>

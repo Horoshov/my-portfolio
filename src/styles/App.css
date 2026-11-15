@@ -106,7 +106,7 @@
      ========================================= */
   .home-text-block-section {
     width: 100%;
-    padding: 100px var(--container-padding);
+    padding: 60px var(--container-padding);
     background-color: var(--bg-color);
   }
 
@@ -1668,4 +1668,17 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+
+/* Эффект при наведении в светлой теме */
+
+
+
+
+.home-text-block-item p {
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--text-color);
+  margin: 0;
 }
