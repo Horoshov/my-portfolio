@@ -7,7 +7,7 @@ import StatList from '../components/StatList';
 import ProjectCard from '../components/ProjectCard'; 
 import ProjectsGrid from '../components/ProjectsGrid';
 import Button from '../components/Button';
-import macbookMockup from '../assets/MacBookPro.png';
+import macbookMockup from '../assets/MacBookPro.webp';
 import { allProjects } from '../data/projects';
 
 const services = [
