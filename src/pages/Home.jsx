@@ -46,25 +46,25 @@ const services = [
 const howIWorkSteps = [
   {
     category: 'Discovery',
-    duration: '1-2 недели',
+    duration: '1-3 недели',
     title: 'Погружение в продуктовые цели',
     description: 'Провожу интервью со стейкхолдерами и конкурентный анализ для определения KPI проекта. На этом этапе мы фокусируемся на согласовании стратегии продукта с потребностями пользователей через исследования и позиционирование на рынке.'
   },
   {
     category: 'Design',
-    duration: '2-3 недели',
+    duration: '1-3 месяца',
     title: 'Создание эффективных сценариев и решений',
     description: 'Разработка масштабируемых дизайн-систем и детализированных прототипов с акцентом на интуитивно понятную информационную архитектуру (IA). Приоритет отдается UI, ориентированному на конверсию, и стандартам доступности.'
   },
   {
     category: 'Build',
-    duration: '1-3 недели',
+    duration: '2-3 месяца',
     title: 'Разработка сервисов с использованием мощных инструментов',
     description: 'Перенос дизайн-токенов в функциональный фронтенд. Использую современные фреймворки и архитектуру для создания адаптивных модульных компонентов, обеспечивающих техническую стабильность и легкость масштабирования.'
   },
   {
     category: 'Launch',
-    duration: '1-2 недели',
+    duration: '1-4 недели',
     title: 'Запуск оптимизированного продукта для реальных результатов',
     description: 'Финальная настройка технического SEO, аудит производительности и QA-тестирование. Гарантирую полную оптимизацию продукта по показателям Core Web Vitals, обеспечивая высокую скорость работы и готовность к рыночной конкуренции.'
   }
@@ -183,8 +183,8 @@ const Home = () => {
               style={{
                 position: 'absolute',
                 right: '0%',
-                bottom: '80px',
-                width: isMobile ? '75%' : '48%',
+                bottom: isMobile ? '140px' : '80px',
+                width: isMobile ? '95%' : '48%',
                 maxWidth: '750px',
                 zIndex: 1, 
                 pointerEvents: 'none',
@@ -230,10 +230,10 @@ const Home = () => {
         <div className="home-text-block-container">
           <div className="home-text-block-grid" style={{ 
             display: 'grid', 
-            gridTemplateColumns: '0.5fr 1fr 1fr 1fr', 
-            gap: '24px' 
+            gridTemplateColumns: isMobile ? '1fr' : '0.5fr 1fr 1fr 1fr', 
+            gap: isMobile ? '16px' : '24px' 
           }}>
-            <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}></div>
+            {!isMobile && <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}></div>}
             <div className="home-text-block-item" style={{ gridColumn: 'span 1' }}>
               <p>Принимаю решения на основе данных и исследований, чтобы растить метрики вашего продукта.</p>
             </div>
