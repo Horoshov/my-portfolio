@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import StatsCardsSection from '../components/StatsCardsSection';
@@ -74,8 +74,34 @@ const Home = () => {
   const [hoveredService, setHoveredService] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
   const heroContainerRef = useRef(null);
+  const heroSectionRef = useRef(null);
   const [containerWidth, setContainerWidth] = useState(1200);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Скролл-анимация: отзывчивый старт с последующим динамичным ускорением
+  const { scrollYProgress } = useScroll({
+    target: heroSectionRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Кастомная функция: стартует сразу без задержки, но динамично набирает разгон
+  const customEase = (t) => t * 0.35 + (t * t) * 0.65;
+
+  const mockupScale = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    [1, 1.50], 
+    { ease: customEase }
+  );
+  
+  const mockupX = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    [0, 130], 
+    { ease: customEase }
+  );
+
+  const mockupOpacity = useTransform(scrollYProgress, [0, 0.75, 1], [1, 1, 0.1]);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -119,6 +145,7 @@ const Home = () => {
       animate={{ opacity: 1 }} 
     >
       <section 
+        ref={heroSectionRef}
         className="home-hero-section"
         style={{ 
           position: 'relative', 
@@ -142,23 +169,29 @@ const Home = () => {
             paddingLeft: '0px', 
             paddingRight: 'var(--container-padding)',
             boxSizing: 'border-box',
+            position: 'relative',
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: 'flex-end'
+            justifyContent: 'flex-end',
+            height: '100%'
           }}
         >
-          {/* Заголовок и ноутбук сверху */}
-          <div style={{ position: 'relative', width: '100%', marginBottom: '20px' }}>
+          {/* Блок с заголовком и ноутбуком */}
+          <div style={{ position: 'relative', width: '100%', marginTop: 'auto' }}>
+            {/* Ноутбук под текстом (z-index: 1), масштабируется с отзывчивым стартом */}
             <motion.div 
-              className="home-hero-mockup"
               style={{
                 position: 'absolute',
                 right: '0%',
-                top: '-160px',
-                width: isMobile ? '70%' : '48%',
+                bottom: '80px',
+                width: isMobile ? '75%' : '48%',
                 maxWidth: '750px',
-                zIndex: 2,
-                pointerEvents: 'none'
+                zIndex: 1, 
+                pointerEvents: 'none',
+                scale: mockupScale,
+                x: mockupX,
+                opacity: mockupOpacity,
+                transformOrigin: 'bottom left'
               }}
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -171,6 +204,7 @@ const Home = () => {
               />
             </motion.div>
 
+            {/* Заголовок поверх ноутбука (z-index: 3) */}
             <motion.h1 
               className="home-hero-title"
               style={{ 
@@ -187,8 +221,8 @@ const Home = () => {
             </motion.h1>
           </div>
 
-          {/* HOROSHOV в самом низу */}
-          <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px`, width: '100%' }} />
+          {/* Слот для логотипа HOROSHOV в самом низу */}
+          <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px`, width: '100%', flexShrink: 0 }} />
         </div>
       </section>
 
