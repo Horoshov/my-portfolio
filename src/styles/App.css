@@ -51,6 +51,21 @@
     color: var(--text-color);
     margin: 0;
   }
+  .home-hero-mockup {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.95;
+  }
+  
+  .home-hero-mockup img {
+    width: 100%;
+    height: auto;
+  }
+
 
   .hero-red-dot {
     color: #ff3b30;

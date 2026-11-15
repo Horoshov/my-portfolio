@@ -157,6 +157,10 @@ const Home = () => {
           >
             исследования, дизайн<br />
             и разработка без агентских нагрузок
+          <div className="home-hero-mockup">
+            <img src="/src/assets/MacBook Pro.png" alt="MacBook Mockup" />
+          </div>
+
           </motion.h1>
           
           <div id="home-logo-slot" style={{ height: `${largeLogoHeight}px` }} />
