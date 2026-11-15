@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './Navbar.module.css';
@@ -15,7 +15,6 @@ const Navbar = () => {
     if (isMenuOpen) setIsMenuOpen(false);
   }
 
-  // Первый эффект для меню (использует handleResize)
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 1024) setIsMenuOpen(false);
@@ -34,51 +33,33 @@ const Navbar = () => {
 
   const [containerWidth, setContainerWidth] = useState(1200);
   const [startY, setStartY] = useState(500);
-  const lastWidthRef = useRef(window.innerWidth);
 
-  // Второй эффект для метрик скролла логотипа
   useEffect(() => {
     if (!isHome) return;
-
     const updateMetrics = () => {
-      const currentWidth = window.innerWidth;
-      if (currentWidth === lastWidthRef.current && startY !== 500) return;
-      lastWidthRef.current = currentWidth;
-
       const container = document.querySelector('.home-hero-container');
       const slotEl = document.getElementById('home-logo-slot');
-      const navLogoWrapper = document.querySelector(`.${styles.navLogo}`);
 
       if (container) {
         const cWidth = container.clientWidth;
         setContainerWidth(cWidth > 0 ? cWidth : 1200);
       }
 
-      if (slotEl && navLogoWrapper) {
-        const slotRect = slotEl.getBoundingClientRect();
-        const navRect = navLogoWrapper.getBoundingClientRect();
-        const distance = slotRect.top - navRect.top;
-        if (distance > 0) {
-          setStartY(distance);
-        }
+      if (slotEl) {
+        // Поднимаем HOROSHOV на 20 px выше (вычитаем 20 из offsetTop)
+        const calculatedStartY = slotEl.offsetTop - 20;
+        setStartY(Math.max(calculatedStartY, 80));
       }
     };
 
     updateMetrics();
-    const timers = [50, 150, 300, 600].map(ms => setTimeout(updateMetrics, ms));
-
-    const handleWindowResize = () => {
-      if (window.innerWidth !== lastWidthRef.current) {
-        updateMetrics();
-      }
-    };
-
-    window.addEventListener('resize', handleWindowResize);
+    window.addEventListener('resize', updateMetrics);
+    const timer = setTimeout(updateMetrics, 50);
     return () => {
-      window.removeEventListener('resize', handleWindowResize);
-      timers.forEach(clearTimeout);
+      window.removeEventListener('resize', updateMetrics);
+      clearTimeout(timer);
     };
-  }, [isHome, startY]);
+  }, [isHome]);
 
   const minScale = containerWidth > 0 ? 125 / containerWidth : 0.1;
   const scrollRange = startY > 0 ? startY : 500;
