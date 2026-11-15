@@ -150,10 +150,12 @@ const Home = () => {
               marginTop: isMobile ? '0px' : '40px' 
             }}
             initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: -29, x: 3 }}
+
             animate={{ opacity: 1, y: -5 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            Исследования, дизайн<br />
+            исследования, дизайн<br />
             и разработка без агентских нагрузок
           </motion.h1>
           
