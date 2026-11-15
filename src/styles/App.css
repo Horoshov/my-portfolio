@@ -240,7 +240,7 @@
     margin-bottom: 0;
     font-size: 12px;
     color: var(--gray-text);
-    text-transform: uppercase;
+    text-transform: lowercase;
     letter-spacing: 0.05em;
     font-weight: 600;
   }
@@ -607,7 +607,7 @@
   .stat-small-title {
     display: block;
     font-size: 12px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: var(--gray-text);
     margin-bottom: 4px;
     font-weight: 500;
@@ -1085,7 +1085,7 @@
   
   .form-group .label {
     font-size: 11px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: var(--gray-text);
     letter-spacing: 0.12em;
     font-weight: 600;
@@ -1428,7 +1428,7 @@
 .pd-detail-label {
   font-size: 14px;
   color: var(--gray-text);
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.05em;
   font-weight: 600;
 }

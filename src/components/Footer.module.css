@@ -50,7 +50,7 @@
   
   .footerCopyright {
     font-size: 10px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     color: var(--gray-text);
     letter-spacing: 0.05em;
     white-space: nowrap;
