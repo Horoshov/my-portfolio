@@ -86,6 +86,20 @@
       padding: 0 var(--container-padding) 45px var(--container-padding);
     }
   }
+  @media (max-width: 768px) {
+    .home-hero-mockup {
+      width: 80%;
+      right: -10%;
+      bottom: 10%;
+    }
+  }
+  @media (max-width: 768px) {
+    .home-hero-section {
+      height: 100vh;
+      height: 100dvh;
+      padding: 0 var(--container-padding) 45px var(--container-padding);
+    }
+  }
 
   /* =========================================
      HOME TEXT BLOCK SECTION (2 paragraphs)
