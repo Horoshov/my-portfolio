@@ -54,8 +54,8 @@
   .home-hero-mockup {
     position: absolute;
     right: 0;
-    bottom: 0;
-    width: 50%;
+    bottom: -100px; /* Опустили на 100px */
+    width: 65%;    /* Увеличили с 50% на 30% (50*1.3=65) */
     z-index: -1;
     pointer-events: none;
     opacity: 0.95;
