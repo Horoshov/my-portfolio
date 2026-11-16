@@ -44,8 +44,7 @@
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
+    padding: 12px var(--container-padding);
     gap: 8px;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -58,6 +57,7 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(122, 122, 122, 0.1);
+    box-sizing: border-box; /* Важно для корректной ширины с учетом паддингов */
   }
   .competencies-nav::-webkit-scrollbar {
     display: none;
