@@ -135,12 +135,12 @@
   }
 }
   .service-block-item {
-    padding: 40px 0;
+    padding: 60px 0; /* Увеличили отступы блоков на мобильных */
   }
   .service-block-header {
     gap: 12px;
   }
   .service-block-description {
-    margin-bottom: 24px;
+    margin-bottom: 48px; /* Увеличили отступ снизу описания */
   }
-}
+
