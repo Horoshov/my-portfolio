@@ -28,6 +28,7 @@
 .competencies-nav-item:hover {
   color: var(--text-color);
   background: rgba(122, 122, 122, 0.08);
+  border-radius: 50px; /* Добавили скругление при ховере */
 }
 
 .competencies-nav-item.active {
