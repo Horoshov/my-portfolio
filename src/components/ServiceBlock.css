@@ -100,6 +100,12 @@
   color: var(--gray-text);
   font-family: var(--font-main);
   margin-top: 0;
+  
+  /* Ограничение текста 4 строками с многоточием */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 1024px) {
@@ -117,30 +123,31 @@
   }
 }
 
-
-@media (max-width: 768px) {
-
 /* Mobile adaptations */
 @media (max-width: 768px) {
   .competencies-layout {
     display: block !important;
   }
+  
   .competencies-sticky-col {
     position: static !important;
     top: auto !important;
   }
+  
   .sidebar-profile {
     margin-top: 32px !important;
     margin-bottom: 20px !important;
   }
-}
+
   .service-block-item {
-    padding: 60px 0; /* Увеличили отступы блоков на мобильных */
+    padding: 60px 0;
   }
+  
   .service-block-header {
     gap: 12px;
   }
+  
   .service-block-description {
-    margin-bottom: 48px; /* Увеличили отступ снизу описания */
+    margin-bottom: 48px;
   }
-
+} /* Закрывающая скобка для @media (max-width: 768px) */
