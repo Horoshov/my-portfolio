@@ -183,7 +183,7 @@ const Home = () => {
               style={{
                 position: 'absolute',
                 right: '0%',
-                bottom: isMobile ? '140px' : '80px',
+                bottom: isMobile ? '140px' : '140px',
                 width: isMobile ? '95%' : '48%',
                 maxWidth: '750px',
                 zIndex: 1, 
@@ -209,6 +209,7 @@ const Home = () => {
               className="home-hero-title"
               style={{ 
                 margin: 0, 
+                paddingLeft: '4px',
                 position: 'relative',
                 zIndex: 3
               }}
