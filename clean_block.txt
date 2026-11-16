@@ -1,0 +1,17 @@
+              }}
+            >
+              {skill.level}
+            </motion.div>
+            <div
+              style={{
+                position: 'absolute',
+                top: '-14px',
+                left: effectiveLeft,
+                transform: 'translateX(-50%) rotate(45deg)',
+                marginLeft: '-4px',
+                width: '8px',
+                height: '8px',
+                background: 'var(--text-color)',
+                zIndex: 9
+              }}
+            />
