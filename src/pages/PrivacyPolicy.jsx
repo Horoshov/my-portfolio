@@ -1,15 +1,22 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
 import { privacyPolicyData } from '../data/privacy';
 
 const PrivacyPolicy = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.title = `${privacyPolicyData.title} — Horoshov`;
     window.scrollTo(0, 0);
   }, []);
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    navigate(-1);
+  };
 
   return (
     <motion.div 
@@ -21,9 +28,9 @@ const PrivacyPolicy = () => {
     >
       <PageContainer>
         <div style={{ paddingTop: '20px', paddingBottom: '20px' }}>
-          <Link to="/" className="pd-back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-color)', textDecoration: 'none', fontWeight: 500, fontSize: '15px' }}>
-            ← На главную
-          </Link>
+          <a href="#" onClick={handleBack} className="pd-back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-color)', textDecoration: 'none', fontWeight: 500, fontSize: '15px' }}>
+            ← Назад
+          </a>
         </div>
 
         <PageHeader title={privacyPolicyData.title} subtitle={privacyPolicyData.subtitle} />
@@ -54,9 +61,9 @@ const PrivacyPolicy = () => {
         </div>
 
         <div style={{ marginTop: '80px', paddingTop: '40px', borderTop: '1px solid rgba(122, 122, 122, 0.2)' }}>
-          <Link to="/" className="pd-back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-color)', textDecoration: 'none', fontWeight: 600, fontSize: '16px' }}>
-            ← На главную
-          </Link>
+          <a href="#" onClick={handleBack} className="pd-back-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--text-color)', textDecoration: 'none', fontWeight: 600, fontSize: '16px' }}>
+            ← Назад
+          </a>
         </div>
       </PageContainer>
     </motion.div>
