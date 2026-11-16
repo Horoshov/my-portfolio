@@ -102,18 +102,6 @@ const SkillItem = ({ skill }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
   
-  const numericLevel = parseInt(skill.level, 10);
-  let effectiveLeft = skill.level;
-  let effectiveTransform = 'translate(-130%, 0)';
-
-  if (numericLevel >= 90) {
-    effectiveLeft = '84%';
-    effectiveTransform = 'translate(-50%, 0)';
-  } else if (numericLevel >= 85) {
-    effectiveLeft = '82%';
-    effectiveTransform = 'translate(-50%, 0)';
-  }
-
   return (
     <div className="skill-item" ref={ref}>
       <div className="skill-icon-box">{SKILL_ICONS[skill.name] || <span>{skill.name[0]}</span>}</div>
@@ -122,7 +110,7 @@ const SkillItem = ({ skill }) => {
           <h3>{skill.name}</h3>
           <p>{skill.desc}</p>
         </div>
-        <div className="skill-progress-wrapper">
+        <div className="skill-progress-wrapper" style={{ position: 'relative' }}>
           <div className="skill-progress-bar">
             <motion.div 
               className="skill-progress-fill"
@@ -130,43 +118,33 @@ const SkillItem = ({ skill }) => {
               animate={{ width: isInView ? skill.level : 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             />
+          </div>
+          <div
+            style={{
+              position: 'absolute',
+              left: skill.level,
+              top: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 10,
+            }}
+          >
             <motion.div
               className="skill-progress-pin"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
               transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
               style={{
-                left: effectiveLeft,
-                position: 'absolute',
-                top: '-36px',
-                transform: 'translateX(-50%)',
                 background: 'var(--text-color)',
                 color: 'var(--bg-color)',
                 padding: '4px 10px',
                 borderRadius: '8px',
                 fontSize: '13px',
                 fontWeight: '600',
-                zIndex: 10,
                 whiteSpace: 'nowrap',
               }}
             >
-                /* Центрирование относительно бара и сдвиг влево на 4px для перекрытия */
-                marginLeft: '-4px', 
-
               {skill.level}
             </motion.div>
-            <div 
-              style={{
-                position: 'absolute',
-                top: '-14px',
-                left: effectiveLeft,
-                transform: 'translateX(-50%) rotate(45deg)',
-                width: '8px',
-                height: '8px',
-                background: 'var(--text-color)',
-                zIndex: 9
-              }}
-            />
           </div>
         </div>
       </div>
@@ -200,16 +178,10 @@ const About = () => {
 
   const handleToggleSkills = (e) => {
     if (isExpanded) {
-      // 1. Убираем фокус с кнопки, чтобы браузер не пытался скроллить к ней при изменении высоты
       if (e && e.currentTarget) {
         e.currentTarget.blur();
       }
-
-      // 2. Сворачиваем список
       setIsExpanded(false);
-
-      // 3. Скроллим к заголовку через макрозадачу, чтобы React успел начать анимацию сворачивания.
-      // scrollIntoView гораздо надежнее window.scrollTo при изменении высоты DOM.
       setTimeout(() => {
         if (skillsHeaderRef.current) {
           skillsHeaderRef.current.scrollIntoView({
@@ -328,7 +300,7 @@ const About = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -70% 0px', // Увеличил зону захвата, чтобы активный пункт не перескакивал слишком рано
+      rootMargin: '-10% 0px -70% 0px',
       threshold: 0
     };
 
@@ -351,7 +323,7 @@ const About = () => {
     const el = document.getElementById(id);
     if (el) {
       window.scrollTo({
-        top: el.offsetTop - 100, // Учитываем отступ (header/scrollMargin)
+        top: el.offsetTop - 100,
         behavior: 'smooth'
       });
     }
@@ -431,7 +403,6 @@ const About = () => {
             </div>
           </div>
 
-          {/* Кнопка вынесена за пределы grid - теперь по центру всей страницы */}
           {skills.length > 4 && !isExpanded && (
             <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '60px' }}>
               <Button 
@@ -469,10 +440,6 @@ const About = () => {
             ))}
           </div>
         </section>
-
-        {/* Контент с фотографией и описанием перенесен в самый низ страницы */}
-        {/* Блок удален по требованию */}
-
 
         <section className="stats-section">
           <StatList stats={aboutStats} />
