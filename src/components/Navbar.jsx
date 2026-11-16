@@ -67,9 +67,14 @@ const Navbar = () => {
   const logoScale = useTransform(scrollY, [0, scrollRange], [1, minScale], { clamp: true });
   const logoY = useTransform(scrollY, [0, scrollRange], [startY, 0], { clamp: true });
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const logoContent = (
     <motion.div
       className={styles.motionLogoContainer}
+      onClick={isHome ? scrollToTop : undefined}
       style={{
         width: isHome ? `${containerWidth}px` : '125px',
         height: 'auto',
@@ -78,7 +83,8 @@ const Navbar = () => {
         opacity: isMenuOpen ? 0 : 1,
         transition: 'opacity 0.2s ease',
         transformOrigin: 'left top',
-        pointerEvents: isHome && !isMenuOpen ? 'none' : 'auto',
+        pointerEvents: isHome && !isMenuOpen ? 'auto' : 'auto', // Изменили, чтобы клик проходил
+        cursor: isHome ? 'pointer' : 'default', // Добавили указатель
       }}
     >
       <Logo />
