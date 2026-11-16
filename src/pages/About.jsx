@@ -130,30 +130,43 @@ const SkillItem = ({ skill }) => {
               animate={{ width: isInView ? skill.level : 0 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
             />
-            <motion.div 
+            <motion.div
               className="skill-progress-pin"
-              style={{ 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
+              style={{
                 left: effectiveLeft,
                 position: 'absolute',
-                top: '-12px', 
-                transform: effectiveTransform,
-                background: 'var(--bg-color)',
-                color: 'var(--text-color)',
+                top: '-36px',
+                transform: 'translateX(-50%)',
+                background: 'var(--text-color)',
+                color: 'var(--bg-color)',
                 padding: '4px 10px',
                 borderRadius: '8px',
                 fontSize: '13px',
                 fontWeight: '600',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
                 zIndex: 10,
                 whiteSpace: 'nowrap',
-                border: '1px solid var(--border-color)'
               }}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
-              transition={{ duration: 0.4, ease: "easeOut", delay: 1.0 }}
             >
+                /* Центрирование относительно бара и сдвиг влево на 4px для перекрытия */
+                marginLeft: '-4px', 
+
               {skill.level}
             </motion.div>
+            <div 
+              style={{
+                position: 'absolute',
+                top: '-14px',
+                left: effectiveLeft,
+                transform: 'translateX(-50%) rotate(45deg)',
+                width: '8px',
+                height: '8px',
+                background: 'var(--text-color)',
+                zIndex: 9
+              }}
+            />
           </div>
         </div>
       </div>
