@@ -116,10 +116,12 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Добавлено для вертикального центрирования */
   gap: 7px;
   padding: 5px;
   z-index: 2000;
   position: relative;
+  height: 24px; /* Задаем высоту для центрирования */
 }
 
 .burgerBtn span {
