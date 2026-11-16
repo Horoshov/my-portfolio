@@ -2,7 +2,8 @@ export const allProjects = [
   {
     id: "104",
     title: "Horoshov",
-    cat: "Portfolio • 2025",
+    cat: "Portfolio",
+    year: "2025",
     image: "/assets/projects/Horoshov.webp",
     imageFooter: "/assets/projects/Horoshov_footer.webp",
     description: "<b>Разработка сайта-портфолио</b>",
@@ -45,7 +46,8 @@ export const allProjects = [
   {
     id: "103",
     title: 'Betonika',
-    cat: 'Industrial • PropTech • 2024',
+    cat: 'Industrial • PropTech',
+    year: '2024',
     image: '/assets/projects/Betonika.webp',
     imageFooter: '/assets/projects/Betonika_footer.webp',
     description: '<b>Цифровая экосистема для производства архитектурных бетонных форм</b>',
@@ -87,7 +89,8 @@ export const allProjects = [
   {
     id: "106",
     title: 'Polymatica',
-    cat: 'BI • Big Data • 2023',
+    cat: 'BI • Big Data',
+    year: '2023',
     image: '/assets/projects/Polymatica.webp',
     imageFooter: '/assets/projects/Polymatica_footer.webp',
     description: '<b>Проектирование аналитической экосистемы для работы с большими данными</b>',
@@ -142,7 +145,8 @@ export const allProjects = [
   {
     id: "105",
     title: 'M.Video-Eldorado B2B',
-    cat: 'E-commerce • Marketplace • 2022',
+    cat: 'E-commerce • Marketplace',
+    year: '2022',
     image: '/assets/projects/MVideo.webp',
     imageFooter: '/assets/projects/MVideo_footer.webp',
     description: '<b>Единая B2B-платформа для маркетплейсов М.Видео и Эльдорадо</b>',
@@ -189,7 +193,8 @@ export const allProjects = [
   {
     id: "107",
     title: 'Postman tracker',
-    cat: 'Design-System • Product • 2021',
+    cat: 'Design-System • Product',
+    year: '2021',
     image: '/assets/projects/Postman.webp',
     imageFooter: '/assets/projects/Postman_footer.webp',
     description: '<b>Мобильное приложение для операционной деятельности почтовой службы</b>',
@@ -240,7 +245,8 @@ export const allProjects = [
   {
     id: "109",
     title: 'NDV',
-    cat: 'Real Estate • PropTech • 2021',
+    cat: 'Real Estate • PropTech',
+    year: '2021',
     image: '/assets/projects/NDV.webp',
     imageFooter: '/assets/projects/NDV_footer.webp',
     description: '<b>Маркетплейс-агрегатор агентства недвижимости</b>',
@@ -279,7 +285,8 @@ export const allProjects = [
   {
     id: "102",
     title: "Domyland",
-    cat: "PropTech Platform • 2020",
+    cat: 'PropTech Platform',
+    year: '2020',
     image: "/assets/projects/Domilend.webp",
     imageFooter: "/assets/projects/Domyland_footer.webp",
     description: "<b>UX/UI</b> трансформация и масштабирование продуктовых модулей PropTech-экосистемы",
@@ -347,7 +354,8 @@ export const allProjects = [
   {
     id: "101",
     title: 'Coincom',
-    cat: 'Fintech • 2019',
+    cat: 'Fintech',
+    year: '2019',
     image: '/assets/projects/Coincom.webp',
     imageFooter: '/assets/projects/Coincom_footer.webp',
     description: '<b>Проектирование и развитие UX/UI финтех-платформы Coincom</b>',
@@ -430,7 +438,8 @@ export const allProjects = [
   {
     id: "108",
     title: 'Cashoff',
-    cat: 'Fintech • PFM • 2016',
+    cat: 'Fintech • PFM',
+    year: '2016',
     image: '/assets/projects/Cashoff.webp',
     imageFooter: '/assets/projects/Cashoff_footer.webp',
     description: '<b>Интеллектуальная платформа для дистанционного банковского обслуживания</b>',
@@ -492,7 +501,8 @@ export const allProjects = [
   {
     id: "110",
     title: 'RusTelecom',
-    cat: 'Telecommunications • 2016',
+    cat: 'Telecommunications',
+    year: '2016',
     image: '/assets/projects/RusTelecom.webp',
     imageFooter: '/assets/projects/RusTelecom_footer.webp',
     description: '<b>Интерфейсы аккредитованного удостоверяющего центра</b>',
@@ -530,7 +540,8 @@ export const allProjects = [
   {
     id: "111",
     title: 'PSB Bank',
-    cat: 'Fintech • Mobile App • 2021',
+    cat: 'Fintech • Mobile App',
+    year: '2021',
     image: '/assets/projects/Psb.webp',
     imageFooter: '/assets/projects/Psb_footer.webp',
     description: '<b>Проектирование интерфейсов мобильного банкинга и платежных сценариев ПСБ</b>',

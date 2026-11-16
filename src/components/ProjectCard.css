@@ -13,7 +13,7 @@
   background-color: var(--photo-bg);
   border-radius: 24px;
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   position: relative;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
   mask-image: -webkit-radial-gradient(white, black);
@@ -45,7 +45,8 @@
 .pc-body {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
+  margin-bottom: 24px;
 }
 
 .pc-tag {
@@ -61,6 +62,29 @@
   line-height: 1.2;
   color: var(--text-color);
   margin: 0;
+}
+
+.pc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.pc-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pc-year-bubble {
+  background-color: var(--text-color);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bg-color);
+  white-space: nowrap;
 }
 
 /* --- Стили для анимированной кнопки --- */

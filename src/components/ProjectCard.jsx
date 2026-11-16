@@ -27,12 +27,17 @@ const ProjectCard = ({ project, index = 0 }) => {
           </div>
         </div>
         
-        {/* Восстановленный блок подписей */}
+        {/* Подвал карточки */}
         <div className="pc-body">
-          <div className="pc-meta">
-            <span className="pc-tag">{project.cat}</span>
+          <div className="pc-header">
+            <div className="pc-text-wrapper">
+              <h4 className="pc-title">{project.title}</h4>
+              <div className="pc-meta">
+                <span className="pc-tag">{project.cat}</span>
+              </div>
+            </div>
+            {project.year && <span className="pc-year-bubble">{project.year}</span>}
           </div>
-          <h4 className="pc-title">{project.title}</h4>
         </div>
       </Link>
     </motion.div>

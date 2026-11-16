@@ -6,9 +6,12 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0); /* Почти прозрачный */
-  backdrop-filter: blur(0.85px); /* Эффект размытия стекла */
-  -webkit-backdrop-filter: blur(0.85px);
+  background: rgba(255, 255, 255, 0);
+  /* Градиентный маскирующий эффект размытия */
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+  backdrop-filter: blur(3.2px);
+  -webkit-backdrop-filter: blur(3.2px);
   padding: 24px var(--container-padding);
 }
 
