@@ -83,7 +83,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     padding: 0 var(--container-padding) 45px var(--container-padding);
   }
   .home-hero-mockup {
-    width: 80%;
+    width: 90%;
+    right: -10%; /* Сдвигаем вправо, чтобы он не перекрывал текст */
+    bottom: -50px; /* Приподнимаем, если нужно */
+    opacity: 0.4; /* Уменьшаем прозрачность, если наезжает */
+  }
+}
     right: -10%;
     bottom: 10%;
   }
