@@ -1,12 +1,12 @@
 .service-bubble-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 16px; /* Увеличил вертикальный gap между строками баблов */
+  gap: 20px 12px; /* Увеличил row-gap (вертикальный) до 20px */
   width: 100%;
 }
 
 @media (max-width: 768px) {
   .service-bubble-grid {
-    gap: 16px 12px; /* Увеличил вертикальный отступ здесь */
+    gap: 20px 12px; /* Увеличил row-gap здесь тоже */
   }
 }
