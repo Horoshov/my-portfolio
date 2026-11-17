@@ -7,6 +7,6 @@
 
 @media (max-width: 768px) {
   .service-bubble-grid {
-    gap: 12px;
+    gap: 16px 12px; /* Увеличил вертикальный отступ здесь */
   }
 }
