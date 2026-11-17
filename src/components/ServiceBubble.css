@@ -10,6 +10,7 @@
   color: var(--text-color);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-bottom: 8px; /* Добавили margin-bottom для гарантированного отступа */
 }
 
 .service-bubble:hover {
