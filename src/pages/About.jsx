@@ -8,6 +8,7 @@ import ServiceBlock from '../components/ServiceBlock';
 import RateMatrix from '../components/RateMatrix';
 import CompetenciesNav from '../components/CompetenciesNav';
 import ImageModal from '../components/ImageModal';
+import CareerCard from '../components/CareerCard';
 
 import alexProfile from '../assets/alex-profile.jpg';
 
@@ -453,26 +454,13 @@ const About = () => {
           </div>
           <div className="career-grid">
             {experiences.map((exp, index) => (
-              <a 
-                key={index} 
-                href={exp.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="career-card"
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <div className="career-content">
-                  <h3 className="career-company">{exp.company}</h3>
-                  <h2 className="career-position">{exp.position}</h2>
-                  <p className="career-period">{exp.period}</p>
-                  <div className="career-card-arrow">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-
-                </div>
-              </a>
+              <CareerCard 
+                key={index}
+                company={exp.company}
+                position={exp.position}
+                period={exp.period}
+                link={exp.link}
+              />
             ))}
           </div>
         </section>
