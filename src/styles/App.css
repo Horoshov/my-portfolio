@@ -8,7 +8,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-main);
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -87,10 +87,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     right: -10%; /* Сдвигаем вправо, чтобы он не перекрывал текст */
     bottom: -50px; /* Приподнимаем, если нужно */
     opacity: 0.4; /* Уменьшаем прозрачность, если наезжает */
-  }
-}
-    right: -10%;
-    bottom: 10%;
   }
 }
 
@@ -175,7 +171,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   7. SECTION HEADER
+7. SECTION HEADER
    ========================================= */
 .section-header-grid {
   width: 100%;
@@ -320,7 +316,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   9. SERVICES SECTION
+9. SERVICES SECTION
    ========================================= */
 .services-section {
   padding: 100px 0;
@@ -454,7 +450,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   10. HOW I WORK SECTION
+10. HOW I WORK SECTION
    ========================================= */
 .how-i-work-section {
   padding: 80px 0 0 0;
@@ -552,7 +548,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   11. STATS SECTION
+11. STATS SECTION
    ========================================= */
 .stats-section {
   padding: 120px 0 60px 0;
@@ -695,7 +691,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   12. ABOUT PAGE - INTRO SECTION
+12. ABOUT PAGE - INTRO SECTION
    ========================================= */
 .about-intro-section {
   padding: 40px 0;
@@ -785,7 +781,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   13. SKILLS SECTION
+13. SKILLS SECTION
    ========================================= */
 .skills-section {
   padding: 60px 0 0 0;
@@ -896,7 +892,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   14. CAREER JOURNEY SECTION
+14. CAREER JOURNEY SECTION
    ========================================= */
 .career-journey-section {
   padding: 80px 0 0 0;
@@ -1009,7 +1005,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   15. CONTACT PAGE
+15. CONTACT PAGE
    ========================================= */
 .contact-section {
   padding: 60px 0 120px 0;
@@ -1172,7 +1168,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 
 /* =========================================
-   16. PROJECT DETAIL PAGE
+16. PROJECT DETAIL PAGE
    ========================================= */
 .pd-container {
   padding-top: 0;
@@ -1576,7 +1572,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   gap: 12px;
 }
 
-/* Исправленный блок с правильным вынесением медиа-запроса наружу */
 .home-text-block-item p {
   font-size: 24px;
   line-height: 1.4;

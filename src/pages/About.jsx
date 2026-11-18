@@ -155,6 +155,7 @@ const SkillItem = ({ skill }) => {
 const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const skillsHeaderRef = useRef(null);
+  const isScrollingRef = useRef(false); // Флаг блокировки observer при клике на меню
   
   const aboutStats = [
     { value: '15+', label: 'of Experience', title: 'Years' },
@@ -280,8 +281,6 @@ const About = () => {
     }
   ];
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-
   const [activeId, setActiveId] = useState('research');
 
   useEffect(() => {
@@ -291,6 +290,9 @@ const About = () => {
     const observers = [];
 
     const handleIntersect = (entries) => {
+      // Игнорируем авто-переключение во время программного скролла по клику
+      if (isScrollingRef.current) return;
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setActiveId(entry.target.id);
@@ -300,7 +302,7 @@ const About = () => {
 
     const observerOptions = {
       root: null,
-      rootMargin: '-10% 0px -70% 0px',
+      rootMargin: '-20% 0px -60% 0px',
       threshold: 0
     };
 
@@ -320,12 +322,40 @@ const About = () => {
 
   const handleNavClick = (id) => {
     setActiveId(id);
+    isScrollingRef.current = true; // Блокируем IntersectionObserver
+
     const el = document.getElementById(id);
     if (el) {
-      window.scrollTo({
-        top: el.offsetTop - 100,
-        behavior: 'smooth'
-      });
+      const targetPosition = el.getBoundingClientRect().top + window.pageYOffset - 100;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      
+      // Адаптивная длительность анимации с плавной скоростью
+      const duration = Math.min(Math.max(Math.abs(distance) * 0.5, 400), 900); 
+      let startTime = null;
+
+      const animation = (currentTime) => {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        
+        // Кастомная функция плавности (EaseInOutCubic)
+        const ease = progress < 0.5 
+          ? 4 * progress * progress * progress 
+          : (progress - 1) * (2 * progress - 2) * (2 * progress - 2) + 1;
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        } else {
+          setTimeout(() => {
+            isScrollingRef.current = false; // Снимаем блокировку после завершения анимации
+          }, 100);
+        }
+      };
+
+      requestAnimationFrame(animation);
     }
   };
 

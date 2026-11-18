@@ -1,13 +1,22 @@
 /* Navbar.module.css */
 
 .navbarFixed {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0);
-  padding: 24px var(--container-padding);
+  background: transparent;
+  
+  /* Обязательно для правильного рендеринга подложки на iOS */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+
+  padding-top: max(24px, env(safe-area-inset-top, 47px));
+  padding-right: var(--container-padding);
+  padding-bottom: 24px;
+  padding-left: var(--container-padding);
 }
 
 /* Эффект размытия и маски на псевдоэлементе */

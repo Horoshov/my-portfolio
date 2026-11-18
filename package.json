@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
+    "serve": "vite preview --host",
     "build": "vite build && node scripts/postbuild.mjs && node scripts/check-build.mjs",
     "check:build": "node scripts/check-build.mjs",
     "lint": "eslint .",
