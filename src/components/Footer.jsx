@@ -45,6 +45,8 @@ const Footer = () => {
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Legal</div>
             <FooterLink to="/privacy-policy" label="Privacy" styles={styles} />
+            <FooterLink to="/terms-and-conditions" label="Terms" styles={styles} />
+
           </div>
 
           <div className={styles.footerLinkList}>
