@@ -170,7 +170,7 @@ const About = () => {
     { name: 'React', level: '20%', desc: 'Building modern web applications with a focus on component-based architecture and performance.' },
     { name: 'Cursor', level: '25%', desc: 'Leveraging AI-powered tools to accelerate development and write cleaner, more efficient code.' },
     { name: 'Jira', level: '75%', desc: 'Proficient in Agile project management, task tracking, and cross-functional team collaboration.' },
-    { name: 'Miro', level: '70%', desc: 'Expert in visual collaboration and strategic mindmapping for product design.' },
+    { name: 'Miro', level: '70%', desc: 'Pro in visual collaboration & strategic mindmapping for product design flow.' },
     { name: 'Git', level: '60%', desc: 'Proficient in version control and team collaboration workflows.' },
     { name: 'Maxon', level: '65%', desc: 'Expertise in Cinema 4D for 3D modeling, lighting, and creating complex motion graphics.' },
     { name: 'Adobe Photoshop', level: '90%', desc: 'Advanced photo manipulation and visual asset creation for digital products.' },
