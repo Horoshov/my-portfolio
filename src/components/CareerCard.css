@@ -1,18 +1,67 @@
 .career-card {
-  background: rgba(122, 122, 122, 0.08);
+  /* Базовый фон для светлой темы */
+  --card-bg: #f4f4f5;
+  --spotlight-color: rgba(0, 0, 0, 0.04);
+  /* Снизили плотность тени на 30% (альфа-канал изменен с 0.06 на 0.042) */
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.042);
+
+  background: var(--card-bg);
+  border: none !important;
   border-radius: 24px;
   padding: 40px 32px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.6s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease;
   cursor: pointer;
   min-height: 320px;
   position: relative;
+  overflow: hidden;
+}
+
+/* Переопределение на темную тему */
+[data-theme="dark"] .career-card,
+.dark-theme .career-card,
+html.dark .career-card {
+  --card-bg: #141416;
+  --spotlight-color: rgba(255, 255, 255, 0.08);
+  /* Снизили плотность тени на 30% для темной темы (альфа-канал изменен с 0.4 на 0.28) */
+  --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* Динамический спотлайт за курсором */
+.career-card::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: radial-gradient(
+    400px circle at var(--x, 50%) var(--y, 50%),
+    var(--spotlight-color),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.career-card:hover::before {
+  opacity: 1;
 }
 
 .career-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(50, 63, 72, 0.1);
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+
+.career-content,
+.career-card-arrow {
+  position: relative;
+  z-index: 2;
 }
 
 .career-card-arrow {
@@ -21,11 +70,12 @@
   right: 32px;
   color: var(--text-color);
   opacity: 0.3;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .career-card:hover .career-card-arrow {
   opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .career-content {

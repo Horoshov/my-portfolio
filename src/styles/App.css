@@ -911,6 +911,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   gap: 12px;
   width: 100%;
 }
+@media (max-width: 1200px) {
+  .career-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .career-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .career-card {
   background: rgba(122, 122, 122, 0.08);

@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './CareerCard.css';
 
 const CareerCard = ({ company, position, period, link }) => {
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    cardRef.current.style.setProperty('--x', `${x}px`);
+    cardRef.current.style.setProperty('--y', `${y}px`);
+  };
+
   return (
     <a 
+      ref={cardRef}
       href={link} 
       target="_blank" 
       rel="noopener noreferrer" 
       className="career-card"
+      onMouseMove={handleMouseMove}
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <div className="career-content">
