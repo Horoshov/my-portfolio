@@ -121,7 +121,18 @@ const Navbar = () => {
 
         <div className={styles.navActions}>
           <nav className={styles.navDesktopLinks}>
-            <Link to="/" className={styles.navItem} data-text="Главная">
+            <Link 
+              to="/" 
+              className={styles.navItem} 
+              data-text="Главная" 
+              onClick={(e) => {
+                if (location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                setIsMenuOpen(false);
+              }}
+            >
               <span>Главная</span>
             </Link>
             <Link to="/about" className={styles.navItem} data-text="Компетенции">
