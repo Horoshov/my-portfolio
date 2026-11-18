@@ -135,13 +135,46 @@ const Navbar = () => {
             >
               <span>Главная</span>
             </Link>
-            <Link to="/about" className={styles.navItem} data-text="Компетенции">
+            <Link 
+              to="/about" 
+              className={styles.navItem} 
+              data-text="Компетенции" 
+              onClick={(e) => {
+                if (location.pathname === '/about') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                setIsMenuOpen(false);
+              }}
+            >
               <span>Компетенции</span>
             </Link>
-            <Link to="/projects" className={styles.navItem} data-text="Кейсы">
+            <Link 
+              to="/projects" 
+              className={styles.navItem} 
+              data-text="Кейсы" 
+              onClick={(e) => {
+                if (location.pathname === '/projects') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                setIsMenuOpen(false);
+              }}
+            >
               <span>Кейсы</span>
             </Link>
-            <Link to="/contact" className={styles.navItem} data-text="Контакты">
+            <Link 
+              to="/contact" 
+              className={styles.navItem} 
+              data-text="Контакты" 
+              onClick={(e) => {
+                if (location.pathname === '/contact') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                setIsMenuOpen(false);
+              }}
+            >
               <span>Контакты</span>
             </Link>
           </nav>
