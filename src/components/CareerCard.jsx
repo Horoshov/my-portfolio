@@ -1,4 +1,5 @@
 import React from 'react';
+import './CareerCard.css';
 
 const CareerCard = ({ company, position, period, link }) => {
   return (

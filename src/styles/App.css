@@ -975,21 +975,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: 28px;
   font-weight: 600;
   color: var(--text-color);
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.career-period {
-  font-size: 16px;
-  color: var(--gray-text);
-  font-weight: 500;
-  margin: 0;
-}
-
-@media (max-width: 992px) {
-  .career-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
