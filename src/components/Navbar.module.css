@@ -90,6 +90,7 @@
   display: inline-block;
   overflow: hidden;
   padding: 2px 0;
+  line-height: 1.2; /* Добавлено */
 }
 
 .navItem span {
