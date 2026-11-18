@@ -922,6 +922,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   cursor: pointer;
   min-height: 320px;
 }
+.career-card {
+  position: relative;
+}
+
+.career-card-arrow {
+  position: absolute;
+  top: 40px;
+  right: 32px;
+  color: var(--text-color);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.career-card:hover .career-card-arrow {
+  opacity: 1;
+}
+
+
 
 .career-card:hover {
   transform: translateY(-2px);
