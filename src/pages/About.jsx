@@ -407,6 +407,24 @@ const About = () => {
           </div>
         </section>
 
+        <section className="career-journey-section" style={{ marginTop: '60px' }}>
+          <div className="section-header-centered">
+            <PageHeader title="Career Journey" />
+            <p>A progression of experiences, growth, and milestones.</p>
+          </div>
+          <div className="career-grid">
+            {experiences.map((exp, index) => (
+              <CareerCard 
+                key={index}
+                company={exp.company}
+                position={exp.position}
+                period={exp.period}
+                link={exp.link}
+              />
+            ))}
+          </div>
+        </section>
+
         <section className="skills-section" style={{ marginTop: '60px' }}>
           <div className="section-header-centered" ref={skillsHeaderRef} style={{ scrollMarginTop: '100px' }}>
             <PageHeader title="Hard Skills" />
@@ -445,24 +463,6 @@ const About = () => {
               </Button>
             </div>
           )}
-        </section>
-
-        <section className="career-journey-section" style={{ marginTop: '60px' }}>
-          <div className="section-header-centered">
-            <PageHeader title="Career Journey" />
-            <p>A progression of experiences, growth, and milestones.</p>
-          </div>
-          <div className="career-grid">
-            {experiences.map((exp, index) => (
-              <CareerCard 
-                key={index}
-                company={exp.company}
-                position={exp.position}
-                period={exp.period}
-                link={exp.link}
-              />
-            ))}
-          </div>
         </section>
 
         <section className="stats-section">
