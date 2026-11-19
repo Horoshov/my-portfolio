@@ -1,5 +1,6 @@
 // 1. [NEW] Добавьте { useState, useEffect } в импорт
 import React, { useState, useEffect } from 'react';
+import { normalizePath } from '../utils/urlHelper';
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 
@@ -36,7 +37,6 @@ const Footer = () => {
         <div className={styles.footerMenuWrapper}>
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Nav</div>
-            <FooterLink to="/projects" label="Work" styles={styles} />
             <FooterLink to="/about" label="About" styles={styles} />
             <FooterLink to="/recognition" label="Recognition" styles={styles} />
             <FooterLink to="/contact" label="Contact" styles={styles} />
