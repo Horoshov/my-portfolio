@@ -37,7 +37,14 @@ const Footer = () => {
         <div className={styles.footerMenuWrapper}>
           <div className={styles.footerLinkList}>
             <div className={styles.footerSectionTitle}>Nav</div>
-            <FooterLink to="/about" label="About" styles={styles} />
+              <FooterLink to={normalizePath("/projects")} label="Work" styles={styles} />
+              <FooterLink to={normalizePath("/about")} label="About" styles={styles} />
+              <FooterLink to={normalizePath("/recognition")} label="Recognition" styles={styles} />
+              <FooterLink to={normalizePath("/contact")} label="Contact" styles={styles} />
+            </div>
+            <div className={styles.footerLinksColumn}>
+              <FooterLink to={normalizePath("/privacy-policy")} label="Privacy" styles={styles} />
+              <FooterLink to={normalizePath("/terms-and-conditions")} label="Terms" styles={styles} />            <FooterLink to="/about" label="About" styles={styles} />
             <FooterLink to="/recognition" label="Recognition" styles={styles} />
             <FooterLink to="/contact" label="Contact" styles={styles} />
           </div>
