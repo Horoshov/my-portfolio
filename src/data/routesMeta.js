@@ -29,17 +29,7 @@ export const routesMeta = {
     description: 'Политика конфиденциальности и обработки персональных данных сайта horoshov.ru.',
     canonical: 'https://horoshov.ru/privacy-policy'
   },
-  '/privacy': {
-    title: 'Политика конфиденциальности — Horoshov',
-    description: 'Политика конфиденциальности и обработки персональных данных сайта horoshov.ru.',
-    canonical: 'https://horoshov.ru/privacy-policy'
-  },
   '/terms-and-conditions': {
-    title: 'Условия использования — Horoshov',
-    description: 'Условия использования сайта и материалов.',
-    canonical: 'https://horoshov.ru/terms-and-conditions'
-  },
-  '/terms': {
     title: 'Условия использования — Horoshov',
     description: 'Условия использования сайта и материалов.',
     canonical: 'https://horoshov.ru/terms-and-conditions'

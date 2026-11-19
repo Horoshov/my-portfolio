@@ -62,9 +62,7 @@ const AppContent = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/project/:id" element={<ProjectDetail />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/privacy" element={<Navigate to="/privacy-policy" replace />} />
                 <Route path="/terms-and-conditions" element={<Terms />} />
-                <Route path="/terms" element={<Navigate to="/terms-and-conditions" replace />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
