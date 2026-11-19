@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { normalizePath } from '../utils/urlHelper';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './Navbar.module.css';
 import Logo from './Logo';
@@ -122,7 +123,7 @@ const Navbar = () => {
         <div className={styles.navActions}>
           <nav className={styles.navDesktopLinks}>
             <Link 
-              to="/" 
+              to={normalizePath('/')} 
               className={styles.navItem} 
               data-text="Главная" 
               onClick={(e) => {
@@ -136,7 +137,7 @@ const Navbar = () => {
               <span>Главная</span>
             </Link>
             <Link 
-              to="/about" 
+              to={normalizePath('/about')} 
               className={styles.navItem} 
               data-text="Компетенции" 
               onClick={(e) => {
@@ -150,7 +151,7 @@ const Navbar = () => {
               <span>Компетенции</span>
             </Link>
             <Link 
-              to="/projects" 
+              to={normalizePath('/projects')} 
               className={styles.navItem} 
               data-text="Кейсы" 
               onClick={(e) => {
@@ -164,7 +165,7 @@ const Navbar = () => {
               <span>Кейсы</span>
             </Link>
             <Link 
-              to="/contact" 
+              to={normalizePath('/contact')} 
               className={styles.navItem} 
               data-text="Контакты" 
               onClick={(e) => {
