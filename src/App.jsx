@@ -1,5 +1,6 @@
 // App component entry point
 import React, { useEffect, lazy, Suspense } from 'react';
+import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence, MotionConfig, LazyMotion, domAnimation } from 'framer-motion';
 
@@ -85,13 +86,15 @@ const AppContent = () => {
 
 function App() {
   return (
-    <Router>
-      <LazyMotion features={domAnimation}>
-        <MotionConfig reducedMotion="user">
-          <AppContent />
-        </MotionConfig>
-      </LazyMotion>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <LazyMotion features={domAnimation}>
+          <MotionConfig reducedMotion="user">
+            <AppContent />
+          </MotionConfig>
+        </LazyMotion>
+      </Router>
+    </HelmetProvider>
   );
 }
 
