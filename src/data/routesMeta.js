@@ -19,11 +19,6 @@ export const routesMeta = {
     description: 'Продуктовые кейсы и реализованные интерфейсы: fintech, PropTech, BI, мобильные приложения.',
     canonical: 'https://horoshov.ru/projects'
   },
-  '/articles': {
-    title: 'Статьи — Horoshov',
-    description: 'Статьи и заметки о продуктовом дизайне, интерфейсах и фронтенде.',
-    canonical: 'https://horoshov.ru/articles'
-  },
   '/contact': {
     title: 'Контакты — Horoshov',
     description: 'Свяжитесь со мной для обсуждения вашего проекта или сотрудничества.',
