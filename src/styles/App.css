@@ -31,7 +31,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 0 var(--container-padding) 70px var(--container-padding);
+  padding: 0 var(--container-padding) 90px var(--container-padding);
   background-color: var(--bg-color);
 }
 
@@ -987,8 +987,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-size: 28px;
   font-weight: 600;
   color: var(--text-color);
-  }
 }
+
 
 @media (max-width: 768px) {
   .career-grid {
