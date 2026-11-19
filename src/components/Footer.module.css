@@ -1,138 +1,152 @@
 /* Footer.module.css */
 .mainFooter {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    background-color: var(--bg-color);
-    border-top: 1px solid var(--border-color);
-    padding: 40px 0 60px;
-    margin-top: 120px;
-  }
-  
-  .footerContainer {
-    width: 100%;
-    max-width: 1728px;
-    padding: 0 var(--container-padding);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .footerBrandSide {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    min-height: 180px;
-    position: relative;
-  }
-  
-  .footerLogoStatic {
-    color: var(--gray-text);
-    display: flex;
-  }
-  
-  .footerEmail {
-    display: block;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--text-color);
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .footerEmail:hover { opacity: 0.6; }
-  
-  .footerCopyright {
-    font-size: 10px;
-    text-transform: lowercase;
-    color: var(--gray-text);
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-  
-  .footerCopyright.desktopOnly {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
-  }
-  
-  .footerCopyright.mobileOnly { display: none; }
-  
-  .footerMenuWrapper {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 80px;
-  }
-  
-  .footerLinkList {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .footerSectionTitle {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: var(--text-color);
-  }
-  
-  .linkNoLine {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: var(--text-color);
-    font-size: 15px;
-    transition: opacity 0.3s ease;
-  }
-  
-  .linkNoLine:hover { opacity: 0.6; }
-  
-  .linkIcon {
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    color: var(--gray-text);
-  }
-  
-  /* Медиазапросы внутри модуля */
-  @media (max-width: 1024px) {
-    .footerContainer { flex-direction: column; gap: 60px; }
-    .footerCopyright.desktopOnly { display: none; }
-    .footerCopyright.mobileOnly {
-      display: block;
-      grid-column: span 3;
-      margin-top: 40px;
-    }
-    .footerMenuWrapper {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-    }
-  }
-  /* ... переключатель тем ... */
-  /* --- Вставьте это в конец Footer.module.css --- */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--bg-color);
+  border-top: 1px solid var(--border-color);
+  padding: 40px 0 60px;
+  margin-top: 120px;
+}
 
-/* Контейнер переключателя */
+.footerContainer {
+  width: 100%;
+  max-width: 1728px;
+  padding: 0 var(--container-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footerBrandSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 180px;
+  position: relative;
+}
+
+.footerLogoStatic {
+  color: var(--gray-text);
+  display: flex;
+}
+
+.footerEmail {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footerEmail:hover {
+  opacity: 0.6;
+}
+
+.footerCopyright {
+  font-size: 10px;
+  text-transform: lowercase;
+  color: var(--gray-text);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.footerCopyright.desktopOnly {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+
+.footerCopyright.mobileOnly {
+  display: none;
+}
+
+.footerMenuWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 80px;
+}
+
+.footerLinksColumn,
+.footerLinkList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footerSectionTitle {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+.linkNoLine {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 15px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+
+.linkNoLine:hover {
+  opacity: 0.6;
+}
+
+.linkIcon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  color: var(--gray-text);
+}
+
+/* Медиазапросы внутри модуля */
+@media (max-width: 1024px) {
+  .footerContainer {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .footerCopyright.desktopOnly {
+    display: none;
+  }
+
+  .footerCopyright.mobileOnly {
+    display: block;
+    grid-column: span 3;
+    margin-top: 40px;
+  }
+
+  .footerMenuWrapper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+}
+
+/* Переключатель тем */
 .themeSwitcherWrapper {
-  margin-top: 16px;
   display: inline-flex;
+  width: fit-content;
+  margin-top: 16px;
   background-color: rgba(125, 125, 125, 0.1);
   padding: 4px;
   border-radius: 99px;
-  /*border: 1px solid var(--border-color);*/
+  gap: 2px;
 }
 
-/* Скрытый инпут */
 .themeInput {
   position: absolute;
   opacity: 0;
@@ -140,19 +154,6 @@
   height: 0;
 }
 
-/* Кнопка-иконка */
-.themeSwitcherWrapper {
-  display: inline-flex; /* inline-flex уже заставляет сжиматься, но fit-content подстрахует */
-  width: fit-content;   /* Фиксирует ширину строго по кнопкам */
-  
-  /* Ваши остальные стили */
-  margin-top: 16px;
-  background-color: rgba(125, 125, 125, 0.1);
-  padding: 4px;
-  border-radius: 99px;
-  /*border: 1px solid var(--border-color);*/
-  gap: 2px; /* Расстояние между кнопками */
-}
 .themeLabel {
   width: 24px;
   height: 24px;
@@ -170,15 +171,14 @@
   background-color: rgba(125, 125, 125, 0.1);
 }
 
-/* Активное состояние */
+.themeLabel.active,
 .themeInput:checked + .themeLabel {
   background-color: var(--bg-color);
   color: var(--text-color);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* ГЛОБАЛЬНАЯ СМЕНА ЦВЕТОВ */
-/* Состояние по умолчанию (Светлая тема) */
+/* Глобальная смена цветов */
 :global(body) {
   --bg-color: #ffffff;
   --text-color: #000000;
@@ -187,15 +187,9 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Состояние принудительной темной темы */
 :global(body.dark-theme) {
   --bg-color: #0e0e0e;
   --text-color: #ffffff;
   --gray-text: #a0a0a0;
   --border-color: #333333;
-}
-
-/* Плавный переход */
-:global(body) {
-  transition: background-color 0.3s ease, color 0.3s ease;
 }

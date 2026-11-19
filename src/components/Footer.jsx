@@ -1,4 +1,3 @@
-// 1. [NEW] Добавьте { useState, useEffect } в импорт
 import React, { useState, useEffect } from 'react';
 import { normalizePath } from '../utils/urlHelper';
 import { Link } from 'react-router-dom';
@@ -8,7 +7,6 @@ const Footer = () => {
   return (
     <footer className={styles.mainFooter}>
       <div className={styles.footerContainer}>
-        
         {/* ЛЕВАЯ ЧАСТЬ */}
         <div className={styles.footerBrandSide}>
           <div className={styles.footerLogoStatic}>
@@ -25,45 +23,39 @@ const Footer = () => {
             </svg>
           </div>
           <a href="mailto:ux@horoshov.ru" className={styles.footerEmail}>ux@horoshov.ru</a>
-          
-          {/* 2. [NEW] Вставляем компонент переключателя СЮДА */}
+
           <ThemeSwitcher styles={styles} />
 
           {/* Копирайт Десктоп */}
           <div className={`${styles.footerCopyright} ${styles.desktopOnly}`}>© 2026 </div>
         </div>
 
-        {/* ПРАВАЯ ЧАСТЬ БЕЗ ИЗМЕНЕНИЙ */}
+        {/* ПРАВАЯ ЧАСТЬ */}
         <div className={styles.footerMenuWrapper}>
-          <div className={styles.footerLinkList}>
-            <div className={styles.footerSectionTitle}>Nav</div>
-              <FooterLink to={normalizePath("/projects")} label="Work" styles={styles} />
-              <FooterLink to={normalizePath("/about")} label="About" styles={styles} />
-              <FooterLink to={normalizePath("/recognition")} label="Recognition" styles={styles} />
-              <FooterLink to={normalizePath("/contact")} label="Contact" styles={styles} />
-            </div>
+          <div className={styles.footerLinksGrid}>
             <div className={styles.footerLinksColumn}>
-              <FooterLink to={normalizePath("/privacy-policy")} label="Privacy" styles={styles} />
-              <FooterLink to={normalizePath("/terms-and-conditions")} label="Terms" styles={styles} />            <FooterLink to="/about" label="About" styles={styles} />
-            <FooterLink to="/recognition" label="Recognition" styles={styles} />
-            <FooterLink to="/contact" label="Contact" styles={styles} />
+              <div className={styles.footerSectionTitle}>Nav</div>
+              <FooterLink to={normalizePath('/projects')} label="Work" styles={styles} />
+              <FooterLink to={normalizePath('/about')} label="About" styles={styles} />
+              <FooterLink to={normalizePath('/recognition')} label="Recognition" styles={styles} />
+              <FooterLink to={normalizePath('/contact')} label="Contact" styles={styles} />
+            </div>
+
+            <div className={styles.footerLinksColumn}>
+              <div className={styles.footerSectionTitle}>Legal</div>
+              <FooterLink to={normalizePath('/privacy-policy')} label="Privacy" styles={styles} />
+              <FooterLink to={normalizePath('/terms-and-conditions')} label="Terms" styles={styles} />
+            </div>
+
+            <div className={styles.footerLinksColumn}>
+              <div className={styles.footerSectionTitle}>Social</div>
+              <FooterExternalLink href="https://t.me/horoshov" label="Telegram" styles={styles} />
+              <FooterExternalLink href="https://dribbble.com/horoshov" label="Dribbble" styles={styles} />
+              <FooterExternalLink href="https://instagram.com/horoshov" label="Instagram" styles={styles} />
+              <FooterExternalLink href="https://linkedin.com/in/horoshov" label="LinkedIn" styles={styles} />
+            </div>
           </div>
-
-          <div className={styles.footerLinkList}>
-            <div className={styles.footerSectionTitle}>Legal</div>
-            <FooterLink to="/privacy-policy" label="Privacy" styles={styles} />
-            <FooterLink to="/terms-and-conditions" label="Terms" styles={styles} />
-
-          </div>
-
-          <div className={styles.footerLinkList}>
-            <div className={styles.footerSectionTitle}>Social</div>
-            <FooterExternalLink href="http://t.me/thehoroshov" label="Telegram" styles={styles} />
-            <FooterExternalLink href="https://dribbble.com" label="Dribbble" styles={styles} />
-            <FooterExternalLink href="https://www.instagram.com/thehoroshov/" label="Instagram" styles={styles} />
-            <FooterExternalLink href="https://www.linkedin.com/in/horoshov/" label="LinkedIn" styles={styles} />
-          </div>
-
+          
           {/* Копирайт Мобайл */}
           <div className={`${styles.footerCopyright} ${styles.mobileOnly}`}>© 2026 </div>
         </div>
@@ -72,7 +64,6 @@ const Footer = () => {
   );
 };
 
-// ... Ваши компоненты FooterLink и FooterExternalLink оставьте здесь ...
 const FooterLink = ({ to, label, styles }) => (
   <Link to={to} className={styles.linkNoLine}>
     <div className={styles.linkIcon}>
@@ -101,12 +92,34 @@ const FooterExternalLink = ({ href, label, styles }) => (
   </a>
 );
 
-// Простые иконки, чтобы не загромождать SVG
-const IconSystem = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>;
-const IconLight = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>;
-const IconDark = () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>;
+const IconSystem = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <rect x="2" y="3" width="20" height="14" rx="2"/>
+    <line x1="8" y1="21" x2="16" y2="21"/>
+    <line x1="12" y1="17" x2="12" y2="21"/>
+  </svg>
+);
 
-// 3. [NEW] Вставляем сам компонент переключателя в конце файла
+const IconLight = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <circle cx="12" cy="12" r="5"/>
+    <line x1="12" y1="1" x2="12" y2="3"/>
+    <line x1="12" y1="21" x2="12" y2="23"/>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+    <line x1="1" y1="12" x2="3" y2="12"/>
+    <line x1="21" y1="12" x2="23" y2="12"/>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+  </svg>
+);
+
+const IconDark = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+);
+
 const ThemeSwitcher = ({ styles }) => {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'system';
@@ -117,18 +130,15 @@ const ThemeSwitcher = ({ styles }) => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 
     const applyTheme = () => {
-      // Очищаем класс перед применением новой логики
       root.classList.remove('dark-theme');
 
       if (theme === 'dark') {
         root.classList.add('dark-theme');
         localStorage.setItem('theme', 'dark');
       } else if (theme === 'light') {
-        // Просто удаляем класс, body вернется к дефолтным светлым переменным
-        root.classList.remove('dark-theme'); 
+        root.classList.remove('dark-theme');
         localStorage.setItem('theme', 'light');
       } else {
-        // Логика System
         localStorage.removeItem('theme');
         if (media.matches) {
           root.classList.add('dark-theme');
@@ -138,7 +148,6 @@ const ThemeSwitcher = ({ styles }) => {
 
     applyTheme();
 
-    // Слушатель системных изменений (только для режима system)
     const listener = (e) => {
       if (theme === 'system') {
         if (e.matches) root.classList.add('dark-theme');
@@ -152,16 +161,34 @@ const ThemeSwitcher = ({ styles }) => {
 
   return (
     <div className={styles.themeSwitcherWrapper}>
-      <label className={styles.themeLabel} title="System">
-        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'system'} onChange={() => setTheme('system')} />
+      <label className={`${styles.themeLabel} ${theme === 'system' ? styles.active : ''}`} title="System">
+        <input
+          type="radio"
+          name="theme_toggle"
+          className={styles.themeInput}
+          checked={theme === 'system'}
+          onChange={() => setTheme('system')}
+        />
         <IconSystem />
       </label>
-      <label className={styles.themeLabel} title="Light">
-        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'light'} onChange={() => setTheme('light')} />
+      <label className={`${styles.themeLabel} ${theme === 'light' ? styles.active : ''}`} title="Light">
+        <input
+          type="radio"
+          name="theme_toggle"
+          className={styles.themeInput}
+          checked={theme === 'light'}
+          onChange={() => setTheme('light')}
+        />
         <IconLight />
       </label>
-      <label className={styles.themeLabel} title="Dark">
-        <input type="radio" name="theme_toggle" className={styles.themeInput} checked={theme === 'dark'} onChange={() => setTheme('dark')} />
+      <label className={`${styles.themeLabel} ${theme === 'dark' ? styles.active : ''}`} title="Dark">
+        <input
+          type="radio"
+          name="theme_toggle"
+          className={styles.themeInput}
+          checked={theme === 'dark'}
+          onChange={() => setTheme('dark')}
+        />
         <IconDark />
       </label>
     </div>
