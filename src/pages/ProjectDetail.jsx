@@ -1,6 +1,7 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { normalizePath } from '../utils/urlHelper';
 import { allProjects } from '../data/projects';
 import PageContainer from '../components/PageContainer';
 import PageHeader from '../components/PageHeader';
@@ -173,7 +174,7 @@ const ProjectDetail = () => {
           )}
 
           <footer className="pd-back-footer">
-            <Link to="/projects" className="pd-back-link">
+            <Link to={normalizePath('/projects')} className="pd-back-link">
               ← Back to Projects
             </Link>
           </footer>
