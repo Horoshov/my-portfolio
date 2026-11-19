@@ -193,10 +193,10 @@ const Navbar = () => {
 
       <div className={`${styles.mobileOverlay} ${isMenuOpen ? styles.active : ''}`}>
         <nav className={styles.mobileNavList}>
-          <Link to="/" onClick={() => setIsMenuOpen(false)}>Главная</Link>
-          <Link to="/about" onClick={() => setIsMenuOpen(false)}>Компетенции</Link>
-          <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Кейсы</Link>         
-          <Link to="/contact" onClick={() => setIsMenuOpen(false)}>Контакты</Link>
+          <Link to={normalizePath('/')} onClick={() => setIsMenuOpen(false)}>Главная</Link>
+          <Link to={normalizePath('/about')} onClick={() => setIsMenuOpen(false)}>Компетенции</Link>
+          <Link to={normalizePath('/projects')} onClick={() => setIsMenuOpen(false)}>Кейсы</Link>         
+          <Link to={normalizePath('/contact')} onClick={() => setIsMenuOpen(false)}>Контакты</Link>
         </nav>
       </div>
     </header>
