@@ -22,12 +22,13 @@ const Footer = () => {
               <path d="M80.0898 15.7257V1.15723H83.1549V6.85019H90.1377V1.15723H93.1956V15.7257H90.1377V9.38972H83.1549V15.7257H80.0898Z" fill="currentColor"/>
             </svg>
           </div>
+
           <a href="mailto:ux@horoshov.ru" className={styles.footerEmail}>ux@horoshov.ru</a>
 
           <ThemeSwitcher styles={styles} />
 
           {/* Копирайт Десктоп */}
-          <div className={`${styles.footerCopyright} ${styles.desktopOnly}`}>© 2026 </div>
+          <div className={`${styles.footerCopyright} ${styles.desktopOnly}`}>© 2026</div>
         </div>
 
         {/* ПРАВАЯ ЧАСТЬ */}
@@ -55,9 +56,9 @@ const Footer = () => {
               <FooterExternalLink href="https://linkedin.com/in/horoshov" label="LinkedIn" styles={styles} />
             </div>
           </div>
-          
+
           {/* Копирайт Мобайл */}
-          <div className={`${styles.footerCopyright} ${styles.mobileOnly}`}>© 2026 </div>
+          <div className={`${styles.footerCopyright} ${styles.mobileOnly}`}>© 2026</div>
         </div>
       </div>
     </footer>
