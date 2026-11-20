@@ -175,7 +175,7 @@
 @media (max-width: 480px) {
   .footerLinksGrid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
   }
 
   .footerSectionTitle {
