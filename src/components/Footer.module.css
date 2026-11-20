@@ -1,11 +1,11 @@
 /* Footer.module.css */
+.mainFooter,
+.mainFooter * {
+  box-sizing: border-box;
+}
+
 .mainFooter {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: 100%;
   background-color: var(--bg-color);
   border-top: 1px solid var(--border-color);
   padding: 40px 0 60px;
@@ -15,13 +15,12 @@
 .footerContainer {
   width: 100%;
   max-width: 1728px;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--container-padding, 24px);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  gap: 40px;
+  margin: 0 auto;
 }
 
 .footerBrandSide {
@@ -30,6 +29,7 @@
   gap: 12px;
   min-height: 180px;
   position: relative;
+  flex-shrink: 0;
 }
 
 .footerLogoStatic {
@@ -70,29 +70,36 @@
 }
 
 .footerMenuWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 auto;
+}
+
+.footerLinksGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 80px;
+  grid-template-columns: repeat(3, minmax(110px, max-content));
+  column-gap: 48px;
+  row-gap: 28px;
 }
 
 .footerLinksColumn,
 .footerLinkList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .footerSectionTitle {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--text-color);
 }
 
 .linkNoLine {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   text-decoration: none;
   color: var(--text-color);
   font-size: 15px;
@@ -107,16 +114,26 @@
 .linkIcon {
   width: 16px;
   height: 16px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   color: var(--gray-text);
 }
 
-/* Медиазапросы внутри модуля */
+/* Планшеты и узкие десктопы */
 @media (max-width: 1024px) {
+  .mainFooter {
+    margin-top: 80px;
+    padding: 36px 0 48px;
+  }
+
   .footerContainer {
     flex-direction: column;
-    gap: 60px;
+    gap: 40px;
+  }
+
+  .footerBrandSide {
+    min-height: auto;
   }
 
   .footerCopyright.desktopOnly {
@@ -125,14 +142,53 @@
 
   .footerCopyright.mobileOnly {
     display: block;
-    grid-column: span 3;
-    margin-top: 40px;
+    margin-top: 28px;
   }
 
   .footerMenuWrapper {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
     width: 100%;
+  }
+
+  .footerLinksGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px 28px;
+  }
+}
+
+/* Мобильные экраны */
+@media (max-width: 768px) {
+  .mainFooter {
+    margin-top: 64px;
+    padding: 32px 0 40px;
+  }
+
+  .footerContainer {
+    gap: 32px;
+  }
+
+  .footerLinksGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footerLinksGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footerSectionTitle {
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .linkNoLine {
+    font-size: 14px;
+  }
+
+  .footerCopyright.mobileOnly {
+    margin-top: 24px;
   }
 }
 
